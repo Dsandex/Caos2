@@ -39,7 +39,7 @@ if(room == Room_Digital){
     available_buildings = 5;
     num_level = 0;
     piso_y = 399;
-    room_goto(game1);
+    //room_goto(game1);
     instance_create(room_width/2, room_height/2, Digital);
     alarm[1] = 55;
     instance_create(0, 0, Change_Soundtrack);

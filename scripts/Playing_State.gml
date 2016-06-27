@@ -1,5 +1,5 @@
 // Move the player.
-Player_Inputs("windows");
+Player_Inputs("");
 
 if(climb){
     //show_debug_message("climb grounded:" + string(grounded));

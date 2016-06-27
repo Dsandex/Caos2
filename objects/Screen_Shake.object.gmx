@@ -50,6 +50,8 @@ int = 1.5;
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
+view_xview[0] = 0;
+view_yview[0] = 0;
 </string>
           </argument>
         </arguments>

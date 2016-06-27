@@ -81,7 +81,6 @@ for(var i = 0; i &lt; max_fisures; i++){
             <kind>1</kind>
             <string>/// Free memory.
 ds_grid_destroy(damage_grid);
-show_debug_message("awdar");
 </string>
           </argument>
         </arguments>
