@@ -32,6 +32,7 @@ lt = instance_create(
     bbox_top - sprite_get_height(spr_letrero_antena)/2,
     Letrero_antena
 );
+with lt depth = 4;
 </string>
           </argument>
         </arguments>

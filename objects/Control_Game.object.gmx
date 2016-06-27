@@ -28,8 +28,12 @@
             <string>/// Create the inicial conditions of the game.
 if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
-              xx_damage, yy_damage;
+              xx_damage, yy_damage, vida_global, puntaje_global;
               
+    vida_global = 100;
+    puntaje_global = 0;
+    
+    
     xx_damage = 0;
     yy_damage = 0;
     available_buildings = 5;

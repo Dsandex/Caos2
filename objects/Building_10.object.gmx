@@ -28,6 +28,7 @@
             <string>/// Create advertising.
 event_inherited();
 lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_verde)/2, Letrero_verde);
+with lt depth = 3;
 </string>
           </argument>
         </arguments>

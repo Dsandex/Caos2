@@ -43,14 +43,14 @@ climbed_building = noone; // ID variable.
 eat_person_id = noone; // ID variable.
 
 // Life value.
-vida = 100;
+vida = vida_global; // 100
 save_vida = 0;
 
 // Constants values.
 image_speed = 0;
 
 // Score variable.
-player_score = 0;
+player_score = puntaje_global; // 0
 
 
 // Animation variables.
@@ -124,6 +124,31 @@ x += hsp;
 y += vsp;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Get global life and score.
+vida_global = vida;
+player_score = puntaje_global
 </string>
           </argument>
         </arguments>

@@ -270,12 +270,12 @@
       <object>objects\Explosion</object>
       <objects name="Letreros">
         <object>objects\Letrero</object>
+        <object>objects\Letrero_Up</object>
+        <object>objects\Letrero_lev</object>
         <object>objects\Letrero_pp</object>
         <object>objects\Letrero_dass</object>
         <object>objects\Letrero_antena</object>
         <object>objects\Letrero_perro</object>
-        <object>objects\Letrero_lev</object>
-        <object>objects\Letrero_banco</object>
         <object>objects\Letrero_verde</object>
       </objects>
       <object>objects\GameOver</object>

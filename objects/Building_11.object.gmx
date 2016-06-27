@@ -28,6 +28,7 @@
             <string>/// Create advertising.
 event_inherited();
 lt = instance_create(bbox_right + 10, bbox_top + 42 + 15, Letrero_pp);
+with lt depth = 7;
 </string>
           </argument>
         </arguments>

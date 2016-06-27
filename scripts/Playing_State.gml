@@ -46,8 +46,8 @@ if(climb){
             Current_Sprite(asset, 0, 1, retard_value);
             
             // If place meeting with the avertising.
-            if(place_meeting(x, y, Letrero)){
-                var letrero = instance_nearest(x+10, y+15, Letrero);
+            if(place_meeting(x, y, Letrero_Up)){
+                var letrero = instance_nearest(x+10, y+15, Letrero_Up);
                 with(letrero){
                     // Attack sound.
                     Play_Track("attack");
@@ -66,8 +66,9 @@ if(climb){
     // Go down.
     }else if(key_down and !eating){
     
-
-        y += climb_speed;
+        if(!place_meeting(x, y, Letrero_Up)){
+            y += climb_speed;
+        }
         
         // Change sprite.
       //  var asset = asset_get_index("spr_player_climb_" + humor + "_idle");
@@ -85,32 +86,19 @@ if(climb){
         }else{
             
             var second_building = Search_Building(climbed_building);    
-            
-           /* if(image_xscale == 1) var xx_ = climbed_building.x + climbed_building.sprite_width + 10;
-            else xx_ = climbed_building.x - 10; 
-            Create_Debug(     xx_, climbed_building.y);
-            if(position_meeting(xx_, climbed_building.y, second_building)){  */
-    
-                if(second_building.building_life > 0){
-                    if(position_meeting(x, bbox_bottom, second_building)){
-                       //Create_Debug(x, bbox_bottom);
-                      
-                  //    show_debug_message(second_building.bbox_top - bbox_bottom);
-                       var rango = 5;
-                       if((second_building.bbox_top - bbox_bottom) >= -14 and (second_building.bbox_top - bbox_bottom) <= -14 + rango){ 
-                           // show_debug_message("ejecutar.");
-                            image_xscale *= -1;
-                            climbed_building = second_building;
-                            Current_Sprite(spr_player_ground_normal_idle, 0, irandom_range(0,2));
-                            y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - sprite_get_height(sprite_index)/2;
-                           // x = x + sprite_get_width(sprite_index)/2 * image_xscale * -1;
-                            climb = false;  
-                       }
-                    }
+
+            if(second_building.building_life > 0){
+                if(position_meeting(x, bbox_bottom, second_building)){
+                   var rango = 5;
+                   if((second_building.bbox_top - bbox_bottom) >= -14 and (second_building.bbox_top - bbox_bottom) <= -14 + rango){ 
+                        image_xscale *= -1;
+                        climbed_building = second_building;
+                        Current_Sprite(spr_player_ground_normal_idle, 0, irandom_range(0,2));
+                        y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - sprite_get_height(sprite_index)/2;
+                        climb = false;  
+                   }
                 }
-           // }
-          
-        
+            }        
         }
         
        // Down attack.
@@ -228,6 +216,7 @@ if(climb){
     
     // Jump!
     if(key_jump and (grounded or climbed_building != noone) and !instance_exists(Rage)){
+        eating = false;
         vsp = key_jump * -jumpspeed;
         key_jump = 0;
         climbed_building = noone;
