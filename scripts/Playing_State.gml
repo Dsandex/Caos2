@@ -66,7 +66,7 @@ if(climb){
     // Go down.
     }else if(key_down and !eating){
     
-        if(!place_meeting(x, y, Letrero_Up)){
+        if(!place_meeting(x, bbox_bottom, Letrero_Up)){
             y += climb_speed;
         }
         
