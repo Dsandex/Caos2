@@ -1,0 +1,336 @@
+// Move the player.
+Player_Inputs("windows");
+
+if(climb){
+    //show_debug_message("climb grounded:" + string(grounded));
+    
+    // Set hsp in 0.
+    hsp = 0;
+    
+    // Jump from buildings.
+    if(key_jump and !instance_exists(Rage)){
+    
+        // Take women accesors.
+        sprite_index = asset_get_index("spr_player_jump_" + humor + "_attack");
+        image_speed = 0;
+        image_index = 3;
+        
+        // Change variables.
+        climb = false;
+        grounded = false;
+        vsp = -jumpspeed;
+        Jump_Hspeed();
+        
+        // Jump sprite.
+        var asset = asset_get_index("spr_player_jump_" + humor + "_idle");
+        Current_Sprite(asset, 0, irandom_range(0,2));
+        
+        climbed_building = noone;
+
+
+        
+    // Climb the building.
+    }else if(key_up and !eating){
+        
+        // Process Up Building Commands.
+        if(Going_Up_Checker()) exit;
+        
+        // Take women accesor.
+        if(take_women) image_speed = .2;
+        
+        // Destroy advertising.
+        if(key_attack and !take_women){
+                
+            // Change sprite.
+            var asset = asset_get_index("spr_player_climb_" + humor + "_attack");
+            Current_Sprite(asset, 0, 1, retard_value);
+            
+            // If place meeting with the avertising.
+            if(place_meeting(x, y, Letrero)){
+                var letrero = instance_nearest(x+10, y+15, Letrero);
+                with(letrero){
+                    // Attack sound.
+                    Play_Track("attack");
+                    instance_create(letrero.x, letrero.y, Explosion);
+                    instance_destroy();
+                    //vida -= 1;
+                }
+                
+            }
+        }else{
+            // Change sprite. Going up.
+            var asset = asset_get_index("spr_player_climb_" + humor + "_up");
+            Current_Sprite(asset, .15);
+        }
+        
+    // Go down.
+    }else if(key_down and !eating){
+    
+
+        y += climb_speed;
+        
+        // Change sprite.
+      //  var asset = asset_get_index("spr_player_climb_" + humor + "_idle");
+        var asset = asset_get_index("spr_player_climb_" + humor + "_up");
+        Current_Sprite(asset, .2);
+        
+        // Take women accesor.
+        if(take_women) image_speed = .2;
+             
+        if(bbox_bottom >= 413){
+            climb = false;
+        //    show_debug_message('here 85'); 
+            climbed_building = noone;
+            grounded = true;
+        }else{
+            
+            var second_building = Search_Building(climbed_building);    
+            
+           /* if(image_xscale == 1) var xx_ = climbed_building.x + climbed_building.sprite_width + 10;
+            else xx_ = climbed_building.x - 10; 
+            Create_Debug(     xx_, climbed_building.y);
+            if(position_meeting(xx_, climbed_building.y, second_building)){  */
+    
+                if(second_building.building_life > 0){
+                    if(position_meeting(x, bbox_bottom, second_building)){
+                       //Create_Debug(x, bbox_bottom);
+                      
+                  //    show_debug_message(second_building.bbox_top - bbox_bottom);
+                       var rango = 5;
+                       if((second_building.bbox_top - bbox_bottom) >= -14 and (second_building.bbox_top - bbox_bottom) <= -14 + rango){ 
+                           // show_debug_message("ejecutar.");
+                            image_xscale *= -1;
+                            climbed_building = second_building;
+                            Current_Sprite(spr_player_ground_normal_idle, 0, irandom_range(0,2));
+                            y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - sprite_get_height(sprite_index)/2;
+                           // x = x + sprite_get_width(sprite_index)/2 * image_xscale * -1;
+                            climb = false;  
+                       }
+                    }
+                }
+           // }
+          
+        
+        }
+        
+       // Down attack.
+       if(key_attack and !take_women){
+              
+           // Change the sprite.
+           var asset = asset_get_index("spr_player_climb_" + humor + "_attack");
+           Current_Sprite(asset, 0, 2, retard_value);
+           
+           // Building recieve damage down.   
+           if(climbed_building != noone){
+            Recieve_Damage("down", climbed_building);
+           }
+        }
+        
+    }else{
+    
+        if(sprite_index != asset_get_index("spr_player_climb_" + humor + "_idle")){
+            var asset = asset_get_index("spr_player_climb_" + humor + "_idle");
+            Current_Sprite(asset, 0, irandom_range(0,6));    
+        }
+        
+        // Take women accesor.
+        if(take_women) image_speed = 0;
+        
+        // Destroy part of the building.
+        if(key_attack and !take_women){
+                         
+            // Player's aside attack.   
+            if(key_left or key_right){
+                switch(image_xscale){
+                    // Right.
+                    case 1:
+                        if(key_right) Current_Sprite(asset_get_index("spr_player_climb_" + humor + "_attack"), 0, 0, retard_value);
+                        Attack_Other();
+                    break;
+                    // Left.
+                    case -1:
+                        if(key_left) Current_Sprite(asset_get_index("spr_player_climb_" + humor + "_attack"), 0, 0, retard_value);
+                        Attack_Other();
+                    break;
+                }
+                
+            // Player attack front.
+            }else{
+            
+                // Is a person in there?
+                if(Can_Eat("climb")){    
+                
+                      if(object_ind == "Soldado" or object_ind == "Child"){
+                         Eat_Person(asset_get_index("spr_player_climb_" + humor + "_eat")); 
+                         eating = true;
+                      
+                      }else if(object_ind == "Women"){
+                      
+                         Recieve_Damage("front", climbed_building);
+                         Eat_Person(asset_get_index("spr_player_climb_" + humor + "_women"));
+                         take_women = true;
+        
+                      }else if(object_ind = "Poder"){
+                      
+                         Recieve_Damage("front", climbed_building);
+                         Eat_Power();                        
+                         Eat_Person(asset_get_index("spr_player_climb_" + humor + "_eat"));
+                         eating = true;
+
+                      }
+                    
+                // No, is not.
+                }else{            
+                   
+                    Destroy_Enemy();
+                    var asset = asset_get_index("spr_player_climb_" + humor + "_attack");
+                    Current_Sprite(asset, 0, 3, retard_value);
+                    Recieve_Damage("front", climbed_building); 
+
+                } 
+            }
+        }
+    }
+}else{
+  //f  show_debug_message("grounded:" + string(grounded));
+
+    // Process the x inputs.
+    if(grounded or climbed_building != noone){
+    
+        // Create run women.
+        if(take_women){
+            take_women = false;
+            instance_create(x, y-40, Women_Run);
+
+        }
+        
+        
+        move = (key_left*-1) + key_right;    
+        if(!eating) hsp = move * movespeed;
+        else hsp = 0;
+        
+        if(hsp != 0){
+            image_xscale = -sign(hsp);
+            var asset = asset_get_index("spr_player_ground_" + humor + "_walk");
+            Current_Sprite(asset, .2);
+        }else{
+            var asset = asset_get_index("spr_player_ground_" + humor + "_idle");
+            if(sprite_index != asset){
+                Current_Sprite(asset, 0, irandom_range(0,4));
+            }
+        }
+    }
+    
+    
+    // Player wants to climb a building.    
+    if(Can_Climb()) exit; // esto estaba así:
+
+    
+    // Jump!
+    if(key_jump and (grounded or climbed_building != noone) and !instance_exists(Rage)){
+        vsp = key_jump * -jumpspeed;
+        key_jump = 0;
+        climbed_building = noone;
+       // show_debug_message('here 285'); 
+        var asset = asset_get_index("spr_player_jump_" + humor + "_idle");
+        Current_Sprite(asset, 0, irandom_range(0,2));
+        grounded = false;
+        
+        // aqui lo esta haciendo bien.
+    }else{
+        // Apply gravity!
+        if(vsp < 10){
+            vsp += grav;
+        }
+    }
+        
+     // Vertical Collisions.
+    
+    // Floor.
+    if(place_meeting(x, y+vsp, Floor)){
+            while(!place_meeting(x, y + sign(vsp), Floor)){
+                y += sign(vsp);
+            }
+            vsp = 0;
+            grounded = true;
+    }
+    
+    // Building.
+    if(climbed_building != noone){
+        if(place_meeting(x, y+vsp, climbed_building)){
+            while(!place_meeting(x, y + abs(sign(vsp)), climbed_building)){
+                y += abs(sign(vsp));
+            }
+            vsp = 0;
+        }else{
+            climbed_building = noone;
+            vsp = -jumpspeed;
+            Jump_Hspeed();
+            var asset = asset_get_index("spr_player_jump_" + humor + "_idle");
+            Current_Sprite(asset, 0, irandom_range(0,2));
+        }
+    }
+    
+
+ 
+    // If the player attack.
+    if(key_attack){
+        if(grounded or climbed_building != noone){
+        
+            // Up attack.
+            if(key_up){          
+                // Eat in building person.
+                if(Can_Eat("floor_up")){
+                    
+                    Eat_Person(asset_get_index("spr_player_ground_" + humor + "_eat_up"));
+                    eating = true;
+
+                    if(object_ind == "Women"){ 
+                        instance_create(x, 375, Women_Run); 
+                        eating = false;
+                    }
+                // Check if there is a enemy to destroy.
+                }else{
+                    Current_Sprite(asset_get_index("spr_player_ground_" + humor + "_attack"), 0, 2, retard_value);
+                }
+
+            // Down attack.                
+            }else if(key_down){
+
+                if(Can_Eat("floor_down")){
+                    Eat_Person(asset_get_index("spr_player_ground_" + humor + "_eat_down"));
+                    eating = true;
+                    
+                }else{
+                    Current_Sprite(asset_get_index("spr_player_ground_" + humor + "_attack"), 0, 1, retard_value);
+                }
+                 
+            // Front attack.
+            }else{
+                Current_Sprite(asset_get_index("spr_player_ground_" + humor + "_attack"), 0, 0, retard_value);
+            }
+            
+        }else{
+            if(!take_women){
+                if(image_xscale == 1 and key_right or image_xscale == -1 and key_left) Current_Sprite(asset_get_index("spr_player_jump_" + humor + "_attack"), 0, 0, retard_value);
+                if(key_up) Current_Sprite(asset_get_index("spr_player_jump_" + humor + "_attack"), 0, 1, retard_value);
+                else if(key_down) Current_Sprite(asset_get_index("spr_player_jump_" + humor + "_attack"), 0, 2, retard_value);
+                else if(image_xscale == 1 and key_left or key_right and image_xscale == -1) Current_Sprite(asset_get_index("spr_player_jump_" + humor + "_attack"), 0, 3, retard_value);
+            }
+        }
+        
+        
+        // Destroy an enemy if there is one.
+        Destroy_Enemy();
+    }
+    
+    // Player is on the roof but wants to return to its climb state.
+    Return_Climb();  
+}
+
+// Rage State.
+//Rage_State();
+
+
+// Life.
+if(vida <= 0) state = Lose_State;
