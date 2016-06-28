@@ -11,8 +11,8 @@ if(grounded){
 list = instance_nearest_list(xx, bbox_bottom, Edificio);
 for(var i = 0; i < ds_list_size(list); i++){
     if(ds_list_find_value(list, i) != bo){ 
-        with(Edificio) color = c_white; 
-        with (ds_list_find_value(list, i)) color = c_red;
+      //  with(Edificio) color = c_white; 
+    //    with (ds_list_find_value(list, i)) color = c_red;
       //  show_debug_message(ds_list_find_value(list, i));
         return ds_list_find_value(list, i);
     }
