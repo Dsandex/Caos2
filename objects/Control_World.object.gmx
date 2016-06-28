@@ -149,7 +149,12 @@ if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
           <argument>
             <kind>1</kind>
             <string>/// Create helicopters.
-instance_create(0,0, Control_Helicopteros);
+if (num_level == 1 or num_level == 2 or num_level == 4 or num_level == 9){
+    instance_create(0,0, Control_Helicopteros);
+}else if (num_level &gt;= 3){
+    helicopter_num = 3;
+    instance_create(0,0, Control_Helicopteros);
+}
 </string>
           </argument>
         </arguments>
@@ -173,6 +178,8 @@ instance_create(0,0, Control_Helicopteros);
           <argument>
             <kind>1</kind>
             <string>/// Create Tanks.
+if (num_level == 4 or num_level &gt;= 6){
+if (num_level != 9){
 if(!create_tanks) exit;
 alarm[0] = 30 * 5;
 if(instance_number(Tank) &gt; 0) exit;
@@ -190,6 +197,8 @@ with(tank){
         spd = -2;
         image_xscale = -1;
     }
+}
+}
 }
 </string>
           </argument>

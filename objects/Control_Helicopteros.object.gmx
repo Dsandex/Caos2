@@ -33,7 +33,7 @@ width_back = sprite_get_width(spr_helicopter_perfil)/2; // Helicopter back.
 
 // Create pos[i].x array.
 //show_debug_message(helicopter_num);
-for(var i = 0; i &lt; num_level + helicopter_num; i++){
+for(var i = 0; i &lt; /*num_level + */helicopter_num; i++){
 //    show_debug_message('create h');
 
     pos[i] = choose(-width_back, room_width + width_back);
@@ -94,7 +94,7 @@ alarm[0] = 1;
           <argument>
             <kind>1</kind>
             <string>/// Set speed to helicopters.
-if(call_alarm &lt; num_level + helicopter_num){
+if(call_alarm &lt; /*num_level +*/ helicopter_num){
     with(h[call_alarm]){ spd = 4; }
     call_alarm++;
     alarm[0] = irandom_range(20,30);

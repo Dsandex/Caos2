@@ -84,8 +84,6 @@
     <sprites name="Joystick">
       <sprite>sprites\spr_joystick</sprite>
       <sprite>sprites\spr_botones</sprite>
-      <sprite>sprites\spr_botones</sprite>
-      <sprite>sprites\spr_botones</sprite>
       <sprite>sprites\spr_bola</sprite>
     </sprites>
     <sprites name="Detalles">
