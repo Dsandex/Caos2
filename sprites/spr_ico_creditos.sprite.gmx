@@ -20,6 +20,6 @@
   <width>85</width>
   <height>85</height>
   <frames>
-    <frame index="0">images\spr_ico_bogota_0.png</frame>
+    <frame index="0">images\spr_ico_creditos_0.png</frame>
   </frames>
 </sprite>
