@@ -166,6 +166,7 @@
     <background>background\background_city</background>
     <background>background\background_menu</background>
     <background>background\background_creditos</background>
+    <background>background\background3</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">

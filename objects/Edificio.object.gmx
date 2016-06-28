@@ -36,7 +36,7 @@ color = c_white;
 yy2 = y;
 
 // Damage variables.
-building_life = irandom_range(20, 30);
+building_life = irandom_range(15, 25);
 damage_grid = ds_grid_create(building_life, 3);
 progress_time = 15;
 execute_alarms = true;

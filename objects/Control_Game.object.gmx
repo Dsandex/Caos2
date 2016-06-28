@@ -51,7 +51,7 @@ if(room == Room_Digital){
 }else if(room == Room_Menu){
     // Tank animation.
     animator = 0;
-    alarm[0] = 30;
+    //alarm[0] = 30;
 }
 
 /*   COSAS POR HACER:
