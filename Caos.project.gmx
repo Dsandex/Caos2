@@ -83,9 +83,9 @@
     </sprites>
     <sprites name="Joystick">
       <sprite>sprites\spr_joystick</sprite>
-      <sprite>sprites\sprite88</sprite>
       <sprite>sprites\spr_botones</sprite>
-      <sprite>sprites\sprite89</sprite>
+      <sprite>sprites\spr_botones</sprite>
+      <sprite>sprites\spr_botones</sprite>
       <sprite>sprites\spr_bola</sprite>
     </sprites>
     <sprites name="Detalles">
