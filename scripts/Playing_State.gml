@@ -1,6 +1,7 @@
 // Move the player.
 Player_Inputs("");
 
+// show_debug_message(take_women);
 if(climb){
     //show_debug_message("climb grounded:" + string(grounded));
     
@@ -84,21 +85,7 @@ if(climb){
             climbed_building = noone;
             grounded = true;
         }else{
-            
-            var second_building = Search_Building(climbed_building);    
-
-            if(second_building.building_life > 0){
-                if(position_meeting(x, bbox_bottom, second_building)){
-                   var rango = 5;
-                   if((second_building.bbox_top - bbox_bottom) >= -14 and (second_building.bbox_top - bbox_bottom) <= -14 + rango){ 
-                        image_xscale *= -1;
-                        climbed_building = second_building;
-                        Current_Sprite(spr_player_ground_normal_idle, 0, irandom_range(0,2));
-                        y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - sprite_get_height(sprite_index)/2;
-                        climb = false;  
-                   }
-                }
-            }        
+            BBox_Change();
         }
         
        // Down attack.
@@ -109,8 +96,19 @@ if(climb){
            Current_Sprite(asset, 0, 2, retard_value);
            
            // Building recieve damage down.   
-           if(climbed_building != noone){
-            Recieve_Damage("down", climbed_building);
+           if(!place_meeting(x, bbox_bottom, Letrero_Up)){
+               if(climbed_building != noone){
+                  Recieve_Damage("down", climbed_building);
+               }
+           }else{
+                var letrero = instance_nearest(x, bbox_bottom, Letrero_Up);
+                with(letrero){
+                    // Attack sound.
+                    Play_Track("attack");
+                    instance_create(letrero.x, letrero.y, Explosion);
+                    instance_destroy();
+                    //vida -= 1;
+                }
            }
         }
         
@@ -128,7 +126,7 @@ if(climb){
         if(key_attack and !take_women){
                          
             // Player's aside attack.   
-            if(key_left or key_right){
+            if(key_left and image_xscale == -1 or key_right and image_xscale == 1){
                 switch(image_xscale){
                     // Right.
                     case 1:
@@ -187,9 +185,9 @@ if(climb){
     
         // Create run women.
         if(take_women){
+            Get_Score(x, y, 2, false);
             take_women = false;
             instance_create(x, y-40, Women_Run);
-
         }
         
         
@@ -241,6 +239,7 @@ if(climb){
                 y += sign(vsp);
             }
             vsp = 0;
+            if(!grounded) Play_Track("air_punch");
             grounded = true;
     }
     

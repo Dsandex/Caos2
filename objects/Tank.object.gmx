@@ -86,6 +86,7 @@ if(room != Room_Menu) Get_Score(x, y, 100, false);
             <string>/// Attack the player.
 //show_debug_message('create bullet');
 var corner = 0;
+audio_play_sound(sn_bullets_tank, 1, 0);
 if(sign(image_xscale) == 1) corner = bbox_right;
 else corner = bbox_left; 
 var bullet_ = instance_create(corner, bbox_top, Tank_Bullet);

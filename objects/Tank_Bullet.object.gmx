@@ -32,6 +32,7 @@ target_x = 0;
 target_y = 0;
 xscale = 1;
 image_speed = 0;
+Play_Track("tank_bullet");
 </string>
           </argument>
         </arguments>
@@ -64,6 +65,7 @@ if(!set_target){
 move_towards_point(target_x, target_y, spd);
 if(collision_point(x, y, Player, true, true)){
     instance_create(x, y, Explosion);
+    Play_Track("hys_bullet");
     with(Player){
          vida--;
          if(grounded or (!climb and climbed_building != noone)){

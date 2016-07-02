@@ -28,8 +28,10 @@
             <string>/// Create the inicial conditions of the game.
 if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
-              xx_damage, yy_damage, vida_global, puntaje_global;
+              xx_damage, yy_damage, vida_global, puntaje_global, 
+              sound_retard;
               
+    sound_retard = 0;
     vida_global = 100;
     puntaje_global = 0;
     
@@ -43,6 +45,8 @@ if(room == Room_Digital){
     instance_create(room_width/2, room_height/2, Digital);
     alarm[1] = 55;
     instance_create(0, 0, Change_Soundtrack);
+    
+    
     
 }else if(room == Room_Baius){
     instance_create(room_width/2, room_height/2, Baius);
@@ -238,6 +242,7 @@ if(room == Room_Select){
         draw_set_font(font_arial_15);
         draw_sprite(spr_character_1, 1, 232, 240+24);
         if(mouse_check_button_released(mb_left)){
+            Play_Track("press_start");
             room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
@@ -256,6 +261,7 @@ if(room == Room_Select){
         draw_set_font(font_arial_15);
         draw_sprite(spr_character_2, 1, 408, 240+24);
         if(mouse_check_button_released(mb_left)){
+            Play_Track("press_start");
             room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
@@ -268,9 +274,11 @@ if(room == Room_Select){
     draw_text(408 + 128/2, 240, "ANONIMO");
     draw_text(408 + 128/2, 365+48, select);
     draw_set_halign(noone);
-    
-
     draw_set_color(c_white);
+}
+
+if(keyboard_check_pressed(vk_space)){
+    room_goto(game1);
 }
 </string>
           </argument>

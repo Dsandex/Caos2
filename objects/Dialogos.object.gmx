@@ -35,7 +35,7 @@ txt[6] = "27 de noviembre de 1989";
 txt[7] = "27 de noviembre de 1989";
 txt[8] = "27 de noviembre de 1989";
 txt[10] = "27 de noviembre de 1989";
-alarm[0] = 90;
+alarm[0] = 60;
 </string>
           </argument>
         </arguments>

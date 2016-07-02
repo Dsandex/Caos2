@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -46,6 +46,7 @@ for(var i = 0; i &lt; /*num_level + */helicopter_num; i++){
        );
     
     with (h[i]) { spd = 0; }
+    if(i == 0) with h[i] hsound = true;
        
     // Change image_xscale.
     if(pos[i] &gt;= room_width + width_back){ with(h[i]){ image_xscale = -1; } }

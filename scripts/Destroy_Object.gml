@@ -23,4 +23,6 @@ if(collision_circle(xx, yy, 15, Enemy, 1, 1)){
             with (enemy) instance_destroy();
         }
     }
+}else{
+    Play_Track("air_attack");
 }

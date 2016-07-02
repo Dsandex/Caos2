@@ -6,14 +6,40 @@
   <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
-    <sounds name="Attack Tracks">
-      <sound>sound\sn_attack_1</sound>
-      <sound>sound\sn_attack_2</sound>
-      <sound>sound\sn_attack_3</sound>
+    <sounds name="Musica">
+      <sound>sound\sn_soundtrack_1</sound>
+      <sound>sound\sn_soundtrack_2</sound>
+      <sound>sound\sn_soundtrack_3</sound>
+      <sound>sound\sn_soundtrack_4</sound>
+      <sound>sound\sn_soundtrack_5</sound>
+      <sound>sound\sn_soundtrack_intro</sound>
     </sounds>
-    <sounds name="Music">
-      <sound>sound\sn_musica_1</sound>
-      <sound>sound\sn_musica_menu</sound>
+    <sounds name="Efectos">
+      <sounds name="Punch">
+        <sound>sound\sn_punch_1</sound>
+        <sound>sound\sn_punch_2</sound>
+        <sound>sound\sn_punch_3</sound>
+        <sound>sound\sn_punch_4</sound>
+        <sound>sound\sn_air_punch</sound>
+      </sounds>
+      <sounds name="Helicopter">
+        <sound>sound\sn_helicopter_behind</sound>
+        <sound>sound\sn_helicopter_front</sound>
+      </sounds>
+      <sounds name="Transformacion">
+        <sound>sound\sn_trans</sound>
+      </sounds>
+      <sounds name="Start">
+        <sound>sound\sn_press_start</sound>
+        <sound>sound\sn_campana</sound>
+      </sounds>
+      <sounds name="Balas">
+        <sound>sound\sn_bullets_hys</sound>
+        <sound>sound\sn_bullets_tank</sound>
+      </sounds>
+      <sounds name="Edificios">
+        <sound>sound\sn_edificio_collapse</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -194,6 +220,7 @@
         <script>scripts\Eat_Power.gml</script>
         <script>scripts\Rage_State.gml</script>
         <script>scripts\Search_Building.gml</script>
+        <script>scripts\BBox_Change.gml</script>
       </scripts>
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>

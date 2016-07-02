@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Declare initial values.
 Helicopter_Variables();
+hsound = false;
 
 // Control position.
 width_back = sprite_get_width(spr_helicopter_perfil)/2;
@@ -54,14 +55,14 @@ pos = x;
           <argument>
             <kind>1</kind>
             <string>/// Clear id in array.
-with(Control_Helicopteros){
+/*with(Control_Helicopteros){
     var near_player_enemy = instance_nearest(Player.x, Player.y, Helicoptero);
     for(var i = 0; i &lt; num_level + 1; i++){
         if(near_player_enemy == h[i]){
             h[i] = noone;
         }
     }
-}
+}*/
 alarm[0] = -1;
 Get_Score(x, y, 100, false);
 instance_create(x,y, Destrucion);
@@ -139,10 +140,34 @@ instance_create(x,y, Destrucion);
     if(sprite_index != spr_helicopter_back){
         script_execute(state);
         
+        if(hsound){
+            if(!audio_is_playing(sn_helicopter_behind)){
+                audio_stop_sound(sn_helicopter_behind);
+            }
+            
+            if(!audio_is_playing(sn_helicopter_front)){
+                audio_play_sound(sn_helicopter_front, 1, 1);
+            }
+        
+        }
+        
+        
+            
     // Back helicopter.
     }else{
         hspeed = spd * image_xscale;
         attacked = false;        
+        
+       if(hsound){
+            if(!audio_is_playing(sn_helicopter_front)){
+                audio_stop_sound(sn_helicopter_front);
+            }
+            
+            if(!audio_is_playing(sn_helicopter_behind)){
+                audio_play_sound(sn_helicopter_behind, 1, 1);
+            }
+        }
+
     }
     
     // Control position.

@@ -50,8 +50,6 @@ globalvar object_ind;
 object_ind = noone;
 
 // Tank bullets.
-
-
 num_level++;
 termina_nivel = false;
 floor_soldiers_num = 3;
@@ -63,9 +61,9 @@ create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
 /// Create controls.
-instance_create(110, 380, Joystick);
-instance_create(620, 395, Button_B);
-instance_create(680, 345, Button_A);
+instance_create(120, 380, Joystick);
+instance_create(600, 395, Button_B);
+instance_create(685, 345, Button_A);
 </string>
           </argument>
         </arguments>

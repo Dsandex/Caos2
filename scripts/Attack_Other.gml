@@ -8,6 +8,8 @@ switch(image_xscale){
         var other_building = instance_nearest(bbox_left + 8, y - 9, Edificio);
         if(position_meeting(bbox_left + 8, y - 9, other_building)){
             Recieve_Damage("other", other_building);
+        }else{
+            Play_Track("air_attack");
         }
     break;
     
@@ -16,6 +18,8 @@ switch(image_xscale){
         var other_building = instance_nearest(bbox_right - 8, y - 9, Edificio);
         if(position_meeting(bbox_right - 8, y - 9, other_building)){
             Recieve_Damage("other", other_building);
-        }   
+        }else{
+            Play_Track("air_attack");
+        }
     break;
 }
