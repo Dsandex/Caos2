@@ -62,7 +62,17 @@ switch(dir){
                             0,
                             0
                         )){
-                            with (ventana) instance_destroy();
+                            with (ventana){
+                                if(instance_exists(inst)) with inst instance_destroy();
+                                /*var person = instance_nearest(x, y, Persona);
+                                if(position_meeting(x + sprite_width/2, y + sprite_height/2, person)){
+                                   with(person){
+                                       //alarm[0] = -1; alarm[1] = -1;
+                                       instance_destroy();         
+                                   }
+                                }*/
+                                instance_destroy();
+                            }
                         }
                     }
                     
@@ -87,7 +97,7 @@ switch(dir){
             for(var i = 0; i < ds_grid_width(damage_grid); i++){
                 if(ds_grid_get(damage_grid, i, 0) == ""){
                 
-                    var range = irandom_range(-15,15);
+                    var range = irandom_range(-5,15);
                     ds_grid_add(damage_grid, i, 0, floor(xx_damage + range));
                     
                     if(building_father.bbox_top - Player.y >= -15){
@@ -120,6 +130,7 @@ switch(dir){
                         var ventana = instance_nearest(ds_grid_get(damage_grid, i, 0) + sprite_get_width(spr_building_damage), self.y - ds_grid_get(damage_grid, i, 1) + sprite_get_height(spr_building_damage), obj_ventana);
                         with (ventana) image_blend = c_red;
                         if(collision_rectangle(
+                            
                             ds_grid_get(damage_grid, i, 0) + 6,
                             self.y - ds_grid_get(damage_grid, i, 1) + 6, 
                             ds_grid_get(damage_grid, i, 0) + sprite_get_width(spr_building_damage) - 6,
@@ -128,7 +139,17 @@ switch(dir){
                             0,
                             0
                         )){
-                            with (ventana) instance_destroy();
+                            with (ventana){
+                                if(instance_exists(inst)) with inst instance_destroy();
+                              /*  var person = instance_nearest(x, y, Persona);
+                                if(position_meeting(x + sprite_width/2, y + sprite_height/2, person)){
+                                   with(person){
+                                       //alarm[0] = -1; alarm[1] = -1;
+                                       instance_destroy();         
+                                   }
+                                }*/
+                                instance_destroy();
+                            }
                         }
                     }
                     
@@ -192,7 +213,16 @@ switch(dir){
                             0,
                             0
                         )){
-                            with (ventana) instance_destroy();
+                            with (ventana){
+                                var person = instance_nearest(x, y, Persona);
+                                if(position_meeting(x + sprite_width/2, y + sprite_height/2, person)){
+                                   with(person){
+                                       //alarm[0] = -1; alarm[1] = -1;
+                                       instance_destroy();         
+                                   }
+                                }
+                                instance_destroy();
+                            }
                         }
                     }
                     

@@ -144,7 +144,7 @@ if(climb){
             }else{
             
                 // Is a person in there?
-                if(Can_Eat("climb")){    
+                if(Can_Eat("climb") and !instance_exists(Rage) and !take_women){    
                 
                       if(object_ind == "Soldado" or object_ind == "Child"){
                          Eat_Person(asset_get_index("spr_player_climb_" + humor + "_eat")); 
@@ -155,7 +155,8 @@ if(climb){
                          Eat_Person(asset_get_index("spr_player_climb_" + humor + "_women"));
                          take_women = true;
                          Recieve_Damage("front", climbed_building);
-        
+                         eating = false;
+                         
                       }else if(object_ind = "Poder"){
                       
                          Recieve_Damage("front", climbed_building);
@@ -191,7 +192,7 @@ if(climb){
         
         
         move = (key_left*-1) + key_right;    
-        if(!eating) hsp = move * movespeed;
+        if(!eating or sprite_index == asset_get_index("spr_player_ground_" + humor + "_attack")) hsp = move * movespeed;
         else hsp = 0;
         
         if(hsp != 0){
@@ -314,6 +315,12 @@ if(climb){
     // Player is on the roof but wants to return to its climb state.
     Return_Climb();  
 }
+//show_debug_message(y);
+//show_debug_message('take_women' + string(take_women));
+//show_debug_message('climb' + string(climb));
+//show_debug_message('grounded' + string(grounded));
+//show_debug_message('eat' + string(eating));
+
 
 // Rage State.
 Rage_State();

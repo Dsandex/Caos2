@@ -43,7 +43,6 @@ climbed_building = noone; // ID variable.
 eat_person_id = noone; // ID variable.
 
 // Life value.
-show_debug_message(vida_global);
 vida = vida_global; // 100
 save_vida = 0;
 
@@ -52,7 +51,6 @@ image_speed = 0;
 
 // Score variable.
 player_score = puntaje_global; // 0
-
 
 // Animation variables.
 retard = 0;
@@ -65,7 +63,6 @@ angry = 0;
 humor_animation = false;
 y_change = 0;
 scale_change = 1;
-
 
 // Lose state variable.
 lose = false;
@@ -148,8 +145,8 @@ y += vsp;
           <argument>
             <kind>1</kind>
             <string>/// Get global life and score.
-vida_global = vida;
-player_score = puntaje_global
+if(!lose) vida_global = vida;
+player_score = puntaje_global;
 </string>
           </argument>
         </arguments>

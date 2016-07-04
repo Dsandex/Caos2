@@ -204,18 +204,18 @@ switch(num_level){
 }
 if (instance_number(Soldado)&lt;soldado){
     if (!creado and image_index == 1){
-        instance_create(x,y,Soldado);
+        inst = instance_create(x,y,Soldado);
         creado = true;
     }
 }else{
     if (instance_number(Women)&lt;mujer and !instance_exists(Women_Run)){
         if (!creado and image_index == 1){
-            instance_create(x,y,Women);
+            inst = instance_create(x,y,Women);
             creado = true;
             }
         }else if (instance_number(Child)&lt;nino){
             if (!creado and image_index == 1){
-                instance_create(x,y,Child);
+                inst = instance_create(x,y,Child);
                 creado = true;
             }
         }
@@ -297,17 +297,8 @@ if(instance_exists(building_father)){
     y = building_father.yy2 - (building_father.y - local_y);
     
     if(building_father.building_life &lt;= 0){
-
-        var person = instance_nearest(x, y, Persona);
-        if(place_meeting(x, y, person)){
-           with(person){
-               //alarm[0] = -1; alarm[1] = -1;
-               instance_destroy();         
-           }
-        }
-        
         alarm[0] = -1; alarm[1] = -1;
-    
+        if(instance_exists(inst)) with inst instance_destroy();
     }
 }else{
     instance_destroy();

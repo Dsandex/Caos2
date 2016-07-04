@@ -33,7 +33,7 @@ if(room == Room_Digital){
               
     current_song = 0;
     sound_retard = 0;
-    vida_global = 100;
+    vida_global = 10;
     puntaje_global = 0;
     
     

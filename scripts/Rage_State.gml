@@ -1,6 +1,6 @@
 // Increase angry.
 if(humor == "normal"){
-    if(angry > 100 and !humor_animation and (climb or grounded or climbed_building != noone)){
+    if(angry > 100 and !humor_animation and (climb or grounded or (climbed_building != noone and climbed_building.building_life > 0))){
         background_blend[0] = make_color_rgb(255, 50 ,10);
         if(eating) eating = false;
         if(take_women) take_women = false;
@@ -14,8 +14,8 @@ if(humor == "normal"){
         scale_change = image_xscale;
         movespeed = 6;
         jumpspeed = 20;
-        climb_speed = 5;
-        grav = 1.5; 
+        climb_speed = 6;
+        grav = 2; 
         y_change = y;
         Play_Track("trans");
     }else{

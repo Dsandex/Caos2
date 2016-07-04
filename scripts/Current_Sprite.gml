@@ -36,7 +36,6 @@ if(sprite_index == asset_get_index("spr_player_jump_" + humor + "_damage")){
 
 if(eating or take_women or instance_exists(Rage)) exit;
 
-//show_debug_message('change sprite');
 sprite_index = argument[0];
 image_speed = argument[1];
 

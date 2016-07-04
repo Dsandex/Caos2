@@ -52,7 +52,6 @@
   </views>
   <instances>
     <instance objName="Dialogos" x="192" y="144" name="inst_6136A0D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Change_Soundtrack" x="168" y="240" name="inst_9EDEC5BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
