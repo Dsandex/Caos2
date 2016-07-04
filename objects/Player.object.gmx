@@ -43,6 +43,7 @@ climbed_building = noone; // ID variable.
 eat_person_id = noone; // ID variable.
 
 // Life value.
+show_debug_message(vida_global);
 vida = vida_global; // 100
 save_vida = 0;
 

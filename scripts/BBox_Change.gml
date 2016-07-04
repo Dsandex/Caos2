@@ -9,6 +9,8 @@ if(second_building.building_life > 0){
        
        if ((second_building.bbox_top - bbox_bottom) >= rango and (second_building.bbox_top - bbox_bottom) <= rango + 10){
             image_xscale *= -1;
+            show_debug_message('true');
+            take_women = false;
             retard = 0;
             eating = false;
             climbed_building = second_building;

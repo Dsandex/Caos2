@@ -230,6 +230,57 @@ if(instance_number(Edificio) == 0 and !termina_nivel){
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+audio_sound_gain(asset, 0, 3000);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Change soundtrack.
+var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+audio_play_sound(asset, 0, 1);
+audio_sound_gain(asset, 0, 1);
+audio_sound_gain(asset, 1, 5000);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -334,6 +385,7 @@ if(!create_tanks){
             <kind>1</kind>
             <string>num_level --;
 room_restart();
+vida_global = 100;
 </string>
           </argument>
         </arguments>

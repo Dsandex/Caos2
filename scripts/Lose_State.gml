@@ -24,7 +24,7 @@ if(place_meeting(x, y+vsp, Floor)){
         var s = instance_create(0,0,Screen_Shake);
         num_level--;
         vida_global = 100;
-        room_goto_transition(Room_Transicion, 0, 30);
+        room_goto_transition(Room_Transicion, 0, 120);
         with (s) { alarm[0] = 25; };
     }
 }

@@ -17,6 +17,7 @@ if(humor == "normal"){
         climb_speed = 5;
         grav = 1.5; 
         y_change = y;
+        Play_Track("trans");
     }else{
         angry += 10/30;
     }
@@ -25,7 +26,7 @@ if(humor == "normal"){
         hsp = 0;
         y = y_change;
         image_xscale = scale_change;
-        if(grounded or climbed_building != noone){
+        if(grounded or (climbed_building != noone and !climb)){
             var asset = asset_get_index("spr_player_ground_" + humor + "_idle");
             sprite_index = asset;
             image_index = 0;

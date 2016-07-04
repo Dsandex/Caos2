@@ -152,9 +152,9 @@ if(climb){
                       
                       }else if(object_ind == "Women"){
                       
-                         Recieve_Damage("front", climbed_building);
                          Eat_Person(asset_get_index("spr_player_climb_" + humor + "_women"));
                          take_women = true;
+                         Recieve_Damage("front", climbed_building);
         
                       }else if(object_ind = "Poder"){
                       
@@ -178,7 +178,6 @@ if(climb){
         }
     }
 }else{
-  //f  show_debug_message("grounded:" + string(grounded));
 
     // Process the x inputs.
     if(grounded or climbed_building != noone){
@@ -317,7 +316,7 @@ if(climb){
 }
 
 // Rage State.
-//Rage_State();
+Rage_State();
 
 
 // Life.

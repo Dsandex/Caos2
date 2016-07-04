@@ -29,8 +29,9 @@
 if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
-              sound_retard;
+              sound_retard, current_song;
               
+    current_song = 0;
     sound_retard = 0;
     vida_global = 100;
     puntaje_global = 0;
@@ -46,7 +47,7 @@ if(room == Room_Digital){
     alarm[1] = 55;
     instance_create(0, 0, Change_Soundtrack);
     
-    
+    audio_play_sound(sn_soundtrack_intro, 1, 1);
     
 }else if(room == Room_Baius){
     instance_create(room_width/2, room_height/2, Baius);
@@ -168,6 +169,7 @@ alarm[0] = 30*7;
             <string>
 
 if(room == Room_Menu and !place_meeting(mouse_x, mouse_y, Iconos)){ 
+    Play_Track("press_start")
    room_goto_transition(Room_Select, 0, 30);   
 }
 //else{ if(room != Room_Select) room_goto_transition(Room_Menu, 0, 30); }

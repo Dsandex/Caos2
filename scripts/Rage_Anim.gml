@@ -1,10 +1,6 @@
 /// Rage_Anim();
 
 
-
-
-
-
 if(!humor_animation){
     if(eating) eating = false;
     if(take_women) take_women = false;
@@ -30,12 +26,13 @@ if(instance_exists(Rage)){
     y = y_change;
     image_xscale = scale_change;
     if(grounded){
-       // show_debug_message(grounded);
+        show_debug_message('awd');
         var asset = asset_get_index("spr_player_ground_" + humor + "_idle");
         sprite_index = asset;
         image_index = 0;
        // Current_Sprite(asset, 0, 0, retard_value);
     }else if(climb){
+        show_debug_message('xn');
         var asset = asset_get_index("spr_player_climb_" + humor + "_up");
         sprite_index = asset;
         image_index = 3;
