@@ -165,7 +165,7 @@ if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
           <argument>
             <kind>1</kind>
             <string>/// Check conditions to collapse the building.
-if(building_life &lt;= 0 and execute_alarms){
+if(building_life &lt;= 0 and execute_alarms and !instance_exists(Rage)){
 
      with(Player){
          climb = false; 

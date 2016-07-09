@@ -192,7 +192,7 @@ if(climb){
         
         
         move = (key_left*-1) + key_right;    
-        if(!eating or sprite_index == asset_get_index("spr_player_ground_" + humor + "_attack")) hsp = move * movespeed;
+        if(!eating and sprite_index != asset_get_index("spr_player_ground_" + humor + "_attack")) hsp = move * movespeed;
         else hsp = 0;
         
         if(hsp != 0){
