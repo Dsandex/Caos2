@@ -273,10 +273,12 @@ show_debug_message(vida_global);
           <argument>
             <kind>1</kind>
             <string>/// Change soundtrack.
-var asset = asset_get_index("sn_soundtrack_" + string(num_level));
-audio_play_sound(asset, 0, 1);
-audio_sound_gain(asset, 0, 1);
-audio_sound_gain(asset, 1, 5000);
+if( ! audio_is_playing (asset_get_index("sn_soundtrack_" + string(num_level)))){
+    var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+    audio_play_sound(asset, 0, 1);
+    audio_sound_gain(asset, 0, 1);
+    audio_sound_gain(asset, 1, 5000);
+}
 </string>
           </argument>
         </arguments>
