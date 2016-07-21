@@ -250,6 +250,9 @@ if(instance_number(Edificio) == 0 and !termina_nivel){
             <string>var asset = asset_get_index("sn_soundtrack_" + string(num_level));
 audio_sound_gain(asset, 0, 3000);
 show_debug_message(vida_global);
+if(audio_is_playing(sn_rage_music)){
+    audio_sound_gain(sn_rage_music, 0, 3000);
+}
 </string>
           </argument>
         </arguments>

@@ -159,6 +159,7 @@ if(climb){
                          
                       }else if(object_ind = "Poder"){
                       
+                         
                          Recieve_Damage("front", climbed_building);
                          Eat_Power();                        
                          Eat_Person(asset_get_index("spr_player_climb_" + humor + "_eat"));

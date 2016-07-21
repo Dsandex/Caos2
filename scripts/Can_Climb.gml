@@ -11,9 +11,11 @@ lista = instance_nearest_list(x, y, Edificio);
 var building = point_nearest(Edificio);
 
 // Player is in the ground.
+
 if(grounded or climbed_building){
     switch(image_xscale){
         case -1: // Derecha.
+        
             // Can climb.
             if(building.building_life <= 0) exit;         
             if(point_distance(x + 23, y, building.bbox_left, y) <= rango){

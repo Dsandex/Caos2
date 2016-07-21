@@ -70,6 +70,11 @@ lose = false;
 // Eat variables.
 eating = false;
 
+globalvar poder_ate, billetes_times;
+billetes_times = 1; // num_level
+poder_ate = "normal";
+
+
 // Women variables.
 take_women = false;
 w_index =0;
@@ -182,6 +187,8 @@ draw_set_font(font_game_13);
     var width = string_width(score_1);
     
     // Draw player 1 bar.
+    
+    if(humor == "normal"){
         draw_sprite(
             spr_barra_vida, 
             0, 
@@ -199,6 +206,25 @@ draw_set_font(font_game_13);
             offset_x, 
             offset_y
         );
+    }else{
+        draw_sprite(
+            spr_barra_vida, 
+            2, 
+            offset_x, 
+            offset_y
+        );
+        
+        draw_sprite_part(
+            spr_barra_vida, 
+            3, 
+            0,
+            0,
+            vida * (bar_width/100), 
+            bar_height, 
+            offset_x, 
+            offset_y
+        );
+    }
         
         // Draw word "damage"
         draw_set_color(c_black);
@@ -240,7 +266,7 @@ draw_set_font(font_game_13);
         
         
     // Draw player 2 bar.
-        draw_sprite(
+      /*  draw_sprite(
             spr_barra_vida, 
             2, 
             room_width/2 - bar_width/2,
@@ -292,9 +318,9 @@ draw_set_font(font_game_13);
             bar_height, 
             room_width - offset_x - sprite_get_width(spr_barra_vida), 
             offset_y
-        );
+        );*/
         
-        if(join_text_time &lt; 0){
+        /*if(join_text_time &lt; 0){
             draw_set_color(make_color_rgb(204, 0, 41));
             var join = "JOIN  IN  NOW";
             draw_text(
@@ -309,7 +335,7 @@ draw_set_font(font_game_13);
             }
         }else{
             join_text_time -= 1;
-        }
+        }*/
 
 // Draw women.
 if(take_women){

@@ -1,6 +1,18 @@
 // Increase angry.
 if(humor == "normal"){
-    if(angry > 100 and !humor_animation and (climb or grounded or (climbed_building != noone and climbed_building.building_life > 0))){
+    if(angry >= 100 and !humor_animation and (climb or grounded or (climbed_building != noone and climbed_building.building_life > 0))){
+        
+        if(audio_is_playing(sn_rage_music)){
+            audio_stop_sound(sn_rage_music);
+        }
+        
+        var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+        audio_sound_gain(asset, 0, 3000);
+        
+        audio_play_sound(sn_rage_music, 1, 1);
+        audio_sound_gain(sn_rage_music, 0, 1);
+        audio_sound_gain(sn_rage_music, 1, 5000);
+        
         background_blend[0] = make_color_rgb(255, 50 ,10);
         if(eating) eating = false;
         if(take_women) take_women = false;
@@ -18,9 +30,9 @@ if(humor == "normal"){
         grav = 2; 
         y_change = y;
         Play_Track("trans");
-    }else{
+    }/*else{
         angry += 10/30;
-    }
+    }*/
 }else{
     if(instance_exists(Rage)){    
         hsp = 0;
@@ -39,6 +51,11 @@ if(humor == "normal"){
     vida = save_vida;
     angry -= (10/30);
     if(angry < 0){
+    
+        var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+        audio_sound_gain(sn_rage_music, 0, 3000);
+        audio_sound_gain(asset, 1, 5000);
+        
         humor = "normal";
         humor_animation = false;
         if(eating) eating = false;

@@ -217,10 +217,12 @@ if(instance_number(Helicoptero) &gt; 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(audio_is_playing(sn_helicopter_behind)){
-    audio_sound_gain(sn_helicopter_behind, 0, 3000);
-}else if(audio_is_playing(sn_helicopter_front)){
-    audio_sound_gain(sn_helicopter_front, 0, 3000);
+            <string>if(instance_number(Helicoptero) == 1){
+    if(audio_is_playing(sn_helicopter_behind)){
+        audio_sound_gain(sn_helicopter_behind, 0, 3000);
+    }else if(audio_is_playing(sn_helicopter_front)){
+        audio_sound_gain(sn_helicopter_front, 0, 3000);
+    }
 }
 </string>
           </argument>

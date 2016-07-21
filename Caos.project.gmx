@@ -11,8 +11,8 @@
       <sound>sound\sn_soundtrack_2</sound>
       <sound>sound\sn_soundtrack_3</sound>
       <sound>sound\sn_soundtrack_4</sound>
-      <sound>sound\sn_soundtrack_5</sound>
       <sound>sound\sn_soundtrack_intro</sound>
+      <sound>sound\sn_rage_music</sound>
     </sounds>
     <sounds name="Efectos">
       <sounds name="Punch">
@@ -89,6 +89,16 @@
       <sprite>sprites\spr_letrero_antena</sprite>
       <sprite>sprites\spr_letrero_lev</sprite>
       <sprite>sprites\spr_letrero_verde</sprite>
+      <sprite>sprites\spr_letrero_hospital</sprite>
+      <sprite>sprites\spr_letrero_planeta</sprite>
+      <sprite>sprites\spr_letrero_espectador</sprite>
+      <sprite>sprites\spr_letrero_ropa</sprite>
+      <sprite>sprites\spr_letrero_comercial</sprite>
+      <sprite>sprites\spr_letrero_telecom</sprite>
+      <sprite>sprites\spr_letrero_antena2</sprite>
+      <sprite>sprites\spr_letrero_pan</sprite>
+      <sprite>sprites\spr_letrero_cops</sprite>
+      <sprite>sprites\spr_letrero_flores</sprite>
     </sprites>
     <sprites name="Buildings">
       <sprite>sprites\spr_building_1</sprite>
@@ -102,6 +112,17 @@
       <sprite>sprites\spr_building_9</sprite>
       <sprite>sprites\spr_building_10</sprite>
       <sprite>sprites\spr_building_11</sprite>
+      <sprite>sprites\spr_building_12</sprite>
+      <sprite>sprites\spr_building_13</sprite>
+      <sprite>sprites\spr_building_14</sprite>
+      <sprite>sprites\spr_building_15</sprite>
+      <sprite>sprites\spr_building_16</sprite>
+      <sprite>sprites\spr_building_17</sprite>
+      <sprite>sprites\spr_building_18</sprite>
+      <sprite>sprites\spr_building_19</sprite>
+      <sprite>sprites\spr_building_20</sprite>
+      <sprite>sprites\spr_building_21</sprite>
+      <sprite>sprites\spr_building_22</sprite>
       <sprite>sprites\spr_building_damage</sprite>
       <sprite>sprites\spr_ventana</sprite>
       <sprite>sprites\spr_collapse</sprite>
@@ -177,6 +198,7 @@
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
+      <sprite>sprites\spr_powers2</sprite>
     </sprites>
     <sprites name="Helpful">
       <sprite>sprites\spr_floor</sprite>
@@ -187,12 +209,17 @@
       <sprite>sprites\spr_ico_bogota</sprite>
     </sprites>
     <sprite>sprites\spr_icono_caos</sprite>
+    <sprite>sprites\sprite88</sprite>
+    <sprite>sprites\spr_avion</sprite>
+    <sprite>sprites\sprite91</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_city</background>
     <background>background\background_menu</background>
     <background>background\background_creditos</background>
     <background>background\background3</background>
+    <background>background\background_alexander</background>
+    <background>background\background_select</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -283,6 +310,17 @@
       <object>objects\Building_9</object>
       <object>objects\Building_10</object>
       <object>objects\Building_11</object>
+      <object>objects\Building_12</object>
+      <object>objects\Building_13</object>
+      <object>objects\Building_14</object>
+      <object>objects\Building_15</object>
+      <object>objects\Building_16</object>
+      <object>objects\Building_17</object>
+      <object>objects\Building_18</object>
+      <object>objects\Building_19</object>
+      <object>objects\Building_20</object>
+      <object>objects\Building_21</object>
+      <object>objects\Building_22</object>
       <object>objects\Collapse</object>
     </objects>
     <objects name="Control Game">
@@ -308,6 +346,16 @@
         <object>objects\Letrero_antena</object>
         <object>objects\Letrero_perro</object>
         <object>objects\Letrero_verde</object>
+        <object>objects\Letrero_hospital</object>
+        <object>objects\Letrero_planeta</object>
+        <object>objects\Letrero_espectador</object>
+        <object>objects\Letrero_ropa</object>
+        <object>objects\Letrero_comercial</object>
+        <object>objects\Letrero_telecom</object>
+        <object>objects\Letrero_antena2</object>
+        <object>objects\Letrero_pan</object>
+        <object>objects\Letrero_cops</object>
+        <object>objects\Letrero_flores</object>
       </objects>
       <object>objects\GameOver</object>
       <object>objects\Rage</object>
@@ -365,6 +413,7 @@
     <rooms name="Presentacion">
       <room>rooms\Room_Digital</room>
       <room>rooms\Room_Baius</room>
+      <room>rooms\Room_Alexander</room>
     </rooms>
     <rooms name="Room_Menus">
       <room>rooms\Room_Menu</room>
@@ -383,6 +432,7 @@
       <room>rooms\game8</room>
       <room>rooms\game9</room>
       <room>rooms\game10</room>
+      <room>rooms\game_extra</room>
     </rooms>
   </rooms>
   <constants number="12">

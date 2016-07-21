@@ -37,7 +37,7 @@ txt[8] = "27 de noviembre de 1989";
 txt[10] = "27 de noviembre de 1989";
 alarm[0] = 60;
 if(num_level == 0){
-    audio_sound_gain(sn_soundtrack_intro, 0, 3000);
+    audio_sound_gain(sn_soundtrack_intro, 0, 5000);
 }
 </string>
           </argument>

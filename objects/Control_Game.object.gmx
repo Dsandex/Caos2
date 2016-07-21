@@ -33,7 +33,7 @@ if(room == Room_Digital){
               
     current_song = 0;
     sound_retard = 0;
-    vida_global = 10;
+    vida_global = 100;
     puntaje_global = 0;
     
     
@@ -50,7 +50,11 @@ if(room == Room_Digital){
     audio_play_sound(sn_soundtrack_intro, 1, 1);
     
 }else if(room == Room_Baius){
+
     instance_create(room_width/2, room_height/2, Baius);
+    alarm[1] = 55;
+    
+}else if(room == Room_Alexander){
     alarm[1] = 55;
     
 }else if(room == Room_Menu){
@@ -112,8 +116,14 @@ HECHAS:
             <kind>1</kind>
             <string>/// Change room.
 if(room == Room_Digital){
-    room_goto_transition(Room_Baius, 0, 35);
+    room_goto(game_extra);
+
+    //room_goto_transition(Room_Baius, 0, 35);
+
 }else if(room == Room_Baius){
+    room_goto_transition(Room_Alexander, 0, 35);
+    
+}else if(room == Room_Alexander){
     room_goto_transition(Room_Menu, 0, 35);
 }
 </string>
@@ -206,7 +216,7 @@ if(room == Room_Menu){
         draw_text(
             room_width/2, 
             room_height/2 + 150, 
-            "INSERT A COIN"
+            "INSERT COIN"
         );
         draw_set_halign(noone);
         draw_set_valign(noone);
@@ -220,61 +230,73 @@ if(room == Room_Menu){
 
 
 if(room == Room_Select){
-    draw_set_color(make_color_rgb(18, 163, 218));
+  /*  draw_set_color(make_color_rgb(18, 163, 218));
     draw_rectangle(
         168, 
         24,
         600,
         168+24+24,
         0
-    );
+    );*/
+    
+    draw_set_color(make_color_rgb(18, 163, 218));
+    draw_set_alpha(.8);
+    draw_rectangle(
+        168, 
+        24, 
+        600,
+        168, 
+        0
+    )
+    draw_set_alpha(1);
     
     draw_set_font(font_game_14);
     draw_set_color(c_white);
     //draw_set_color(make_color_rgb(215, 81, 0));
     draw_text(168+24, 48-12, "PRESS    A    BUTTON    TO    START    THE#GAME");
     draw_text(168+24, 48 + 24*2, "MOVE    THE    JOYSTICK    FOR    CHANGE#THE    CHARACTER");
-    draw_text(600-24-string_width("CREDITS:    2"), 168+24, "CREDITS:    2"); 
+ //   draw_text(600-24-string_width("CREDITS:    2"), 168+24, "CREDITS:    2"); 
     
     
     var select = "SELECT";
     
     // Draw pablo escobar.
-    if(mouse_x &gt; 232 and mouse_x &lt; 360 and mouse_y &gt; 240+24 and mouse_y &lt; 360+24+24){
+    if(mouse_x &gt; 204 and mouse_x &lt; 204 + 128 and mouse_y &gt; 210 and mouse_y &lt; 210 + 144){
         draw_set_font(font_arial_15);
-        draw_sprite(spr_character_1, 1, 232, 240+24);
+        draw_sprite(spr_character_1, 1, 204, 210);
         if(mouse_check_button_released(mb_left)){
             Play_Track("press_start");
             room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
         draw_set_font(font_arial_12);
-        draw_sprite(spr_character_1, 0, 232, 240+24);
+        draw_sprite(spr_character_1, 0, 204, 210);
+        //draw_sprite(spr_character_1, 0, 232, 240+24);
     }
     
     draw_set_color(c_white);
     draw_set_halign(fa_center);
-    draw_text(232 + 128/2, 240, "ESCOBAR");
-    draw_text(232 + 128/2, 365+48, select);
+    draw_text(204 + 128/2, 180, "EL JEFE");
+    draw_text(204 + 128/2, 365, select);
     draw_set_halign(noone);
     
     // Draw second character.
-    if(mouse_x &gt; 408 and mouse_x &lt; 536 and mouse_y &gt; 240+24 and mouse_y &lt; 360+24+24){
+    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 and mouse_y &lt; 210 + 144){
         draw_set_font(font_arial_15);
-        draw_sprite(spr_character_2, 1, 408, 240+24);
+        draw_sprite(spr_character_2, 1, 440, 210);
         if(mouse_check_button_released(mb_left)){
             Play_Track("press_start");
             room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
         draw_set_font(font_arial_12);
-        draw_sprite(spr_character_2, 0, 408, 240+24);
+        draw_sprite(spr_character_2, 0, 440, 210);
     }
     
     draw_set_color(c_white);
     draw_set_halign(fa_center);
-    draw_text(408 + 128/2, 240, "ANONIMO");
-    draw_text(408 + 128/2, 365+48, select);
+    draw_text(440 + 128/2, 180, "EL MERO");
+    draw_text(440 + 128/2, 365, select);
     draw_set_halign(noone);
     draw_set_color(c_white);
 }

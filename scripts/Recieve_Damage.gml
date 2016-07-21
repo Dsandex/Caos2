@@ -1,6 +1,7 @@
 /// Recieve_Damage(direction, building_id);
 var dir = argument[0];
 var building_father = argument[1];
+if(instance_exists(Rage)) exit;
 
 switch(dir){
     case "down":
