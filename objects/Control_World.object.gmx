@@ -57,6 +57,7 @@ create_ad = false;
 alarm[0] = 30; // Create tanks.
 alarm[1] = 30; // Create helicopters.
 alarm[2] = 30; // Create infloor - soldiers.
+alarm[3] = 120;
 create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
@@ -64,6 +65,7 @@ if instance_exists(Control_Game) with Control_Game instance_destroy();
 instance_create(120, 380, Joystick);
 instance_create(600, 395, Button_B);
 instance_create(685, 345, Button_A);
+
 </string>
           </argument>
         </arguments>
@@ -86,9 +88,18 @@ instance_create(685, 345, Button_A);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Room Transicion.
-//room_goto(asset_get_index("game" + (num_level+1)));
-room_goto_transition(Room_Transicion, 0, 30);
+            <string>/// Create airplane.
+//var rand = choose(1, 2, 3);
+//if(rand == 2){
+instance_create(
+    room_width + 10, 
+    irandom_range(
+            sprite_get_height(spr_avion),
+            345 - sprite_get_height(spr_avion)
+    ), 
+    Avion
+);
+//}
 </string>
           </argument>
         </arguments>

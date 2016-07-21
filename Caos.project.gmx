@@ -361,6 +361,7 @@
       <object>objects\Rage</object>
       <object>objects\Puntaje</object>
       <object>objects\Bola</object>
+      <object>objects\Avion</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
