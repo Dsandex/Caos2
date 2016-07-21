@@ -3,7 +3,7 @@
   <spriteName>spr_building_11</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>7</depth>
+  <depth>9</depth>
   <persistent>0</persistent>
   <parentName>Edificio</parentName>
   <maskName>&lt;undefined&gt;</maskName>

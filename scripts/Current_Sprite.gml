@@ -14,7 +14,7 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        show_debug_message(poder_ate);
+        //show_debug_message(poder_ate);
         if(poder_ate == "billetes" and humor == "normal"){ 
             show_debug_message("ANGRRRYY");
             angry = 100;
@@ -26,7 +26,7 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        show_debug_message(poder_ate);
+        //show_debug_message(poder_ate);
         if(poder_ate == "billetes" and humor == "normal"){ 
             angry = 100;
             show_debug_message("ANGRRRYY");
@@ -38,11 +38,11 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        show_debug_message(poder_ate);
+        //show_debug_message(poder_ate);
         if(poder_ate == "billetes" and humor == "normal"){ 
             angry = 100;
             
-            show_debug_message("ANGRRRYY");
+         //   show_debug_message("ANGRRRYY");
             poder_ate = "";
         }
         exit;

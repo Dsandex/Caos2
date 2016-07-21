@@ -116,9 +116,9 @@ HECHAS:
             <kind>1</kind>
             <string>/// Change room.
 if(room == Room_Digital){
-    room_goto(game_extra);
+    //room_goto(game_extra);
 
-    //room_goto_transition(Room_Baius, 0, 35);
+    room_goto_transition(Room_Baius, 0, 35);
 
 }else if(room == Room_Baius){
     room_goto_transition(Room_Alexander, 0, 35);
