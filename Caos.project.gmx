@@ -44,10 +44,6 @@
   </sounds>
   <sprites name="sprites">
     <sprites name="Enemies">
-      <sprites name="Tank">
-        <sprite>sprites\spr_tank_idle</sprite>
-        <sprite>sprites\spr_tank_attack</sprite>
-      </sprites>
       <sprites name="Helicopter">
         <sprite>sprites\spr_helicopter_back</sprite>
         <sprite>sprites\spr_helicopter_diagonal</sprite>
@@ -81,6 +77,11 @@
         </sprites>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
+      <sprite>sprites\sprite120</sprite>
+      <sprites name="Tank">
+        <sprite>sprites\spr_tank_idle</sprite>
+        <sprite>sprites\spr_tank_attack</sprite>
+      </sprites>
     </sprites>
     <sprites name="Letreros">
       <sprite>sprites\spr_letrero_pp</sprite>
@@ -99,6 +100,10 @@
       <sprite>sprites\spr_letrero_pan</sprite>
       <sprite>sprites\spr_letrero_cops</sprite>
       <sprite>sprites\spr_letrero_flores</sprite>
+      <sprite>sprites\spr_letrero_diario</sprite>
+      <sprite>sprites\spr_letrero_galan1</sprite>
+      <sprite>sprites\spr_letrero_galan2</sprite>
+      <sprite>sprites\spr_letrero_escuela</sprite>
     </sprites>
     <sprites name="Buildings">
       <sprite>sprites\spr_building_1</sprite>
@@ -123,10 +128,15 @@
       <sprite>sprites\spr_building_20</sprite>
       <sprite>sprites\spr_building_21</sprite>
       <sprite>sprites\spr_building_22</sprite>
+      <sprite>sprites\spr_building_23</sprite>
+      <sprite>sprites\spr_building_24</sprite>
+      <sprite>sprites\spr_building_25</sprite>
+      <sprite>sprites\spr_building_26</sprite>
       <sprite>sprites\spr_building_damage</sprite>
       <sprite>sprites\spr_ventana</sprite>
       <sprite>sprites\spr_collapse</sprite>
       <sprite>sprites\spr_piso</sprite>
+      <sprite>sprites\spr_piso2</sprite>
     </sprites>
     <sprites name="Joystick">
       <sprite>sprites\spr_joystick</sprite>
@@ -135,6 +145,7 @@
     </sprites>
     <sprites name="Detalles">
       <sprite>sprites\spr_gameover</sprite>
+      <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_rage</sprite>
       <sprite>sprites\spr_barra_vida</sprite>
     </sprites>
@@ -210,16 +221,23 @@
     </sprites>
     <sprite>sprites\spr_icono_caos</sprite>
     <sprite>sprites\sprite88</sprite>
-    <sprite>sprites\spr_avion</sprite>
+    <sprite>sprites\spr_avioneta</sprite>
     <sprite>sprites\sprite91</sprite>
+    <sprite>sprites\spr_avion</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\background_city</background>
     <background>background\background_menu</background>
     <background>background\background_creditos</background>
     <background>background\background3</background>
     <background>background\background_alexander</background>
     <background>background\background_select</background>
+    <backgrounds name="Cities">
+      <background>background\background_bogota</background>
+      <background>background\background9</background>
+      <background>background\background_cali</background>
+      <background>background\background_medellin</background>
+      <background>background\background_cartagena</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -321,6 +339,10 @@
       <object>objects\Building_20</object>
       <object>objects\Building_21</object>
       <object>objects\Building_22</object>
+      <object>objects\Building_23</object>
+      <object>objects\Building_24</object>
+      <object>objects\Building_25</object>
+      <object>objects\Building_26</object>
       <object>objects\Collapse</object>
     </objects>
     <objects name="Control Game">
@@ -356,11 +378,16 @@
         <object>objects\Letrero_pan</object>
         <object>objects\Letrero_cops</object>
         <object>objects\Letrero_flores</object>
+        <object>objects\Letrero_diario</object>
+        <object>objects\Letrero_galan1</object>
+        <object>objects\Letrero_galan2</object>
+        <object>objects\Letrero_escuela</object>
       </objects>
       <object>objects\GameOver</object>
       <object>objects\Rage</object>
       <object>objects\Puntaje</object>
       <object>objects\Bola</object>
+      <object>objects\Avioneta</object>
       <object>objects\Avion</object>
     </objects>
     <objects name="Transition">

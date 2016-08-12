@@ -2,7 +2,6 @@
 var rango = 23;
 
 // If there are not advertisement above the player.
-
 if(!place_meeting(x, y, climbed_building.lt)){
  
     //show_debug_message('distance to top');

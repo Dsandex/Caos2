@@ -57,7 +57,7 @@ create_ad = false;
 alarm[0] = 30; // Create tanks.
 alarm[1] = 30; // Create helicopters.
 alarm[2] = 30; // Create infloor - soldiers.
-alarm[3] = 120;
+//alarm[3] = 120;
 create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
@@ -66,6 +66,16 @@ instance_create(120, 380, Joystick);
 instance_create(600, 395, Button_B);
 instance_create(685, 345, Button_A);
 
+
+// Set background.
+/*if(num_level == 1 or num_level == 7){
+    background_index[0] = background_medellin;
+}else if(num_level == 2 or num_level == 3 or num_level == 5 
+         or num_level == 6 or num_level == 8 or num_level == 10){
+    background_index[0] = background_bogota;
+}else{
+    background_index[0] = background_cartagena;
+}*/
 </string>
           </argument>
         </arguments>
@@ -91,14 +101,28 @@ instance_create(685, 345, Button_A);
             <string>/// Create airplane.
 //var rand = choose(1, 2, 3);
 //if(rand == 2){
-instance_create(
-    room_width + 10, 
-    irandom_range(
-            sprite_get_height(spr_avion),
-            345 - sprite_get_height(spr_avion)
-    ), 
-    Avion
-);
+room_goto_transition(Room_Transicion, 0, 30);
+
+/*if(num_level != 5){
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avioneta),
+                345 - sprite_get_height(spr_avioneta)
+        ), 
+        Avioneta
+    );
+}else{
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avion),
+                345 - sprite_get_height(spr_avion)
+        ), 
+        Avion
+    );      
+}
+
 //}
 </string>
           </argument>
@@ -128,7 +152,7 @@ if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
     var width = sprite_get_width(spr_soldier_walk);
     instance_create(
         choose(-width, room_width + width),
-        385, 
+        412, 
         Soldado_Piso
     );
   //  show_debug_message('crear');
@@ -339,7 +363,7 @@ if( ! audio_is_playing (asset_get_index("sn_soundtrack_" + string(num_level)))){
           <argument>
             <kind>1</kind>
             <string>/// Draw floor.
-draw_sprite_ext(
+/*draw_sprite_ext(
     spr_piso, 
     0, 
     0, 
@@ -349,6 +373,13 @@ draw_sprite_ext(
     0, 
     c_white, 
     1
+);*/
+
+draw_sprite(
+    spr_piso, 
+    0,
+    0, 
+    room_height - sprite_get_height(spr_piso)
 );
 </string>
           </argument>

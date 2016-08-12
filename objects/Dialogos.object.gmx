@@ -25,16 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>txt[0] = "6 de diciembre de 1989";
-txt[1] = "17 de diciembre de 1986";
-txt[2] = "31 de enero de 1993";
-txt[3] = "18 de agosto de 1989";
-txt[4] = "27 de noviembre de 1989";
-txt[5] = "27 de noviembre de 1989";
-txt[6] = "27 de noviembre de 1989";
-txt[7] = "27 de noviembre de 1989";
-txt[8] = "27 de noviembre de 1989";
-txt[10] = "27 de noviembre de 1989";
+            <string>txt[0] = "10 de Marzo de 1988";
+txt[1] = "18 de Agosto de 1989";
+txt[2] = "2 de Septiembre de 1989";
+txt[3] = "25 de Septiembre de 1989";
+txt[4] = "27 de Noviembre de 1989";
+txt[5] = "6 de Diciembre de 1989";
+txt[6] = "25 de Abril de 1990";
+txt[7] = "12 de Mayo de 1990";
+txt[8] = "12 de Mayo de 1990";
+txt[10] = "21 de Mayo de 1990";
 alarm[0] = 60;
 if(num_level == 0){
     audio_sound_gain(sn_soundtrack_intro, 0, 5000);

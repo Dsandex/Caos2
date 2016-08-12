@@ -79,7 +79,8 @@ if(climb){
         // Take women accesor.
         if(take_women) image_speed = .2;
              
-        if(bbox_bottom >= 413){
+        //show_debug_message(bbox_bottom);
+        if(bbox_bottom >= 445){
             climb = false;
         //    show_debug_message('here 85'); 
             climbed_building = noone;
