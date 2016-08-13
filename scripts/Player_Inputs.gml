@@ -10,8 +10,10 @@ if(argument[0] == "windows"){
 }
 key_attack = keyboard_check_pressed(ord('X'));
 
-if(bbox_left < 5){
-    x = 5 + sprite_get_width(sprite_index)/2;
-}else if(bbox_right > room_width - 5){
-    x = room_width - 5 - sprite_get_width(sprite_index)/2;
+if(limits){
+    if(bbox_left < 5){
+        x = 5 + sprite_get_width(sprite_index)/2;
+    }else if(bbox_right > room_width - 5){
+        x = room_width - 5 - sprite_get_width(sprite_index)/2;
+    }
 }

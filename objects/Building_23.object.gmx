@@ -3,7 +3,7 @@
   <spriteName>spr_building_23</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>5</depth>
   <persistent>0</persistent>
   <parentName>Edificio</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>/// Create advertising.
 event_inherited();
-lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_diario)/2, Letrero_diario);
-with lt depth = 3;
+if(room != game3){
+    lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_diario)/2, Letrero_diario);
+    with lt depth = 3;
+}
 </string>
           </argument>
         </arguments>

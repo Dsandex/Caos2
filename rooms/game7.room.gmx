@@ -53,7 +53,13 @@
   <instances>
     <instance objName="Floor" x="0" y="454" name="inst_A4DF0A1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Control_World" x="27" y="28" name="inst_F5337678" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Player" x="369" y="406" name="inst_15BDACFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Player" x="800" y="200" name="inst_15BDACFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_28" x="301" y="433" name="inst_D305D3BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_7" x="100" y="433" name="inst_4A9FADD0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_19" x="595" y="433" name="inst_ADE49C3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_12" x="483" y="433" name="inst_5B34DD6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_9" x="203" y="433" name="inst_18959F3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_11" x="457" y="433" name="inst_D3DB941C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

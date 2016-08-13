@@ -27,8 +27,10 @@
             <kind>1</kind>
             <string>/// Create advertising.
 event_inherited();
-lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_comercial)/2, Letrero_comercial);
-with lt depth = 3;
+if(room != game9){
+    lt = instance_create(x+sprite_width/2, y - sprite_height - sprite_get_height(spr_letrero_comercial)/2, Letrero_comercial);
+    with lt depth = 3;
+}
 </string>
           </argument>
         </arguments>

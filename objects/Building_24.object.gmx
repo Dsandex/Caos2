@@ -3,9 +3,9 @@
   <spriteName>spr_building_24</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>Edificio</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events/>
   <PhysicsObject>0</PhysicsObject>

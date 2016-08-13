@@ -20,12 +20,30 @@ if(place_meeting(x, y+vsp, Floor)){
     hsp = 0;
     grounded = true;
     if(!lose){
+    
+        // Create screen shake and restart some variables.
         lose = true;
         var s = instance_create(0,0,Screen_Shake);
         num_level--;
         vida_global = 100;
-        with (s) { alarm[0] = 25; };
-        room_goto_transition(Room_Transicion, 0, 180);
+        with (s) { alarm[0] = 25; }
+        
+        // Decrease chance variable. (3 chances per level).
+        chances--;
+        if(chances >= 0){
+            room_goto_transition(Room_Transicion, 0, 180);
+        }else{
+            room_goto_transition(Room_Menu, 0, 180);
+        }
+        
+        // Change best score file if necessary.
+        if(puntaje_global > best_score){
+            best_score = puntaje_global;
+            file_delete(working_directory + "puntaje.sav");
+            ini_open(working_directory + "puntaje.sav");
+            ini_write_real("puntaje", "pass", best_score);
+            ini_close();
+        }             
     } 
 }
 

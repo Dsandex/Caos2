@@ -3,7 +3,7 @@
   <spriteName>spr_soldier_walk</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-2</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>Persona</parentName>
   <maskName>&lt;undefined&gt;</maskName>

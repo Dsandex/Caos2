@@ -15,9 +15,11 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
         eating = false;
         retard = retard_value;
         //show_debug_message(poder_ate);
-        if(poder_ate == "billetes" and humor == "normal"){ 
+        if(poder_ate == "billetes" and humor == "normal" and num_level >= 3){ 
            // show_debug_message("ANGRRRYY");
             angry = 100;
+            poder_ate = "";
+        }else{
             poder_ate = "";
         }
         exit;

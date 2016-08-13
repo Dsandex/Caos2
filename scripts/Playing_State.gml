@@ -1,5 +1,6 @@
 // Move the player.
 Player_Inputs("");
+//show_debug_message(y);
 
 // show_debug_message(take_women);
 if(climb){
@@ -79,7 +80,7 @@ if(climb){
         // Take women accesor.
         if(take_women) image_speed = .2;
              
-        //show_debug_message(bbox_bottom);
+     //   show_debug_message(y);
         if(bbox_bottom >= 445){
             climb = false;
         //    show_debug_message('here 85'); 
@@ -242,6 +243,7 @@ if(climb){
             }
             vsp = 0;
             if(!grounded) Play_Track("air_punch");
+            if(!limits) limits = true;
             grounded = true;
     }
     

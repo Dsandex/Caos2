@@ -15,7 +15,7 @@ with(argument[0]){
             sprite_get_height(spr_helicopter_perfil),
             345 - sprite_get_height(spr_helicopter_perfil)
         );
-        depth = -2;
+        depth = -4;
     }else{
         y = irandom_range(50, 180);
         sprite_index = spr_helicopter_back;

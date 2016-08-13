@@ -3,7 +3,7 @@
   <spriteName>spr_tank_idle</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-2</depth>
+  <depth>-3</depth>
   <persistent>0</persistent>
   <parentName>Enemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>

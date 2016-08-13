@@ -31,6 +31,7 @@ is_ready = false; // Fisures has covered all the building.
 escombros_id = noone;
 yy = sprite_height;
 lt = noone; // Letrero.
+lt2 = noone; // Letreros galan.
 shake = noone;
 color = c_white;
 yy2 = y;
@@ -191,6 +192,7 @@ if(is_ready){
 
     // Destroy the advertising if defined.
     if(lt != noone) with lt instance_destroy();
+    if(lt2 != noone) with lt2 instance_destroy();
     if(!instance_exists(Screen_Shake)) instance_create(0,0,Screen_Shake);
     
     // Destroy the building.

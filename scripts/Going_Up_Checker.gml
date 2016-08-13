@@ -2,8 +2,9 @@
 var rango = 23;
 
 // If there are not advertisement above the player.
-if(!place_meeting(x, y, climbed_building.lt)){
- 
+if(!place_meeting(x, y, Letrero_Up)){
+   // show_debug_message(object_get_parent(climbed_building.lt)); 
+
     //show_debug_message('distance to top');
    // show_debug_message(point_distance(Player.x, Player.y+20, climbed_building.bbox_left, climbed_building.y - sprite_get_height(climbed_building.sprite_index)));            
     if(image_xscale == 1){

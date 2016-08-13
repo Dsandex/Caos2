@@ -35,6 +35,7 @@ if(grounded or climbed_building){
                     climb = true;
                     grounded = false;
                     x = climbed_building.bbox_left - 21;
+                    if(grounded) y = 390;
                     return true;
                 }
             }            
@@ -58,6 +59,7 @@ if(grounded or climbed_building){
                     climbed_building = building;
                     climb = true;
                     grounded = false;
+                    if(grounded) y = 390;
                     x = climbed_building.bbox_right + 21;
                     return true; 
                  }

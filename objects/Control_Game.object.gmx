@@ -29,12 +29,20 @@
 if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
-              sound_retard, current_song;
+              sound_retard, current_song, chances, best_score;
               
+    chances = 2;          
     current_song = 0;
     sound_retard = 0;
     vida_global = 100;
     puntaje_global = 0;
+    
+    // Load data.
+    if(file_exists(working_directory + "puntaje.sav")){
+        ini_open(working_directory + "puntaje.sav");
+        best_score = ini_read_real("puntaje", "pass", 0);
+        ini_close();
+    }
     
     
     xx_damage = 0;
@@ -84,14 +92,20 @@ HECHAS:
 - Las personas salgan de las ventanas.
 - Bajar a la mujer. 
 - Mujer corriendo. 
-
+- Can_Climb bug.
+- Current_Sprite.
+- Arreglar Going_Up_Checker();
+- Arreglar Collapse.
+- Rage (nivel 3).
 
     - FALTANTES. -
       
-      - Can_Climb bug.
-      - Current_Sprite.
+      - Revisar bugs de Climb();
+      - Win and Lose!
+      
+      
 
-*
+*/
 </string>
           </argument>
         </arguments>
@@ -230,6 +244,8 @@ if(room == Room_Menu){
 
 
 if(room == Room_Select){
+
+    
   /*  draw_set_color(make_color_rgb(18, 163, 218));
     draw_rectangle(
         168, 
@@ -280,13 +296,20 @@ if(room == Room_Select){
     draw_text(204 + 128/2, 365, select);
     draw_set_halign(noone);
     
+    if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new), New);
+
     // Draw second character.
     if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 and mouse_y &lt; 210 + 144){
-        draw_set_font(font_arial_15);
-        draw_sprite(spr_character_2, 1, 440, 210);
-        if(mouse_check_button_released(mb_left)){
-            Play_Track("press_start");
-            room_goto_transition(Room_Transicion, 0, 45);
+        if(num_level == 4){ // Select new character nivel 5.
+            draw_set_font(font_arial_15);
+            draw_sprite(spr_character_2, 1, 440, 210);
+            if(mouse_check_button_released(mb_left)){
+                Play_Track("press_start");
+                room_goto_transition(Room_Transicion, 0, 45);
+            }
+        }else{
+            draw_set_font(font_arial_12);
+            draw_sprite(spr_character_2, 2, 440, 210);
         }
     }else{
         draw_set_font(font_arial_12);

@@ -53,12 +53,12 @@
   <instances>
     <instance objName="Floor" x="0" y="454" name="inst_A4DF0A1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Control_World" x="27" y="28" name="inst_F5337678" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Player" x="369" y="406" name="inst_15BDACFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Player" x="800" y="200" name="inst_15BDACFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_14" x="311" y="433" name="inst_8E9F906D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_15" x="76" y="433" name="inst_05C0F2DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_15" x="575" y="433" name="inst_05C0F2DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_10" x="149" y="433" name="inst_B51645ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_13" x="487" y="433" name="inst_47988474" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_9" x="567" y="433" name="inst_B0CD9AE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_9" x="91" y="433" name="inst_B0CD9AE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_23" x="498" y="433" name="inst_2040DBB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

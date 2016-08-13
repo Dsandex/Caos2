@@ -27,12 +27,13 @@
             <kind>1</kind>
             <string>/// Create advertising.
 event_inherited();
-lt = instance_create(
+/*lt = instance_create(
     x - sprite_get_width(spr_letrero_lev)/2,
     y - sprite_height + 40, 
     Letrero_lev
 );
-with lt depth = 7;
+with lt depth = 7;*/
+if(num_level == 2) lt2 = instance_create(155, 159, Letrero_galan1);
 </string>
           </argument>
         </arguments>

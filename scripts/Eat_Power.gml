@@ -11,7 +11,7 @@ with(eat_person_id){
        break;
        case 2: // Billetes.
            poder_ate = "billetes";
-           show_debug_message("BILLETES");
+         //  show_debug_message("BILLETES");
            Get_Score(x,y,50,false);
            Get_Score(x,y+10,6,true);
        break;

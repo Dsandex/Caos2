@@ -82,6 +82,7 @@
         <sprite>sprites\spr_tank_idle</sprite>
         <sprite>sprites\spr_tank_attack</sprite>
       </sprites>
+      <sprite>sprites\spr_destruction2</sprite>
     </sprites>
     <sprites name="Letreros">
       <sprite>sprites\spr_letrero_pp</sprite>
@@ -104,6 +105,7 @@
       <sprite>sprites\spr_letrero_galan1</sprite>
       <sprite>sprites\spr_letrero_galan2</sprite>
       <sprite>sprites\spr_letrero_escuela</sprite>
+      <sprite>sprites\spr_letrero_hotel</sprite>
     </sprites>
     <sprites name="Buildings">
       <sprite>sprites\spr_building_1</sprite>
@@ -132,11 +134,17 @@
       <sprite>sprites\spr_building_24</sprite>
       <sprite>sprites\spr_building_25</sprite>
       <sprite>sprites\spr_building_26</sprite>
+      <sprite>sprites\spr_building_27</sprite>
+      <sprite>sprites\spr_building_28</sprite>
+      <sprite>sprites\spr_building_29</sprite>
+      <sprite>sprites\spr_building_30</sprite>
+      <sprite>sprites\spr_building_31</sprite>
       <sprite>sprites\spr_building_damage</sprite>
       <sprite>sprites\spr_ventana</sprite>
       <sprite>sprites\spr_collapse</sprite>
       <sprite>sprites\spr_piso</sprite>
       <sprite>sprites\spr_piso2</sprite>
+      <sprite>sprites\sprite131</sprite>
     </sprites>
     <sprites name="Joystick">
       <sprite>sprites\spr_joystick</sprite>
@@ -206,6 +214,7 @@
       <sprite>sprites\spr_baius</sprite>
       <sprite>sprites\spr_digital</sprite>
       <sprite>sprites\spr_creditos</sprite>
+      <sprite>sprites\spr_new</sprite>
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
@@ -313,6 +322,7 @@
     <font>fonts\font_game_14</font>
     <font>fonts\font_game_10</font>
     <font>fonts\font_menu</font>
+    <font>fonts\font_04b11_20</font>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -343,6 +353,11 @@
       <object>objects\Building_24</object>
       <object>objects\Building_25</object>
       <object>objects\Building_26</object>
+      <object>objects\Building_27</object>
+      <object>objects\Building_28</object>
+      <object>objects\Building_29</object>
+      <object>objects\Building_30</object>
+      <object>objects\Building_31</object>
       <object>objects\Collapse</object>
     </objects>
     <objects name="Control Game">
@@ -351,6 +366,7 @@
       <object>objects\Change_Soundtrack</object>
       <object>objects\Creditos</object>
       <object>objects\Dialogos</object>
+      <object>objects\Score</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -382,6 +398,7 @@
         <object>objects\Letrero_galan1</object>
         <object>objects\Letrero_galan2</object>
         <object>objects\Letrero_escuela</object>
+        <object>objects\Letrero_hotel</object>
       </objects>
       <object>objects\GameOver</object>
       <object>objects\Rage</object>
@@ -403,6 +420,7 @@
       <object>objects\ostart</object>
       <object>objects\Baius</object>
       <object>objects\Digital</object>
+      <object>objects\New</object>
     </objects>
     <objects name="Enemies">
       <object>objects\Enemy</object>

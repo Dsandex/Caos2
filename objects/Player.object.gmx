@@ -3,7 +3,7 @@
   <spriteName>spr_player_ground_normal_walk</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>-2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -88,7 +88,7 @@ offset_y = 40;
 bar_width = sprite_get_width(spr_barra_vida); //  100;
 bar_height = sprite_get_height(spr_barra_vida); // 20
 join_text_time = 20;
-
+    
 // Declare controls.
 key_up = 0;
 key_left = 0;
@@ -97,7 +97,13 @@ key_jump = 0;
 key_attack = 0;
 key_down = 0;
 
-
+// Jump.
+grounded = false;
+hsp = 5 * image_xscale * -1;
+vsp = -jumpspeed;
+var asset = asset_get_index("spr_player_jump_" + humor + "_idle");
+Current_Sprite(asset, 0, irandom_range(0,2));
+limits = false;
 </string>
           </argument>
         </arguments>
@@ -126,7 +132,8 @@ script_execute(state);
 x += hsp;
 y += vsp;
 
-
+/*show_debug_message(x);
+show_debug_message(y);
 </string>
           </argument>
         </arguments>

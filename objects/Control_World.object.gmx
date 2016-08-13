@@ -57,7 +57,7 @@ create_ad = false;
 alarm[0] = 30; // Create tanks.
 alarm[1] = 30; // Create helicopters.
 alarm[2] = 30; // Create infloor - soldiers.
-//alarm[3] = 120;
+alarm[4] = 120;
 create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
@@ -76,6 +76,69 @@ instance_create(685, 345, Button_A);
 }else{
     background_index[0] = background_cartagena;
 }*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create airplane.
+if(num_level == 5){
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avion),
+                180 - sprite_get_height(spr_avion)
+        ), 
+        Avion
+    );  
+}else{
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avioneta),
+                180 - sprite_get_height(spr_avioneta)
+        ), 
+        Avioneta
+    );
+}
+
+
+/*if(num_level != 5){
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avioneta),
+                345 - sprite_get_height(spr_avioneta)
+        ), 
+        Avioneta
+    );
+}else{
+    instance_create(
+        room_width + 10, 
+        irandom_range(
+                sprite_get_height(spr_avion),
+                345 - sprite_get_height(spr_avion)
+        ), 
+        Avion
+    );      
+}
 </string>
           </argument>
         </arguments>
@@ -101,8 +164,9 @@ instance_create(685, 345, Button_A);
             <string>/// Create airplane.
 //var rand = choose(1, 2, 3);
 //if(rand == 2){
-room_goto_transition(Room_Transicion, 0, 30);
-
+if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
+else room_goto_transition(Room_Select, 0, 30);
+chances = 2;
 /*if(num_level != 5){
     instance_create(
         room_width + 10, 
@@ -212,26 +276,26 @@ if (num_level == 1 or num_level == 2 or num_level == 4 or num_level == 9){
             <kind>1</kind>
             <string>/// Create Tanks.
 if (num_level == 4 or num_level &gt;= 6){
-if (num_level != 9){
-if(!create_tanks) exit;
-alarm[0] = 30 * 5;
-if(instance_number(Tank) &gt; 0) exit;
-var width = sprite_get_width(spr_tank_idle);
-
-if(Player.x &lt; room_width/2){
-    var tank = instance_create(room_width + width, 413-54/2, Tank);
-}else{
-    var tank = instance_create(-width, 413-54/2, Tank); 
-}
-with(tank){
-    if(x &lt;= -width){
-        spd = 2;
-    }else if(x &gt;= room_width + width){
-        spd = -2;
-        image_xscale = -1;
+    if(num_level != 9){
+        if(!create_tanks) exit;
+        alarm[0] = 30 * 5;
+        if(instance_number(Tank) &gt; 0) exit;
+        var width = sprite_get_width(spr_tank_idle);
+        
+        if(Player.x &lt; room_width/2){
+            var tank = instance_create(room_width + width, 430, Tank);
+        }else{
+            var tank = instance_create(-width, 430, Tank); 
+        }
+        with(tank){
+            if(x &lt;= -width){
+                spd = 2;
+            }else if(x &gt;= room_width + width){
+                spd = -2;
+                image_xscale = -1;
+            }
+        }
     }
-}
-}
 }
 </string>
           </argument>
@@ -256,9 +320,21 @@ with(tank){
           <argument>
             <kind>1</kind>
             <string>/// Check if the player completed the level.
-if(instance_number(Edificio) == 0 and !termina_nivel){
+if(instance_number(Edificio) == 0 and !termina_nivel and !lose){
     alarm[3] = 90;
     termina_nivel = true;
+    
+    // Change best score file.
+    if(puntaje_global &gt; best_score){
+        best_score = puntaje_global;
+        file_delete(working_directory + "puntaje.sav");
+        ini_open(working_directory + "puntaje.sav");
+        ini_write_real("puntaje", "pass", best_score);
+        ini_close();
+    }
+    
+    // Coronaste!
+    
 }
 </string>
           </argument>
@@ -379,7 +455,8 @@ draw_sprite(
     spr_piso, 
     0,
     0, 
-    room_height - sprite_get_height(spr_piso)
+    433
+   // room_height - sprite_get_height(spr_piso)
 );
 </string>
           </argument>
@@ -457,6 +534,29 @@ if(!create_tanks){
             <string>num_level --;
 room_restart();
 vida_global = 100;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="78">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto_next();
 </string>
           </argument>
         </arguments>
