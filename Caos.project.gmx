@@ -156,6 +156,8 @@
       <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_rage</sprite>
       <sprite>sprites\spr_barra_vida</sprite>
+      <sprite>sprites\spr_coronaste</sprite>
+      <sprite>sprites\spr_perdiste</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -313,6 +315,7 @@
         <script>scripts\Helicopter_Change.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\draw_text_outlined.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font_game_13</font>
@@ -323,6 +326,7 @@
     <font>fonts\font_game_10</font>
     <font>fonts\font_menu</font>
     <font>fonts\font_04b11_20</font>
+    <font>fonts\font_04b11_30</font>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -406,6 +410,7 @@
       <object>objects\Bola</object>
       <object>objects\Avioneta</object>
       <object>objects\Avion</object>
+      <object>objects\Coronaste</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>

@@ -36,6 +36,7 @@ if(room == Room_Digital){
     sound_retard = 0;
     vida_global = 100;
     puntaje_global = 0;
+    best_score = 0;
     
     // Load data.
     if(file_exists(working_directory + "puntaje.sav")){
@@ -97,11 +98,19 @@ HECHAS:
 - Arreglar Going_Up_Checker();
 - Arreglar Collapse.
 - Rage (nivel 3).
+- Win and Lose!
 
     - FALTANTES. -
       
       - Revisar bugs de Climb();
-      - Win and Lose!
+      - Poner a gacha.
+      - Setear dificultad niveles.
+      - Probar en Android.
+      - Poner ventanas.
+      
+      - Helicopteros Sonido.
+      
+      - Musica.
       
       
 

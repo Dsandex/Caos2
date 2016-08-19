@@ -161,7 +161,7 @@ if(num_level == 5){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Create airplane.
+            <string>/// Room goto Room_Transicion
 //var rand = choose(1, 2, 3);
 //if(rand == 2){
 if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
@@ -320,21 +320,15 @@ if (num_level == 4 or num_level &gt;= 6){
           <argument>
             <kind>1</kind>
             <string>/// Check if the player completed the level.
-if(instance_number(Edificio) == 0 and !termina_nivel and !lose){
+if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_State){
+
+    // Go to next room.
     alarm[3] = 90;
     termina_nivel = true;
     
-    // Change best score file.
-    if(puntaje_global &gt; best_score){
-        best_score = puntaje_global;
-        file_delete(working_directory + "puntaje.sav");
-        ini_open(working_directory + "puntaje.sav");
-        ini_write_real("puntaje", "pass", best_score);
-        ini_close();
-    }
-    
     // Coronaste!
-    
+    instance_create(room_width/2, room_height/2 - 30, Coronaste);
+    with Player draw_score = true;
 }
 </string>
           </argument>
@@ -391,7 +385,7 @@ if( ! audio_is_playing (asset_get_index("sn_soundtrack_" + string(num_level)))){
     var asset = asset_get_index("sn_soundtrack_" + string(num_level));
     audio_play_sound(asset, 0, 1);
     audio_sound_gain(asset, 0, 1);
-    audio_sound_gain(asset, 1, 5000);
+    audio_sound_gain(asset, 1, 3000);
 }
 </string>
           </argument>
@@ -481,6 +475,29 @@ draw_sprite(
           <argument>
             <kind>1</kind>
             <string>with Edificio instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="85">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>with Player vida = 0;
 </string>
           </argument>
         </arguments>

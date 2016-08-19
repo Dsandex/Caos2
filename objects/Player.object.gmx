@@ -104,6 +104,39 @@ vsp = -jumpspeed;
 var asset = asset_get_index("spr_player_jump_" + humor + "_idle");
 Current_Sprite(asset, 0, irandom_range(0,2));
 limits = false;
+
+// Draw score in middle.
+draw_score = false;
+score_var = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Room_goto Room Transition (Player dead).
+chances--;
+if(chances &gt;= 0){
+    room_goto_transition(Room_Transicion, 0, 30);
+}else{
+    room_goto_transition(Room_Menu, 0, 30);
+}
 </string>
           </argument>
         </arguments>
@@ -156,9 +189,18 @@ show_debug_message(y);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Get global life and score.
+            <string>/// Save vida and puntaje global.
 if(!lose) vida_global = vida;
-player_score = puntaje_global;
+puntaje_global = player_score;
+
+// Change best score file.
+if(puntaje_global &gt; best_score){
+     best_score = puntaje_global;
+     file_delete(working_directory + "puntaje.sav");
+     ini_open(working_directory + "puntaje.sav");
+     ini_write_real("puntaje", "pass", best_score);
+     ini_close();
+}
 </string>
           </argument>
         </arguments>
@@ -236,14 +278,32 @@ draw_set_font(font_game_13);
         // Draw word "damage"
         draw_set_color(c_black);
         draw_set_font(font_game_13);
-        draw_text(offset_x + 10, offset_y + 8, "DAMAGE");
+        draw_text_outlined(
+            offset_x + 10, 
+            offset_y + 8, 
+            "DAMAGE", 
+            c_white, 
+            c_black,
+            2
+        );
         
         // Draw Score.
         draw_set_color(make_colour_rgb(0, 254, 255));
-        draw_text(
+        draw_text_outlined(
+            offset_x+3, 
+            offset_y - string_height("SCORE:"), 
+            "SCORE:",
+            make_color_rgb(0, 254, 255),
+            c_black, 
+            2
+        );
+        draw_text_outlined(
             offset_x + bar_width - string_width(score_1), 
             offset_y - string_height(score_1), 
-            score_1
+            score_1, 
+            make_colour_rgb(0, 254, 255), 
+            c_black, 
+            2
         );
         
         // Draw rage bar.
@@ -268,7 +328,15 @@ draw_set_font(font_game_13);
         // Draw word "damage"
         draw_set_color(c_black);
         draw_set_font(font_game_10);
-        draw_text(offset_x + 10, offset_y + 8 + sprite_get_height(spr_barra_vida), "RAGE");
+        draw_text_outlined(
+            offset_x + 10, 
+            offset_y + 8 + sprite_get_height(spr_barra_vida), 
+            "RAGE", 
+            make_color_rgb(215,0, 46), 
+            c_black, 
+            2
+            
+        );
         
         
         
@@ -371,6 +439,40 @@ if(take_women){
     }
 }
 
+// Draw score in the middle.
+if(draw_score){
+
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_center);  
+    draw_set_font(font_04b11_30); 
+    var color_bk = make_color_rgb(51, 51, 102);
+    
+    // Perdiste.
+    if(state == Lose_State){
+        var color_cl = make_color_rgb(51, 255, 255);
+        var color_os = make_color_rgb(0, 204, 153);
+         
+    // Coronaste.
+    }else{
+        var color_cl = make_color_rgb(51, 204, 255);
+        var color_os = make_color_rgb(51,102,153); 
+    }
+    
+    if(score_var &lt;= 4){
+        score_var++;
+        var scores = string(player_score);
+        draw_text_outlined(room_width/2, room_height/2 + 35, scores, color_cl, color_bk, 3);
+        
+     }else{
+        score_var++;
+        if(score_var &gt;= 10){
+            score_var = 0;
+        }
+    }
+
+    draw_set_halign(noone);
+    draw_set_valign(noone);   
+}
 
 // Draw the player.
 draw_self();

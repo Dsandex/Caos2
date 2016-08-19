@@ -21,6 +21,7 @@ if(place_meeting(x, y+vsp, Floor)){
     grounded = true;
     if(!lose){
     
+    
         // Create screen shake and restart some variables.
         lose = true;
         var s = instance_create(0,0,Screen_Shake);
@@ -28,13 +29,11 @@ if(place_meeting(x, y+vsp, Floor)){
         vida_global = 100;
         with (s) { alarm[0] = 25; }
         
+        // Draw score.
+        draw_score = true;
+        
         // Decrease chance variable. (3 chances per level).
-        chances--;
-        if(chances >= 0){
-            room_goto_transition(Room_Transicion, 0, 180);
-        }else{
-            room_goto_transition(Room_Menu, 0, 180);
-        }
+        alarm[0] = 90;
         
         // Change best score file if necessary.
         if(puntaje_global > best_score){
@@ -48,4 +47,4 @@ if(place_meeting(x, y+vsp, Floor)){
 }
 
 Current_Sprite(spr_player_dead, 0, 0, retard_value);
-if(!instance_exists(GameOver)) instance_create(room_width/2, room_height/2, GameOver);
+if(!instance_exists(GameOver)) instance_create(room_width/2, room_height/2 - 30, GameOver);
