@@ -209,6 +209,55 @@
           <sprite>sprites\spr_player_dead</sprite>
         </sprites>
       </sprites>
+      <sprites name="Gacha">
+        <sprites name="Climb">
+          <sprites name="Normal">
+            <sprite>sprites\spr_player2_climb_normal_eat</sprite>
+            <sprite>sprites\spr_player2_climb_normal_idle</sprite>
+            <sprite>sprites\spr_player2_climb_normal_attack</sprite>
+            <sprite>sprites\spr_player2_climb_normal_up</sprite>
+            <sprite>sprites\spr_player2_climb_normal_women</sprite>
+          </sprites>
+          <sprites name="Angry">
+            <sprite>sprites\spr_player2_climb_angry_eat</sprite>
+            <sprite>sprites\spr_player2_climb_angry_idle</sprite>
+            <sprite>sprites\spr_player2_climb_angry_attack</sprite>
+            <sprite>sprites\spr_player2_climb_angry_up</sprite>
+            <sprite>sprites\spr_player2_climb_angry_women</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="Ground">
+          <sprites name="Normal">
+            <sprite>sprites\spr_player2_ground_normal_walk</sprite>
+            <sprite>sprites\spr_player2_ground_normal_idle</sprite>
+            <sprite>sprites\spr_player2_ground_normal_eat_up</sprite>
+            <sprite>sprites\spr_player2_ground_normal_eat_down</sprite>
+            <sprite>sprites\spr_player2_ground_normal_attack</sprite>
+          </sprites>
+          <sprites name="Angry">
+            <sprite>sprites\spr_player2_ground_angry_walk</sprite>
+            <sprite>sprites\spr_player2_ground_angry_idle</sprite>
+            <sprite>sprites\spr_player2_ground_angry_eat_up</sprite>
+            <sprite>sprites\spr_player2_ground_eat_down</sprite>
+            <sprite>sprites\spr_player2_ground_angry_attack</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="Jump">
+          <sprites name="Normal">
+            <sprite>sprites\spr_player2_jump_normal_attack</sprite>
+            <sprite>sprites\spr_player2_jump_normal_idle</sprite>
+            <sprite>sprites\spr_player2_jump_normal_damage</sprite>
+          </sprites>
+          <sprites name="Angry">
+            <sprite>sprites\spr_player2_jump_angry_attack</sprite>
+            <sprite>sprites\spr_player2_jump_angry_idle</sprite>
+            <sprite>sprites\spr_player2_jump_angry_damage</sprite>
+          </sprites>
+        </sprites>
+        <sprites name="Dead">
+          <sprite>sprites\spr_player2_dead</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Menu">
       <sprite>sprites\spr_character_1</sprite>
