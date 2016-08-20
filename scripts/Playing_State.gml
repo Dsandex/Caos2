@@ -1,5 +1,5 @@
 // Move the player.
-Player_Inputs("");
+Player_Inputs("windows");
 //show_debug_message(y);
 
 // show_debug_message(take_women);
