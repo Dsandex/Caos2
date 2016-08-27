@@ -46,5 +46,5 @@ if(place_meeting(x, y+vsp, Floor)){
     } 
 }
 
-Current_Sprite(spr_player_dead, 0, 0, retard_value);
+Current_Sprite(asset_get_index("spr_player" + jugador + "_dead"), 0, 0, retard_value);
 if(!instance_exists(GameOver)) instance_create(room_width/2, room_height/2 - 30, GameOver);

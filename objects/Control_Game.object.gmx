@@ -29,8 +29,10 @@
 if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
-              sound_retard, current_song, chances, best_score;
-              
+              sound_retard, current_song, chances, best_score, 
+              jugador;
+    
+    jugador = "";
     chances = 2;          
     current_song = 0;
     sound_retard = 0;
@@ -102,16 +104,10 @@ HECHAS:
 
     - FALTANTES. -
       
-      - Revisar bugs de Climb();
-      - Poner a gacha.
-      - Setear dificultad niveles.
-      - Probar en Android.
-      - Poner ventanas.
-      
       - Helicopteros Sonido.
-      
+      - Efectos de Sonido.
       - Musica.
-      
+      - Arreglar Gacha.
       
 
 */
@@ -290,6 +286,7 @@ if(room == Room_Select){
         draw_set_font(font_arial_15);
         draw_sprite(spr_character_1, 1, 204, 210);
         if(mouse_check_button_released(mb_left)){
+            jugador = "";
             Play_Track("press_start");
             room_goto_transition(Room_Transicion, 0, 45);
         }
@@ -313,6 +310,7 @@ if(room == Room_Select){
             draw_set_font(font_arial_15);
             draw_sprite(spr_character_2, 1, 440, 210);
             if(mouse_check_button_released(mb_left)){
+                jugador = "2";
                 Play_Track("press_start");
                 room_goto_transition(Room_Transicion, 0, 45);
             }

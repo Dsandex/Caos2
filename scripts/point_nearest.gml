@@ -1,4 +1,4 @@
-/// point_nearest(obj);
+ /// point_nearest(obj);
 obj = argument[0];
 var lista= ds_list_create();
 if(Player.image_xscale == 1) lista = instance_nearest_list(x + bbox_left, y, obj);

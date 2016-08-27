@@ -4,7 +4,7 @@ var yy = argument[1];
 
 // Destroy enemy.
 //show_debug_message("???")
-if(collision_circle(xx, yy, 15, Enemy, 1, 1)){
+if(collision_circle(xx, yy, 15, Enemy, 1, 1)){ // 15
 
     // Get enemy id.
     var enemy = instance_nearest(xx, yy, Enemy);

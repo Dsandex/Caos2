@@ -39,11 +39,11 @@ if(humor == "normal"){
         y = y_change;
         image_xscale = scale_change;
         if(grounded or (climbed_building != noone and !climb)){
-            var asset = asset_get_index("spr_player_ground_" + humor + "_idle");
+            var asset = asset_get_index("spr_player" + jugador + "_ground_" + humor + "_idle");
             sprite_index = asset;
             image_index = 0;
         }else if(climb){
-            var asset = asset_get_index("spr_player_climb_" + humor + "_up");
+            var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_up");
             sprite_index = asset;
             image_index = 3;
         }

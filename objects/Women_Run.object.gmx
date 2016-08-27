@@ -60,7 +60,7 @@ vspeed = 4
           <argument>
             <kind>1</kind>
             <string>if (!suelo){
-    if (y&gt;=406){
+    if (y&gt;=415){
         sprite_index = spr_women_run;
         vspeed = 0;
         hspeed = choose(-3, 3);

@@ -23,7 +23,11 @@ if(grounded or climbed_building){
 
                    if(grounded){
                        var second_building = Search_Building(building);
-                    //   with building color = c_blue;
+                    
+                       with Edificio color = c_white;
+                       with second_building color = c_red;
+                       with building color = c_blue;
+                       
                        if(position_meeting(building.bbox_left - 1, building.y - 10, second_building)){
                         //  Create_Debug(building.bbox_left - 1, building.y-10);
                           if(building.depth > second_building.depth) exit;
@@ -48,7 +52,9 @@ if(grounded or climbed_building){
  
                  if(grounded){
                      var second_building = Search_Building(building);
-                     //with building color = c_blue;
+                     with Edificio color = c_white;
+                     with second_building color = c_red;
+                       with building color = c_blue;
                      if(position_meeting(building.bbox_right, building.y - 10, second_building)){
                      //   Create_Debug(building.bbox_right, building.y - 10);
                         if(building.depth > second_building.depth) exit;

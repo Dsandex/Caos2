@@ -10,7 +10,7 @@ if(retard > 0){
     }    
 }
 
-if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
+if(sprite_index == asset_get_index("spr_player" + jugador + "_climb_" + humor + "_eat")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
@@ -24,7 +24,7 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
         }
         exit;
     }
-}else if(sprite_index == asset_get_index("spr_player_ground_" + humor + "_eat_up")){
+}else if(sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_eat_up")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
@@ -36,7 +36,7 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
         }
         exit;
     }
-}else if(sprite_index == asset_get_index("spr_player_ground_" + humor + "_eat_down")){
+}else if(sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_eat_down")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
@@ -51,7 +51,7 @@ if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_eat")){
     }
 }
 
-if(sprite_index == asset_get_index("spr_player_jump_" + humor + "_damage")){
+if(sprite_index == asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage")){
     if(!grounded) exit;
 }
 

@@ -163,9 +163,9 @@
       <sprites name="Pablo Escobar">
         <sprites name="Climb">
           <sprites name="Normal">
+            <sprite>sprites\spr_player_climb_normal_attack</sprite>
             <sprite>sprites\spr_player_climb_normal_eat</sprite>
             <sprite>sprites\spr_player_climb_normal_idle</sprite>
-            <sprite>sprites\spr_player_climb_normal_attack</sprite>
             <sprite>sprites\spr_player_climb_normal_up</sprite>
             <sprite>sprites\spr_player_climb_normal_women</sprite>
           </sprites>
@@ -212,17 +212,17 @@
       <sprites name="Gacha">
         <sprites name="Climb">
           <sprites name="Normal">
-            <sprite>sprites\spr_player2_climb_normal_eat</sprite>
-            <sprite>sprites\spr_player2_climb_normal_idle</sprite>
             <sprite>sprites\spr_player2_climb_normal_attack</sprite>
+            <sprite>sprites\spr_player2_climb_normal_eat</sprite>
             <sprite>sprites\spr_player2_climb_normal_up</sprite>
+            <sprite>sprites\spr_player2_climb_normal_idle</sprite>
             <sprite>sprites\spr_player2_climb_normal_women</sprite>
           </sprites>
           <sprites name="Angry">
-            <sprite>sprites\spr_player2_climb_angry_eat</sprite>
-            <sprite>sprites\spr_player2_climb_angry_idle</sprite>
             <sprite>sprites\spr_player2_climb_angry_attack</sprite>
+            <sprite>sprites\spr_player2_climb_angry_eat</sprite>
             <sprite>sprites\spr_player2_climb_angry_up</sprite>
+            <sprite>sprites\spr_player2_climb_angry_idle</sprite>
             <sprite>sprites\spr_player2_climb_angry_women</sprite>
           </sprites>
         </sprites>
@@ -238,7 +238,7 @@
             <sprite>sprites\spr_player2_ground_angry_walk</sprite>
             <sprite>sprites\spr_player2_ground_angry_idle</sprite>
             <sprite>sprites\spr_player2_ground_angry_eat_up</sprite>
-            <sprite>sprites\spr_player2_ground_eat_down</sprite>
+            <sprite>sprites\spr_player2_ground_angry_eat_down</sprite>
             <sprite>sprites\spr_player2_ground_angry_attack</sprite>
           </sprites>
         </sprites>
