@@ -33,12 +33,14 @@ txt[4] = "27 de Noviembre de 1989";
 txt[5] = "6 de Diciembre de 1989";
 txt[6] = "25 de Abril de 1990";
 txt[7] = "12 de Mayo de 1990";
-txt[8] = "12 de Mayo de 1990";
-txt[10] = "21 de Mayo de 1990";
+//txt[10] = "12 de Mayo de 1990";
+txt[9] = "21 de Mayo de 1990";
+txt[10] = "FIN"
 alarm[0] = 60;
 if(num_level == 0){
     audio_sound_gain(sn_soundtrack_intro, 0, 5000);
 }
+audio_play_sound(sn_dialogo, 1, 0);
 </string>
           </argument>
         </arguments>
@@ -61,7 +63,8 @@ if(num_level == 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
+            <string>if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
+else room_goto_transition(Room_Menu, 0, 120);
 </string>
           </argument>
         </arguments>

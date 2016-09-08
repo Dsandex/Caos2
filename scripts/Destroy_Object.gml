@@ -6,6 +6,7 @@ var yy = argument[1];
 //show_debug_message("???")
 if(collision_circle(xx, yy, 15, Enemy, 1, 1)){ // 15
 
+
     // Get enemy id.
     var enemy = instance_nearest(xx, yy, Enemy);
     //with enemy image_blend = c_red;

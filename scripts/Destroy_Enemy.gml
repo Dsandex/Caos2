@@ -1,7 +1,7 @@
 /// Destroy_Enemy();
 
 // Set comparable x and y coordinates.
-if(sprite_index == asset_get_index("spr_player_ground_" + humor + "_attack")){
+if(sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_attack")){
     switch(image_index){
         case 2: // Up ground attack.
             Destroy_Object(x + sign(image_xscale) * 8, y - 71);
@@ -13,7 +13,7 @@ if(sprite_index == asset_get_index("spr_player_ground_" + humor + "_attack")){
             Destroy_Object(x + (sign(image_xscale) * -1) * 53, y - 12);
         break;
     }
-}else if(sprite_index == asset_get_index("spr_player_jump_" + humor + "_attack")){
+}else if(sprite_index == asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack")){
     switch(image_index){
 
         case 0: // Aside.
@@ -29,7 +29,7 @@ if(sprite_index == asset_get_index("spr_player_ground_" + humor + "_attack")){
             Destroy_Object(x - 56 * image_xscale, y + 6);
         break;
     }
-}else if(sprite_index == asset_get_index("spr_player_climb_" + humor + "_attack")){
+}else if(sprite_index == asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack")){
     switch(image_index){
         case 0: // Aside.
             Destroy_Object(x + 52 * image_xscale, y - 7);

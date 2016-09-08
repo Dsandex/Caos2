@@ -164,6 +164,7 @@ if(num_level == 5){
             <string>/// Room goto Room_Transicion
 //var rand = choose(1, 2, 3);
 //if(rand == 2){
+
 if(num_level != 4) room_goto_transition(Room_Transicion, 0, 30);
 else room_goto_transition(Room_Select, 0, 30);
 chances = 2;
@@ -328,6 +329,7 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
     
     // Coronaste!
     instance_create(room_width/2, room_height/2 - 30, Coronaste);
+    audio_play_sound(sn_coronaste, 1, 0);
     with Player draw_score = true;
 }
 </string>
@@ -354,7 +356,7 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
             <kind>1</kind>
             <string>var asset = asset_get_index("sn_soundtrack_" + string(num_level));
 audio_sound_gain(asset, 0, 3000);
-show_debug_message(vida_global);
+//show_debug_message(vida_global);
 if(audio_is_playing(sn_rage_music)){
     audio_sound_gain(sn_rage_music, 0, 3000);
 }
@@ -382,7 +384,11 @@ if(audio_is_playing(sn_rage_music)){
             <kind>1</kind>
             <string>/// Change soundtrack.
 if( ! audio_is_playing (asset_get_index("sn_soundtrack_" + string(num_level)))){
-    var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+    
+    if(num_level &gt;= 5 and num_level &lt; 10) var numlevel = num_level - 4;   
+    else if(num_level &lt; 5) var numlevel = num_level;
+    else var numlevel = 1;
+    var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
     audio_play_sound(asset, 0, 1);
     audio_sound_gain(asset, 0, 1);
     audio_sound_gain(asset, 1, 3000);

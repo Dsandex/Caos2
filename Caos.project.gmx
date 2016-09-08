@@ -40,6 +40,16 @@
       <sounds name="Edificios">
         <sound>sound\sn_edificio_collapse</sound>
       </sounds>
+      <sounds name="Ganar-Perder">
+        <sound>sound\sn_coronaste</sound>
+        <sound>sound\sn_perdistes</sound>
+      </sounds>
+      <sounds name="Power">
+        <sound>sound\sn_eat_power</sound>
+      </sounds>
+      <sounds name="Dialogos">
+        <sound>sound\sn_dialogo</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">

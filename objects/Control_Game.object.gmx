@@ -101,13 +101,12 @@ HECHAS:
 - Arreglar Collapse.
 - Rage (nivel 3).
 - Win and Lose!
+- Arreglar Gacha.
+- Efectos de Sonido.
 
     - FALTANTES. -
       
-      - Helicopteros Sonido.
-      - Efectos de Sonido.
-      - Musica.
-      - Arreglar Gacha.
+      - Helicopteros Sonido.  
       
 
 */
@@ -310,7 +309,7 @@ if(room == Room_Select){
             draw_set_font(font_arial_15);
             draw_sprite(spr_character_2, 1, 440, 210);
             if(mouse_check_button_released(mb_left)){
-                jugador = "2";
+                jugador = "";
                 Play_Track("press_start");
                 room_goto_transition(Room_Transicion, 0, 45);
             }

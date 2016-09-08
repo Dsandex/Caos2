@@ -1,5 +1,5 @@
 with(eat_person_id){       
-                     
+   audio_play_sound(sn_eat_power, 1, 0);                   
    switch(image_index){
        case 0: // Avion
            Get_Score(x, y, 5, false);
