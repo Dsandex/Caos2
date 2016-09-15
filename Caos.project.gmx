@@ -218,6 +218,9 @@
         <sprites name="Dead">
           <sprite>sprites\spr_player_dead</sprite>
         </sprites>
+        <sprites name="Face">
+          <sprite>sprites\spr_player_face</sprite>
+        </sprites>
       </sprites>
       <sprites name="Gacha">
         <sprites name="Climb">
@@ -267,6 +270,9 @@
         <sprites name="Dead">
           <sprite>sprites\spr_player2_dead</sprite>
         </sprites>
+        <sprites name="Face">
+          <sprite>sprites\spr_player2_face</sprite>
+        </sprites>
       </sprites>
     </sprites>
     <sprites name="Menu">
@@ -276,6 +282,7 @@
       <sprite>sprites\spr_digital</sprite>
       <sprite>sprites\spr_creditos</sprite>
       <sprite>sprites\spr_new</sprite>
+      <sprite>sprites\spr_marco</sprite>
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
@@ -383,9 +390,18 @@
     <font>fonts\font_arial_12</font>
     <font>fonts\font_game_14</font>
     <font>fonts\font_game_10</font>
-    <font>fonts\font_menu</font>
-    <font>fonts\font_04b11_20</font>
-    <font>fonts\font_04b11_30</font>
+    <fonts name="04b11">
+      <font>fonts\font_04b11_20</font>
+      <font>fonts\font_04b11_30</font>
+      <font>fonts\font_04b11_12</font>
+      <font>fonts\font_04b11_15</font>
+    </fonts>
+    <fonts name="8Bit Wonder">
+      <font>fonts\font_menu</font>
+      <font>fonts\font_wonder_20</font>
+      <font>fonts\font_wonder_11</font>
+      <font>fonts\font_wonder_14</font>
+    </fonts>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -485,6 +501,7 @@
       <object>objects\Baius</object>
       <object>objects\Digital</object>
       <object>objects\New</object>
+      <object>objects\Marco</object>
     </objects>
     <objects name="Enemies">
       <object>objects\Enemy</object>

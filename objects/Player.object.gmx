@@ -83,7 +83,7 @@ w_index =0;
 state = Playing_State;
 
 // Draw variables.
-offset_x = 90;
+offset_x = 30;
 offset_y = 40;
 bar_width = sprite_get_width(spr_barra_vida); //  100;
 bar_height = sprite_get_height(spr_barra_vida); // 20
@@ -331,7 +331,7 @@ draw_set_font(font_game_13);
         draw_text_outlined(
             offset_x + 10, 
             offset_y + 8 + sprite_get_height(spr_barra_vida), 
-            "RAGE", 
+            "CAOS", 
             make_color_rgb(215,0, 46), 
             c_black, 
             2
@@ -473,6 +473,39 @@ if(draw_score){
     draw_set_halign(noone);
     draw_set_valign(noone);   
 }
+
+// Draw chances.
+for (i = 0; i &lt; chances + 1; i++)
+{
+    draw_sprite_ext(
+        asset_get_index("spr_player"+jugador+"_face"),
+        0, 
+        720 - (i *60),
+        50, 
+        1,
+        1, 
+        0, 
+        c_black, 
+        0.4
+    )
+    
+    draw_sprite(
+        asset_get_index("spr_player"+jugador+"_face"),
+        0, 
+        720 - (i *60),
+        50
+    );
+}
+
+
+/*for(var i = 0; i &lt; chances + 1; i++){
+    draw_sprite(
+        asset_get_index("spr_player"+jugador+"_face"), 
+        0,
+        600 +(i*60),
+        50
+    );
+}*/
 
 // Draw the player.
 draw_self();

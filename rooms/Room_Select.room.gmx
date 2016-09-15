@@ -10,7 +10,30 @@
   <persistent>0</persistent>
   <colour>0</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>/// Set random background.
+var rand = irandom_range(1,4);
+switch(rand){
+    case 1:
+        background_index[0] = background_bogota;
+    break;
+    case 2:
+        background_index[1] = background_cali;
+    break;
+    case 3:
+        background_index[2] = background_cartagena;
+    break;
+    case 4:
+        background_index[3] = background_medellin;
+    break;
+}
+/*
+background_index[0] = choose(
+        background_bogota, 
+        background_cali, 
+        background_cartagena,
+        background_medellin
+    );
+*/</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -31,7 +54,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="background_select" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="background_bogota" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -52,6 +75,8 @@
   </views>
   <instances>
     <instance objName="Control_Game" x="48" y="24" name="inst_FB3D9C08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Marco" x="200" y="206" name="inst_E5300CC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Marco" x="436" y="206" name="inst_CC60343B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

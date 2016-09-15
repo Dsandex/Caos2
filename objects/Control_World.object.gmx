@@ -62,9 +62,9 @@ create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
 /// Create controls.
-instance_create(120, 380, Joystick);
-instance_create(600, 395, Button_B);
-instance_create(685, 345, Button_A);
+instance_create(100, 380, Joystick);//120
+instance_create(615, 395, Button_B);//600
+instance_create(700, 345, Button_A);//685
 
 
 // Set background.
