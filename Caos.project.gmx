@@ -360,6 +360,7 @@
     </scripts>
     <scripts name="Transition">
       <script>scripts\room_goto_transition.gml</script>
+      <script>scripts\Background.gml</script>
     </scripts>
     <scripts name="Helpful Scripts">
       <script>scripts\instance_nearest_list.gml</script>
@@ -446,6 +447,7 @@
       <object>objects\Creditos</object>
       <object>objects\Dialogos</object>
       <object>objects\Score</object>
+      <object>objects\Control_Select</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -512,6 +514,7 @@
       </objects>
       <objects name="Tank">
         <object>objects\Tank</object>
+        <object>objects\Tank2</object>
         <object>objects\Tank_Bullet</object>
       </objects>
       <object>objects\Destrucion</object>

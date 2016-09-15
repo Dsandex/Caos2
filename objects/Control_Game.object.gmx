@@ -75,6 +75,9 @@ if(room == Room_Digital){
     //alarm[0] = 30;
 }else if(room == Room_Select){
     seleccionado = false;
+    // Select character.
+    change_color = 0;
+    color_select = c_white;
 }
 
 /*   COSAS POR HACER:
@@ -291,22 +294,35 @@ if(room == Room_Select){
  //   draw_text(600-24-string_width("CREDITS:    2"), 168+24, "CREDITS:    2"); 
     
     */
-    var color_select = 0;
+ 
+    var yemenos = 20;
+    if(change_color &lt; 10){
+        change_color++;
+        color_select = c_white;
+    }else{
+        color_select = make_color_rgb(51,204,255);
+        if(change_color &lt; 20){
+            change_color++;
+        }else{
+            change_color = 0;
+        }
+    }
+    
     draw_set_halign(fa_center);
     draw_set_font(font_wonder_20);
-    draw_text_outlined(room_width/2, 80, "SELECT CHARACTER", color_select, c_black, 2);
+    draw_text_outlined(room_width/2 + 10, 80, "SELECT CHARACTER", color_select, c_black, 2);
     draw_set_halign(noone);
     
     var select = "SELECT";
     var color = c_white;
     
     // Draw pablo escobar.
-    if(mouse_x &gt; 204 and mouse_x &lt; 204 + 128 and mouse_y &gt; 210 and mouse_y &lt; 210 + 144){
+    if(mouse_x &gt; 204 and mouse_x &lt; 204 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
         draw_set_font(font_wonder_14);
         //draw_set_font(font_04b11_15);
         //draw_set_color(c_red);
         color = c_red;
-        draw_sprite(spr_character_1, 1, 204, 210);
+        draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
         if(mouse_check_button_released(mb_left) and !seleccionado){
             seleccionado = true;
             jugador = "";
@@ -322,28 +338,29 @@ if(room == Room_Select){
       //  draw_set_font(font_04b11_12);
       draw_set_font(font_wonder_11);
        // draw_set_font(font_menu);
-        draw_sprite(spr_character_1, 0, 204, 210);
+        draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
         //draw_sprite(spr_character_1, 0, 232, 240+24);
     }
 
 
     draw_set_halign(fa_center);
-    draw_text_outlined(204 + 128/2, 180, "EL JEFE", color, c_black, 2); 
-    draw_text_outlined(204 + 128/2, 365, select, color, c_black, 2);
+    draw_text_outlined(204 + 128/2, 180 - yemenos, "EL JEFE", color, c_black, 2); 
+    draw_text_outlined(204 + 128/2, 360 - yemenos, select, color, c_black, 2);
     draw_set_halign(noone);
     
     if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new), New);
 
     color = c_white;
     // Draw second character.
-    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 and mouse_y &lt; 210 + 144){
+    if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
         if(num_level == 4){ // Select new character nivel 5.
            //  draw_set_font(font_arial_15);
            //draw_set_font(font_04b11_15);
             draw_set_font(font_wonder_14);
          //   draw_set_color(c_red);
+         //   color = make_color_rgb(51,204,255);
             color = c_red;
-            draw_sprite(spr_character_2, 1, 440, 210);
+            draw_sprite(spr_character_2, 1, 440, 210 - yemenos);
             if(mouse_check_button_released(mb_left) and !seleccionado){
                 seleccionado = true;
                 var marco = instance_nearest(mouse_x, mouse_y, Marco);
@@ -355,22 +372,23 @@ if(room == Room_Select){
         }else{
             // draw_set_font(font_arial_12);
             //draw_set_color(c_white);
-            color = c_white;
-            draw_set_font(font_wonder_11);
+          // color = make_color_rgb(51,204,255);
+            color  = c_red;
+            draw_set_font(font_wonder_14);
             //draw_set_font(font_04b11_12);
-            draw_sprite(spr_character_2, 2, 440, 210);
+            draw_sprite(spr_character_2, 2, 440, 210 - yemenos);
         }
     }else{
         draw_set_color(c_white);
         //draw_set_font(font_04b11_12);
         draw_set_font(font_wonder_11);
-        draw_sprite(spr_character_2, 0, 440, 210);
+        draw_sprite(spr_character_2, 0, 440, 210 - yemenos);
     }
    //  bv b
 
     draw_set_halign(fa_center);
-    draw_text_outlined(440 + 128/2, 180, "EL MERO", color, c_black, 2); 
-    draw_text_outlined(440 + 128/2, 365, select, color, c_black, 2);
+    draw_text_outlined(440 + 128/2, 180 - yemenos, "EL MERO", color, c_black, 2); 
+    draw_text_outlined(440 + 128/2, 360 - yemenos, select, color, c_black, 2);
     draw_set_halign(noone);
     draw_set_color(c_white);
 }
@@ -401,6 +419,29 @@ if(keyboard_check_pressed(vk_space)){
           <argument>
             <kind>1</kind>
             <string>game_restart();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(Room_Menu);
 </string>
           </argument>
         </arguments>

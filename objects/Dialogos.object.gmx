@@ -46,7 +46,7 @@ t = 0;
 llamar_alarma = false;
 
 
-
+background_index[0] = Background(num_level);
 if(num_level == 0){
     audio_sound_gain(sn_soundtrack_intro, 0, 5000);
 }
@@ -100,7 +100,7 @@ else room_goto_transition(Room_Menu, 0, 120);
             <string>if(str &lt; string_length(txt[num_level])){
     str += vel; // Speed of text.
     if(str == string_length(txt[num_level]) - 4){
-        vel = .2;
+        vel = .3;
     }
 }
 
@@ -138,12 +138,25 @@ draw_set_valign(fa_center);
 
 //draw_text(room_width/2, room_height/2, txt[num_level]);
 // Draw the textbox and the text.
+draw_set_color(c_black);
+draw_set_alpha(.4);
+draw_rectangle(
+    0,
+    0,
+    room_width, 
+    room_height,
+    0
+)
+draw_set_color(c_white);
+draw_set_alpha(1);
 
-draw_set_font(font_04b11_20);
+
+draw_set_font(font_wonder_14);
 draw_set_color(c_white);
 //var c_grey_dark = make_color_rgb(208, 208, 208);
 //var c_grey_light = make_color_rgb(220, 220, 220);
-var c_grey_light = make_color_rgb(220, 220, 220);
+var c_grey_light = c_white;
+//var c_grey_light = make_color_rgb(220, 220, 220);
 draw_text_colour(
     room_width/2, 
     room_height/2, 
