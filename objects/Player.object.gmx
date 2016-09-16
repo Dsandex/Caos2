@@ -236,108 +236,135 @@ draw_set_font(font_game_13);
     var width = string_width(score_1);
     
     // Draw player 1 bar.
+    if(room != game_tutorial){
     
-    if(humor == "normal"){
-        draw_sprite(
-            spr_barra_vida, 
-            0, 
-            offset_x, 
-            offset_y
-        );
-        
-        draw_sprite_part(
-            spr_barra_vida, 
-            1, 
-            0,
-            0,
-            vida * (bar_width/100), 
-            bar_height, 
-            offset_x, 
-            offset_y
-        );
-    }else{
-        draw_sprite(
-            spr_barra_vida, 
-            2, 
-            offset_x, 
-            offset_y
-        );
-        
-        draw_sprite_part(
-            spr_barra_vida, 
-            3, 
-            0,
-            0,
-            vida * (bar_width/100), 
-            bar_height, 
-            offset_x, 
-            offset_y
-        );
-    }
-        
-        // Draw word "damage"
-        draw_set_color(c_black);
-        draw_set_font(font_game_13);
-        draw_text_outlined(
-            offset_x + 10, 
-            offset_y + 8, 
-            "DAMAGE", 
-            c_white, 
-            c_black,
-            2
-        );
-        
-        // Draw Score.
-        draw_set_color(make_colour_rgb(0, 254, 255));
-        draw_text_outlined(
-            offset_x+3, 
-            offset_y - string_height("SCORE:"), 
-            "SCORE:",
-            make_color_rgb(0, 254, 255),
-            c_black, 
-            2
-        );
-        draw_text_outlined(
-            offset_x + bar_width - string_width(score_1), 
-            offset_y - string_height(score_1), 
-            score_1, 
-            make_colour_rgb(0, 254, 255), 
-            c_black, 
-            2
-        );
-        
-        // Draw rage bar.
-        draw_sprite(
-            spr_barra_vida, 
-            6, 
-            offset_x, 
-            offset_y + sprite_get_height(spr_barra_vida) + 5
-        );
-        
-        draw_sprite_part(
-            spr_barra_vida, 
-            7, 
-            0,
-            0,
-            angry * (bar_width/100), 
-            bar_height, 
-            offset_x, 
-            offset_y + sprite_get_height(spr_barra_vida) + 5
-        );
-        
-        // Draw word "damage"
-        draw_set_color(c_black);
-        draw_set_font(font_game_10);
-        draw_text_outlined(
-            offset_x + 10, 
-            offset_y + 8 + sprite_get_height(spr_barra_vida), 
-            "CAOS", 
-            make_color_rgb(215,0, 46), 
-            c_black, 
-            2
+        if(humor == "normal"){
+            draw_sprite(
+                spr_barra_vida, 
+                0, 
+                offset_x, 
+                offset_y
+            );
             
-        );
-        
+            draw_sprite_part(
+                spr_barra_vida, 
+                1, 
+                0,
+                0,
+                vida * (bar_width/100), 
+                bar_height, 
+                offset_x, 
+                offset_y
+            );
+        }else{
+            draw_sprite(
+                spr_barra_vida, 
+                2, 
+                offset_x, 
+                offset_y
+            );
+            
+            draw_sprite_part(
+                spr_barra_vida, 
+                3, 
+                0,
+                0,
+                vida * (bar_width/100), 
+                bar_height, 
+                offset_x, 
+                offset_y
+            );
+        }
+            
+            // Draw word "damage"
+            draw_set_color(c_black);
+            draw_set_font(font_game_13);
+            draw_text_outlined(
+                offset_x + 10, 
+                offset_y + 8, 
+                "DAMAGE", 
+                c_white, 
+                c_black,
+                2
+            );
+            
+            // Draw Score.
+            draw_set_color(make_colour_rgb(0, 254, 255));
+            draw_text_outlined(
+                offset_x+3, 
+                offset_y - string_height("SCORE:"), 
+                "SCORE:",
+                make_color_rgb(0, 254, 255),
+                c_black, 
+                2
+            );
+            draw_text_outlined(
+                offset_x + bar_width - string_width(score_1), 
+                offset_y - string_height(score_1), 
+                score_1, 
+                make_colour_rgb(0, 254, 255), 
+                c_black, 
+                2
+            );
+            
+            // Draw rage bar.
+            draw_sprite(
+                spr_barra_vida, 
+                6, 
+                offset_x, 
+                offset_y + sprite_get_height(spr_barra_vida) + 5
+            );
+            
+            draw_sprite_part(
+                spr_barra_vida, 
+                7, 
+                0,
+                0,
+                angry * (bar_width/100), 
+                bar_height, 
+                offset_x, 
+                offset_y + sprite_get_height(spr_barra_vida) + 5
+            );
+            
+            // Draw word "damage"
+            draw_set_color(c_black);
+            draw_set_font(font_game_10);
+            draw_text_outlined(
+                offset_x + 10, 
+                offset_y + 8 + sprite_get_height(spr_barra_vida), 
+                "CAOS", 
+                make_color_rgb(215,0, 46), 
+                c_black, 
+                2
+                
+            );
+            
+            // Draw chances.
+            for(i = 0; i &lt; 3; i++){
+                draw_sprite_ext(
+                    asset_get_index("spr_player"+jugador+"_face"),
+                    0, 
+                    670 - (i *50),
+                    50, 
+                    1,
+                    1, 
+                    0, 
+                    c_black, 
+                    0.4
+                )
+            }
+            
+            for (i = 0; i &lt; chances + 1; i++)
+            {
+                draw_sprite(
+                    asset_get_index("spr_player"+jugador+"_face"),
+                    0, 
+                    670 - (i*50),
+                    50
+                );
+            }
+
+        }
         
         
     // Draw player 2 bar.
@@ -472,31 +499,6 @@ if(draw_score){
 
     draw_set_halign(noone);
     draw_set_valign(noone);   
-}
-
-// Draw chances.
-for(i = 0; i &lt; 3; i++){
-    draw_sprite_ext(
-        asset_get_index("spr_player"+jugador+"_face"),
-        0, 
-        680 - (i *60),
-        50, 
-        1,
-        1, 
-        0, 
-        c_black, 
-        0.4
-    )
-}
-
-for (i = 0; i &lt; chances + 1; i++)
-{
-    draw_sprite(
-        asset_get_index("spr_player"+jugador+"_face"),
-        0, 
-        680 - (i*60),
-        50
-    );
 }
 
 

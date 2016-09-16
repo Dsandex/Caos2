@@ -35,6 +35,7 @@ if(grounded or climbed_building){
                    }
                                      
                 if(key_up and (grounded or climbed_building != noone)){
+                    Check_Tutorial("CLIMB THE BUILDING!");
                     climbed_building = building;
                     climb = true;
                     grounded = false;
@@ -62,6 +63,7 @@ if(grounded or climbed_building){
                  }
 
                  if(key_up and (grounded or climbed_building != noone)){
+                    Check_Tutorial("CLIMB THE BUILDING!");
                     climbed_building = building;
                     climb = true;
                     grounded = false;

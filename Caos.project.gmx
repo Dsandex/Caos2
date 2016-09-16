@@ -362,6 +362,8 @@
       <script>scripts\Check_Sprite.gml</script>
       <script>scripts\New_Sprite.gml</script>
       <script>scripts\Generate_Trees.gml</script>
+      <script>scripts\Fechas.gml</script>
+      <script>scripts\Check_Tutorial.gml</script>
     </scripts>
     <scripts name="Transition">
       <script>scripts\room_goto_transition.gml</script>
@@ -371,6 +373,7 @@
       <script>scripts\instance_nearest_list.gml</script>
       <script>scripts\point_nearest.gml</script>
       <script>scripts\Create_Debug.gml</script>
+      <script>scripts\in_Rectangle.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
@@ -388,7 +391,14 @@
       </scripts>
     </scripts>
     <script>scripts\draw_text_outlined.gml</script>
+    <scripts name="Pause Settings">
+      <script>scripts\Draw_Pause.gml</script>
+    </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
+    <shader type="GLSLES">shaders\shd_gaussian_vertical.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\font_game_13</font>
     <font>fonts\font_arial_15</font>
@@ -454,6 +464,9 @@
       <object>objects\Score</object>
       <object>objects\Control_Select</object>
       <object>objects\obj_controller_gaussian_blur</object>
+      <object>objects\Scroll_View</object>
+      <object>objects\Dibujar_Pausa</object>
+      <object>objects\Control_Tutorial</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -558,6 +571,7 @@
       <room>rooms\Room_Creditos</room>
     </rooms>
     <rooms name="Game">
+      <room>rooms\game_tutorial</room>
       <room>rooms\game1</room>
       <room>rooms\game2</room>
       <room>rooms\game3</room>

@@ -24,10 +24,11 @@ if(humor == "normal"){
         save_vida = vida;
         humor_animation = true;
         scale_change = image_xscale;
-        movespeed = 6;
+        room_speed = 60;
+        /*movespeed = 6;
         jumpspeed = 20;
         climb_speed = 6;
-        grav = 2; 
+        grav = 2; */
         y_change = y;
         Play_Track("trans");
     }/*else{
@@ -60,9 +61,10 @@ if(humor == "normal"){
         humor_animation = false;
         if(eating) eating = false;
         if(take_women) take_women = false;
-        movespeed = 5;
+        room_speed = 30;
+       /* movespeed = 5;
         jumpspeed = 15;
-        climb_speed = 3;
+        climb_speed = 3;*/
         grav = 1;
         background_blend[0] = c_white;
     }

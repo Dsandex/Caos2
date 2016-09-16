@@ -11,6 +11,7 @@ if(climb){
     
     // Jump from buildings.
     if(key_jump and !instance_exists(Rage)){
+        Check_Tutorial("JUMP OFF THE BUILDING!");
     
         // Take women accesors.
         sprite_index = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack");
@@ -92,7 +93,8 @@ if(climb){
         
        // Down attack.
        if(key_attack and !take_women){
-              
+           Check_Tutorial("HIT THE BUILDING WHILE GOING DOWN!");
+       
            // Change the sprite.
            var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
            Current_Sprite(asset, 0, 2, retard_value);
@@ -171,7 +173,7 @@ if(climb){
                     
                 // No, is not.
                 }else{            
-                   
+                    Check_Tutorial("HIT THE BUILDING!");
                     Destroy_Enemy();
                     var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
                     Current_Sprite(asset, 0, 3, retard_value);
@@ -270,7 +272,10 @@ if(climb){
         if(grounded or climbed_building != noone){
         
             // Up attack.
-            if(key_up){          
+            if(key_up){
+            
+                Check_Tutorial("ATTACK UP!");
+                      
                 // Eat in building person.
                 if(Can_Eat("floor_up")){
                     
@@ -289,6 +294,8 @@ if(climb){
             // Down attack.                
             }else if(key_down){
 
+                Check_Tutorial("ATTACK DOWN!");
+            
                 if(Can_Eat("floor_down")){
                     Eat_Person(asset_get_index("spr_player" + jugador + "_ground_" + humor + "_eat_down"));
                     eating = true;
@@ -304,10 +311,10 @@ if(climb){
             
         }else{
             if(!take_women){
-                if(image_xscale == 1 and key_right or image_xscale == -1 and key_left) Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 0, retard_value);
-                if(key_up) Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 1, retard_value);
-                else if(key_down) Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 2, retard_value);
-                else if(image_xscale == 1 and key_left or key_right and image_xscale == -1) Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 3, retard_value);
+                if(image_xscale == 1 and key_right or image_xscale == -1 and key_left){ Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 0, retard_value); Check_Tutorial("ATTACK BACK JUMPING!"); }
+                if(key_up) { Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 1, retard_value); Check_Tutorial("ATTACK UP JUMPING!"); }
+                else if(key_down) { Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 2, retard_value); Check_Tutorial("ATTACK DOWN JUMPING!"); }
+                else if(image_xscale == 1 and key_left or key_right and image_xscale == -1) { Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_attack"), 0, 3, retard_value); Check_Tutorial("ATTACK FRONT JUMPING!"); }
             }
         }
         

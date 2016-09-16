@@ -25,8 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*draw_set_color(c_white);
-estado = "opciones";
+            <string>draw_set_color(c_white);
+Fechas();
+/*if(file_exists(working_directory + "pausa.png")){
+    file_delete(working_directory + "pausa.png")
+}*/
+//screen_save(working_directory + "pausa.png");
+instance_deactivate_all(true);
+instance_activate_object(Pausa);
+/*background = sprite_add(
+    working_directory + "pausa.png", 
+    0, 
+    0,
+    0, 
+    0,
+    0
+);*/
+    
 
 uni_resolution_hoz = shader_get_uniform(shd_gaussian_horizontal,"resolution");
 uni_resolution_vert = shader_get_uniform(shd_gaussian_vertical,"resolution");
@@ -64,7 +79,33 @@ view_surface_id[0] = surf;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*surface_free(surf);
+            <string>surface_free(surf);
+file_delete(working_directory + "pausa.png");
+instance_activate_all();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="32">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>game_pause = false;
+        instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -87,8 +128,11 @@ view_surface_id[0] = surf;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*var_mouse_pos_x = mouse_x - view_xview;
+            <string>var_mouse_pos_x = mouse_x - view_xview;
 var_mouse_pos_y = mouse_y - view_yview;
+
+
+//draw_sprite(background, 0, 0, 0);
 
 //Do horizontal blur first
 surface_set_target(final_surface);
@@ -111,114 +155,76 @@ if shader_enabled shader_set(shd_gaussian_vertical);
 shader_reset();
 
 draw_set_color(c_white);
-draw_set_font(font_game_26);
+draw_set_font(font_menu);
 draw_set_halign(fa_center);
 
-if(estado == "opciones"){
+draw_sprite(spr_pausa, 1, 697, 22); 
 
-    if(room != r_menu){
-        draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-        draw_text(room_width/2, room_height/2 - 20, "GAME PAUSED");
-        draw_set_halign(noone);
-        draw_sprite(spr_play, 0, 696, 24);
-        draw_sprite(spr_back, 0, 0, 24);
-        if(in_Rectangle(0, 24, sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-            game_pause = false;
-            instance_destroy();
-            room_goto_transition(r_levels2, 0, 40);
-            Play_Button();
-        }
-    }else{
-        draw_sprite(spr_recuadro, 0, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-        draw_text(room_width/2, room_height/2 - 20, "OPTIONS");
-        draw_set_halign(noone);
-        draw_sprite(spr_exit, 0, 696, 24);
-        if(in_Rectangle(696, 24, 696 + sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-          
-            game_pause = false;
-            with o_player can_move = true;
-            
-            instance_destroy();
-            Play_Button();
-        }   
-    }
+draw_set_halign(fa_center);
+draw_text(room_width/2, room_height/2, txt[num_level - 1]);
+draw_set_halign(noone);
+/*if(in_Rectangle(697, 22, 697 
+    + sprite_get_width(spr_pausa), 
+    22 + sprite_get_height(spr_pausa)) and mouse_check_button_pressed(mb_left)){
+   
+    instance_activate_all();
+    game_pausa = false;
+    Pausa.visible = 1;
+    mouse_clear(mb_left);
+    file_delete(working_directory + "pausa.png");
+    instance_destroy();   
     
-    
-    var xp = room_width/2 - sprite_get_width(spr_sound)/2 + 24 + 6;
-    var yp = room_height/2 + 30; 
-    
-    draw_sprite(spr_repeat, 1, xp  - 120, yp);
-    if(room != r_menu){
-        if(in_Rectangle(xp - 120, yp, xp - 120 +46, yp + 46) and mouse_check_button_pressed(mb_left)){
-            Play_Button();
-            game_pause = false;
-            instance_destroy();
-            room_restart();
-        }
-    }
-      
-    draw_sprite(spr_sound, sef_pause, xp, yp);
-    if(in_Rectangle(xp, yp, xp + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-        Play_Button();
-        sef_pause = !sef_pause;
-        SaveSettings();
-    }
-    
-    draw_sprite(spr_music, musica_pause, xp - 36 - 24, yp);
-    if(in_Rectangle(xp - 36 - 24, yp, xp - 36 - 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-        Play_Button();
-        musica_pause = !musica_pause;
-        SaveSettings();
-    }
-    
-    draw_sprite(spr_idioma, Idioma_Index(idioma), xp + 36 + 24, yp);
-    if(in_Rectangle(xp + 36 + 24, yp, xp + 36 + 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
-        Play_Button();
-        idioma = Change_Language(idioma);
-        SaveSettings();
-        with(Control_Pistas) Pistas();
-    }
-    
-}else{
-
-    
-    
-    draw_sprite(spr_exit, 0, 696, 24);
-    if(in_Rectangle(696, 24, 696 + sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
-        select_donate = false;
-        game_pause = false;
-        with o_player can_move = true;
-        
-        instance_destroy();
-        Play_Button();
-    }
-    
-    if(in_Rectangle(room_width/2 - sprite_get_width(spr_recuadro)/2 + 30, room_height/2-30, room_width/2 + sprite_get_width(spr_recuadro)/2 - 30, room_height/2-30 + sprite_get_height(spr_recuadro) - 60)){
-        draw_sprite(spr_recuadro, 2, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-        
-        // Comprar.
-        if(mouse_check_button_pressed(mb_left)){
-            // Processs IAP request.
-            if(iap_status() == iap_status_available){
-               iap_acquire("noads", ""); // Evento A.
-            }else{
-               if(idioma == "en"){
-                  show_message_async("Store is not available.");
-               }else if(idioma == "es"){
-                  show_message_async("La tienda no está disponible.");
-               }
-            }
-        }
-    }else{
-        
-        draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-    }
-    
-    draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
-    draw_text(room_width/2, room_height/2 - 20, "REMOVE ADS#$2");
-    draw_set_halign(noone);
-
+}*/
+draw_set_halign(noone);
+/*
+draw_sprite(spr_recuadro, 1, room_width/2 - sprite_get_width(spr_recuadro)/2, room_height/2 - 30);
+draw_text(room_width/2, room_height/2 - 20, "GAME PAUSED");
+draw_set_halign(noone);
+draw_sprite(spr_play, 0, 696, 24);
+draw_sprite(spr_back, 0, 0, 24);
+if(in_Rectangle(0, 24, sprite_get_width(spr_back), 24 + sprite_get_height(spr_back)) and mouse_check_button_pressed(mb_left)){
+    game_pause = false;
+    instance_destroy();
+    room_goto_transition(r_levels2, 0, 40);
+    Play_Button();
 }
+      
+var xp = room_width/2 - sprite_get_width(spr_sound)/2 + 24 + 6;
+var yp = room_height/2 + 30; 
+
+draw_sprite(spr_repeat, 1, xp  - 120, yp);
+if(room != r_menu){
+    if(in_Rectangle(xp - 120, yp, xp - 120 +46, yp + 46) and mouse_check_button_pressed(mb_left)){
+        Play_Button();
+        game_pause = false;
+        instance_destroy();
+        room_restart();
+    }
+}
+  
+draw_sprite(spr_sound, sef_pause, xp, yp);
+if(in_Rectangle(xp, yp, xp + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
+    Play_Button();
+    sef_pause = !sef_pause;
+    SaveSettings();
+}
+
+draw_sprite(spr_music, musica_pause, xp - 36 - 24, yp);
+if(in_Rectangle(xp - 36 - 24, yp, xp - 36 - 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
+    Play_Button();
+    musica_pause = !musica_pause;
+    SaveSettings();
+}
+
+draw_sprite(spr_idioma, Idioma_Index(idioma), xp + 36 + 24, yp);
+if(in_Rectangle(xp + 36 + 24, yp, xp + 36 + 24 + 46, yp + 46) and mouse_check_button_pressed(mb_left)){
+    Play_Button();
+    idioma = Change_Language(idioma);
+    SaveSettings();
+    with(Control_Pistas) Pistas();
+}
+    
+
 </string>
           </argument>
         </arguments>

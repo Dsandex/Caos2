@@ -77,12 +77,16 @@ image_angle = dir;
     }else{
         if(dir &gt;= 30 and dir &lt;= 180-30){
             with Player key_up = 1;
+            Check_Tutorial("GO UP!");
+            
         }else{
             with Player key_up = 0;
         }
             
         if(dir &gt; 180+30 and dir &lt; 360-30){
             with Player key_down = 1;
+            Check_Tutorial("GO DOWN!");
+            
         }else{
             with Player key_down = 0;
         } 
@@ -95,9 +99,12 @@ image_angle = dir;
     
     if(dir &gt;= 270 and dir &lt; 360 or dir &gt;= 0 and dir &lt; 45){
          Active_Key("right");
+         Check_Tutorial("MOVE RIGHT");
+ 
         // with Player key_right = 1;
     }else if(dir &gt; 135 and dir &lt; 270){
          Active_Key("left");
+         Check_Tutorial("MOVE LEFT");
     }
 </string>
           </argument>
