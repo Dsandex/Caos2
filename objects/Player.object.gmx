@@ -223,7 +223,7 @@ if(puntaje_global &gt; best_score){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw players data.
+            <string> /// Draw players data.
 
 // Set configurations.
 draw_set_font(font_game_13);
@@ -475,12 +475,11 @@ if(draw_score){
 }
 
 // Draw chances.
-for (i = 0; i &lt; chances + 1; i++)
-{
+for(i = 0; i &lt; 3; i++){
     draw_sprite_ext(
         asset_get_index("spr_player"+jugador+"_face"),
         0, 
-        720 - (i *60),
+        680 - (i *60),
         50, 
         1,
         1, 
@@ -488,11 +487,14 @@ for (i = 0; i &lt; chances + 1; i++)
         c_black, 
         0.4
     )
-    
+}
+
+for (i = 0; i &lt; chances + 1; i++)
+{
     draw_sprite(
         asset_get_index("spr_player"+jugador+"_face"),
         0, 
-        720 - (i *60),
+        680 - (i*60),
         50
     );
 }

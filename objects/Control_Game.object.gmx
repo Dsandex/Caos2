@@ -30,8 +30,9 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador;
+              jugador, game_pause;
     
+    game_pause = false;
     jugador = "";
     chances = 2;          
     current_song = 0;
@@ -55,7 +56,7 @@ if(room == Room_Digital){
     piso_y = 399;
     //room_goto(game1);
     instance_create(room_width/2, room_height/2, Digital);
-    alarm[1] = 55;
+    alarm[1] = 62; //55
     instance_create(0, 0, Change_Soundtrack);
     
     //audio_play_sound(sn_soundtrack_intro, 1, 1);
@@ -64,10 +65,10 @@ if(room == Room_Digital){
 }else if(room == Room_Baius){
 
     instance_create(room_width/2, room_height/2, Baius);
-    alarm[1] = 55;
+    alarm[1] = 62;
     
 }else if(room == Room_Alexander){
-    alarm[1] = 55;
+    alarm[1] = 62;
     
 }else if(room == Room_Menu){
     // Tank animation.
@@ -294,6 +295,18 @@ if(room == Room_Select){
  //   draw_text(600-24-string_width("CREDITS:    2"), 168+24, "CREDITS:    2"); 
     
     */
+  /*  draw_set_color(c_black);
+    draw_set_alpha(.3);
+    draw_rectangle(
+        0,
+        0,
+        room_width, 
+        room_height,
+        0
+    )
+    draw_set_color(c_white);
+    draw_set_alpha(1);*/
+    
  
     var yemenos = 20;
     if(change_color &lt; 10){
@@ -310,7 +323,9 @@ if(room == Room_Select){
     
     draw_set_halign(fa_center);
     draw_set_font(font_wonder_20);
-    draw_text_outlined(room_width/2 + 10, 80, "SELECT CHARACTER", color_select, c_black, 2);
+   //draw_text_outlined(room_width/2 + 10, 80, "SELECT CHARACTER", color_select, c_black, 2);
+    draw_set_color(color_select);
+    draw_text(room_width/2 + 10, 80, "SELECT CHARACTER");
     draw_set_halign(noone);
     
     var select = "SELECT";
@@ -338,14 +353,18 @@ if(room == Room_Select){
       //  draw_set_font(font_04b11_12);
       draw_set_font(font_wonder_11);
        // draw_set_font(font_menu);
-        draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
+      draw_sprite(spr_character_1, 0, 204, 210 - yemenos);
         //draw_sprite(spr_character_1, 0, 232, 240+24);
     }
 
 
     draw_set_halign(fa_center);
-    draw_text_outlined(204 + 128/2, 180 - yemenos, "EL JEFE", color, c_black, 2); 
-    draw_text_outlined(204 + 128/2, 360 - yemenos, select, color, c_black, 2);
+   // draw_text_outlined(204 + 128/2, 180 - yemenos, "EL JEFE", color, c_black, 2); 
+    //draw_text_outlined(204 + 128/2, 360 - yemenos, select, color, c_black, 2);
+    
+    draw_set_color(color);
+    draw_text(204 + 128/2, 180 - yemenos, "EL JEFE");
+    draw_text(204 + 128/2, 360 - yemenos, select);
     draw_set_halign(noone);
     
     if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new), New);
@@ -362,6 +381,7 @@ if(room == Room_Select){
             color = c_red;
             draw_sprite(spr_character_2, 1, 440, 210 - yemenos);
             if(mouse_check_button_released(mb_left) and !seleccionado){
+                
                 seleccionado = true;
                 var marco = instance_nearest(mouse_x, mouse_y, Marco);
                 with marco image_speed = 1;
@@ -377,6 +397,12 @@ if(room == Room_Select){
             draw_set_font(font_wonder_14);
             //draw_set_font(font_04b11_12);
             draw_sprite(spr_character_2, 2, 440, 210 - yemenos);
+            
+            if(mouse_check_button_released(mb_left)){
+                //seleccionado = true;
+                if(audio_is_playing(sn_nogacha)) audio_stop_sound(sn_nogacha);
+                audio_play_sound(sn_nogacha, 1, 0);
+            }
         }
     }else{
         draw_set_color(c_white);
@@ -387,8 +413,11 @@ if(room == Room_Select){
    //  bv b
 
     draw_set_halign(fa_center);
-    draw_text_outlined(440 + 128/2, 180 - yemenos, "EL MERO", color, c_black, 2); 
-    draw_text_outlined(440 + 128/2, 360 - yemenos, select, color, c_black, 2);
+    //draw_text_outlined(440 + 128/2, 180 - yemenos, "EL MERO", color, c_black, 2); 
+    //draw_text_outlined(440 + 128/2, 360 - yemenos, select, color, c_black, 2);
+    draw_set_color(color);
+    draw_text(440 + 128/2, 180 - yemenos, "EL MERO");
+    draw_text(440 + 128/2, 360 - yemenos, select);
     draw_set_halign(noone);
     draw_set_color(c_white);
 }

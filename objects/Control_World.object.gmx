@@ -51,6 +51,7 @@ object_ind = noone;
 
 // Tank bullets.
 num_level++;
+show_debug_message(num_level);
 termina_nivel = false;
 floor_soldiers_num = 3;
 create_ad = false;
@@ -76,6 +77,7 @@ instance_create(700, 345, Button_A);//685
 }else{
     background_index[0] = background_cartagena;
 }*/
+
 </string>
           </argument>
         </arguments>
@@ -360,6 +362,9 @@ audio_sound_gain(asset, 0, 3000);
 if(audio_is_playing(sn_rage_music)){
     audio_sound_gain(sn_rage_music, 0, 3000);
 }
+if(audio_is_playing(sn_avion)){
+    audio_stop_sound(sn_avion);
+}
 </string>
           </argument>
         </arguments>
@@ -389,9 +394,11 @@ if( ! audio_is_playing (asset_get_index("sn_soundtrack_" + string(num_level)))){
     else if(num_level &lt; 5) var numlevel = num_level;
     else var numlevel = 1;
     var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
-    audio_play_sound(asset, 0, 1);
-    audio_sound_gain(asset, 0, 1);
-    audio_sound_gain(asset, 1, 3000);
+    if(!audio_is_playing(asset)){
+        audio_play_sound(asset, 0, 1);
+        audio_sound_gain(asset, 0, 1);
+        audio_sound_gain(asset, 1, 3000);
+    }
 }
 </string>
           </argument>
@@ -580,6 +587,12 @@ vida_global = 100;
           <argument>
             <kind>1</kind>
             <string>room_goto_next();
+
+if(num_level &gt;= 5 and num_level &lt; 10) var numlevel = num_level - 4;   
+   else if(num_level &lt; 5) var numlevel = num_level;
+   else var numlevel = 1;
+var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
+audio_stop_sound(asset);
 </string>
           </argument>
         </arguments>

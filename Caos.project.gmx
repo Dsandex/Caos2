@@ -32,6 +32,7 @@
       <sounds name="Start">
         <sound>sound\sn_press_start</sound>
         <sound>sound\sn_campana</sound>
+        <sound>sound\sn_nogacha</sound>
       </sounds>
       <sounds name="Balas">
         <sound>sound\sn_bullets_hys</sound>
@@ -49,6 +50,9 @@
       </sounds>
       <sounds name="Dialogos">
         <sound>sound\sn_dialogo</sound>
+      </sounds>
+      <sounds name="Avion">
+        <sound>sound\sn_avion</sound>
       </sounds>
     </sounds>
   </sounds>
@@ -283,6 +287,7 @@
       <sprite>sprites\spr_creditos</sprite>
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_marco</sprite>
+      <sprite>sprites\spr_pausa</sprite>
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
@@ -448,6 +453,7 @@
       <object>objects\Dialogos</object>
       <object>objects\Score</object>
       <object>objects\Control_Select</object>
+      <object>objects\obj_controller_gaussian_blur</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -488,6 +494,7 @@
       <object>objects\Avioneta</object>
       <object>objects\Avion</object>
       <object>objects\Coronaste</object>
+      <object>objects\Pausa</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -499,7 +506,6 @@
       <object>objects\Joystick</object>
     </objects>
     <objects name="Menu">
-      <object>objects\ostart</object>
       <object>objects\Baius</object>
       <object>objects\Digital</object>
       <object>objects\New</object>
