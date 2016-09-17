@@ -30,8 +30,9 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador, game_pause;
+              jugador, game_pause, tutorial_bool;
     
+    tutorial_bool = false;
     game_pause = false;
     jugador = "";
     chances = 2;          
@@ -215,7 +216,8 @@ alarm[0] = 30*7;
 
 if(room == Room_Menu and !place_meeting(mouse_x, mouse_y, Iconos)){ 
     Play_Track("press_start")
-   room_goto_transition(Room_Select, 0, 30);   
+    var sk = instance_create(0,0,Screen_Shake);
+    with (sk) alarm[0] = 30; // Go to room next.
 }
 //else{ if(room != Room_Select) room_goto_transition(Room_Menu, 0, 30); }
 </string>

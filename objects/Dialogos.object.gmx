@@ -35,11 +35,15 @@ vel = .5;
 t = 0;
 llamar_alarma = false;
 
-
-background_index[0] = Background(num_level);
-if(num_level == 0){
-    audio_sound_gain(sn_soundtrack_intro, 0, 5000);
+if(!tutorial_bool){
+    background_index[0] = background_bogota;
+    txt[0] = "T U T O R I A L";
+}else{
+    background_index[0] = Background(num_level);
 }
+/*if(num_level == 0){
+    audio_sound_gain(sn_soundtrack_intro, 0, 5000);
+}*/
 audio_play_sound(sn_dialogo, 1, 0);
 </string>
           </argument>
@@ -63,8 +67,13 @@ audio_play_sound(sn_dialogo, 1, 0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
-else room_goto_transition(Room_Menu, 0, 120);
+            <string>if(tutorial_bool){
+    if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
+    else room_goto_transition(Room_Menu, 0, 120);
+}else{
+    room_goto_transition(game_tutorial, 0, 45);
+    tutorial_bool = true;
+}
 </string>
           </argument>
         </arguments>

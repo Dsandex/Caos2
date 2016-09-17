@@ -23,7 +23,9 @@ if(collision_circle(xx, yy, 15, Enemy, 1, 1)){ // 15
         }else{
             with (enemy) instance_destroy();
         }
-    }
+    }else{
+        audio_play_sound(sn_eat_power,1,0);
+    }   
 }else{
     Play_Track("air_attack");
 }

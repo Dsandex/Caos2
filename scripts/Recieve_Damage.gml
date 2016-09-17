@@ -7,8 +7,11 @@ switch(dir){
     case "down":
     
        // show_debug_message(building_id.bbox_bottom - Player.y); // -15 top coso.
+      //  show_debug_message("HIT THE BUILDING#WHILE GOING DOWN");
 
-
+        Check_Tutorial("HIT THE BUILDING#WHILE GOING DOWN!");
+        
+        
         if(image_xscale == 1){ xx_damage = building_father.bbox_right + 1 - sprite_get_width(spr_building_damage); }
         else if(image_xscale == -1){ xx_damage = building_father.bbox_left; }
             
@@ -87,7 +90,7 @@ switch(dir){
     break;
     case "front": 
        // show_debug_message(building_id.bbox_top - Player.y); // -15 top coso.
-    
+
 
         if(image_xscale == 1) xx_damage = bbox_left - sprite_get_width(spr_building_damage)/2;
         else xx_damage = bbox_right - sprite_get_width(spr_building_damage)/2;

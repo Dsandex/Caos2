@@ -236,7 +236,7 @@ draw_set_font(font_game_13);
     var width = string_width(score_1);
     
     // Draw player 1 bar.
-    if(room != game_tutorial){
+  //  if(room != game_tutorial){
     
         if(humor == "normal"){
             draw_sprite(
@@ -338,6 +338,7 @@ draw_set_font(font_game_13);
                 2
                 
             );
+        
             
             // Draw chances.
             for(i = 0; i &lt; 3; i++){
@@ -364,7 +365,7 @@ draw_set_font(font_game_13);
                 );
             }
 
-        }
+      //  }
         
         
     // Draw player 2 bar.

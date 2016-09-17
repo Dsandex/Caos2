@@ -6,6 +6,10 @@ if(room == game_tutorial){
          with(Control_Tutorial){
             if(tutorial[i] == "MOVE RIGHT"){
                 move_right = true;
+                if(audio_is_playing(sn_tutorial)){
+                    audio_stop_sound(sn_tutorial);
+                }
+                audio_play_sound(sn_tutorial, 1, 0);
             }
          }
        break;
@@ -13,6 +17,10 @@ if(room == game_tutorial){
          with(Control_Tutorial){
             if(tutorial[i] == "MOVE LEFT"){
                 move_left = true;
+                if(audio_is_playing(sn_tutorial)){
+                    audio_stop_sound(sn_tutorial);
+                }
+                audio_play_sound(sn_tutorial, 1, 0);
             }
          }
        break;
@@ -20,6 +28,10 @@ if(room == game_tutorial){
             with(Control_Tutorial){
                 if(tutorial[i] == "JUMP!"){
                     jump = true;
+                    if(audio_is_playing(sn_tutorial)){
+                    audio_stop_sound(sn_tutorial);
+                }
+                audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
@@ -27,6 +39,10 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "ATTACK!"){
                     attack = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
@@ -34,6 +50,11 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "ATTACK DOWN!"){
                     floor_down_attack  = true;
+                    alarm[1] = 30;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
@@ -41,34 +62,57 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "ATTACK UP!"){
                     floor_up_attack  = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "ATTACK DOWN JUMPING!":
+       case "ATTACK DOWN#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK DOWN JUMPING!"){
+                if(tutorial[i] == "ATTACK DOWN#JUMPING!"){
                     jump_down_attack = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "ATTACK UP JUMPING!":
+       case "ATTACK UP#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK UP JUMPING!"){
+                if(tutorial[i] == "ATTACK UP#JUMPING!"){
                     jump_up_attack = true;
+                    instance_create(0,0, Control_Helicopteros);
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "ATTACK FRONT JUMPING!":
+       case "ATTACK FRONT#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK FRONT JUMPING!"){
+                if(tutorial[i] == "ATTACK FRONT#JUMPING!"){
                     jump_front_attack = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "ATTACK BACK JUMPING!":
+       case "ATTACK BACK#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK BACK JUMPING!"){
+                if(tutorial[i] == "ATTACK BACK#JUMPING!"){
                     jump_back_attack = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
+                   // var t = instance_create(-sprite_width,427, Tank);
+                   // with(t){ depth = -y; }
                 }
              }
        break;
@@ -77,6 +121,10 @@ if(room == game_tutorial){
                 if(tutorial[i] == "CLIMB THE BUILDING!"){
                     climb_building = true;
                     mouse_clear(ord("Q"));
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;   
@@ -85,6 +133,10 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "GO UP!"){
                     up_building = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;  
@@ -92,6 +144,10 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "GO DOWN!"){
                     down_building = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break; 
@@ -99,20 +155,43 @@ if(room == game_tutorial){
            with(Control_Tutorial){
                 if(tutorial[i] == "HIT THE BUILDING!"){
                     hit_building = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "HIT THE BUILDING WHILE GOING DOWN!":
+       case "HIT THE BUILDING#WHILE GOING DOWN!":
            with(Control_Tutorial){
-                if(tutorial[i] == "HIT THE BUILDING WHILE GOING DOWN!"){
+                if(tutorial[i] == "HIT THE BUILDING#WHILE GOING DOWN!"){
                     hit_down_building = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;
-       case "JUMP OFF THE BUILDING!":
+       case "JUMP OFF#THE BUILDING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "JUMP OFF THE BUILDING!"){
+                if(tutorial[i] == "JUMP OFF#THE BUILDING!"){
                     jump_building = true;
+                    if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
+                }
+             }
+       break;
+       case "DESTROY THE#BUILDING!":
+            with(Control_Tutorial){
+                if(tutorial[i] == "DESTROY THE#BUILDING!"){
+                   destroy_building = true;
+                   if(audio_is_playing(sn_tutorial)){
+                        audio_stop_sound(sn_tutorial);
+                    }
+                    audio_play_sound(sn_tutorial, 1, 0);
                 }
              }
        break;

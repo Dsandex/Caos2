@@ -44,6 +44,7 @@
       <sounds name="Ganar-Perder">
         <sound>sound\sn_coronaste</sound>
         <sound>sound\sn_perdistes</sound>
+        <sound>sound\sn_tutorial</sound>
       </sounds>
       <sounds name="Power">
         <sound>sound\sn_eat_power</sound>

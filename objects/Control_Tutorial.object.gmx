@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>change_color = 0;
+can_destroy = false;
 i = 0;
+instance_create(697,22,Pausa);
 
 tutorial[0] = "TUTORIAL";
 tutorial[1] = "MOVE RIGHT";
@@ -35,16 +37,19 @@ tutorial[3] = "JUMP!";
 tutorial[4] = "ATTACK!";
 tutorial[5] = "ATTACK DOWN!";
 tutorial[6] = "ATTACK UP!";
-tutorial[7] = "ATTACK DOWN JUMPING!";
-tutorial[8] = "ATTACK UP JUMPING!";
-tutorial[9] = "ATTACK FRONT JUMPING!";
-tutorial[10] = "ATTACK BACK JUMPING!";
+tutorial[7] = "ATTACK DOWN#JUMPING!";
+tutorial[8] = "ATTACK UP#JUMPING!";
+tutorial[9] = "ATTACK FRONT#JUMPING!";
+tutorial[10] = "ATTACK BACK#JUMPING!";
 tutorial[11] = "CLIMB THE BUILDING!";
-tutorial[11] = "GO UP!";
-tutorial[11] = "GO DOWN!";
-tutorial[12] = "HIT THE BUILDING!";
-tutorial[13] = "HIT THE BUILDING WHILE GOING DOWN!";
-tutorial[14] = "JUMP OFF THE BUILDING!";
+tutorial[12] = "GO DOWN!";
+tutorial[13] = "GO UP!";
+tutorial[14] = "HIT THE BUILDING!";
+tutorial[15] = "HIT THE BUILDING#WHILE GOING DOWN!";
+tutorial[16] = "JUMP OFF#THE BUILDING!";
+tutorial[17] = "DESTROY THE#BUILDING!";
+tutorial[18] = "TUTORIAL COMPLETE!";
+
 //tutorial[12] = "JUMP UP ATTACK!";
 //tutorial[13] = "JUMP UP ATTACK!";
 
@@ -57,7 +62,7 @@ jump = false;
 floor_down_attack = false;
 floor_up_attack = false;
 
-jump_up_attack = false;
+jump_up_attack = false; 
 jump_down_attack = false;
 jump_front_attack = false;
 jump_back_attack = false;
@@ -68,10 +73,60 @@ hit_down_building = false;
 up_building = false;
 down_building = false;
 jump_building = false;
+destroy_building = false;
 
 
 
-alarm[0] = 90;
+alarm[0] = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto_transition(Room_Transicion, 11, 45);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create Soldado_Piso
+var sp = instance_create(choose(-20, room_width+20), 420, Soldado_Piso);
+//with sp depth = -y;
+alarm[1] = irandom_range(50, 70);
 </string>
           </argument>
         </arguments>
@@ -166,11 +221,24 @@ if(move_right){
 }else if(hit_building){
     hit_building = false;
     i++;
+}else if(hit_down_building){
+    hit_down_building = false;
+    i++;
 }else if(jump_building){
     jump_building = false;
+    can_destroy = true;
+    i++;
+}if(destroy_building){
+    destroy_building = false;
     i++;
 }
 
+
+if(!can_destroy){
+    if(instance_exists(Edificio)){
+        Edificio.building_life = 20;
+    }
+}
 
 
 
@@ -243,19 +311,26 @@ switch(tutorial[i]){
     case "ATTACK UP!":
         draw_sprite(spr_player_ground_normal_attack, 2, room_width/2, 200);
     break;
-    case "ATTACK DOWN JUMPING!":
+    case "ATTACK DOWN#JUMPING!":
         draw_sprite(spr_player_jump_normal_attack, 2, room_width/2 +yy, 200-yy);
     break;
-    case "ATTACK UP JUMPING!":
-        draw_sprite(spr_player_jump_normal_attack, 1, room_width/2+yy, 200-yy);
+    case "ATTACK UP#JUMPING!":
+        draw_sprite(spr_player_jump_normal_attack, 1, room_width/2+yy, 200-yy+20);
     break;
-    case "ATTACK FRONT JUMPING!":
+    case "ATTACK FRONT#JUMPING!":
         draw_sprite(spr_player_jump_normal_attack, 3, room_width/2+yy, 200-yy);
     break;
-    case "ATTACK BACK JUMPING!":
+    case "ATTACK BACK#JUMPING!":
         draw_sprite(spr_player_jump_normal_attack, 0, room_width/2+yy, 200-yy);
     break;
 }
+
+draw_sprite(
+    spr_piso, 
+    0,
+    0, 
+    433
+);
 /*switch(i){
     case 0:
     
