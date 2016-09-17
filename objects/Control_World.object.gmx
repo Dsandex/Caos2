@@ -53,7 +53,7 @@ object_ind = noone;
 num_level++;
 show_debug_message(num_level);
 termina_nivel = false;
-floor_soldiers_num = 3;
+floor_soldiers_num = 1;
 create_ad = false;
 alarm[0] = 30; // Create tanks.
 alarm[1] = 30; // Create helicopters.
@@ -214,7 +214,6 @@ chances = 2;
           <argument>
             <kind>1</kind>
             <string>/// Create infloor - soldiers.
-
 if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
     var width = sprite_get_width(spr_soldier_walk);
     instance_create(
@@ -223,7 +222,8 @@ if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
         Soldado_Piso
     );
   //  show_debug_message('crear');
-  
+    alarm[2] = irandom_range(90, 120);
+}else{
     alarm[2] = irandom_range(90, 120);
 }
 </string>
@@ -249,7 +249,7 @@ if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
           <argument>
             <kind>1</kind>
             <string>/// Create helicopters.
-if (num_level == 1 or num_level == 2 or num_level == 4 or num_level == 9){
+if (/*num_level == 1 or */num_level == 2 or num_level == 4 or num_level == 9){
     instance_create(0,0, Control_Helicopteros);
 }else if (num_level &gt;= 3){
     helicopter_num = 3;

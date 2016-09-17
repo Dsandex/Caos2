@@ -25,8 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set vspeed.
-vspeed = -2;
+            <string>/// Create infloor - soldiers.
+if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
+    var width = sprite_get_width(spr_soldier_walk);
+    instance_create(
+        choose(-width, room_width + width),
+        412, 
+        Soldado_Piso
+    );
+  //  show_debug_message('crear');
+    alarm[2] = irandom_range(90, 120);
+}else{
+    alarm[2] = irandom_range(90, 120);
+}
 </string>
           </argument>
         </arguments>
