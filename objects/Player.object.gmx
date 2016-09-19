@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Declare initial values.
+audio_play_sound(sn_roar, 1, 0);
 
 // Position variables.
 jumpspeed = 15;

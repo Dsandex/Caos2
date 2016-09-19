@@ -228,6 +228,7 @@ if(climb){
         var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle");
         Current_Sprite(asset, 0, irandom_range(0,2));
         grounded = false;
+       
         
         // aqui lo esta haciendo bien.
     }else{

@@ -35,16 +35,21 @@ vel = .5;
 t = 0;
 llamar_alarma = false;
 
+
+
 if(!tutorial_bool){
     background_index[0] = background_bogota;
     txt[0] = "T U T O R I A L";
+    audio_play_sound(sn_dialogo2, 1, 0);
 }else{
     background_index[0] = Background(num_level);
+    audio_play_sound(sn_dialogo, 1, 0);
 }
+
+show_debug_message(tutorial_bool);
 /*if(num_level == 0){
     audio_sound_gain(sn_soundtrack_intro, 0, 5000);
 }*/
-audio_play_sound(sn_dialogo, 1, 0);
 </string>
           </argument>
         </arguments>
@@ -73,6 +78,7 @@ audio_play_sound(sn_dialogo, 1, 0);
 }else{
     room_goto_transition(game_tutorial, 0, 45);
     tutorial_bool = true;
+    show_debug_message(tutorial_bool);
 }
 </string>
           </argument>
@@ -99,7 +105,7 @@ audio_play_sound(sn_dialogo, 1, 0);
             <string>if(str &lt; string_length(txt[num_level])){
     str += vel; // Speed of text.
     if(str == string_length(txt[num_level]) - 4){
-        vel = .3;
+        if(tutorial_bool) vel = .3;
     }
 }
 

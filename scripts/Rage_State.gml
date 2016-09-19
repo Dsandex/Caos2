@@ -25,6 +25,7 @@ if(humor == "normal"){
         humor_animation = true;
         scale_change = image_xscale;
         room_speed = 60;
+        angry = 200;
         /*movespeed = 6;
         jumpspeed = 20;
         climb_speed = 6;

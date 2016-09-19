@@ -10,7 +10,7 @@
       <sound>sound\sn_soundtrack_1</sound>
       <sound>sound\sn_soundtrack_2</sound>
       <sound>sound\sn_soundtrack_3</sound>
-      <sound>sound\sn_soundtrack_4</sound>
+      <sound>sound\sn_soundtrack_pausa</sound>
       <sound>sound\sn_soundtrack_intro</sound>
       <sound>sound\sn_rage_music</sound>
     </sounds>
@@ -21,6 +21,7 @@
         <sound>sound\sn_punch_3</sound>
         <sound>sound\sn_punch_4</sound>
         <sound>sound\sn_air_punch</sound>
+        <sound>sound\sn_roar</sound>
       </sounds>
       <sounds name="Helicopter">
         <sound>sound\sn_helicopter_behind</sound>
@@ -45,6 +46,7 @@
         <sound>sound\sn_coronaste</sound>
         <sound>sound\sn_perdistes</sound>
         <sound>sound\sn_tutorial</sound>
+        <sound>sound\sn_dialogo2</sound>
       </sounds>
       <sounds name="Power">
         <sound>sound\sn_eat_power</sound>

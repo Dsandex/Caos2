@@ -59,9 +59,10 @@ if(!game_pause){
  //   with o_player can_move = false;
  
     audio_sound_gain(asset, 0, 3000);
-    audio_play_sound(sn_soundtrack_4, 1, 1);
-    audio_sound_gain(sn_soundtrack_4, 0, 1);
-    audio_sound_gain(sn_soundtrack_4, 1, 3000);
+    audio_stop_sound(sn_soundtrack_pausa);
+    audio_play_sound(sn_soundtrack_pausa, 1, 1);
+    audio_sound_gain(sn_soundtrack_pausa, 0, 1);
+    audio_sound_gain(sn_soundtrack_pausa, 1, 8000);
     
     game_pause = true;
     visible = 0;
@@ -84,7 +85,9 @@ if(!game_pause){
   //  with o_player image_speed = 0;
 
 }else{
-    audio_sound_gain(asset, 1, 3000);
+
+    audio_sound_gain(asset, 1, 5000);
+    audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
     sprite_delete(background);
     background = -1;
  //   with o_player can_move = true;

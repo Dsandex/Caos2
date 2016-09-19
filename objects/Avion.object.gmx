@@ -30,6 +30,8 @@ audio_play_sound(sn_avion, 1, 0);
 //audio_sound_gain(sn_avion, 0, 1);
 //audio_sound_gain(sn_avion, 1, 1000);
 out = 0;
+sk = instance_create(0,0, Screen_Shake);
+
 </string>
           </argument>
         </arguments>
@@ -55,8 +57,9 @@ out = 0;
             <string>out++;
 if(out &gt; 1){
 //audio_sound_gain(sn_avion, 0, 1);
-audio_stop_sound(sn_avion);
-instance_destroy();
+    audio_stop_sound(sn_avion);
+    with(sk) alarm[0] = 1;
+    instance_destroy();    
 }
 </string>
           </argument>

@@ -4,7 +4,7 @@ if(room == game_tutorial){
    switch(argument[0]){
        case "MOVE RIGHT":
          with(Control_Tutorial){
-            if(tutorial[i] == "MOVE RIGHT"){
+            if(tutorial[cuenta] == "MOVE RIGHT"){
                 move_right = true;
                 if(audio_is_playing(sn_tutorial)){
                     audio_stop_sound(sn_tutorial);
@@ -15,7 +15,7 @@ if(room == game_tutorial){
        break;
        case "MOVE LEFT":
          with(Control_Tutorial){
-            if(tutorial[i] == "MOVE LEFT"){
+            if(tutorial[cuenta] == "MOVE LEFT"){
                 move_left = true;
                 if(audio_is_playing(sn_tutorial)){
                     audio_stop_sound(sn_tutorial);
@@ -26,7 +26,7 @@ if(room == game_tutorial){
        break;
        case "JUMP!":
             with(Control_Tutorial){
-                if(tutorial[i] == "JUMP!"){
+                if(tutorial[cuenta] == "JUMP!"){
                     jump = true;
                     if(audio_is_playing(sn_tutorial)){
                     audio_stop_sound(sn_tutorial);
@@ -37,7 +37,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK!"){
+                if(tutorial[cuenta] == "ATTACK!"){
                     attack = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -48,7 +48,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK DOWN!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK DOWN!"){
+                if(tutorial[cuenta] == "ATTACK DOWN!"){
                     floor_down_attack  = true;
                     alarm[1] = 30;
                     if(audio_is_playing(sn_tutorial)){
@@ -60,7 +60,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK UP!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK UP!"){
+                if(tutorial[cuenta] == "ATTACK UP!"){
                     floor_up_attack  = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -71,7 +71,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK DOWN#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK DOWN#JUMPING!"){
+                if(tutorial[cuenta] == "ATTACK DOWN#JUMPING!"){
                     jump_down_attack = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -82,7 +82,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK UP#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK UP#JUMPING!"){
+                if(tutorial[cuenta] == "ATTACK UP#JUMPING!"){
                     jump_up_attack = true;
                     instance_create(0,0, Control_Helicopteros);
                     if(audio_is_playing(sn_tutorial)){
@@ -94,7 +94,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK FRONT#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK FRONT#JUMPING!"){
+                if(tutorial[cuenta] == "ATTACK FRONT#JUMPING!"){
                     jump_front_attack = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -105,7 +105,7 @@ if(room == game_tutorial){
        break;
        case "ATTACK BACK#JUMPING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "ATTACK BACK#JUMPING!"){
+                if(tutorial[cuenta] == "ATTACK BACK#JUMPING!"){
                     jump_back_attack = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -118,7 +118,7 @@ if(room == game_tutorial){
        break;
        case "CLIMB THE BUILDING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "CLIMB THE BUILDING!"){
+                if(tutorial[cuenta] == "CLIMB THE BUILDING!"){
                     climb_building = true;
                     mouse_clear(ord("Q"));
                     if(audio_is_playing(sn_tutorial)){
@@ -131,7 +131,7 @@ if(room == game_tutorial){
        
        case "GO UP!":
            with(Control_Tutorial){
-                if(tutorial[i] == "GO UP!"){
+                if(tutorial[cuenta] == "GO UP!"){
                     up_building = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -142,7 +142,7 @@ if(room == game_tutorial){
        break;  
        case "GO DOWN!":
            with(Control_Tutorial){
-                if(tutorial[i] == "GO DOWN!"){
+                if(tutorial[cuenta] == "GO DOWN!"){
                     down_building = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -153,7 +153,7 @@ if(room == game_tutorial){
        break; 
        case "HIT THE BUILDING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "HIT THE BUILDING!"){
+                if(tutorial[cuenta] == "HIT THE BUILDING!"){
                     hit_building = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -164,7 +164,7 @@ if(room == game_tutorial){
        break;
        case "HIT THE BUILDING#WHILE GOING DOWN!":
            with(Control_Tutorial){
-                if(tutorial[i] == "HIT THE BUILDING#WHILE GOING DOWN!"){
+                if(tutorial[cuenta] == "HIT THE BUILDING#WHILE GOING DOWN!"){
                     hit_down_building = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -175,7 +175,7 @@ if(room == game_tutorial){
        break;
        case "JUMP OFF#THE BUILDING!":
            with(Control_Tutorial){
-                if(tutorial[i] == "JUMP OFF#THE BUILDING!"){
+                if(tutorial[cuenta] == "JUMP OFF#THE BUILDING!"){
                     jump_building = true;
                     if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
@@ -186,7 +186,7 @@ if(room == game_tutorial){
        break;
        case "DESTROY THE#BUILDING!":
             with(Control_Tutorial){
-                if(tutorial[i] == "DESTROY THE#BUILDING!"){
+                if(tutorial[cuenta] == "DESTROY THE#BUILDING!"){
                    destroy_building = true;
                    if(audio_is_playing(sn_tutorial)){
                         audio_stop_sound(sn_tutorial);
