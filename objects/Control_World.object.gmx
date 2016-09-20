@@ -365,6 +365,14 @@ if(audio_is_playing(sn_rage_music)){
 if(audio_is_playing(sn_avion)){
     audio_stop_sound(sn_avion);
 }
+if(audio_is_playing(sn_helicopter_behind)){
+    audio_stop_sound(sn_helicopter_behind);
+}
+
+if(audio_is_playing(sn_helicopter_front)){
+    audio_stop_sound(sn_helicopter_front)
+}
+
 </string>
           </argument>
         </arguments>
