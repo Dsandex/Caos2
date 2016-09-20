@@ -30,7 +30,7 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador, game_pause, tutorial_bool;
+              jugador, game_pause, tutorial_bool, soundtrack;
     
     tutorial_bool = false;
     game_pause = false;
@@ -61,7 +61,7 @@ if(room == Room_Digital){
     instance_create(0, 0, Change_Soundtrack);
     
     //audio_play_sound(sn_soundtrack_intro, 1, 1);
-    audio_play_sound(sn_soundtrack_1, 1, 1);
+    soundtrack = audio_play_sound(sn_soundtrack_1, 1, 1);
     
 }else if(room == Room_Baius){
 
@@ -341,9 +341,13 @@ if(room == Room_Select){
         color = c_red;
         draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
         if(mouse_check_button_released(mb_left) and !seleccionado){
+            // Change soundtrack.
+            if(!tutorial_bool){
+                audio_sound_gain(soundtrack, 0, 3000);                
+            }
             seleccionado = true;
             jugador = "";
-            var marco = instance_nearest(mouse_x, mouse_y, Marco);
+            var marco = instance_nearest(204, 210 - yemenos, Marco);
             with marco image_speed = 1;
             Play_Track("press_start");
            // room_goto_transition(Room_Transicion, 0, 45);
@@ -385,7 +389,7 @@ if(room == Room_Select){
             if(mouse_check_button_released(mb_left) and !seleccionado){
                 
                 seleccionado = true;
-                var marco = instance_nearest(mouse_x, mouse_y, Marco);
+                var marco = instance_nearest(440, 210 - yemenos, Marco);
                 with marco image_speed = 1;
                 jugador = "2";
                 Play_Track("press_start");

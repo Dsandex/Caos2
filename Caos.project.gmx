@@ -13,6 +13,7 @@
       <sound>sound\sn_soundtrack_pausa</sound>
       <sound>sound\sn_soundtrack_intro</sound>
       <sound>sound\sn_rage_music</sound>
+      <sound>sound\sn_soundtrack_tutorial</sound>
     </sounds>
     <sounds name="Efectos">
       <sounds name="Punch">

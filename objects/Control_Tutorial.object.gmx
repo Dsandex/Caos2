@@ -29,6 +29,10 @@
 can_destroy = false;
 cuenta = 0;
 instance_create(697,22,Pausa);
+audio_stop_sound(soundtrack);
+soundtrack = audio_play_sound(sn_soundtrack_tutorial, 1, 1);
+audio_sound_gain(soundtrack, 0, 0);
+audio_sound_gain(soundtrack, 1, 3000);
 
 tutorial[0] = "Tutorial";
 tutorial[1] = "MOVE RIGHT";
@@ -210,7 +214,8 @@ if(move_right){
 }else if(jump_back_attack){
     jump_back_attack = false;
     cuenta++;   
-    instance_create(345, 433, Building_29);
+    instance_create(345, 433, 
+    choose(Building_29, Building_30, Building_31));
 }else if(climb_building){
     climb_building = false;
     cuenta++;
@@ -272,6 +277,30 @@ up_building = false;
 down_building = false;
 jump_building = false;
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set sound gain to 0.
+audio_sound_gain(soundtrack, 0, 3000);
 </string>
           </argument>
         </arguments>

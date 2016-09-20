@@ -51,7 +51,7 @@ llamar = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto_transition(Room_Transicion, 11, 25);
+            <string>room_goto_transition(Room_Transicion, 11, 45);
 </string>
           </argument>
         </arguments>
