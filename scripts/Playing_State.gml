@@ -148,6 +148,8 @@ if(climb){
             // Player attack front.
             }else{
             
+                
+                
                 // Is a person in there?
                 if(Can_Eat("climb") and !instance_exists(Rage) and !take_women){    
                 
@@ -161,6 +163,7 @@ if(climb){
                          take_women = true;
                          Recieve_Damage("front", climbed_building);
                          eating = false;
+                         women_eat = false;
                          
                       }else if(object_ind = "Poder"){
                       
@@ -178,9 +181,11 @@ if(climb){
                     Destroy_Enemy();
                     var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
                     Current_Sprite(asset, 0, 3, retard_value);
-                    Recieve_Damage("front", climbed_building); 
-
+                    Recieve_Damage("front", climbed_building);
+                    //show_debug_message("attack");
                 } 
+                
+              
             }
         }
     }
@@ -249,6 +254,12 @@ if(climb){
             if(!grounded) Play_Track("air_punch");
             if(!limits) limits = true;
             grounded = true;
+            if(!roar){
+                //audio_play_sound(sn_roar, 1, 0);
+                roar = true;
+                var asset = asset_get_index("spr_player" + jugador + "_ground_" + humor + "_idle");
+                Current_Sprite(asset, 0, 0);
+            }
     }
     
     // Building.
@@ -264,6 +275,7 @@ if(climb){
             Jump_Hspeed();
             var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle");
             Current_Sprite(asset, 0, irandom_range(0,2));
+            
         }
     }
     

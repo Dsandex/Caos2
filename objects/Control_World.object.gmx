@@ -30,7 +30,7 @@
     Smoothing = false
 // Helicopter global variables.
 globalvar helicopter_num, call_h, destroy_h;
-    helicopter_num = 2;
+    helicopter_num = Get_Dificulty("Helicoptero");
     call_h = noone;
     destroy_h = noone;
 

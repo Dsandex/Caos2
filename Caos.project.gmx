@@ -393,6 +393,7 @@
         <script>scripts\Helicopter_Idle.gml</script>
         <script>scripts\Helicopter_Change.gml</script>
       </scripts>
+      <script>scripts\Get_Dificulty.gml</script>
     </scripts>
     <script>scripts\draw_text_outlined.gml</script>
     <scripts name="Pause Settings">
