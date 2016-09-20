@@ -1,9 +1,11 @@
 /// Get_Dificulty(keyword);
-switch(keyword){
-
+switch(argument[0]){
+    
     case "Helicoptero":
         switch(num_level){
-        
+             case 1:
+             
+             break;
         }
     break;   
 }

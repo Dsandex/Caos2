@@ -161,9 +161,9 @@ if(climb){
                       
                          Eat_Person(asset_get_index("spr_player" + jugador + "_climb_" + humor + "_women"));
                          take_women = true;
-                         Recieve_Damage("front", climbed_building);
+                         //Recieve_Damage("front", climbed_building);
                          eating = false;
-                         women_eat = false;
+    
                          
                       }else if(object_ind = "Poder"){
                       
@@ -187,6 +187,12 @@ if(climb){
                 
               
             }
+            
+        // Eat women if wanted.
+        }else if(key_attack and take_women){
+            take_women = false;
+            Eat_Person(asset_get_index("spr_player" + jugador + "_climb_" + humor + "_eat"));
+            eating = true;
         }
     }
 }else{

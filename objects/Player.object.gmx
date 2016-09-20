@@ -84,7 +84,6 @@ poder_ate = "normal";
 // Women variables.
 take_women = false;
 w_index =0;
-women_eat = false;
 
 // STATE
 state = Playing_State;
@@ -508,7 +507,7 @@ if(take_women){
     if(climb){  
         draw_sprite(
             spr_women_inhand, 
-            0, 
+            image_index/2, 
             xx1, 
             y - 22
         );
@@ -517,7 +516,7 @@ if(take_women){
         if(!grounded){
             draw_sprite(
                 spr_women_inhand, 
-                1, 
+                image_index/2, 
                 xx1, 
                 y - 22
             );

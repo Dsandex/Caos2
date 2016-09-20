@@ -27,10 +27,13 @@ if(!place_meeting(x, y, Letrero_Up)){
     // Player is in top.
     }else{
        // show_debug_message('in top');
+        
         Current_Sprite("spr_player" + jugador + "_ground_" + humor + "_idle", 0, irandom_range(0,2))
-        y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - sprite_get_height(sprite_index)*2 - 2;
+       // show_debug_message(sprite_get_height(sprite_index)*2 - 2);
+        y = climbed_building.y - sprite_get_height(climbed_building.sprite_index) - 42 /*sprite_get_height(sprite_index)*2*/ - 2;
         x = x + sprite_get_width(sprite_index)/2 * image_xscale * -1;
         climb = false;
+
         return true;
     } 
 }
