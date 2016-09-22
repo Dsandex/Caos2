@@ -62,6 +62,7 @@ vspeed = 4
             <string>if (!suelo){
     if (y&gt;=415){
         sprite_index = spr_women_run;
+        depth = -1;
         vspeed = 0;
         hspeed = choose(-3, 3);
         if(hspeed == -3) image_xscale = -1;

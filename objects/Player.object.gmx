@@ -222,6 +222,14 @@ script_execute(state);
 x += hsp;
 y += vsp;
 
+//matener vida maxima como 100 y minima como 0
+if vida &gt;=100{
+    vida = 100;
+}else if vida &lt;= 0{
+    vida = 0
+}
+
+//show_debug_message(vida);
 /*show_debug_message(x);
 show_debug_message(y);
 </string>
@@ -281,7 +289,7 @@ if(puntaje_global &gt; best_score){
           <argument>
             <kind>1</kind>
             <string> /// Draw players data.
-
+ 
 // Set configurations.
 draw_set_font(font_game_13);
 
