@@ -83,7 +83,7 @@ if(!set_target){
             set_target = true;
         break;
         case "mid":
-            target_x = x + xscale * (lengthdir_x(room_width+32, 30));
+            target_x = x + xscale * (lengthdir_x(room_width+200, 30));
             target_y = y
             image_index = 2;
             image_xscale = .8*xscale;
@@ -100,8 +100,12 @@ if(!set_target){
         instance_destroy();
     }
 }
-if(bullet_life &gt; 0) bullet_life--;
-else if(bullet_life &gt; 0 or speed == 0) instance_destroy();
+if(bullet_life &gt; 0){
+    bullet_life--;
+}else if(bullet_life &gt; 0 or speed == 0) {
+    instance_destroy();
+    }
+    show_debug_message(bullet_life);
 </string>
           </argument>
         </arguments>
