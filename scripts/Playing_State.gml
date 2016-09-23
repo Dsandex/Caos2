@@ -136,12 +136,30 @@ if(climb){
                     // Right.
                     case 1:
                         if(key_right) Current_Sprite(asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack"), 0, 0, retard_value);
+                    if (y != y_anterior2){
                         Attack_Other();
+                        y_anterior2 = y;
+                        same_place_counter2 = 0;
+                    }else{
+                        if(same_place_counter2 <2){
+                            Attack_Other();;
+                            same_place_counter2++;
+                        }
+                    }
                     break;
                     // Left.
                     case -1:
                         if(key_left) Current_Sprite(asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack"), 0, 0, retard_value);
-                        Attack_Other();
+                        if (y != y_anterior2){//Player can make damage only 3 times in the same place
+                            Attack_Other();
+                            y_anterior2 = y;
+                            same_place_counter2 = 0;
+                        }else{
+                            if(same_place_counter2 <2){
+                                Attack_Other();;
+                                same_place_counter2++;
+                            }
+                        }
                     break;
                 }
                 
@@ -181,7 +199,17 @@ if(climb){
                     Destroy_Enemy();
                     var asset = asset_get_index("spr_player" + jugador + "_climb_" + humor + "_attack");
                     Current_Sprite(asset, 0, 3, retard_value);
-                    Recieve_Damage("front", climbed_building);
+                    //Player can make damage only 3 times in the same place
+                    if (y != y_anterior){
+                        Recieve_Damage("front", climbed_building);
+                        y_anterior = y;
+                        same_place_counter = 0;
+                    }else{
+                        if(same_place_counter <2){
+                            Recieve_Damage("front", climbed_building);
+                            same_place_counter++;
+                        }
+                    }
                     //show_debug_message("attack");
                 } 
                 

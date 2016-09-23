@@ -47,6 +47,10 @@ vsp = 0;
 // Control variables.
 climbed_building = noone; // ID variable.
 eat_person_id = noone; // ID variable.
+same_place_counter = 0;// count same place attacks
+y_anterior = 0;// save the Y position of the previous attack
+same_place_counter2 = 0;// Attack_Other - count same place attacks
+y_anterior2 = 0;// Attack_Other - save the Y position of the previous attack
 
 // Life value.
 vida = vida_global; // 100
@@ -229,9 +233,9 @@ if vida &gt;=100{
     vida = 0
 }
 
-//show_debug_message(vida);
 /*show_debug_message(x);
 show_debug_message(y);
+show_debug_message(vida);
 </string>
           </argument>
         </arguments>
