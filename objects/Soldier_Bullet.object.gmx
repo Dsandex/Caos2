@@ -83,7 +83,7 @@ if(!set_target){
             set_target = true;
         break;
         case "mid":
-            target_x = x + xscale * (lengthdir_x(room_width, 30));
+            target_x = x + xscale * (lengthdir_x(room_width+32, 30));
             target_y = y
             image_index = 2;
             image_xscale = .8*xscale;
