@@ -2,7 +2,7 @@
 <sprite>
   <type>0</type>
   <xorig>21</xorig>
-  <yorigin>24</yorigin>
+  <yorigin>25</yorigin>
   <colkind>1</colkind>
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
@@ -10,7 +10,7 @@
   <bbox_left>0</bbox_left>
   <bbox_right>41</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>47</bbox_bottom>
+  <bbox_bottom>49</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -18,7 +18,7 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>42</width>
-  <height>48</height>
+  <height>50</height>
   <frames>
     <frame index="0">images\spr_player_face_0.png</frame>
   </frames>

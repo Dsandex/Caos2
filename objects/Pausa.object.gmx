@@ -123,7 +123,8 @@ mouse_clear(mb_left);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(background != -1){
+            <string>display_set_gui_size(768, 480);
+if(background != -1){
     draw_sprite(background, 0, 0, 0);
     draw_set_color(c_black);
     draw_set_alpha(.1);

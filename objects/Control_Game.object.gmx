@@ -218,6 +218,7 @@ if(room == Room_Menu and !place_meeting(mouse_x, mouse_y, Iconos)){
     Play_Track("press_start")
     var sk = instance_create(0,0,Screen_Shake);
     with (sk) alarm[0] = 30; // Go to room next.
+    mouse_clear(mb_left);
 }
 //else{ if(room != Room_Select) room_goto_transition(Room_Menu, 0, 30); }
 </string>

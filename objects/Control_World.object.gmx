@@ -66,6 +66,7 @@ if instance_exists(Control_Game) with Control_Game instance_destroy();
 instance_create(100, 380, Joystick);//120
 instance_create(615, 395, Button_B);//600
 instance_create(700, 345, Button_A);//685
+instance_create(700, 20, Pausa);
 
 
 // Set background.

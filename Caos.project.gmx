@@ -378,6 +378,7 @@
       <script>scripts\point_nearest.gml</script>
       <script>scripts\Create_Debug.gml</script>
       <script>scripts\in_Rectangle.gml</script>
+      <script>scripts\Sprite_InRectangle.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
