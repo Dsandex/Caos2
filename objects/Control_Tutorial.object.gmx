@@ -28,7 +28,7 @@
             <string>change_color = 0;
 can_destroy = false;
 cuenta = 0;
-instance_create(697,22,Pausa);
+instance_create(705, 25, Pausa);
 audio_stop_sound(soundtrack);
 soundtrack = audio_play_sound(sn_soundtrack_tutorial, 1, 1);
 audio_sound_gain(soundtrack, 0, 0);
@@ -156,7 +156,8 @@ alarm[1] = irandom_range(50, 70);
             <kind>1</kind>
             <string>cuenta++;
 audio_play_sound(sn_tutorial, 1, 0);
-instance_create(100, 380, Joystick);//120
+//instance_create(80, 400, Joystick);//120
+instance_create(80, 400+5, Joystick);//120, 100
 //instance_create(615, 395, Button_B);//600
 //instance_create(700, 345, Button_A);//685
 </string>
@@ -187,12 +188,15 @@ if(move_right){
     move_right = false;
 }else if(move_left){
     cuenta++;
-    instance_create(700, 345, Button_A);
+    //instance_create(700, 345, Button_A);
+    instance_create(700+15, 345+20+10+10, Button_A);//685
     move_left = false;
 }else if(jump){
     cuenta++;
     jump = false;
-    instance_create(615, 395, Button_B);
+    //instance_create(615, 395, Button_B);
+        
+    instance_create(615+15, 395+20+10+10, Button_B);//600
 }else if(attack){
     cuenta++;
     attack = false;
@@ -216,6 +220,7 @@ if(move_right){
     cuenta++;   
     instance_create(345, 433, 
     choose(Building_29, Building_30, Building_31));
+    
 }else if(climb_building){
     climb_building = false;
     cuenta++;

@@ -62,7 +62,7 @@ image_angle = dir;
     
     // Arriba.
     if(!Player.climb){
-        if(dir &gt;= 10 and dir &lt;= 180-10){
+        if(dir &gt;=5 and dir &lt;= 175){ // 10, 170
             with Player key_up = 1;
            // show_debug_message('up truer');;
         }else{
@@ -114,6 +114,20 @@ image_angle = dir;
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -129,7 +143,7 @@ image_angle = dir;
           <argument>
             <kind>1</kind>
             <string>//virtual_key_show(j);
-draw_self();
+//draw_self();
 
 /*draw_set_color(c_white);
 draw_set_font(font_arial_15);

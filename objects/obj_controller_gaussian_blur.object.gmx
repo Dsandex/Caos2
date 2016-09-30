@@ -158,7 +158,7 @@ draw_set_color(c_white);
 draw_set_font(font_menu);
 draw_set_halign(fa_center);
 
-draw_sprite(spr_pausa, 1, 697, 22); 
+draw_sprite(spr_pausa, 1, 705, 25); 
 
 if(Sprite_InRectangle(spr_ico_bogota, 0, 80, 420, .8)){
     url_open("http://www.bogotadc.tv/");

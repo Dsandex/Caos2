@@ -67,7 +67,7 @@ if(collision_point(x, y, Player, true, true)){
     instance_create(x, y, Explosion);
     Play_Track("hys_bullet");
     with(Player){
-         vida--;
+         //vida--;
          if(grounded or (!climb and climbed_building != noone)){
              eating = false;
              grounded = false;
@@ -81,6 +81,8 @@ if(collision_point(x, y, Player, true, true)){
              Current_Sprite(asset, 0, 0, retard_value);
          }
     }
+    
+    Hurt_Player("Tank_Bullet", x, y);
     instance_destroy();
 }
 

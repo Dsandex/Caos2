@@ -44,6 +44,10 @@ climb_speed = 3;
 hsp = 0;
 vsp = 0;
 
+// Hurt.
+hurt = true;
+count_hurt = 0;
+
 // Control variables.
 climbed_building = noone; // ID variable.
 eat_person_id = noone; // ID variable.
@@ -94,7 +98,7 @@ state = Playing_State;
 
 // Draw variables.
 offset_x = 30;
-offset_y = 40;
+offset_y = 30;
 bar_width = sprite_get_width(spr_barra_vida); //  100;
 bar_height = sprite_get_height(spr_barra_vida); // 20
 join_text_time = 20;
@@ -363,15 +367,16 @@ draw_set_font(font_game_13);
                 offset_x+3, 
                 offset_y - string_height("SCORE:"), 
                 "SCORE:",
-                make_color_rgb(0, 254, 255),
+                c_white, /*make_color_rgb(0, 254, 255),*/
                 c_black, 
                 2
             );
+            
             draw_text_outlined(
                 offset_x + bar_width - string_width(score_1), 
                 offset_y - string_height(score_1), 
                 score_1, 
-                make_colour_rgb(0, 254, 255), 
+                c_white, /*make_colour_rgb(0, 254, 255), */
                 c_black, 
                 2
             );
@@ -402,7 +407,7 @@ draw_set_font(font_game_13);
                 offset_x + 10, 
                 offset_y + 8 + sprite_get_height(spr_barra_vida), 
                 "CAOS", 
-                make_color_rgb(215,0, 46), 
+                c_white, /*make_color_rgb(215,0, 46),*/ 
                 c_black, 
                 2
                 
@@ -536,6 +541,37 @@ if(take_women){
     }
 }
 
+// Draw the player.
+draw_self();
+
+if(hurt){
+    if(count_hurt &lt; 2){
+        //var color_red = make_color_hsv(make_colour_rgb(255, 182, 35), 200, 255);
+        
+        var color_red = make_colour_rgb(254, 102, 29);
+        draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, 1, 0, color_red, 1);
+        
+
+        
+        count_hurt++;
+    }else{
+        count_hurt++;
+        if(count_hurt &gt; 4){
+           var color_red = make_colour_rgb(254, 102, 29);
+            
+           // var color_red = make_color_hsv(make_colour_rgb(255, 182, 35), 200, 255);
+            draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, 1, 0, color_red, 1);
+            
+
+            if(count_hurt &gt; 6){
+                hurt = false;
+                count_hurt = 0;
+            }
+        }
+    }
+}
+    
+
 // Draw score in the middle.
 if(draw_score){
 
@@ -581,9 +617,6 @@ if(draw_score){
     );
 }*/
 
-// Draw the player.
-draw_self();
-    
 
 //if(image_index == 1){
 /*draw_set_color(c_blue);
@@ -877,6 +910,29 @@ if(grounded){
         break;
     }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="87">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>hurt = true;
 </string>
           </argument>
         </arguments>

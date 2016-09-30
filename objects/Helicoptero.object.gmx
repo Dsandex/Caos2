@@ -64,7 +64,7 @@ pos = x;
     }
 }*/
 alarm[0] = -1;
-Get_Score(x, y, 100, false);
+Get_Score(x, y, 500, false);
 instance_create(x,y, Destrucion);
 audio_stop_sound(sn_helicopter_front);
 if(instance_number(Helicoptero) &gt; 1){

@@ -85,7 +85,7 @@ if(!set_target){
 }
 move_towards_point(target_x, target_y, spd);
 if(collision_point(x, y, Player, true, true)){
-    with Player vida--;
+    Hurt_Player("Helicopter_Bullet", x, y);
     Play_Track("hys_bullet");
     instance_create(x, y, Explosion);
     instance_destroy();

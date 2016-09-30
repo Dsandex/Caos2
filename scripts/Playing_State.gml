@@ -230,7 +230,7 @@ if(climb){
     
         // Create run women.
         if(take_women){
-            Get_Score(x, y, 2, false);
+            Get_Score(x, y, 100, false);
             take_women = false;
             instance_create(x, y-40, Women_Run);
         }

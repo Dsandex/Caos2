@@ -93,6 +93,7 @@
           <sprite>sprites\spr_child3_run</sprite>
           <sprite>sprites\spr_child3_idle</sprite>
         </sprites>
+        <sprite>sprites\spr_hurt_particle</sprite>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
       <sprite>sprites\sprite120</sprite>
@@ -174,6 +175,7 @@
       <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_rage</sprite>
       <sprite>sprites\spr_barra_vida</sprite>
+      <sprite>sprites\sprite169</sprite>
       <sprite>sprites\spr_coronaste</sprite>
       <sprite>sprites\spr_perdiste</sprite>
     </sprites>
@@ -304,6 +306,7 @@
       <sprite>sprites\spr_ico_baius</sprite>
       <sprite>sprites\spr_ico_creditos</sprite>
       <sprite>sprites\spr_ico_bogota</sprite>
+      <sprite>sprites\spr_ico_m</sprite>
     </sprites>
     <sprite>sprites\spr_icono_caos</sprite>
     <sprite>sprites\sprite88</sprite>
@@ -352,6 +355,7 @@
         <script>scripts\Rage_State.gml</script>
         <script>scripts\Search_Building.gml</script>
         <script>scripts\BBox_Change.gml</script>
+        <script>scripts\Hurt_Player.gml</script>
       </scripts>
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>
@@ -514,6 +518,8 @@
       <object>objects\Avion</object>
       <object>objects\Coronaste</object>
       <object>objects\Pausa</object>
+      <object>objects\Hurt</object>
+      <object>objects\DeathRock_Particles</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>

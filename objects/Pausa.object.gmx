@@ -59,8 +59,8 @@ if(!game_pause){
  //   with o_player can_move = false;
  
     audio_sound_gain(asset, 0, 3000);
-    audio_stop_sound(sn_soundtrack_pausa);
-    audio_play_sound(sn_soundtrack_pausa, 1, 1);
+   // audio_stop_sound(sn_soundtrack_pausa);
+   // audio_play_sound(sn_soundtrack_pausa, 1, 1);
     audio_sound_gain(sn_soundtrack_pausa, 0, 1);
     audio_sound_gain(sn_soundtrack_pausa, 1, 8000);
     
@@ -123,9 +123,8 @@ mouse_clear(mb_left);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>display_set_gui_size(768, 480);
-if(background != -1){
-    draw_sprite(background, 0, 0, 0);
+            <string>if(background != -1){
+    draw_sprite_ext(background, 0, 0, 0, room_width/sprite_get_width(background), room_height/sprite_get_height(background), 0, c_white, 1);
     draw_set_color(c_black);
     draw_set_alpha(.1);
     draw_rectangle(
