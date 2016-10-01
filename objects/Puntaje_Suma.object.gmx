@@ -79,13 +79,13 @@ Player.player_score += puntaje_count_local;
             <string>if(puntaje_count_local &gt; 0){
     Player.player_score += 1;
     puntaje_count_local -= 1;
-    if(Player.font_score == font_game_13){
+   /* if(Player.font_score == font_game_13){
         Player.font_score = font_game_16;
         Player.color_score = c_orange;
     }else{
         Player.font_score = font_game_13;
         Player.color_score = c_white;
-    }
+    }*/
 }
 </string>
           </argument>

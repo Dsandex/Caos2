@@ -107,6 +107,8 @@
         <sprite>sprites\spr_tank_attack</sprite>
       </sprites>
       <sprite>sprites\spr_destruction2</sprite>
+      <sprite>sprites\spr_destruction3</sprite>
+      <sprite>sprites\spr_destruction4</sprite>
     </sprites>
     <sprites name="Letreros">
       <sprite>sprites\spr_letrero_pp</sprite>
@@ -327,6 +329,7 @@
       <sprite>sprites\spr_score_100</sprite>
       <sprite>sprites\spr_score_50</sprite>
     </sprites>
+    <sprite>sprites\sprite178</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>

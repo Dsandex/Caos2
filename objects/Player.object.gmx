@@ -381,7 +381,7 @@ draw_set_font(font_game_13);
                 2
             );
             
-            draw_set_font(font_score);
+       //     draw_set_font(font_score);
          
             
             
@@ -395,7 +395,7 @@ draw_set_font(font_game_13);
             );
             
      
-            draw_set_font(font_game_13);
+      //      draw_set_font(font_game_13);
             
             // Draw rage bar.
             draw_sprite(

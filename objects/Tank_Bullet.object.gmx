@@ -64,7 +64,8 @@ if(!set_target){
 }
 move_towards_point(target_x, target_y, spd);
 if(collision_point(x, y, Player, true, true)){
-    instance_create(x, y, Explosion);
+    var e = instance_create(x, y, Explosion);
+    //with (e) { sprite_index = spr_destruction4; image_speed = .8; }
     Play_Track("hys_bullet");
     with(Player){
          //vida--;
@@ -77,7 +78,7 @@ if(collision_point(x, y, Player, true, true)){
              var bullets = instance_nearest(x, y, Tank_Bullet); 
              hsp = 3 * bullets.xscale;
              
-             var asset = asset_get_index("spr_player_jump_" + humor + "_damage");
+             var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
              Current_Sprite(asset, 0, 0, retard_value);
          }
     }
