@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>// Text dialogs.
 Fechas();
-
+//show_debug_message("dialogo: " + string(num_level));
 // Create textbox variables.
 color = c_white;
 str = 0
@@ -35,7 +35,7 @@ vel = .5;
 t = 0;
 llamar_alarma = false;
 
-
+if(num_level != 0) tutorial_bool = true;
 
 if(!tutorial_bool){
     background_index[0] = background_bogota;
@@ -46,7 +46,7 @@ if(!tutorial_bool){
     audio_play_sound(sn_dialogo, 1, 0);
 }
 
-show_debug_message(tutorial_bool);
+//show_debug_message(tutorial_bool);
 /*if(num_level == 0){
     audio_sound_gain(sn_soundtrack_intro, 0, 5000);
 }*/
@@ -75,14 +75,6 @@ show_debug_message(tutorial_bool);
             <string>if(tutorial_bool){
     if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
     else{
-        // Save Score.
-        if(puntaje &gt; best_score){
-            file_delete(working_directory + "puntaje.sav")
-            ini_open(working_directory + "puntaje.sav");
-            ini_write_real("puntaje", "pass", puntaje);
-            ini_close();               
-        }
-
         // Reset variables.        
         num_level = 0;
         vida = 100;

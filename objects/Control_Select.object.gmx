@@ -35,6 +35,8 @@ av = instance_create(
     125,
     Avioneta
 );  
+
+//show_debug_message("joder: " + string(num_level));
 </string>
           </argument>
         </arguments>

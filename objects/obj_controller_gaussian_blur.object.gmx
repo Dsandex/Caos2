@@ -160,7 +160,7 @@ draw_set_halign(fa_center);
 
 draw_sprite(spr_pausa, 1, 705, 25); 
 
-if(Sprite_InRectangle(spr_ico_bogota, 0, 80, 420, .8)){
+/*if(Sprite_InRectangle(spr_ico_bogota, 0, 80, 420, .8)){
     url_open("http://www.bogotadc.tv/");
 }
 
@@ -170,7 +170,7 @@ if(Sprite_InRectangle(spr_ico_baius, 0, 170, 420, .8)){
 
 if(Sprite_InRectangle(spr_ico_creditos, 0, 728, 420, .8)){
 
-}
+}*/
 
 
 draw_set_halign(fa_center);

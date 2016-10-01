@@ -40,14 +40,38 @@ if(room == Room_Digital){
     sound_retard = 0;
     vida_global = 100;
     puntaje_global = 1000;
-    best_score = 0;
+    best_score = 1000;
+    num_level = 0;
     
     // Variables de poderes.
-    globalvar c_billetes, c_bombas, c_bolsa, c_jeringa;
+    /*globalvar c_billetes, c_bombas, c_bolsa, c_jeringa;
     c_billetes = 0;
     c_bombas = 0;
     c_jeringa = 0;
-    c_bolsa = 0;
+    c_bolsa = 0;*/
+    
+    // Guardar el juego.
+    globalvar save;
+    save = true;
+    
+    if(save){
+        globalvar save_nivel, save_puntaje;
+        save_nivel = 0;
+        save_puntaje = 0;
+        
+        if(file_exists(working_directory + "guardar_juego.sav")){
+            ini_open(working_directory + "guardar_juego.sav");
+            save_nivel = ini_read_real("save_nivel", "pass", 0);
+            save_puntaje = ini_read_real("save_puntaje", "pass", 0);
+            ini_close();
+        }
+        
+        num_level = save_nivel;// - 1;
+        puntaje_global = save_puntaje;
+        
+        show_debug_message(num_level);
+    }
+    
     
     // Connect to the Google Store.
     if(os_is_network_connected()){
@@ -67,7 +91,7 @@ if(room == Room_Digital){
     xx_damage = 0;
     yy_damage = 0;
     available_buildings = 5;
-    num_level = 0;
+   // num_level = 0;
     piso_y = 399;
     //room_goto(game1);
     instance_create(room_width/2, room_height/2, Digital);
@@ -94,12 +118,12 @@ if(room == Room_Digital){
     if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
         achievement_login();
         if(best_score != 0){
-            achievement_post_score("	CgkIga-DrZQVEAIQBg", best_score);
+            achievement_post_score("CgkIga-DrZQVEAIQBg", best_score);
         }
     }else{
         //achievement_show_leaderboards();
         if(best_score != 0){
-            achievement_post_score("	CgkIga-DrZQVEAIQBg", best_score);
+            achievement_post_score("CgkIga-DrZQVEAIQBg", best_score);
         }
     }
     

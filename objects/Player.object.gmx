@@ -202,6 +202,7 @@ if(chances &gt;= 0){
     room_goto_transition(Room_Transicion, 0, 30);
 }else{
     room_goto_transition(Room_Menu, 0, 30);
+    num_level = 0;
 }
 </string>
           </argument>
@@ -280,6 +281,23 @@ if(puntaje_global &gt; best_score){
      ini_write_real("puntaje", "pass", best_score);
      ini_close();
 }
+
+
+// Save nivel.
+if(save){
+    save_nivel = num_level;
+    save_puntaje = puntaje_global;
+    if(file_exists(working_directory + "guardar_juego.sav")){
+        file_delete(working_directory + "guardar_juego.sav");
+    }
+    ini_open(working_directory + "guardar_juego.sav");
+    ini_write_real("save_nivel", "pass", save_nivel);
+    ini_write_real("save_puntaje", "pass", save_puntaje);
+    ini_close();
+}
+
+show_debug_message(save_nivel);
+show_debug_message(save_puntaje);
 </string>
           </argument>
         </arguments>
