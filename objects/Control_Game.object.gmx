@@ -42,6 +42,13 @@ if(room == Room_Digital){
     puntaje_global = 1000;
     best_score = 0;
     
+    // Variables de poderes.
+    globalvar c_billetes, c_bombas, c_bolsa, c_jeringa;
+    c_billetes = 0;
+    c_bombas = 0;
+    c_jeringa = 0;
+    c_bolsa = 0;
+    
     // Connect to the Google Store.
     if(os_is_network_connected()){
         if(!achievement_login_status()){
@@ -81,7 +88,21 @@ if(room == Room_Digital){
 }else if(room == Room_Menu){
     // Tank animation.
     animator = 0;
-    //alarm[0] = 30;
+
+    
+    // Guardar muertes en el marcador.
+    if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
+        achievement_login();
+        if(best_score != 0){
+            achievement_post_score("	CgkIga-DrZQVEAIQBg", best_score);
+        }
+    }else{
+        //achievement_show_leaderboards();
+        if(best_score != 0){
+            achievement_post_score("	CgkIga-DrZQVEAIQBg", best_score);
+        }
+    }
+    
 }else if(room == Room_Select){
     seleccionado = false;
     // Select character.

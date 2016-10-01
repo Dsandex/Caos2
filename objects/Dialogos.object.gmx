@@ -74,7 +74,21 @@ show_debug_message(tutorial_bool);
             <kind>1</kind>
             <string>if(tutorial_bool){
     if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
-    else room_goto_transition(Room_Menu, 0, 120);
+    else{
+        // Save Score.
+        if(puntaje &gt; best_score){
+            file_delete(working_directory + "puntaje.sav")
+            ini_open(working_directory + "puntaje.sav");
+            ini_write_real("puntaje", "pass", puntaje);
+            ini_close();               
+        }
+
+        // Reset variables.        
+        num_level = 0;
+        vida = 100;
+        puntaje = 1000;
+        room_goto_transition(Room_Creditos, 0, 120);
+    }
 }else{
     room_goto_transition(game_tutorial, 0, 45);
     tutorial_bool = true;

@@ -403,6 +403,7 @@
       <script>scripts\Create_Debug.gml</script>
       <script>scripts\in_Rectangle.gml</script>
       <script>scripts\Sprite_InRectangle.gml</script>
+      <script>scripts\Draw_Powers.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
@@ -496,6 +497,7 @@
       <object>objects\Control_Select</object>
       <object>objects\obj_controller_gaussian_blur</object>
       <object>objects\Scroll_View</object>
+      <object>objects\Dibujar_Poderes</object>
       <object>objects\Dibujar_Pausa</object>
       <object>objects\Control_Tutorial</object>
     </objects>

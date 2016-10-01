@@ -42,7 +42,7 @@ switch (rand){
     case 2: // Coca
         image_index = 3;
     break;
-    case 3: // Billete.
+    case 3: // Billetes.
         if(billetes_times &gt; 0){
             billetes_times--;
             image_index = 2;

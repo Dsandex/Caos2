@@ -67,6 +67,7 @@ instance_create(80, 400+5, Joystick);//120, 100
 instance_create(615+15, 395+20+10+10, Button_B);//600
 instance_create(700+15, 345+20+10+10, Button_A);//685
 instance_create(705, 25, Pausa);
+instance_create(0,0, Dibujar_Poderes);
 
 audio_play_sound(sn_soundtrack_pausa, 1, 1);
 audio_sound_gain(sn_soundtrack_pausa, 0, 0);

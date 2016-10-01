@@ -12,4 +12,6 @@ if(level == 0 or level == 6){
 // Cali
 }else if(level == 8){
     return background_cali;
+}else if(level == 10){
+    return background_bogota;
 }

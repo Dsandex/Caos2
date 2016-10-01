@@ -9,4 +9,4 @@ txt[6] = "25 de Abril de 1990";
 txt[7] = "12 de Mayo de 1990";
 txt[8] = "12 de Mayo de 1990";
 txt[9] = "21 de Mayo de 1990";
-txt[10] = "FIN";
+txt[10] = "THANKS FOR PLAYING";

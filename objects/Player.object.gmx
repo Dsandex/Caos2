@@ -84,10 +84,10 @@ lose = false;
 // Eat variables.
 eating = false;
 
+// Poderes.
 globalvar poder_ate, billetes_times;
 billetes_times = 1; // num_level
 poder_ate = "normal";
-
 
 // Women variables.
 take_women = false;
@@ -119,7 +119,6 @@ var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle")
 Current_Sprite(asset, 0, irandom_range(0,2));
 limits = false;
 roar = false;
-
 
 // Draw score in middle.
 draw_score = false;

@@ -8,42 +8,6 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Create infloor - soldiers.
-vspeed = -4;
-/*if(instance_number(Soldado_Piso) &lt; num_level + floor_soldiers_num){
-    var width = sprite_get_width(spr_soldier_walk);
-    instance_create(
-        choose(-width, room_width + width),
-        412, 
-        Soldado_Piso
-    );
-  //  show_debug_message('crear');
-    alarm[2] = irandom_range(90, 120);
-}else{
-    alarm[2] = irandom_range(90, 120);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -61,18 +25,25 @@ vspeed = -4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(
-    spr_creditos, 
-    0, 
-    room_width/2, 
-    y
-);
+            <string>/// Dibujar poderes en negro.
+/*var xx = 250; var yy = 5;
+for (var i = 0; i &lt; 3; i++){
+     draw_sprite_ext(spr_powers2, 0, xx + (i * 40), 4, .7, .7, 0, c_black, .3); // Billetes.
+     draw_sprite_ext(spr_powers2, 1, xx + (i * 40), 25, .5, .5, 0, c_black, .3); // Bomba.
+     draw_sprite_ext(spr_powers2, 2, xx + (i * 40), 45, .5, .5, 0, c_black, .3); // Bolsa
+     draw_sprite_ext(spr_powers2, 3, xx + (i * 40), 65 , .5, .5, 0, c_black, .3); // Jeringa
+};
 
-if(y &lt;= 0) vspeed = 0;
-if(mouse_check_button_pressed(mb_left) and y &lt;= 0){
-    room_goto_transition(Room_Menu, 0, 35);
-    audio_play_sound(sn_tutorial, 1, 0);
-}
+// Draw powers.
+/*Draw_Powers(c_billetes, "billetes", 4, .7);
+Draw_Powers(c_bomba, "bomba", 25, .5);
+Draw_Powers(c_bolsa, "bolsa", 45, .5);
+Draw_Powers(c_jeringa, "jeringa", 65, .5);*/
+
+/*Draw_Powers(2, "billetes", 4, .7);
+Draw_Powers(2, "bomba", 25, .5);
+Draw_Powers(1, "bolsa", 45, .5);
+Draw_Powers(3, "jeringa", 65, .5);
 </string>
           </argument>
         </arguments>
