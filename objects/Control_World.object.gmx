@@ -51,7 +51,7 @@ object_ind = noone;
 
 // Tank bullets.
 num_level++;
-show_debug_message(num_level);
+//show_debug_message(num_level);
 termina_nivel = false;
 floor_soldiers_num = 1;
 create_ad = false;
