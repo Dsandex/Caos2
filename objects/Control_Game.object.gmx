@@ -52,7 +52,7 @@ if(room == Room_Digital){
     
     // Guardar el juego.
     globalvar save;
-    save = true;
+    save = false;
     
     if(save){
         globalvar save_nivel, save_puntaje;
