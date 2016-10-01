@@ -45,7 +45,7 @@ hsp = 0;
 vsp = 0;
 
 // Hurt.
-hurt = true;
+hurt = false;
 count_hurt = 0;
 
 // Control variables.
@@ -124,6 +124,8 @@ roar = false;
 // Draw score in middle.
 draw_score = false;
 score_var = 0;
+font_score = font_game_13;
+color_score = c_white;
 </string>
           </argument>
         </arguments>
@@ -329,17 +331,18 @@ draw_set_font(font_game_13);
                 offset_x, 
                 offset_y
             );
+            
         }else{
             draw_sprite(
                 spr_barra_vida, 
-                2, 
+                0, 
                 offset_x, 
                 offset_y
             );
             
             draw_sprite_part(
                 spr_barra_vida, 
-                3, 
+                1, 
                 0,
                 0,
                 vida * (bar_width/100), 
@@ -361,6 +364,7 @@ draw_set_font(font_game_13);
                 2
             );
             
+            
             // Draw Score.
             draw_set_color(make_colour_rgb(0, 254, 255));
             draw_text_outlined(
@@ -372,6 +376,10 @@ draw_set_font(font_game_13);
                 2
             );
             
+            draw_set_font(font_score);
+         
+            
+            
             draw_text_outlined(
                 offset_x + bar_width - string_width(score_1), 
                 offset_y - string_height(score_1), 
@@ -380,6 +388,9 @@ draw_set_font(font_game_13);
                 c_black, 
                 2
             );
+            
+     
+            draw_set_font(font_game_13);
             
             // Draw rage bar.
             draw_sprite(

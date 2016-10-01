@@ -39,7 +39,7 @@ if(room == Room_Digital){
     current_song = 0;
     sound_retard = 0;
     vida_global = 100;
-    puntaje_global = 0;
+    puntaje_global = 1000;
     best_score = 0;
     
     // Load data.
@@ -374,7 +374,7 @@ if(room == Room_Select){
     draw_text(204 + 128/2, 360 - yemenos, select);*/
     draw_set_halign(noone);
     
-    if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new), New);
+    if(num_level == 4) if(!instance_exists(New)) instance_create(440 + sprite_get_width(spr_character_2)/2, 210 + 144 - sprite_get_height(spr_new) - 25, New);
 
     color = c_white;
     // Draw second character.

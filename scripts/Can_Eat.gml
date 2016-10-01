@@ -16,7 +16,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(bbox_left - 15, y - 2, Player.x, y + 16, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;
@@ -24,7 +24,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(bbox_right + 15, y - 2, Player.x, y + 16, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;
@@ -38,7 +38,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(x - 4, y - 80, x + 18, y - 18, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;
@@ -46,7 +46,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(x + 4, y - 80, x - 18, y - 18, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;
@@ -60,7 +60,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(x - 36, y + 25, x - 10, y + 47, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;
@@ -68,7 +68,7 @@ for(var i = 0; i < ds_list_size(list_); i++){
                 if(collision_rectangle(x + 36 , y + 25, x + 10, y + 47, ds_list_find_value(list_, i), 0, 0)){
                     eat_person_id = ds_list_find_value(list_, i);
                     Get_Type(eat_person_id);
-                    Get_Score(eat_person_id.x, eat_person_id.y, 50, true);
+                    Get_Score(eat_person_id.x, eat_person_id.y, 50, false);
                     return true;
                 }
             break;

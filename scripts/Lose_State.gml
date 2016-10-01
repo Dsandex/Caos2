@@ -20,7 +20,7 @@ if(place_meeting(x, y+vsp, Floor)){
     hsp = 0;
     grounded = true;
     if(!lose){
-    
+        if(instance_exists(Puntaje_Suma)) with Puntaje_Suma instance_destroy();
     
         // Create screen shake and restart some variables.
         lose = true;

@@ -14,6 +14,7 @@
       <sound>sound\sn_soundtrack_intro</sound>
       <sound>sound\sn_rage_music</sound>
       <sound>sound\sn_soundtrack_tutorial</sound>
+      <sound>sound\sn_soundtrack_4</sound>
     </sounds>
     <sounds name="Efectos">
       <sounds name="Punch">
@@ -57,6 +58,10 @@
       </sounds>
       <sounds name="Avion">
         <sound>sound\sn_avion</sound>
+      </sounds>
+      <sounds name="Puntaje">
+        <sound>sound\sn_score_1</sound>
+        <sound>sound\sn_score_2</sound>
       </sounds>
     </sounds>
   </sounds>
@@ -313,6 +318,14 @@
     <sprite>sprites\spr_avioneta</sprite>
     <sprite>sprites\sprite91</sprite>
     <sprite>sprites\spr_avion</sprite>
+    <sprites name="Puntaje">
+      <sprite>sprites\spr_score_1000</sprite>
+      <sprite>sprites\spr_score_500</sprite>
+      <sprite>sprites\spr_score_300</sprite>
+      <sprite>sprites\spr_score_200</sprite>
+      <sprite>sprites\spr_score_100</sprite>
+      <sprite>sprites\spr_score_50</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>
@@ -352,13 +365,13 @@
         <script>scripts\Value_Exists.gml</script>
         <script>scripts\Jump_Hspeed.gml</script>
         <script>scripts\Eat_Power.gml</script>
-        <script>scripts\Rage_State.gml</script>
         <script>scripts\Search_Building.gml</script>
         <script>scripts\BBox_Change.gml</script>
         <script>scripts\Hurt_Player.gml</script>
       </scripts>
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>
+        <script>scripts\Rage_State.gml</script>
         <script>scripts\Lose_State.gml</script>
         <script>scripts\Rage_Anim.gml</script>
       </scripts>
@@ -415,6 +428,7 @@
     <font>fonts\font_arial_20</font>
     <font>fonts\font_arial_12</font>
     <font>fonts\font_game_14</font>
+    <font>fonts\font_game_16</font>
     <font>fonts\font_game_10</font>
     <fonts name="04b11">
       <font>fonts\font_04b11_20</font>
@@ -512,7 +526,6 @@
       </objects>
       <object>objects\GameOver</object>
       <object>objects\Rage</object>
-      <object>objects\Puntaje</object>
       <object>objects\Bola</object>
       <object>objects\Avioneta</object>
       <object>objects\Avion</object>
@@ -568,6 +581,10 @@
       <object>objects\Digital_Icono</object>
       <object>objects\Creditos_Icono</object>
       <object>objects\Iconos</object>
+    </objects>
+    <objects name="Puntaje">
+      <object>objects\Puntaje</object>
+      <object>objects\Puntaje_Suma</object>
     </objects>
   </objects>
   <rooms name="rooms">

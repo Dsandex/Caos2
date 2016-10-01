@@ -35,6 +35,7 @@ lt2 = noone; // Letreros galan.
 shake = noone;
 color = c_white;
 tutorial_building = false;
+sumar_score = false;
 
 yy2 = y;
 
@@ -89,6 +90,7 @@ for(var i = 0; i &lt; max_fisures; i++){
             <kind>1</kind>
             <string>/// Free memory.
 ds_grid_destroy(damage_grid);
+
 if(room == game_tutorial){
     audio_play_sound(sn_coronaste, 1, 0);
     with(Control_Tutorial) alarm[2] = 60;
@@ -207,6 +209,7 @@ if(is_ready){
     
     // Destroy the building.
     if(y + yy &gt; y){
+    
        // show_debug_message(down_speed);
         yy -= down_speed;
        // show_debug_message(yy);
@@ -215,7 +218,10 @@ if(is_ready){
         if(escombros_id != noone) exit;
         escombros_id = instance_create(x + sprite_width/2, y - sprite_get_height(spr_collapse)/2, Collapse);
     }else{
-        
+        if(!sumar_score){
+            sumar_score = false;
+            Get_Score(x + sprite_width/2, y - 50, 1000, false);
+        }
     
         alarm[1] = 40;
         is_ready = false;

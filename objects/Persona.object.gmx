@@ -50,8 +50,7 @@
             <kind>1</kind>
             <string>/// Give an specific score if not climb and not grounded
 if(!Player.climb and !Player.grounded and out &gt; 0){ 
-//    show_debug_message("bugeado");
-    Get_Score(x, y, 2, false);
+    Get_Score(x, y, 50, false);
 }
 
 </string>

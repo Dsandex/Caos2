@@ -412,9 +412,9 @@ draw_set_color(color_select);
 //draw_text(room_width/2 + 10, 80, tutorial[cuenta]);
 draw_set_halign(noone);
 
-var stp = "* SKIP";
-draw_text_outlined(room_width - string_width(stp) - 15, room_height - string_height(stp) - 15, stp, color_select, c_black, 2);
-if(in_Rectangle(room_width - string_width(stp) - 15 - 10, 
+var stp = "*SKIP";
+draw_text_outlined(room_width - string_width(stp) - 5, room_height - string_height(stp) - 15, stp, color_select, c_black, 2);
+if(in_Rectangle(room_width - string_width(stp) - 5 - 10, 
                 room_height - string_height(stp) - 15 - 10, 
                 room_width, 
                 room_height) and mouse_check_button_pressed(mb_left)){

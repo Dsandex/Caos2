@@ -9,6 +9,7 @@ if(humor == "normal"){
         var asset = asset_get_index("sn_soundtrack_" + string(num_level));
         audio_sound_gain(asset, 0, 3000);
         
+        audio_play_sound(sn_trans, 1, 0);
         audio_play_sound(sn_rage_music, 1, 1);
         audio_sound_gain(sn_rage_music, 0, 1);
         audio_sound_gain(sn_rage_music, 1, 5000);
