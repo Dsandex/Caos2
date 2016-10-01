@@ -44,6 +44,8 @@ if(x &lt; 0){
 
 
 //atacar
+atacar = random_range(0,100);
+if atacar &gt;= 80{
 dis_to_player = choose(100,150,200); // selecciona a que distancia en va a atacar al jugados
 cont_balas = 0;
 attack = false;
@@ -51,6 +53,7 @@ frecuency = 20;
 out = 0;
 distance = 0;
 bullet = true;
+}
 </string>
           </argument>
         </arguments>
@@ -130,7 +133,7 @@ if sprite_index == spr_soldier2_walk{
           <argument>
             <kind>1</kind>
             <string>/// Soldado_piso mechanics.
-
+if atacar &gt;= 80{
 // Player in angle [?]
 if(image_xscale == 0.8){
     var corner = bbox_right; 
@@ -185,6 +188,7 @@ if(distance &lt;= 0){
 
 // Set hspeed in spd.
 hspeed = spd;
+}
 </string>
           </argument>
         </arguments>

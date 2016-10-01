@@ -193,7 +193,7 @@ if image_index == 6 {
 }
 }
 
-if(shooting){ alarm[0] = irandom_range(30, 60); shooting = false; }
+if(shooting){ alarm[0] = irandom_range(60, 120); shooting = false; }
 </string>
           </argument>
         </arguments>

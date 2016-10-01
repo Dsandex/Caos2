@@ -238,7 +238,12 @@ if vida &gt;=100{
 }else if vida &lt;= 0{
     vida = 0
 }
-
+// Create Damage overlay
+if (vida &lt;=40){
+    if (!instance_exists(Control_damage_overlay)){
+        instance_create(0,0,Control_damage_overlay);
+    }
+}
 //show_debug_message(vida);
 /*show_debug_message(x);
 show_debug_message(y);

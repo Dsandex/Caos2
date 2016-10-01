@@ -176,6 +176,7 @@
       <sprite>sprites\spr_bola</sprite>
     </sprites>
     <sprites name="Detalles">
+      <sprite>sprites\spr_damage_overlay</sprite>
       <sprite>sprites\spr_gameover</sprite>
       <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_rage</sprite>
@@ -494,6 +495,7 @@
     </objects>
     <objects name="World">
       <object>objects\Player</object>
+      <object>objects\Control_damage_overlay</object>
       <object>objects\Control_World</object>
       <object>objects\Floor</object>
       <object>objects\Poder</object>
@@ -568,9 +570,9 @@
         <object>objects\Child</object>
         <object>objects\Persona</object>
         <objects name="Soldier">
+          <object>objects\Soldado</object>
           <object>objects\Soldado_Piso</object>
           <object>objects\Soldier_Bullet</object>
-          <object>objects\Soldado</object>
         </objects>
         <object>objects\Child_Run</object>
         <object>objects\Women_Run</object>
