@@ -337,6 +337,7 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
     instance_create(room_width/2, room_height/2 - 30, Coronaste);
     audio_play_sound(sn_coronaste, 1, 0);
     with Player draw_score = true;
+    with Player win = true;
 }
 </string>
           </argument>

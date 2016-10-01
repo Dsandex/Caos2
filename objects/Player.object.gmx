@@ -125,6 +125,10 @@ draw_score = false;
 score_var = 0;
 font_score = font_game_13;
 color_score = c_white;
+
+// Win variables.
+if(vida == 0) vida = 10;
+win = false;
 </string>
           </argument>
         </arguments>

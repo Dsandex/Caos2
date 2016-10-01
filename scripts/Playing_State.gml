@@ -386,4 +386,4 @@ Rage_State();
 
 
 // Life.
-if(vida <= 0) state = Lose_State;
+if(vida <= 0 and !win) state = Lose_State;
