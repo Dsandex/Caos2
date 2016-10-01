@@ -42,6 +42,13 @@ if(room == Room_Digital){
     puntaje_global = 1000;
     best_score = 0;
     
+    // Connect to the Google Store.
+    if(os_is_network_connected()){
+        if(!achievement_login_status()){
+            achievement_login();
+        }
+    }
+    
     // Load data.
     if(file_exists(working_directory + "puntaje.sav")){
         ini_open(working_directory + "puntaje.sav");

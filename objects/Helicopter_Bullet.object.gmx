@@ -88,7 +88,7 @@ if(collision_point(x, y, Player, true, true)){
     Hurt_Player("Helicopter_Bullet", x, y);
     Play_Track("hys_bullet");
     var e = instance_create(x, y, Explosion);
-    //with (e) { image_speed = .8; sprite_index = spr_destruction3; }
+    with (e) { sprite_index = spr_explosion3; }
     instance_destroy();
 }
 if(bullet_life &gt; 0) bullet_life--;
