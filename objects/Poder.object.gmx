@@ -33,8 +33,25 @@ image_xscale = .65;
 image_yscale = .65;
 get_father = false;
 building_father = 0;
-randomize();
-var rand = choose (1,1,1,3,3,3,3,3,5,5,5,5,5,5);
+
+var rand = random_range(0,100);
+
+if (rand &gt; 70){
+    image_index = irandom_range(0,3);//(0,1,2,3);//billetes, bomba, bolsa de dinero, jeringa
+}else {
+    image_index = choose(4,5);
+}
+
+
+
+/*if(rand &gt; 50){
+    image_index = 4; // carro
+}else if(rand &gt; 40){
+    image_index = 5;// cigarro
+}*/
+
+
+/*var rand = choose (1,1,1,3,3,3,3,3,5,5,5,5,5,5);
 switch (rand){
     case 1: // Bomba.
         image_index = 4;
@@ -42,7 +59,7 @@ switch (rand){
     case 2: // Coca
         image_index = 3;
     break;
-    case 3: // Billetes.
+    case 3: // Billete.
         if(billetes_times &gt; 0){
             billetes_times--;
             image_index = 2;
@@ -56,7 +73,7 @@ switch (rand){
     case 5: // Avion
         image_index = 0;
     break;
-}
+}*/
 </string>
           </argument>
         </arguments>
