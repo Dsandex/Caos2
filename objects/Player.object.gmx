@@ -300,8 +300,8 @@ if(save){
     ini_close();
 }
 
-show_debug_message(save_nivel);
-show_debug_message(save_puntaje);
+//show_debug_message(save_nivel);
+//show_debug_message(save_puntaje);
 </string>
           </argument>
         </arguments>
