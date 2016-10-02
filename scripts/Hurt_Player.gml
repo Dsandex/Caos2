@@ -15,7 +15,7 @@ switch(argument[0]){
     break;
     case "Tank_Bullet":
          with(Player){
-             vida -= 1;
+             vida -= 3;
          }
     break;
     case "Helicopter_Bullet":
