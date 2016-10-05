@@ -64,7 +64,10 @@ save_vida = 0;
 image_speed = 0;
 
 // Score variable.
-player_score = puntaje_global; // 0
+//score_global = puntaje_global; // Save the initial score before playing the level.
+player_score = puntaje_global; // Get the current score.
+save_level = false;
+
 
 // Animation variables.
 retard = 0;
@@ -274,30 +277,38 @@ show_debug_message(y);
           <argument>
             <kind>1</kind>
             <string>/// Save vida and puntaje global.
-if(!lose) vida_global = vida;
+if(!lose){
+    vida_global = vida;
+}
 puntaje_global = player_score;
+/*else{
+    puntaje_global = score_global; // The player won't get score.
+}*/
 
 // Change best score file.
-if(puntaje_global &gt; best_score){
-     best_score = puntaje_global;
-     file_delete(working_directory + "puntaje.sav");
-     ini_open(working_directory + "puntaje.sav");
-     ini_write_real("puntaje", "pass", best_score);
-     ini_close();
-}
-
-
-// Save nivel.
-if(save){
-    save_nivel = num_level;
-    save_puntaje = puntaje_global;
-    if(file_exists(working_directory + "guardar_juego.sav")){
-        file_delete(working_directory + "guardar_juego.sav");
+if(win and !save_level){
+    save_level = true;
+    
+    if(puntaje_global &gt; best_score){
+         best_score = puntaje_global;
+         file_delete(working_directory + "puntaje.sav");
+         ini_open(working_directory + "puntaje.sav");
+         ini_write_real("puntaje", "pass", best_score);
+         ini_close();
     }
-    ini_open(working_directory + "guardar_juego.sav");
-    ini_write_real("save_nivel", "pass", save_nivel);
-    ini_write_real("save_puntaje", "pass", save_puntaje);
-    ini_close();
+    
+    // Save nivel.
+    if(save){
+        save_nivel = num_level;
+        save_puntaje = puntaje_global;
+        if(file_exists(working_directory + "guardar_juego.sav")){
+            file_delete(working_directory + "guardar_juego.sav");
+        }
+        ini_open(working_directory + "guardar_juego.sav");
+        ini_write_real("save_nivel", "pass", save_nivel);
+        ini_write_real("save_puntaje", "pass", save_puntaje);
+        ini_close();
+    }
 }
 
 //show_debug_message(save_nivel);

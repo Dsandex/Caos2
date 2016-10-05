@@ -14,39 +14,33 @@ if(sprite_index == asset_get_index("spr_player" + jugador + "_climb_" + humor + 
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        //show_debug_message(poder_ate);
+        // Caos!
         if(poder_ate == "billetes" and humor == "normal" and num_level >= 3){ 
-           // show_debug_message("ANGRRRYY");
             angry = 100;
-            poder_ate = "";
-        }else{
-            poder_ate = "";
         }
+        poder_ate = "";
         exit;
     }
 }else if(sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_eat_up")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        //show_debug_message(poder_ate);
+        /// Caos!
         if(poder_ate == "billetes" and humor == "normal"){ 
             angry = 100;
-           // show_debug_message("ANGRRRYY");
-            poder_ate = "";
         }
+        poder_ate = "";
         exit;
     }
 }else if(sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_eat_down")){
     if(image_index == 4){
         eating = false;
         retard = retard_value;
-        //show_debug_message(poder_ate);
+        // Caos!
         if(poder_ate == "billetes" and humor == "normal"){ 
             angry = 100;
-            
-         //   show_debug_message("ANGRRRYY");
-            poder_ate = "";
         }
+        poder_ate = "";
         exit;
     }
 }

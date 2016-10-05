@@ -15,5 +15,5 @@ switch(argument[1]){
 }
 
 for(var i = 0; i < argument[0]; i++){
-    draw_sprite_ext(spr_powers2, index, 250 + (i*40), argument[2], argument[3], argument[3], 1, c_white, 1);
+    draw_sprite_ext(spr_power2_2, index, 250 + (i*40), argument[2], argument[3], argument[3], 1, c_white, 1);
 }

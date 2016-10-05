@@ -309,6 +309,11 @@
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
       <sprite>sprites\spr_powers2</sprite>
+      <sprite>sprites\spr_power2_2</sprite>
+      <sprite>sprites\spr_bomba</sprite>
+      <sprite>sprites\spr_bolsa</sprite>
+      <sprite>sprites\spr_billete</sprite>
+      <sprite>sprites\spr_jeringa</sprite>
     </sprites>
     <sprites name="Helpful">
       <sprite>sprites\spr_floor</sprite>
@@ -500,6 +505,7 @@
       <object>objects\Dibujar_Poderes</object>
       <object>objects\Dibujar_Pausa</object>
       <object>objects\Control_Tutorial</object>
+      <object>objects\Poder_Animado</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -543,6 +549,12 @@
       <object>objects\Pausa</object>
       <object>objects\Hurt</object>
       <object>objects\DeathRock_Particles</object>
+      <objects name="Poderes">
+        <object>objects\Bomba</object>
+        <object>objects\Bolsa</object>
+        <object>objects\Jeringa</object>
+        <object>objects\Billete</object>
+      </objects>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>

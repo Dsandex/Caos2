@@ -21,7 +21,7 @@ if(place_meeting(x, y+vsp, Floor)){
     grounded = true;
     if(!lose){
         if(instance_exists(Puntaje_Suma)) with Puntaje_Suma instance_destroy();
-    
+        player_score = puntaje_global; // Set the score to its initial value.
         // Create screen shake and restart some variables.
         lose = true;
         var s = instance_create(0,0,Screen_Shake);

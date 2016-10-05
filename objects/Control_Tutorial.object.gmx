@@ -34,6 +34,9 @@ soundtrack = audio_play_sound(sn_soundtrack_tutorial, 1, 1);
 audio_sound_gain(soundtrack, 0, 0);
 audio_sound_gain(soundtrack, 1, 3000);
 
+audio_play_sound(sn_soundtrack_pausa, 1, 1);
+audio_sound_gain(sn_soundtrack_pausa, 0, 0);
+
 tutorial[0] = "Tutorial";
 tutorial[1] = "MOVE RIGHT";
 tutorial[2] = "MOVE LEFT";
@@ -306,6 +309,8 @@ jump_building = false;
             <kind>1</kind>
             <string>/// Set sound gain to 0.
 audio_sound_gain(soundtrack, 0, 3000);
+audio_stop_sound(sn_soundtrack_pausa);
+
 </string>
           </argument>
         </arguments>
