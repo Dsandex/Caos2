@@ -61,7 +61,11 @@ vspeed = -4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(
+            <string>if(num_level != 10){
+    y = 0;
+}
+
+draw_sprite(
     spr_creditos, 
     0, 
     room_width/2, 
@@ -69,9 +73,16 @@ vspeed = -4;
 );
 
 if(y &lt;= 0) vspeed = 0;
-if(mouse_check_button_pressed(mb_left) and y &lt;= 0){
-    room_goto_transition(Room_Menu, 0, 35);
-    audio_play_sound(sn_tutorial, 1, 0);
+if(num_level == 10){
+    if(mouse_check_button_pressed(mb_left) and y &lt;= 0){
+        room_goto_transition(Room_Menu, 0, 35);
+        audio_play_sound(sn_tutorial, 1, 0);
+    }
+}else{
+    if(mouse_check_button_pressed(mb_left)){
+        room_goto_transition(Room_Select, 0, 35);
+        audio_play_sound(sn_tutorial, 1, 0);
+    }
 }
 </string>
           </argument>

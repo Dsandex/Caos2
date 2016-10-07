@@ -5,9 +5,11 @@ if(argument[0] == "windows"){
     key_right = keyboard_check(vk_right);
     key_down = keyboard_check(vk_down);
     key_jump = keyboard_check_pressed(vk_space);
+
 }else{
     key_jump = keyboard_check_pressed(ord('Z'));
 }
+//show_debug_message(key_jump);
 key_attack = keyboard_check_pressed(ord('X'));
 
 if(limits){

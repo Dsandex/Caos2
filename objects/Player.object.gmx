@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>/// Declare initial values.
 //audio_play_sound(sn_roar, 1, 0);
+// Save background.
+
+
+
 
 // ROAR.
 alarm[1] = 30; // Roar sound.
@@ -57,7 +61,9 @@ same_place_counter2 = 0;// Attack_Other - count same place attacks
 y_anterior2 = 0;// Attack_Other - save the Y position of the previous attack
 
 // Life value.
-vida = vida_global; // 100
+if(num_level != 1) vida = vida_global; // 100
+else vida = 100;
+
 save_vida = 0;
 
 // Constants values.
@@ -239,12 +245,17 @@ script_execute(state);
 x += hsp;
 y += vsp;
 
+
 //matener vida maxima como 100 y minima como 0
 if vida &gt;=100{
     vida = 100;
 }else if vida &lt;= 0{
     vida = 0
 }
+
+
+
+
 // Create Damage overlay
 if (vida &lt;=40){
     if (!instance_exists(Control_damage_overlay)){
@@ -307,6 +318,9 @@ if(win and !save_level){
         ini_open(working_directory + "guardar_juego.sav");
         ini_write_real("save_nivel", "pass", save_nivel);
         ini_write_real("save_puntaje", "pass", save_puntaje);
+        if(num_level == 5){
+            ini_write_real("gacha_select", "pass", 1);
+        }
         ini_close();
     }
 }

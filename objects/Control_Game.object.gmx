@@ -30,8 +30,9 @@ if(room == Room_Digital){
     globalvar num_level, available_buildings, piso_y, 
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
-              jugador, game_pause, tutorial_bool, soundtrack;
+              jugador, game_pause, tutorial_bool, soundtrack, idioma;
     
+    idioma = "es";
     tutorial_bool = false;
     game_pause = false;
     jugador = "";
@@ -56,11 +57,12 @@ if(room == Room_Digital){
     }
     
     // Guardar el juego.
-    globalvar save;
-    save = false;
+    globalvar save, gacha_select;
+    save = true;
+    gacha_select = 0;
 
     if(save){
-        globalvar save_nivel, save_puntaje;
+        globalvar save_nivel, save_puntaje, gacha_select;
         save_nivel = 0;
         save_puntaje = 0;
         
@@ -68,6 +70,7 @@ if(room == Room_Digital){
             ini_open(working_directory + "guardar_juego.sav");
             save_nivel = ini_read_real("save_nivel", "pass", 0);
             save_puntaje = ini_read_real("save_puntaje", "pass", 0);
+            gacha_select = ini_read_real("gacha_select", "pass", 0);
             ini_close();
         }
         
@@ -322,23 +325,25 @@ if(room == Room_Menu){
         if(animator &gt;= 20) animator = 0; // 50
     }
     
-    // Draw bestscore
-    draw_set_font(font_wonder_11);
-    draw_set_color(c_white);
-    var str = "BEST SCORE: " + string(best_score);
-    draw_text(0, room_height - string_height(str), str);
-    
-    // Draw score.
-    if(save){
-        var str = "SCORE: " + string(save_puntaje);
-        draw_text(0, room_height - string_height(str) * 2, str);
-    }
 
 }
 
 
 if(room == Room_Select){
 
+    // Draw bestscore
+   //draw_set_halign(fa_center);
+    draw_set_font(font_wonder_11);
+    draw_set_color(c_white);
+    var str = "BEST SCORE: " + string(best_score);
+    draw_text(10, 10, str);
+    
+    // Draw score.
+    if(save){
+        var str = "SCORE: " + string(save_puntaje);
+        draw_text(10, 10 + string_height(str), str);
+    }
+   // draw_set_halign(noone);
     
   /*  draw_set_color(make_color_rgb(18, 163, 218));
     draw_rectangle(
@@ -421,6 +426,7 @@ if(room == Room_Select){
             var marco = instance_nearest(204, 210 - yemenos, Marco);
             with marco image_speed = 1;
             Play_Track("press_start");
+            mouse_clear(mb_left);
            // room_goto_transition(Room_Transicion, 0, 45);
         }
     }else{
@@ -449,38 +455,34 @@ if(room == Room_Select){
     color = c_white;
     // Draw second character.
     if(mouse_x &gt; 440 and mouse_x &lt; 440 + 128 and mouse_y &gt; 210 - yemenos and mouse_y &lt; 210 + 144 - yemenos){
-        if(num_level == 4){ // Select new character nivel 5.
-           //  draw_set_font(font_arial_15);
-           //draw_set_font(font_04b11_15);
-            draw_set_font(font_wonder_14);
-         //   draw_set_color(c_red);
-         //   color = make_color_rgb(51,204,255);
-            color = c_red;
+        
+        if(num_level == 4 or gacha_select){ // Select new character nivel 5.
             draw_sprite(spr_character_2, 1, 440, 210 - yemenos);
             if(mouse_check_button_released(mb_left) and !seleccionado){
-                
+                draw_set_font(font_wonder_14);
+                color = c_red;
                 seleccionado = true;
                 var marco = instance_nearest(440, 210 - yemenos, Marco);
                 with marco image_speed = 1;
                 jugador = "2";
                 Play_Track("press_start");
+                mouse_clear(mb_left);
                // room_goto_transition(Room_Transicion, 0, 45);
             }
         }else{
-            // draw_set_font(font_arial_12);
-            //draw_set_color(c_white);
-          // color = make_color_rgb(51,204,255);
-            color  = c_red;
-            draw_set_font(font_wonder_14);
-            //draw_set_font(font_04b11_12);
-            draw_sprite(spr_character_2, 2, 440, 210 - yemenos);
-            
+            draw_sprite(spr_character_2, 2, 440, 210 - yemenos);            
+            if(mouse_check_button_pressed(mb_left)){
+                color  = c_red;
+                draw_set_font(font_wonder_14);
+            }            
             if(mouse_check_button_released(mb_left)){
                 //seleccionado = true;
+
                 draw_set_font(font_wonder_11);
                 color = c_white;
                 if(audio_is_playing(sn_nogacha)) audio_stop_sound(sn_nogacha);
                 audio_play_sound(sn_nogacha, 1, 0);
+                mouse_clear(mb_left);
             }
         }
     }else{

@@ -34,7 +34,8 @@ if(grounded or climbed_building){
                        }   
                    }
                                      
-                if(key_up and (grounded or climbed_building != noone)){
+                var damage_asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
+                if(key_up and (grounded or climbed_building != noone) and sprite_index != damage_asset){
                     Check_Tutorial("CLIMB THE BUILDING!");
                     climbed_building = building;
                     climb = true;
@@ -62,7 +63,8 @@ if(grounded or climbed_building){
                      }
                  }
 
-                 if(key_up and (grounded or climbed_building != noone)){
+                 var damage_asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
+                 if(key_up and (grounded or climbed_building != noone) and sprite_index != damage_asset){
                     Check_Tutorial("CLIMB THE BUILDING!");
                     climbed_building = building;
                     climb = true;

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_index = 0;
 image_speed = 0;
-background = -1;
+//background = -1;
 </string>
           </argument>
         </arguments>
@@ -57,15 +57,19 @@ var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
 
 if(!game_pause){
  //   with o_player can_move = false;
- 
+    audio_play_sound(sn_tutorial, 1, 0);
     audio_sound_gain(asset, 0, 3000);
    // audio_stop_sound(sn_soundtrack_pausa);
    // audio_play_sound(sn_soundtrack_pausa, 1, 1);
     audio_sound_gain(sn_soundtrack_pausa, 0, 1);
     audio_sound_gain(sn_soundtrack_pausa, 1, 8000);
     
+    
+    if(audio_is_playing(sn_helicopter_behind)) audio_sound_gain(sn_helicopter_behind, 0, 0);
+    if(audio_is_playing(sn_helicopter_front)) audio_sound_gain(sn_helicopter_front, 0, 0);
+    
     game_pause = true;
-    visible = 0;
+  /*  visible = 0;
     screen_save(working_directory + "pausa.png");
     background = sprite_add(
         working_directory + "pausa.png", 
@@ -75,7 +79,8 @@ if(!game_pause){
         0,
         0
     );
-    visible = 1;
+    visible = 1;*/
+    
     instance_create(0,0, obj_controller_gaussian_blur);
     
     with Key_Father visible = 0;
@@ -85,11 +90,14 @@ if(!game_pause){
   //  with o_player image_speed = 0;
 
 }else{
+    audio_play_sound(sn_tutorial, 1, 0);
+    if(audio_is_playing(sn_helicopter_behind)) audio_sound_gain(sn_helicopter_behind, 1, 0);
+    if(audio_is_playing(sn_helicopter_front)) audio_sound_gain(sn_helicopter_front, 1, 0);
 
     audio_sound_gain(asset, 1, 5000);
     audio_sound_gain(sn_soundtrack_pausa, 0, 3000);
-    sprite_delete(background);
-    background = -1;
+    //sprite_delete(background);
+    //background = -1;
  //   with o_player can_move = true;
     with obj_controller_gaussian_blur instance_destroy();
   //  with Dibujar_Pausa instance_destroy();
@@ -123,7 +131,8 @@ mouse_clear(mb_left);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(background != -1){
+            <string>//if(background != -1){
+/*if(room!=game_tutorial and game_pause){
     draw_sprite_ext(background, 0, 0, 0, room_width/sprite_get_width(background), room_height/sprite_get_height(background), 0, c_white, 1);
     draw_set_color(c_black);
     draw_set_alpha(.1);
@@ -135,9 +144,10 @@ mouse_clear(mb_left);
         0
     );
     draw_set_alpha(1);
-}else{
+}*/
+//}else{
     draw_self();
-}
+//}
 </string>
           </argument>
         </arguments>

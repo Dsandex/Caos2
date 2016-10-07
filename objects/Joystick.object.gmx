@@ -62,11 +62,21 @@ image_angle = dir;
     
     // Arriba.
     if(!Player.climb){
-        if(dir &gt;=5 and dir &lt;= 175){ // 10, 170
-            with Player key_up = 1;
-           // show_debug_message('up truer');;
+    
+        if(Player.grounded){
+            if(dir &gt;=5 and dir &lt;= 175){ // 10, 170
+                with Player key_up = 1;
+               // show_debug_message('up truer');;
+            }else{
+                with Player key_up = 0;
+            }
         }else{
-            with Player key_up = 0;
+            if(dir &gt;=10 and dir &lt;= 170){ // 10, 170
+                with Player key_up = 1;
+               // show_debug_message('up truer');;
+            }else{
+                with Player key_up = 0;
+            }
         }
             
         if(dir &gt; 180+10 and dir &lt;= 360-10){

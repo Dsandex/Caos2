@@ -36,7 +36,21 @@ audio_sound_gain(soundtrack, 1, 3000);
 
 audio_play_sound(sn_soundtrack_pausa, 1, 1);
 audio_sound_gain(sn_soundtrack_pausa, 0, 0);
+/*
+globalvar background;
 
+screen_save(working_directory + "pausa.png");
+background = sprite_add(
+    working_directory + "pausa.png", 
+    0, 
+    0,
+    0, 
+    0,
+    0
+);
+*/
+
+// Idioma
 tutorial[0] = "Tutorial";
 tutorial[1] = "MOVE RIGHT";
 tutorial[2] = "MOVE LEFT";
@@ -56,6 +70,30 @@ tutorial[15] = "HIT THE BUILDING#WHILE GOING DOWN!";
 tutorial[16] = "JUMP OFF#THE BUILDING!";
 tutorial[17] = "DESTROY THE#BUILDING!";
 tutorial[18] = "TUTORIAL COMPLETE!";
+
+
+if(idioma == "es"){
+    tutorial_show[0] = "Tutorial";
+    tutorial_show[1] = "Muevete a#la derecha";
+    tutorial_show[2] = "Muevete a#la izquierda";
+    tutorial_show[3] = "Salta!";
+    tutorial_show[4] = "Ataca!";
+    tutorial_show[5] = "Ataca hacia#abajo!";
+    tutorial_show[6] = "Ataca hacia#arriba!";
+    tutorial_show[7] = "Ataca hacia#abajo saltando!";
+    tutorial_show[8] = "Ataca hacia#arriba saltando!";
+    tutorial_show[9] = "Ataca hacia#el frente saltando!";
+    tutorial_show[10] = "Ataca hacia#atras saltando!";
+    tutorial_show[11] = "Escala el#edificio!";
+    tutorial_show[12] = "Baja!";
+    tutorial_show[13] = "Sube!";
+    tutorial_show[14] = "Golpea el#edificio!";
+    tutorial_show[15] = "Golpea el#edificio mientras#bajas!";
+    tutorial_show[16] = "Salta del#edificio!";
+    tutorial_show[17] = "Destruye#el edificio!";
+    tutorial_show[18] = "TUTORIAL COMPLETO!";
+}
+
 
 //tutorial[12] = "JUMP UP ATTACK!";
 //tutorial[13] = "JUMP UP ATTACK!";
@@ -352,7 +390,9 @@ switch(tutorial[cuenta]){
         draw_sprite(spr_player_ground_normal_attack, 1, room_width/2, 200);
     break;
     case "ATTACK UP!":
-        draw_sprite(spr_player_ground_normal_attack, 2, room_width/2, 200);
+        if(idioma == "es") var y_ = 10;
+        else var y_ = 0;
+        draw_sprite(spr_player_ground_normal_attack, 2, room_width/2, 200 + y_);
     break;
     case "ATTACK DOWN#JUMPING!":
         //show_debug_message("draw");
@@ -412,12 +452,15 @@ draw_roundrect(
 draw_set_alpha(1);*/
 
 
-draw_text_outlined(room_width/2 + 10, 80, tutorial[cuenta], color_select, c_black, 2);
+if(idioma == "en") draw_text_outlined(room_width/2 + 10, 80, tutorial[cuenta], color_select, c_black, 2);
+if(idioma == "es") draw_text_outlined(room_width/2 + 10, 80, tutorial_show[cuenta], color_select, c_black, 2);
 draw_set_color(color_select);
 //draw_text(room_width/2 + 10, 80, tutorial[cuenta]);
 draw_set_halign(noone);
 
-var stp = "*SKIP";
+
+if(idioma == "en") var stp = "*SKIP";
+else if(idioma == "es") var stp = "*SALTAR"
 draw_text_outlined(room_width - string_width(stp) - 10, room_height - string_height(stp) - 15, stp, color_select, c_black, 2);
 if(in_Rectangle(room_width - string_width(stp) - 10 - 10, 
                 room_height - string_height(stp) - 15 - 10, 

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Destroy this instance.
 instance_create(x, y, Destrucion);
+Get_Score(x, y, 100, false);
 </string>
           </argument>
         </arguments>

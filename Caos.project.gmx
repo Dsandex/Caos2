@@ -305,6 +305,7 @@
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_marco</sprite>
       <sprite>sprites\spr_pausa</sprite>
+      <sprite>sprites\spr_icon_creditos</sprite>
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
@@ -338,6 +339,7 @@
       <sprite>sprites\spr_score_50</sprite>
     </sprites>
     <sprite>sprites\spr_google_games</sprite>
+    <sprite>sprites\spr_sapo</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background_menu</background>

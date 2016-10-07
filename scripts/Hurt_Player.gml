@@ -6,7 +6,7 @@
 /*with(Player){
     vida -= damage;
 }*/
-
+if(room == game_tutorial and Player.vida == 1) exit;
 switch(argument[0]){
     case "Soldier_Bullet":
          with(Player){

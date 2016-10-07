@@ -11,6 +11,9 @@ if(climb){
     
     // Jump from buildings.
     if(key_jump and !instance_exists(Rage)){
+        // Set eat to false.
+        eating = false;
+    
         Check_Tutorial("JUMP OFF#THE BUILDING!");
     
         // Take women accesors.
