@@ -23,6 +23,7 @@ with(eat_person_id){
        case 4: // Carro.
            Get_Score(x,y, 200,false);
            show_debug_message("comer carro");
+       break
        case 5: // Cigarro.
            Get_Score(x,y, 200,false);
        break;
@@ -31,3 +32,7 @@ with(eat_person_id){
 
 // with(Player){vida +=1;}
 // Get_Score(x,y+10,10,true);
+
+
+
+
