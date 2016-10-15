@@ -6,8 +6,61 @@ if(argument[0] == "windows"){
     key_down = keyboard_check(vk_down);
     key_jump = keyboard_check_pressed(vk_space);
 
-}else{
+}else if(argument[0] == "android"){
     key_jump = keyboard_check_pressed(ord('Z'));
+    
+    // Move in different directions.
+    if(grounded){
+        if(mouse_check_button(mb_left)){
+            if(mouse_x < view_hview[0]/2){
+                Active_Key("left");
+            }else{
+                Active_Key("right");
+            }
+        }else{
+            key_right = 0;
+            key_left = 0;
+        }
+    }
+    
+    if(climb){
+        if(mouse_check_button(mb_left)){
+            if(mouse_x < view_hview[0]/2){
+                Active_Key("up");
+            }else{
+                Active_Key("down");
+            }
+        }else{
+            key_up = 0;
+            key_down = 0;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 //show_debug_message(key_jump);
 key_attack = keyboard_check_pressed(ord('X'));

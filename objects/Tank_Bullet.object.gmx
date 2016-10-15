@@ -69,7 +69,7 @@ if(collision_point(x, y, Player, true, true)){
     Play_Track("hys_bullet");
     with(Player){
          //vida--;
-         if(grounded or (!climb and climbed_building != noone)){
+         if(grounded or (!climb and climbed_building != noone) and !lose){
              eating = false;
              grounded = false;
              climbed_building = noone;

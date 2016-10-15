@@ -36,6 +36,17 @@ if(place_meeting(x, y+vsp, Floor)){
         alarm[0] = 90;
                    
     } 
+    
+    // Save buildings that haven't being destroyed.
+/*    var list = instance_nearest_list(0,0, Edificio);
+    ds_list_clear(avance_edificios);
+    
+    avance_edificios = ds_list_create();
+    for(var i = 0; i < ds_list_size(list); i++){
+        var edificio = ds_list_find_value(list, i);
+        ds_list_add(avance_edificios, 0, 0, edificio.x);
+    }*/
+    
 }
 
 Current_Sprite(asset_get_index("spr_player" + jugador + "_dead"), 0.06, 0, retard_value);

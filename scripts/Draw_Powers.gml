@@ -1,4 +1,4 @@
-/// Draw_Powers(value, type, yy);
+/// Draw_Powers(value, type, yy, scale);
 switch(argument[1]){
     case "billetes":
         var index = 0;

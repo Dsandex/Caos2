@@ -3,7 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles"/>
+  <datafiles number="2" name="datafiles">
+    <datafile>
+      <name>yoyogamesheader1[1].jpg</name>
+      <exists>-1</exists>
+      <size>109960</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>yoyogamesheader1[1].jpg</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\GooglePlayServicesExtension</extension>
   </NewExtensions>
@@ -65,6 +83,12 @@
         <sound>sound\sn_score_1</sound>
         <sound>sound\sn_score_2</sound>
       </sounds>
+      <sounds name="Viento">
+        <sound>sound\sn_wind1</sound>
+      </sounds>
+      <sounds name="Puerta">
+        <sound>sound\sn_puerta</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -103,6 +127,9 @@
           <sprite>sprites\spr_child3_idle</sprite>
         </sprites>
         <sprite>sprites\spr_hurt_particle</sprite>
+        <sprites name="Dog">
+          <sprite>sprites\spr_dog</sprite>
+        </sprites>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
       <sprites name="Tank">
@@ -168,6 +195,7 @@
       <sprite>sprites\spr_building_29</sprite>
       <sprite>sprites\spr_building_30</sprite>
       <sprite>sprites\spr_building_31</sprite>
+      <sprite>sprites\spr_building_32</sprite>
       <sprite>sprites\spr_building_damage</sprite>
       <sprite>sprites\spr_ventana</sprite>
       <sprite>sprites\spr_collapse</sprite>
@@ -183,12 +211,14 @@
     <sprites name="Detalles">
       <sprite>sprites\spr_damage_overlay</sprite>
       <sprite>sprites\spr_gameover</sprite>
-      <sprite>sprites\spr_caos</sprite>
+      <sprite>sprites\spr_caos2</sprite>
       <sprite>sprites\spr_rage</sprite>
       <sprite>sprites\spr_barra_vida</sprite>
       <sprite>sprites\sprite169</sprite>
       <sprite>sprites\spr_coronaste</sprite>
       <sprite>sprites\spr_perdiste</sprite>
+      <sprite>sprites\spr_caos</sprite>
+      <sprite>sprites\spr_caos_original</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -302,6 +332,7 @@
       <sprite>sprites\spr_baius</sprite>
       <sprite>sprites\spr_digital</sprite>
       <sprite>sprites\spr_creditos</sprite>
+      <sprite>sprites\spr_creditos2</sprite>
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_marco</sprite>
       <sprite>sprites\spr_pausa</sprite>
@@ -315,6 +346,7 @@
       <sprite>sprites\spr_bolsa</sprite>
       <sprite>sprites\spr_billete</sprite>
       <sprite>sprites\spr_jeringa</sprite>
+      <sprite>sprites\spr_coin</sprite>
     </sprites>
     <sprites name="Helpful">
       <sprite>sprites\spr_floor</sprite>
@@ -382,6 +414,7 @@
         <script>scripts\Search_Building.gml</script>
         <script>scripts\BBox_Change.gml</script>
         <script>scripts\Hurt_Player.gml</script>
+        <script>scripts\Get_Soundtrack.gml</script>
       </scripts>
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>
@@ -457,6 +490,11 @@
       <font>fonts\font_wonder_11</font>
       <font>fonts\font_wonder_14</font>
     </fonts>
+    <fonts name="Press Start">
+      <font>fonts\font_press_20</font>
+      <font>fonts\font_press_11</font>
+      <font>fonts\font_press_14</font>
+    </fonts>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -492,6 +530,7 @@
       <object>objects\Building_29</object>
       <object>objects\Building_30</object>
       <object>objects\Building_31</object>
+      <object>objects\Building_32</object>
       <object>objects\Collapse</object>
     </objects>
     <objects name="Control Game">
@@ -508,6 +547,8 @@
       <object>objects\Dibujar_Pausa</object>
       <object>objects\Control_Tutorial</object>
       <object>objects\Poder_Animado</object>
+      <object>objects\Building_Progress</object>
+      <object>objects\Control_Intro</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -556,6 +597,8 @@
         <object>objects\Bolsa</object>
         <object>objects\Jeringa</object>
         <object>objects\Billete</object>
+        <object>objects\Vida_Suma</object>
+        <object>objects\Coin</object>
       </objects>
     </objects>
     <objects name="Transition">
@@ -598,6 +641,7 @@
         </objects>
         <object>objects\Child_Run</object>
         <object>objects\Women_Run</object>
+        <object>objects\Child_Intro</object>
       </objects>
     </objects>
     <objects name="Iconos">
@@ -626,6 +670,7 @@
     </rooms>
     <rooms name="Game">
       <room>rooms\game_tutorial</room>
+      <room>rooms\game_intro</room>
       <room>rooms\game1</room>
       <room>rooms\game2</room>
       <room>rooms\game3</room>

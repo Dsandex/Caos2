@@ -3,7 +3,7 @@
   <spriteName>spr_bolsa</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -33,7 +33,7 @@ gravity = .1;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="Floor">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -51,10 +51,17 @@ gravity = .1;
           <argument>
             <kind>1</kind>
             <string>/// Destroy this instance.
-instance_destroy();
-
-// Give the player score!
-Get_Score(x, y, 200, false);
+if(place_meeting(x, y, Floor)){
+    instance_destroy();
+    
+    // Give the player score!
+    Get_Score(x, y, 100, false);
+    
+    // Create coins.
+    repeat(6){
+        instance_create(x, y, Coin); 
+    }
+}
 </string>
           </argument>
         </arguments>

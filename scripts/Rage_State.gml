@@ -6,8 +6,8 @@ if(humor == "normal"){
             audio_stop_sound(sn_rage_music);
         }
         
-        var asset = asset_get_index("sn_soundtrack_" + string(num_level));
-        audio_sound_gain(asset, 0, 3000);
+        
+        audio_sound_gain(Get_Soundtrack(num_level), 0, 3000);
         
         audio_play_sound(sn_trans, 1, 0);
         audio_play_sound(sn_rage_music, 1, 1);
@@ -54,10 +54,8 @@ if(humor == "normal"){
     vida = save_vida;
     angry -= (10/30);
     if(angry < 0){
-    
-        var asset = asset_get_index("sn_soundtrack_" + string(num_level));
         audio_sound_gain(sn_rage_music, 0, 3000);
-        audio_sound_gain(asset, 1, 5000);
+        audio_sound_gain(Get_Soundtrack(num_level), 1, 5000);
         
         humor = "normal";
         humor_animation = false;

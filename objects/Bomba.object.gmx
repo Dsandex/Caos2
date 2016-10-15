@@ -3,7 +3,7 @@
   <spriteName>spr_bomba</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,7 +28,7 @@
             <string>image_speed = 0;
 image_index = 0;
 gravity = .1;
-alarm[0] = irandom_range(30, 45);
+alarm[0] = irandom_range(30, 40);// 35 45
 </string>
           </argument>
         </arguments>
@@ -53,6 +53,7 @@ alarm[0] = irandom_range(30, 45);
             <kind>1</kind>
             <string>/// Create explosion!
 instance_create(x, y, Destrucion);
+audio_play_sound(choose(sn_punch_1, sn_punch_2, sn_punch_3, sn_punch_4), 1, 0);
 
 // Destroy enemies near from the bomb.
 var list = instance_nearest_list(x, y, Persona);
@@ -60,8 +61,50 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
     var person = ds_list_find_value(list, i);
     if(!instance_exists(person)) break;
     if(collision_circle(x, y, 40, person, 0, 0)){
-        with (person) instance_destroy();
-        Get_Score(person.x, person.y, 50, false);
+      //  with (person) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+        Get_Score(x, y, 50, false);
+        
+    }
+}
+
+
+var list = instance_nearest_list(x, y, Helicoptero);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    var h = ds_list_find_value(list, i);
+    if(!instance_exists(h)) break;
+    if(collision_circle(x, y, 40, h, 0, 0)){
+        with (h) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+        Get_Score(x, y, 500, false);
+        
+    }
+}
+
+
+var list = instance_nearest_list(x, y, Tank);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    var t = ds_list_find_value(list, i);
+    if(!instance_exists(t)) break;
+    if(collision_circle(x, y, 40, t, 0, 0)){
+        with (t) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+        Get_Score(x, y, 300, false);
+        
+    }
+}
+
+/*
+var list = instance_nearest_list(x, y, Edificio);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    var e = ds_list_find_value(list, i);
+    if(!instance_exists(e)) break;
+    if(collision_circle(x, y, 40, e, 0, 0)){
+        //with (person) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+        Get_Score(x, y, 100, false);
+        Recieve_Damage("front", e);
+        
     }
 }
 </string>

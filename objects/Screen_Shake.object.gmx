@@ -50,7 +50,8 @@ int = 1.5;
           <argument>
             <kind>1</kind>
             <string>if(room == Room_Menu){
-    room_goto_transition(Room_Select, 0, 45); 
+    if(historia and nivel == 0) room_goto_transition(Room_Transicion, 0, 45); 
+    else room_goto_transition(Room_Select, 0, 45); 
 }  
 </string>
           </argument>

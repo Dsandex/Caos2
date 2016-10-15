@@ -49,30 +49,49 @@
           <argument>
             <kind>1</kind>
             <string>/// Control powers!
+var generate = false;
+var spr = "";
+var xx = 0;
+    var yy = 0;
+
 if(c_billetes &gt;= 3){
-    c_billetes = 0;
-    var spr = spr_billete;
+    c_billetes = 0;    
+    for(var i = 0; i &lt; 3; i++){ 
+        var power_a = instance_create(263 + (i * 40), 17, Poder_Animado);
+        power_a.sprite_index = spr_billete;
+    }
 }
 
 if(c_bombas &gt;= 3){
-    c_bombas = 0;
-    var spr = spr_bomba;
+    c_bombas = 0;    
+    for(var i = 0; i &lt; 3; i++){ 
+        var power_a = instance_create(260 + (i * 40), 35, Poder_Animado);
+        power_a.sprite_index = spr_bomba;
+    }
 }
 
 if(c_bolsa &gt;= 3){
     c_bolsa = 0;
-    var spr = spr_bolsa;
+    for(var i = 0; i &lt; 3; i++){ 
+        var power_a = instance_create(261 + (i * 40), 56, Poder_Animado);
+        power_a.sprite_index = spr_bolsa;
+    }
 }
 
 if(c_jeringa &gt;= 3){
-    c_jeringa = 0;
-    var spr = spr_jeringa;
+    c_jeringa = 0;    
+    for(var i = 0; i &lt; 3; i++){ 
+        var power_a = instance_create(261 + (i * 40), 73, Poder_Animado);
+        power_a.sprite_index = spr_jeringa;
+    }
 }
 
-for(var i = 0; i &lt; 3; i++){
-    var power_a = instance_create(x, y, Poder_Animado);
-    power_a.sprite_index = spr;
-}
+
+
+/*
+show_debug_message(mouse_x);
+show_debug_message(mouse_y);
+
 </string>
           </argument>
         </arguments>
@@ -105,15 +124,15 @@ for (var i = 0; i &lt; 3; i++){
 };
 
 // Draw powers.
-/*Draw_Powers(c_billetes, "billetes", 4, .7);
-Draw_Powers(c_bomba, "bomba", 25, .5);
+Draw_Powers(c_billetes, "billetes", 4, .7);
+Draw_Powers(c_bombas, "bomba", 25, .5);
 Draw_Powers(c_bolsa, "bolsa", 45, .5);
-Draw_Powers(c_jeringa, "jeringa", 65, .5);*/
+Draw_Powers(c_jeringa, "jeringa", 65, .5);
 
-Draw_Powers(2, "billetes", 4, .7);
+/*Draw_Powers(2, "billetes", 4, .7);
 Draw_Powers(2, "bomba", 25, .5);
 Draw_Powers(1, "bolsa", 45, .5);
-Draw_Powers(3, "jeringa", 65, .5);
+Draw_Powers(3, "jeringa", 65, .5);*/
 </string>
           </argument>
         </arguments>

@@ -63,9 +63,9 @@ create_tanks = true;
 if instance_exists(Screen_Shake) with Screen_Shake instance_destroy();
 if instance_exists(Control_Game) with Control_Game instance_destroy();
 /// Create controls.
-instance_create(80, 400+5, Joystick);//120, 100
-instance_create(615+15, 395+20+10+10, Button_B);//600
-instance_create(700+15, 345+20+10+10, Button_A);//685
+//instance_create(80, 400+5, Joystick);//120, 100
+//instance_create(615+15, 395+20+10+10, Button_B);//600
+//instance_create(700+15, 345+20+10+10, Button_A);//685
 instance_create(705, 25, Pausa);
 instance_create(0,0, Dibujar_Poderes);
 
@@ -343,6 +343,7 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
     audio_play_sound(sn_coronaste, 1, 0);
     with Player draw_score = true;
     with Player win = true;
+  //  ds_list_clear(avance_edificios);
 }
 </string>
           </argument>
@@ -366,7 +367,8 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+            <string>//var asset = asset_get_index("sn_soundtrack_" + string(num_level));
+var asset = Get_Soundtrack(num_level);
 audio_sound_gain(asset, 0, 3000);
 //sprite_delete(background);
 
@@ -412,15 +414,17 @@ audio_stop_sound(sn_soundtrack_pausa);
 if(!audio_is_playing(asset_get_index("sn_soundtrack_" + string(num_level)))){
    // show_debug_message("OCCUR");
     
-    if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
+   // if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
 
     //if(num_level != 1){
-    if(num_level &gt;= 5 and num_level &lt; 10) var numlevel = num_level - 4;   
+    /*if(num_level &gt;= 5 and num_level &lt; 10) var numlevel = num_level - 4;   
     else if(num_level &lt; 5) var numlevel = num_level;
-    else var numlevel = 1;
-    var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
+    else var numlevel = 1;*/
+    //var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
     
-    if(num_level != 1) audio_stop_sound(asset_get_index("sn_soundtrack_" + string(numlevel-1)));
+    //if(num_level != 1) audio_stop_sound(asset_get_index("sn_soundtrack_" + string(numlevel-1)));
+    if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
+    var asset = Get_Soundtrack(num_level);
     if(!audio_is_playing(asset)){
         audio_play_sound(asset, 0, 1);
         audio_sound_gain(asset, 0, 0);
@@ -432,6 +436,11 @@ if(!audio_is_playing(asset_get_index("sn_soundtrack_" + string(num_level)))){
     //    audio_sound_gain(sn_soundtrack_1, 1, 3000);
     }*/
 }
+
+// Set avance_edificios list.
+
+
+//avance_edificios = instance_nearest_list(0,0, Edificio);
 </string>
           </argument>
         </arguments>
