@@ -184,20 +184,37 @@ HECHAS:
 - Win and Lose!
 - Arreglar Gacha.
 - Efectos de Sonido.
+- Helicopteros Sonido.  
+- Revisar Controles.
+- Transicion entre niveles.
+- Bug mujer.
+- Poner el nivel en el que esta.
+- Vidas.
+- Puntaje.
+- Daño enemigos. 
+- Dificultad.
+- Pausa con menú de pausa.
 
-    - FALTANTES. -
-      
-      - Helicopteros Sonido.  
-      - Revisar Controles.
-      - Transicion entre niveles.
-      - Bug mujer.
-      - Poner el nivel en el que esta.
-      - Vidas.
-      - Puntaje.
-      - Daño enemigos. 
-      - Dificultad.
-      - Pausa con menú de pausa.
-      
+
+    - FALTANTES -
+    
+    1. Poderes:
+      1.1 Caos. (Listo).
+      1.2 Bombas (Listo).
+      1.3 Dinero.
+      1.4 Jeringa.
+
+    2. Controles.
+    
+    3. Historia.
+       3.1 Introducción al principio.
+       3.2 Final del juego.
+    
+    4. Guardar progreso.
+       - Guardar progreso de qué edficios ya ha destruído cuando muere.
+
+    5. Propósito del juego.
+       - Ya no habrá un tutorial si no a medida de los niveles se le enseñará al jugador.
       
 
 */
