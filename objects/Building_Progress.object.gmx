@@ -8,6 +8,84 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy buildings that are not in list.
+/*if(!ds_list_empty(avance_edificios)){
+    show_debug_message("FALTANTES.");
+    for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
+        show_debug_message(ds_list_find_value(avance_edificios, i));
+    }
+    
+    show_debug_message("EXISTENTES.");
+    var list = instance_nearest_list(0,0, Edificio);
+    for(var i = 0; i &lt; ds_list_size(list); i++){
+        show_debug_message(ds_list_find_value(list, i).x);
+    }
+}*/
+
+
+if(!ds_list_empty(avance_edificios)){
+    var list = instance_nearest_list(0,0, Edificio);
+    var destruido = noone;
+    
+    for(var i = 0; i &lt; ds_list_size(list); i++){
+        var edificio_x = ds_list_find_value(list, i).x;
+        if(!Building_Exists(edificio_x, avance_edificios)){
+            with(ds_list_find_value(list, i)){
+                with(lt){
+                    points = false;
+                    instance_destroy();
+                }
+                instance_destroy();
+            }
+        }
+    }
+    ds_list_clear(avance_edificios);  
+}
+
+/*
+for(var i = 0; i &lt; ds_list_size(list) ; i++){
+    var edificio = ds_list_find_value(list, i);
+    var existe = false;
+    for(var j = 0; j &lt; ds_list_size(avance_edificios); j++){
+        if(edificio.x == ds_list_find_value(avance_edificios, j)){
+           existe = true;              
+        }
+    }
+    if(!existe){
+         with edificio instance_destroy();
+         var ventanas = instance_nearest_list(0,0,obj_ventana);
+         for(var i = 0; i &lt; ds_list_size(ventanas); i++){
+             var o_ventana = ds_list_find_value(ventanas, i);
+                 if(o_ventana.building_father == edificio){
+                 with(o_ventana){
+                     instance_destroy();
+                 }
+             }
+         }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>

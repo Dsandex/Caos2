@@ -135,6 +135,9 @@ score_var = 0;
 font_score = font_game_13;
 color_score = c_white;
 
+// Barra vida index.
+bar_index = 1;
+
 // Win variables.
 if(vida == 0) vida = 10;
 win = false;
@@ -342,8 +345,34 @@ if(win and !save_level){
     }
 }
 
+// Save avance edificios.
+/*if(save){
+    if(lose){
+        /*for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
+            show_debug_message(ds_list_find_value(avance_edificios, i));
+            
+        }*/
+      /*  ini_open(working_directory + "guardar_juego.sav");
+        var str = ds_list_write(avance_edificios);
+        ini_write_string("avance_edificios", "pass", str);
+        show_debug_message("save edificos progress");
+        ini_close();
+              
+    }
+}
+
+show_debug_message("sWTFFSEF");
+ini_open(working_directory + "guardar_juego.sav");
+var str = ini_read_string("avance_edificios", "pass", "");
+var list = ds_list_create();
+ds_list_read(list, str);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    show_debug_message(ds_list_find_value(list, i));
+    
+}
 //show_debug_message(save_nivel);
 //show_debug_message(save_puntaje);
+
 </string>
           </argument>
         </arguments>
@@ -391,16 +420,17 @@ draw_set_font(font_game_13);
             
             draw_sprite_part(
                 spr_barra_vida, 
-                1, 
+                bar_index, // 1 
                 0,
                 0,
                 vida * (bar_width/100), 
                 bar_height, 
                 offset_x, 
-                offset_y
+                offset_y, 
             );
             
         }else{
+        
             draw_sprite(
                 spr_barra_vida, 
                 0, 
@@ -463,14 +493,14 @@ draw_set_font(font_game_13);
             // Draw rage bar.
             draw_sprite(
                 spr_barra_vida, 
-                6, 
+                2, 
                 offset_x, 
                 offset_y + sprite_get_height(spr_barra_vida) + 5
             );
             
             draw_sprite_part(
                 spr_barra_vida, 
-                7, 
+                3, 
                 0,
                 0,
                 angry * (bar_width/100), 
@@ -479,7 +509,7 @@ draw_set_font(font_game_13);
                 offset_y + sprite_get_height(spr_barra_vida) + 5
             );
             
-            // Draw word "damage"
+            // Draw word "caos"
             draw_set_color(c_black);
             draw_set_font(font_game_10);
             draw_text_outlined(

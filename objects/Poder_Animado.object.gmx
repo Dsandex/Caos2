@@ -75,12 +75,13 @@ if(sprite_index == spr_billete){
 
 // Crear bolsas.
 if(sprite_index == spr_bolsa){
-    repeat(2){
-        instance_create(
-            irandom_range(0 + sprite_get_width(spr_bolsa), room_width - sprite_get_width(spr_bolsa)), 
-            irandom_range(-10, -500), 
-            Bolsa
-        );        
+    for(var i = 0; i &lt; 5; i++){
+        for(var i = 0; i &lt; 5; i++){
+            var yy = irandom_range(-10, -150);
+            if(place_free(68 + 158 * i, yy)){
+                instance_create(68 + 158 * i, yy, Bolsa);  
+            }      
+        }       
     }
 }
 
@@ -99,7 +100,8 @@ if(instance_number(Bomba) &lt;= 5){
 
 // Recuperar vida.
 if(sprite_index == spr_jeringa){ // Se crean 3.
-    //instance_create(
+    //var j = instance_create(x, y, Jeringa);
+    //with (j) animar = true;
     instance_create(x, y, Vida_Suma); // Sumar 20
 } 
 </string>

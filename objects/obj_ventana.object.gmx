@@ -32,7 +32,7 @@ local_y = y;
 get_father = false;
 building_father = 0;
 image_speed = 0;
-cerrar = false;
+cerrar = false;  
 creado = false;
 soldado = 0;
 nino = 0;
@@ -54,6 +54,7 @@ switch(a){
     break;
 }
 inst = noone;
+//instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -77,6 +78,7 @@ inst = noone;
           <argument>
             <kind>1</kind>
             <string>/// Destroy the soldier.
+ds_list_destroy(list);
 if(instance_exists(inst)){
     with(inst){
         
@@ -262,6 +264,12 @@ if(!get_father){
             ds_list_add(list, ds_list_find_value(father_list, i));
         }
      }
+     
+     if(ds_list_empty(list)){
+        instance_destroy();  
+       // show_debug_message("empty");
+        exit;
+     }
     
     // Organize the list according to building's depth.
     if(ds_list_size(list) &gt; 1){
@@ -270,10 +278,14 @@ if(!get_father){
             ds_list_replace(list, 0, ds_list_find_value(list, 1));
             ds_list_replace(list, 1, temp);
         }
-    }
+    }/*else{
+        instance_destroy();
+        exit;
+    }*/
     
     // Set window's father.
     building_father = ds_list_find_value(list, 0);
+ //   if(building_father == noone) instance_destroy();
    // with ds_list_find_value(list, 0) color = c_red;
    
     // Set new y.
@@ -303,6 +315,7 @@ if(instance_exists(building_father)){
 }else{
     instance_destroy();
 }
+
 </string>
           </argument>
         </arguments>

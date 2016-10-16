@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sumar_vida = 20;
+            <string>sumar_vida = 12;
 </string>
           </argument>
         </arguments>
@@ -50,9 +50,19 @@
             <kind>1</kind>
             <string>if(sumar_vida &gt; 0){
     if(Player.vida &lt; 100){
-        Player.vida += 1;
-        sumar_vida--;
+        Player.vida += .5;
+        sumar_vida-=.5;
+        
+       /* if(Player.bar_index == 1) */Player.bar_index = 4;
+        //else Player.bar_index = 1;
+
+    }else{
+        instance_destroy();
+        with Player bar_index = 1;
     }
+}else{
+    instance_destroy();
+    with Player bar_index = 1;
 }
 </string>
           </argument>

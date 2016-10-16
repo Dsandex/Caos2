@@ -33,7 +33,7 @@ if(room == Room_Digital){
               jugador, game_pause, tutorial_bool, soundtrack, idioma, 
               avance_edificios;
               
-    avance_edificios = ds_list_create();
+    avance_edificios = ds_list_create(); // Importante!
     idioma = "es";
     tutorial_bool = false;
     game_pause = false;
@@ -82,8 +82,19 @@ if(room == Room_Digital){
             save_nivel = ini_read_real("save_nivel", "pass", 0);
             save_puntaje = ini_read_real("save_puntaje", "pass", 0);
             gacha_select = ini_read_real("gacha_select", "pass", 0);
-            ini_close();
+          //  var str = ini_read_string("avance_edificios", "pass", "");
+          //  ds_list_read(avance_edificios, str);
+          //  ini_close();
+
         }
+        /*if(ds_list_empty(avance_edificios)){
+
+        show_debug_message("HOLA K HACE");
+        }
+        for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
+            show_debug_message(ds_list_find_value(avance_edificios, i));
+            
+        }*/
         
         num_level = save_nivel;// - 1;
         puntaje_global = save_puntaje;
@@ -201,7 +212,7 @@ HECHAS:
     1. Poderes:
       1.1 Caos. (Listo).
       1.2 Bombas (Listo).
-      1.3 Dinero.
+      1.3 Bolsas.
       1.4 Jeringa.
 
     2. Controles.

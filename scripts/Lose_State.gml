@@ -37,6 +37,18 @@ if(place_meeting(x, y+vsp, Floor)){
                    
     } 
     
+    // Guardar todos los edificios restantes.
+    if(ds_list_empty(avance_edificios)){
+        var list = instance_nearest_list(0,0, Edificio);
+        for(var i = 0; i < ds_list_size(list); i++){
+            show_debug_message(ds_list_find_value(list, i).x);
+            if(ds_list_find_value(list, i).building_life > 0){
+                ds_list_add(avance_edificios, ds_list_find_value(list, i).x);
+            }
+        }
+    }
+    
+    
     // Save buildings that haven't being destroyed.
 /*    var list = instance_nearest_list(0,0, Edificio);
     ds_list_clear(avance_edificios);

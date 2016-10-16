@@ -35,6 +35,7 @@ sprite_index = spr_tank_attack;
 out = 0;
 distance = 0;
 bullet = true;
+x_creation = x;
 </string>
           </argument>
         </arguments>
@@ -200,7 +201,8 @@ hspeed = spd;
           <argument>
             <kind>1</kind>
             <string>/// Out variable.
-out++;
+if(x_creation &lt; room_width) out++;
+else if(x_creation &gt; 0) out++;
 if(out &gt; 1) instance_destroy();
 </string>
           </argument>
