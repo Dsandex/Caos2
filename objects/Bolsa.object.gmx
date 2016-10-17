@@ -3,7 +3,7 @@
   <spriteName>spr_bolsa</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-10</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -28,6 +28,7 @@
             <string>image_speed = 0;
 image_index = 0;
 gravity = .1;
+image_angle = irandom_range(0, 360);
 </string>
           </argument>
         </arguments>
@@ -58,10 +59,11 @@ if(place_meeting(x, y, Floor)){
     Get_Score(x, y, 100, false);
     
     // Create coins.
-    repeat(6){
+    repeat(5){
         instance_create(x, y, Coin); 
     }
 }
+image_angle += 5;
 </string>
           </argument>
         </arguments>

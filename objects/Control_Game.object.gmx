@@ -48,7 +48,7 @@ if(room == Room_Digital){
     
     // Historia.
     globalvar historia, activar_tuto;
-    historia = false;
+    historia = true;
     activar_tuto = true;
     
     // Variables de poderes.
@@ -84,16 +84,26 @@ if(room == Room_Digital){
             gacha_select = ini_read_real("gacha_select", "pass", 0);
           //  var str = ini_read_string("avance_edificios", "pass", "");
           //  ds_list_read(avance_edificios, str);
-          //  ini_close();
+            ini_close();
 
         }
+        
+        // Cargar avance de edificios.
+        if(file_exists(working_directory + "avance_edificios.sav")){
+            ini_open(working_directory + "avance_edificios.sav");
+            var str = ini_read_string("avance_edificios", "pass", 0);
+            ds_list_read(avance_edificios, str);
+            chances = ini_read_real("chances", "pass", 0);
+            ini_close();
+        }
+        
         /*if(ds_list_empty(avance_edificios)){
-
-        show_debug_message("HOLA K HACE");
-        }
-        for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
-            show_debug_message(ds_list_find_value(avance_edificios, i));
-            
+            show_debug_message("HOLA K HACE");
+        }else{  
+            for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
+                show_debug_message(ds_list_find_value(avance_edificios, i));
+                
+            }
         }*/
         
         num_level = save_nivel;// - 1;
@@ -205,16 +215,14 @@ HECHAS:
 - Daño enemigos. 
 - Dificultad.
 - Pausa con menú de pausa.
-
-
-    - FALTANTES -
-    
-    1. Poderes:
-      1.1 Caos. (Listo).
-      1.2 Bombas (Listo).
+- Poderes:
+      1.1 Caos. 
+      1.2 Bombas 
       1.3 Bolsas.
       1.4 Jeringa.
 
+      - FALTANTE -
+      
     2. Controles.
     
     3. Historia.
@@ -313,9 +321,7 @@ alarm[0] = 30*7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-if(room == Room_Menu and !place_meeting(mouse_x, mouse_y, Iconos)){ 
+            <string>if(room == Room_Menu and !place_meeting(mouse_x, mouse_y, Iconos)){ 
     Play_Track("press_start")
     var sk = instance_create(0,0,Screen_Shake);
     with (sk) alarm[0] = 30; // Go to room next.
@@ -466,7 +472,7 @@ if(room == Room_Select){
         draw_sprite(spr_character_1, 1, 204, 210 - yemenos);
         if(mouse_check_button_released(mb_left) and !seleccionado){
             // Change soundtrack.
-            if(!tutorial_bool){
+            if(!tutorial_bool and activar_tuto){
                 audio_sound_gain(soundtrack, 0, 3000);                
             }
             seleccionado = true;

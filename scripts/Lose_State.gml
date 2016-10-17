@@ -1,3 +1,5 @@
+take_women = false;
+eating = false;
 if(climb){
     climb = false;
     grounded = false;

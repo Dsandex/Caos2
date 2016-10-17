@@ -343,26 +343,33 @@ if(win and !save_level){
         }
         ini_close();
     }
+    
+    
 }
 
 // Save avance edificios.
-/*if(save){
+if(save){
     if(lose){
-        /*for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
+        for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
             show_debug_message(ds_list_find_value(avance_edificios, i));
             
-        }*/
-      /*  ini_open(working_directory + "guardar_juego.sav");
+        }
+        if(file_exists(working_directory + "avance_edificios.sav")){
+            file_delete(working_directory + "avance_edificios.sav");
+        }
+        ini_open(working_directory + "avance_edificios.sav");
         var str = ds_list_write(avance_edificios);
         ini_write_string("avance_edificios", "pass", str);
-        show_debug_message("save edificos progress");
+        ini_write_real("chances", "pass", chances);
+        //chances = ini_read_real("chances", "pass", 0);
+        //show_debug_message("save edificos progress");
         ini_close();
               
     }
 }
 
-show_debug_message("sWTFFSEF");
-ini_open(working_directory + "guardar_juego.sav");
+/*show_debug_message("sWTFFSEF");
+ini_open(working_directory + "avance_edificios.sav");
 var str = ini_read_string("avance_edificios", "pass", "");
 var list = ds_list_create();
 ds_list_read(list, str);
@@ -370,6 +377,7 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
     show_debug_message(ds_list_find_value(list, i));
     
 }
+ini_close();
 //show_debug_message(save_nivel);
 //show_debug_message(save_puntaje);
 

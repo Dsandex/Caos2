@@ -357,11 +357,6 @@
       <sprite>sprites\spr_ico_bogota</sprite>
       <sprite>sprites\spr_ico_m</sprite>
     </sprites>
-    <sprite>sprites\spr_icono_caos</sprite>
-    <sprite>sprites\sprite88</sprite>
-    <sprite>sprites\spr_avioneta</sprite>
-    <sprite>sprites\sprite91</sprite>
-    <sprite>sprites\spr_avion</sprite>
     <sprites name="Puntaje">
       <sprite>sprites\spr_score_1000</sprite>
       <sprite>sprites\spr_score_500</sprite>
@@ -370,6 +365,11 @@
       <sprite>sprites\spr_score_100</sprite>
       <sprite>sprites\spr_score_50</sprite>
     </sprites>
+    <sprite>sprites\spr_icono_caos</sprite>
+    <sprite>sprites\sprite88</sprite>
+    <sprite>sprites\spr_avioneta</sprite>
+    <sprite>sprites\sprite91</sprite>
+    <sprite>sprites\spr_avion</sprite>
     <sprite>sprites\spr_google_games</sprite>
     <sprite>sprites\spr_sapo</sprite>
     <sprites name="Imagenes Promocionales">
@@ -377,6 +377,12 @@
       <sprite>sprites\sprite197</sprite>
       <sprite>sprites\sprite195</sprite>
       <sprite>sprites\sprite194</sprite>
+    </sprites>
+    <sprites name="TextBox">
+      <sprite>sprites\spr_exclamation</sprite>
+      <sprite>sprites\spr_textbox</sprite>
+      <sprite>sprites\spr_skip_text</sprite>
+      <sprite>sprites\spr_caras</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -387,7 +393,7 @@
     <background>background\background_select</background>
     <backgrounds name="Cities">
       <background>background\background_bogota</background>
-      <background>background\background9</background>
+      <background>background\background_intro</background>
       <background>background\background_cali</background>
       <background>background\background_medellin</background>
       <background>background\background_cartagena</background>
@@ -471,6 +477,10 @@
     <script>scripts\draw_text_outlined.gml</script>
     <scripts name="Pause Settings">
       <script>scripts\Draw_Pause.gml</script>
+    </scripts>
+    <scripts name="TextBox">
+      <script>scripts\TextBox_Dialogs.gml</script>
+      <script>scripts\Dialogs_Features.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -648,7 +658,6 @@
         </objects>
         <object>objects\Child_Run</object>
         <object>objects\Women_Run</object>
-        <object>objects\Child_Intro</object>
       </objects>
     </objects>
     <objects name="Iconos">
@@ -661,6 +670,10 @@
     <objects name="Puntaje">
       <object>objects\Puntaje</object>
       <object>objects\Puntaje_Suma</object>
+    </objects>
+    <objects name="Intro">
+      <object>objects\Child_Intro</object>
+      <object>objects\TextBox</object>
     </objects>
   </objects>
   <rooms name="rooms">

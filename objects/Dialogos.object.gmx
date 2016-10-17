@@ -47,8 +47,8 @@ if(!tutorial_bool and activar_tuto and !historia){
         background_index[0] = Background(num_level);
         audio_play_sound(sn_dialogo, 1, 0);
     }else{
-        if(idioma == "en"){ txt[0] = "Based on real facts..." }
-        else if(idioma == "es") { txt[0] = "Basada en hechos reales..."     }
+        if(idioma == "en"){ txt[0] = "Based on real facts" }
+        else if(idioma == "es") { txt[0] = "Basada en hechos reales"     }
         background_index[0] = background_bogota;
         audio_play_sound(sn_dialogo, 1, 0);
     }

@@ -51,12 +51,41 @@ audio_play_sound(sn_wind1, 1, 1);
           <argument>
             <kind>1</kind>
             <string>if(view_xview[0] &lt; 768){
-    view_xview[0] += spd;
-    spd += 0.05;
-}else{
-    view_xview[0] = 768;
-    
+    if(view_xview[0] &lt; 768/2){
+        view_xview[0] += spd;
+        spd += 0.05;
+    }else if(view_xview[0] &gt; 768/2){
+        view_xview[0] += spd;
+        spd -= 0.05;
+    }
 }
+
+if(view_xview[0] &gt; 768){
+    view_xview[0] = 768;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="82">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_restart();
 
 </string>
           </argument>

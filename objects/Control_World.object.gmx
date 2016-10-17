@@ -260,7 +260,7 @@ if (/*num_level == 1 or */num_level == 2 or num_level == 4 or num_level == 9){
     helicopter_num = 2;
     instance_create(0,0, Control_Helicopteros);
 }else if (num_level &gt;= 3){
-    helicopter_num = 3;
+    helicopter_num = 10; // 3
     instance_create(0,0, Control_Helicopteros);
 }
 </string>
@@ -290,7 +290,7 @@ if (num_level == 4 or num_level &gt;= 6){
     if(num_level != 9){
         if(!create_tanks) exit;
         alarm[0] = 30 * 5;
-        if(instance_number(Tank) &gt; 0) exit;
+        if(instance_number(Tank) &gt; 5) exit;
         var width = sprite_get_width(spr_tank_idle);
         
         if(Player.x &lt; room_width/2){
@@ -343,6 +343,10 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
     audio_play_sound(sn_coronaste, 1, 0);
     with Player draw_score = true;
     with Player win = true;
+    // Delete avance_edificios file.
+    if(file_exists(working_directory + "avance_edificios.sav")){
+        file_delete(working_directory + "avance_edificios.sav");
+    }
   //  ds_list_clear(avance_edificios);
 }
 </string>
@@ -411,7 +415,7 @@ audio_stop_sound(sn_soundtrack_pausa);
           <argument>
             <kind>1</kind>
             <string>/// Change soundtrack.
-if(!audio_is_playing(asset_get_index("sn_soundtrack_" + string(num_level)))){
+//if(!audio_is_playing(Get_Soundtrack(num_level))){
    // show_debug_message("OCCUR");
     
    // if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
@@ -423,7 +427,7 @@ if(!audio_is_playing(asset_get_index("sn_soundtrack_" + string(num_level)))){
     //var asset = asset_get_index("sn_soundtrack_" + string(numlevel));
     
     //if(num_level != 1) audio_stop_sound(asset_get_index("sn_soundtrack_" + string(numlevel-1)));
-    if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
+    //if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
     var asset = Get_Soundtrack(num_level);
     if(!audio_is_playing(asset)){
         audio_play_sound(asset, 0, 1);
@@ -435,7 +439,7 @@ if(!audio_is_playing(asset_get_index("sn_soundtrack_" + string(num_level)))){
     //    audio_sound_gain(sn_soundtrack_1, 0, 0);
     //    audio_sound_gain(sn_soundtrack_1, 1, 3000);
     }*/
-}
+//}
 
 // Set avance_edificios list.
 

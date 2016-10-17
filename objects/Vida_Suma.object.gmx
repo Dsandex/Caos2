@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sumar_vida = 12;
+            <string>sumar_vida = 12*3;
 </string>
           </argument>
         </arguments>

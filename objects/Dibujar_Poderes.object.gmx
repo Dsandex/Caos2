@@ -60,6 +60,19 @@ if(c_billetes &gt;= 3){
         var power_a = instance_create(263 + (i * 40), 17, Poder_Animado);
         power_a.sprite_index = spr_billete;
     }
+    // Crear billetes.
+    repeat(30){ // (30 en total).
+    instance_create(
+            irandom_range(0 + sprite_get_width(spr_bolsa), room_width - sprite_get_width(spr_bolsa)), 
+            irandom_range(-30, -500), 
+            Billete
+            );        
+    }
+    Player.poder_ate = "billetes";
+    Player.angry = 100;
+    if(!audio_is_playing(sn_roar)){
+        audio_play_sound(sn_roar, 1, 0);
+    }
 }
 
 if(c_bombas &gt;= 3){
@@ -67,6 +80,14 @@ if(c_bombas &gt;= 3){
     for(var i = 0; i &lt; 3; i++){ 
         var power_a = instance_create(260 + (i * 40), 35, Poder_Animado);
         power_a.sprite_index = spr_bomba;
+    }
+    // Crear bombas.
+     for(var i = 0; i &lt; 5; i++){
+        var yy = irandom_range(-30, -150);
+        /*while(place_free(68 + 158 * i, yy)){
+            var yy = irandom_range(-10, -150);
+        } */     
+        instance_create(68 + 158 * i, yy, Bomba);
     }
 }
 
@@ -76,6 +97,15 @@ if(c_bolsa &gt;= 3){
         var power_a = instance_create(261 + (i * 40), 56, Poder_Animado);
         power_a.sprite_index = spr_bolsa;
     }
+    // Crear bolsas.
+    for(var i = 0; i &lt; 5; i++){
+        var yy = irandom_range(-30, -150);
+        /*while(place_free(68 + 158 * i, yy)){
+              var yy = irandom_range(-10, -150);
+        } */     
+        instance_create(68 + 158 * i, yy, Bolsa);  
+    }
+        
 }
 
 if(c_jeringa &gt;= 3){
@@ -84,6 +114,7 @@ if(c_jeringa &gt;= 3){
         var power_a = instance_create(261 + (i * 40), 73, Poder_Animado);
         power_a.sprite_index = spr_jeringa;
     }
+    instance_create(x, y, Vida_Suma); // Sumar 20
 }
 
 
