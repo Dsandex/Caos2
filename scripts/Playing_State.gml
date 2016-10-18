@@ -1,5 +1,5 @@
 // Move the player.
-Player_Inputs("windows");
+Player_Inputs("");
 //Player_Inputs("android");
 //show_debug_message(y);
 

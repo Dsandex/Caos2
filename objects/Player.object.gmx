@@ -119,6 +119,7 @@ key_right = 0;
 key_jump = 0;
 key_attack = 0;
 key_down = 0;
+cont_attack = 0;
 
 // Jump.
 grounded = false;

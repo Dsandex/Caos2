@@ -48,7 +48,7 @@ if(room == Room_Digital){
     
     // Historia.
     globalvar historia, activar_tuto;
-    historia = true;
+    historia = false;
     activar_tuto = true;
     
     // Variables de poderes.

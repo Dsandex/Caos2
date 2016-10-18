@@ -349,6 +349,19 @@ if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_St
     }
   //  ds_list_clear(avance_edificios);
 }
+
+//Tap Control
+if (device_mouse_check_button(0, mb_left)){
+    if (!instance_exists(Tap_Control0)){
+        instance_create(device_mouse_x(0), device_mouse_y(0),Tap_Control0);
+    }
+}
+if (device_mouse_check_button(1, mb_left)){
+    if (!instance_exists(Tap_Control1)){
+        instance_create(device_mouse_x(1), device_mouse_y(1),Tap_Control1);
+    }
+}
+
 </string>
           </argument>
         </arguments>

@@ -5,7 +5,7 @@ if(argument[0] == "windows"){
     key_right = keyboard_check(vk_right);
     key_down = keyboard_check(vk_down);
     key_jump = keyboard_check_pressed(vk_space);
-
+    key_attack = keyboard_check_pressed(ord('X'));
 }else if(argument[0] == "android"){
     key_jump = keyboard_check_pressed(ord('Z'));
     
@@ -34,36 +34,10 @@ if(argument[0] == "windows"){
             key_up = 0;
             key_down = 0;
         }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }   
 }
 //show_debug_message(key_jump);
-key_attack = keyboard_check_pressed(ord('X'));
+//key_attack = keyboard_check_pressed(ord('X'));
 
 if(limits){
     if(bbox_left < 5){

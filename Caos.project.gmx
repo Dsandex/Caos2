@@ -482,6 +482,9 @@
       <script>scripts\TextBox_Dialogs.gml</script>
       <script>scripts\Dialogs_Features.gml</script>
     </scripts>
+    <scripts name="Touch Control">
+      <script>scripts\scriptCheckDirection.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_gaussian_horizontal.shader</shader>
@@ -571,6 +574,8 @@
       <object>objects\Player</object>
       <object>objects\Control_damage_overlay</object>
       <object>objects\Control_World</object>
+      <object>objects\Tap_Control0</object>
+      <object>objects\Tap_Control1</object>
       <object>objects\Floor</object>
       <object>objects\Poder</object>
       <object>objects\Damage</object>
