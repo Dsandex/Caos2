@@ -1,65 +1,73 @@
 /// TextBox_Dialogs(room, visit, character, index);
 var room_ = argument[0];
-var text = 0;
 
-ds_list_clear(text);
-ds_list_clear(cara);
+/*
+    0: Daniel.
+    1: Carlos.
+    2: Julián
+    3: Mamá.
+*/
 
+
+// Llenar listas.
 switch(room_){
-    case game_intro:                               
-        // Fill text.
+    case game_intro:    
+        // Fill texto.
         can_skip = false;
+
+       // Dialogo entre niños.
+        if(idioma == "es"){
         
-        // Dialogo entre Goro e Ikka.
-        ds_list_add(text, "Ikka: ¿Por que me has traído a este lugar?"); // 0
-        ds_list_add(text, "Goro: Ikka...quiero que prestes mucha atencion a lo que voy#a decirte."); // 1
-        ds_list_add(text, "Ikka: ..."); // 2
-        ds_list_add(text, "Goro: Hace mucho tiempo, en el principio... entre las aguas#de la laguna de Iguaque sumergio nuestra madre... Bachue.");  // 3
-        ds_list_add(text, "Goro: Ella era una madre buena, protectora y carinosa. Nos#enseno a cazar, trabajar las piedras, y a orar.");  // 4
-        ds_list_add(text, "Goro: Cuando vio que sus hijos eran lo suficientemente#grandes, abandono la tierra, pero antes, les dio un regalo.");  // 5
-        ds_list_add(text, "Goro: Con su poder, construyo tres instrumentos de oro, para#que estos fueran utilizados en el ritual de El Dorado.");  // 6
-        ds_list_add(text, "Goro: Estos instrumentos, tenian la capacidad de crear#una conexion espiritual con nuestros dioses durante el ritual.");  // 7
-        ds_list_add(text, "Goro: Y sin ellos...es imposible llevarlo a cabo, y por#lo tanto, no hay manera de nombrar un nuevo Zipa.");  // 8
-        ds_list_add(text, "Ikka: ¿Por que me cuentas esto?");  // 9
-        ds_list_add(text, "Goro: ...");  // 10
+            // Charla en casa.
+            ds_list_add(texto, "Daniel: ¡Carlos! ¡Carlos! ¿Estás ahí?"); ds_list_add(caras, 0); // 0 
+            ds_list_add(texto, "Carlos: ¡Hola Daniel! ¡Te he estado esperando#todo el día!"); ds_list_add(caras, 1); // 1 
+            ds_list_add(texto, "Daniel: Si, perdón, mi mamá casi no me deja#salir..."); ds_list_add(caras, 0); // 2
+            ds_list_add(texto, "Daniel: ¡Llama a Julián, vamos a ir a las#maquinitas!"); ds_list_add(caras, 0); // 3
+            ds_list_add(texto, "Carlos: ¡Listo! ¡Ya lo llamo!"); ds_list_add(caras, 1); // 4
+            ds_list_add(texto, "Julián: Hola Daniel, casi que no llegas...,#estábamos listos hace rato."); ds_list_add(caras, 2); // 5
+            ds_list_add(texto, "Julián: ¡En fin, no importa...vamos!"); ds_list_add(caras, 2); // 6
+            
+            
+            ds_list_add(texto, "Mamá: ¿¡A dónde creen que van jovencitos!?"); ds_list_add(caras, 3); // 7
+            ds_list_add(texto, "Julián: Ehh..., ¡Hola mamá!"); ds_list_add(caras, 2);
+            ds_list_add(texto, "Julián: Sólo vamos a ir a jugar maquinitas en el#centro comercial, no nos demoramos..."); ds_list_add(caras, 2);
+            ds_list_add(texto, "Mamá: ¡No deberían estar callejeando..., conocen#la situación!"); ds_list_add(caras, 3);
+            ds_list_add(texto, "Carlos: ¡No pasará nada mamá, volveremos#pronto!"); ds_list_add(caras, 1);
+            ds_list_add(texto, "Mamá: ¡Cuídense por favor!"); ds_list_add(caras, 3); // 12
+            
+            // Charla mientras caminan a la ciudad.
+            ds_list_add(texto, "Daniel: ¡Hey muchachos, me enteré que hay un#nuevo videojuego en el local al que vamos!"); ds_list_add(caras, 0); // 13
+            ds_list_add(texto, "Julián: ¡Sí, todo el mundo sólo habla de él,#dicen que es una locura!"); ds_list_add(caras, 2); // 14
+            ds_list_add(texto, "Daniel: ¡Dicen que se trata de tres niños#que deben escapar de dos monstruos!"); ds_list_add(caras, 0);// 15
+            ds_list_add(texto, "Julián: ¡Yo también he escuchado lo mismo!,#pero nadie sabe como termina..."); ds_list_add(caras, 2);// 16
+            ds_list_add(texto, "Daniel: ¡Quiero ser el primero en jugarlo!"); ds_list_add(caras, 0); // 17
+            ds_list_add(texto, "Carlos: ¿Y cómo se llama?"); ds_list_add(caras, 1); // 18
+          
+            
+            // Interrumpen personas corriendo
+            ds_list_add(texto, "Julián: Esperen..., ¿Por qué corren estas personas?"); ds_list_add(caras, 2); // 19
+            
+
+            // Explosiones.
+            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 0); // 20
+            
+            // Soldados y tanques.
+            ds_list_add(texto, "Carlos: ¡No lo sé, pero tenemos que irnos ya!"); ds_list_add(caras, 1); // 21
+            
+            
+            ds_list_add(texto, "Daniel: ¡Esperen..., creo que esos tres#niños..., ¡somos nosotros!"); ds_list_add(caras, 0); // 22
+            ds_list_add(texto, "Carlos: ¿¡De qué estás hablando!?"); ds_list_add(caras, 1); // 23
+            
+            // Aparece caos en pantalla y pablo saltando.
+            ds_list_add(texto, "Julián: ¡Corran! ¡Corran! ¡Es el Jefe!"); ds_list_add(caras, 2); // 24
+            
+            
+           // ds_list_add(texto, "El Jefe: ROOOOOOOOAAAAAAR!"); ds_list_add(caras, 4); // 25
+            
+        }else if(idioma == "en"){
         
-        // < EXPLOSIONES >
-        
-        // Soldado entra a la escena.
-        ds_list_add(text, "General: Mi senor! Lo necesitamos en la entrada sur de#aldea!"); // 11
-        ds_list_add(text, "Goro: ¿¡Que esta sucediendo Tibata!?"); // 12 
-        ds_list_add(text, "General (Tibata): ¡Los hijos de Huitaca estan atacando la#aldea, tal cual lo predijo Ciasua!"); // 13
-        ds_list_add(text, "Goro: ¡Tibata, reune a todas las tropas del norte, y regresa#al lugar del asedio!"); // 14
-        ds_list_add(text, "General (Tibata): ¡Si mi senor!"); // 15
-        
-        // Dialogo final Goro e Ikka.
-        ds_list_add(text, "Ikka: Tio, ¿¡que esta sucediendo!?"); // 16
-        ds_list_add(text, "Goro: Ikka, no tenemos mas tiempo, ¡debes partir ahora#mismo!"); // 17
-        ds_list_add(text, "Goro: ¡Toma este libro, y corre al norte, en donde no puedas#ser encontrado! ¡Con el libro sabras que hacer!"); // 18
-        
-        //FIN
-        
-        // Fill caras.
-        ds_list_add(cara, spr_cara);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara);
-        ds_list_add(cara, spr_cara_goro);
-        
-        ds_list_add(cara, spr_cara_general);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_general);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_general);
-        
-        ds_list_add(cara, spr_cara);
-        ds_list_add(cara, spr_cara_goro);
-        ds_list_add(cara, spr_cara_goro);
+            
+        }
+               
     break;
 }

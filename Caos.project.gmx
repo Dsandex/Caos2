@@ -68,12 +68,12 @@
         <sound>sound\sn_coronaste</sound>
         <sound>sound\sn_perdistes</sound>
         <sound>sound\sn_tutorial</sound>
-        <sound>sound\sn_dialogo2</sound>
       </sounds>
       <sounds name="Power">
         <sound>sound\sn_eat_power</sound>
       </sounds>
       <sounds name="Dialogos">
+        <sound>sound\sn_dialogo2</sound>
         <sound>sound\sn_dialogo</sound>
       </sounds>
       <sounds name="Avion">
@@ -119,8 +119,8 @@
           <sprite>sprites\spr_person_inbuilding</sprite>
         </sprites>
         <sprites name="Children">
-          <sprite>sprites\spr_child1_run</sprite>
           <sprite>sprites\spr_child1_idle</sprite>
+          <sprite>sprites\spr_child1_run</sprite>
           <sprite>sprites\spr_child2_run</sprite>
           <sprite>sprites\spr_child2_idle</sprite>
           <sprite>sprites\spr_child3_run</sprite>
@@ -337,6 +337,12 @@
       <sprite>sprites\spr_marco</sprite>
       <sprite>sprites\spr_pausa</sprite>
       <sprite>sprites\spr_icon_creditos</sprite>
+      <sprites name="Presentacion">
+        <sprite>sprites\spr_bombazo</sprite>
+        <sprite>sprites\spr_puno</sprite>
+        <sprite>sprites\spr_caos_inicio</sprite>
+        <sprite>sprites\spr_escobar</sprite>
+      </sprites>
     </sprites>
     <sprites name="Powers">
       <sprite>sprites\spr_powers</sprite>
@@ -377,6 +383,7 @@
       <sprite>sprites\sprite197</sprite>
       <sprite>sprites\sprite195</sprite>
       <sprite>sprites\sprite194</sprite>
+      <sprite>sprites\sprite202</sprite>
     </sprites>
     <sprites name="TextBox">
       <sprite>sprites\spr_exclamation</sprite>
@@ -431,8 +438,8 @@
       <scripts name="Global States">
         <script>scripts\Playing_State.gml</script>
         <script>scripts\Rage_State.gml</script>
-        <script>scripts\Lose_State.gml</script>
         <script>scripts\Rage_Anim.gml</script>
+        <script>scripts\Lose_State.gml</script>
       </scripts>
     </scripts>
     <scripts name="World Scripts">
@@ -481,6 +488,7 @@
     <scripts name="TextBox">
       <script>scripts\TextBox_Dialogs.gml</script>
       <script>scripts\Dialogs_Features.gml</script>
+      <script>scripts\Dialogs_Final.gml</script>
     </scripts>
     <scripts name="Touch Control">
       <script>scripts\scriptCheckDirection.gml</script>
@@ -515,6 +523,7 @@
       <font>fonts\font_press_11</font>
       <font>fonts\font_press_14</font>
     </fonts>
+    <font>fonts\font_textbox</font>
   </fonts>
   <objects name="objects">
     <objects name="Edificio">
@@ -568,12 +577,12 @@
       <object>objects\Control_Tutorial</object>
       <object>objects\Poder_Animado</object>
       <object>objects\Building_Progress</object>
-      <object>objects\Control_Intro</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
       <object>objects\Control_damage_overlay</object>
       <object>objects\Control_World</object>
+      <object>objects\Control_PreWorld</object>
       <object>objects\Tap_Control0</object>
       <object>objects\Tap_Control1</object>
       <object>objects\Floor</object>
@@ -637,6 +646,8 @@
       <object>objects\Digital</object>
       <object>objects\New</object>
       <object>objects\Marco</object>
+      <object>objects\Bombazo</object>
+      <object>objects\Escobar</object>
     </objects>
     <objects name="Enemies">
       <object>objects\Enemy</object>
@@ -644,6 +655,7 @@
         <object>objects\Helicopter_Bullet</object>
         <object>objects\Helicoptero</object>
         <object>objects\Control_Helicopteros</object>
+        <object>objects\Helicopter_Intro</object>
       </objects>
       <objects name="Tank">
         <object>objects\Tank</object>
@@ -679,6 +691,9 @@
     <objects name="Intro">
       <object>objects\Child_Intro</object>
       <object>objects\TextBox</object>
+      <object>objects\Exclamacion</object>
+      <object>objects\Control_Intro</object>
+      <object>objects\Player_Intro</object>
     </objects>
   </objects>
   <rooms name="rooms">

@@ -49,10 +49,11 @@
           <argument>
             <kind>1</kind>
             <string>/// Give an specific score if not climb and not grounded
-if(!Player.climb and !Player.grounded and out &gt; 0){ 
-    Get_Score(x, y, 50, false);
+if(instance_exists(Player)){
+    if(!Player.climb and !Player.grounded and out &gt; 0){ 
+        Get_Score(x, y, 50, false);
+    }
 }
-
 </string>
           </argument>
         </arguments>

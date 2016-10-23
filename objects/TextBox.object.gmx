@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-100</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,22 +30,27 @@ font = font_press_11;
 color = c_white;
 str = 0;
 vel = .5;
-t = 8;
+t = 0;
 draw_skip = false;
 angle = 0;
 
-can_skip = true;
+can_skip = false;
 can_continue = true;
+audio_play_sound(sn_dialogo, 0, 1);
 
-
-text = ds_list_create();
-cara = ds_list_create();
+globalvar texto, caras, animar;
+texto = ds_list_create();
+caras = ds_list_create();
+animar = true;
+final = true;
 
 // Fill text and text faces.
 TextBox_Dialogs(game_intro);
+/*var text = ds_map_find_value(map, "texto");
+var cara = ds_map_find_value(map, "caras");*/
 
-// Helful animation textbox variables.
-process[0] = true;
+// Variables locales.
+rage = false;
 </string>
           </argument>
         </arguments>
@@ -69,26 +74,35 @@ process[0] = true;
           <argument>
             <kind>1</kind>
             <string>/// Draws text in a text box effect.
-Dialogs_Features(game_intro);
+Dialogs_Features(game_intro, t);
 
-if(str &lt; string_length(ds_list_find_value(text, t))){
+if(str &lt; string_length(ds_list_find_value(texto, t))){
     str += vel; // Speed of text.
+    
 }
 
-if(str &gt;= string_length(ds_list_find_value(text, t))){
+if(str &gt;= string_length(ds_list_find_value(texto, t))){
     draw_skip = true;   
-    if((keyboard_check_pressed(ord('Z')) or mouse_check_button(mb_left)) and can_continue){
+    audio_stop_sound(sn_dialogo);
+    Dialogs_Final(game_intro, t);
+    
+    if((keyboard_check_pressed(ord('Z')) or mouse_check_button_pressed(mb_left)) and can_continue){
+        audio_play_sound(sn_dialogo, 0, 1);
+        show_debug_message(t);
         t++;
         str = 0;
         draw_skip = false;
-        if(ds_list_size(text) &lt;= t){
+        animar = true; // Animar comienzo del próximo diálogo.
+        final = true; // Animar al final de el diálogo actual.
+        if(t &gt;= ds_list_size(texto)){
             instance_destroy();
-            with (Player) {can_move = true;}
         }
+
+        
     }
 }else{
     draw_skip = false;
-    if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(text, t)))){
+    if((keyboard_check(ord('Z')) or mouse_check_button(mb_left)) and (str &lt; string_length(ds_list_find_value(texto, t)))){
         str += (vel + 1);
     }
 }
@@ -114,28 +128,36 @@ if(keyboard_check_pressed(ord('X')) and can_skip){
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>other</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
             <string>/// Draw the textbox and the text.
-draw_sprite_ext(spr_textbox, 0, 4, 390, 1, 1, 0, c_white, 1); // draw textbox.
-draw_set_font(font);
+var yy = 10;
+//draw_sprite_ext(spr_textbox, 0, view_xview[0] + 4, yy, 1, 1, 0, c_white, 1); // draw textbox. // 390
+draw_set_font(font_textbox);
 var c_grey_dark = make_color_rgb(190, 190, 190);
-var c_grey_light = make_color_rgb(208, 208, 208);
-draw_sprite(ds_list_find_value(cara, t), 0, 24, 406);
+var c_grey_light = c_white; //make_color_rgb(208, 208, 208);
+
+
+// Dibujar carass.
+draw_sprite(spr_caras, ds_list_find_value(caras, t), view_xview[0] + 24, yy +6);
+
+
 //draw_text_colour(62, 407, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
-draw_text_colour(64, 405, string_copy(ds_list_find_value(text,t), 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
+draw_text_colour(view_xview[0] + 64 + 30, yy + 10, string_copy(ds_list_find_value(texto,t), 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
+//draw_text_colour(64, yy +5, "ESTO ES UNA PRUEBA", c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
 //draw_text_colour(51, 406, string_copy(text[t], 0, str), c_grey_light, c_grey_light, c_grey_light, c_grey_light, 1);
 //draw_text_colour(51, 503, string_copy(text[t], 0, str), c_grey_dark, c_grey_dark, c_grey_dark, c_grey_dark, 1);
 if(draw_skip){ 
-    if(ds_list_size(text) &gt; t){
+    if(ds_list_size(texto) &gt; t +1){
         angle+=.3; 
-        draw_sprite_ext(spr_skip_text, 0, 770, 445 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
+        draw_sprite_ext(spr_skip_text, 0, view_xview[0] +  720, 55 + sin(angle) * 5, 1, 1, 0, c_white, 1); 
     }else{
-        draw_sprite(spr_skip_text, 1, 770, 445);
+        angle+=.3; 
+        draw_sprite(spr_skip_text, 1, view_xview[0] +  720, 55 + sin(angle) * 5);
     }
 }
 </string>

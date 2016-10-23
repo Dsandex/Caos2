@@ -38,21 +38,23 @@ llamar_alarma = false;
 if(num_level != 0 and activar_tuto) tutorial_bool = true;
 else tutorial_bool = true;
 
-if(!tutorial_bool and activar_tuto and !historia){
+/*if(!tutorial_bool and activar_tuto and !historia){
     background_index[0] = background_bogota;
     txt[0] = "T U T O R I A L";
     audio_play_sound(sn_dialogo2, 1, 0);
+}else{*/
+show_debug_message(historia);
+if(!historia){
+    background_index[0] = Background(num_level);
+    audio_play_sound(sn_dialogo, 1, 0);
 }else{
-    if(!historia){
-        background_index[0] = Background(num_level);
-        audio_play_sound(sn_dialogo, 1, 0);
-    }else{
-        if(idioma == "en"){ txt[0] = "Based on real facts" }
-        else if(idioma == "es") { txt[0] = "Basada en hechos reales"     }
-        background_index[0] = background_bogota;
-        audio_play_sound(sn_dialogo, 1, 0);
-    }
+    if(idioma == "en"){ txt[0] = "Based on real facts" }
+    else if(idioma == "es") { txt[0] = "Basada en hechos reales"     }
+    background_index[0] = background_bogota;
+    audio_play_sound(sn_dialogo, 1, 0);
 }
+
+//}
 
 //show_debug_message(tutorial_bool);
 /*if(num_level == 0){
@@ -82,7 +84,7 @@ if(!tutorial_bool and activar_tuto and !historia){
           <argument>
             <kind>1</kind>
             <string>/// This variable will always be true do to the fact activar_tuto is false (Create Event).
-if(tutorial_bool){
+//if(tutorial_bool){
     if(!historia){
         if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
         else{
@@ -95,8 +97,9 @@ if(tutorial_bool){
         }
     }else{
         room_goto_transition(game_intro, 0, 120);
+        historia = false;
     }
-}else{
+/*}else{
     room_goto_transition(game_tutorial, 0, 45);
     tutorial_bool = true;
     show_debug_message(tutorial_bool);

@@ -1,5 +1,5 @@
 // Move the player.
-Player_Inputs("");
+Player_Inputs(controles);
 //Player_Inputs("android");
 //show_debug_message(y);
 
@@ -297,6 +297,19 @@ if(climb){
                 roar = true;
                 var asset = asset_get_index("spr_player" + jugador + "_ground_" + humor + "_idle");
                 Current_Sprite(asset, 0, 0);
+                
+                // Game intro.
+                if(room == game_intro){
+                    with (TextBox) {can_continue = true;}
+                    with Tank2 instance_destroy();
+                    with Soldado_Piso instance_destroy();
+                    with Helicopter_Intro instance_destroy();
+                    with Exclamacion instance_destroy();
+                    if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
+                    var s = instance_create(0,0, Screen_Shake);
+                    with(s){ alarm[0] = 45; }
+                }
+                
             }
     }
     

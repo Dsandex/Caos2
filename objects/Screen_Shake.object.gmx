@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set intensity
 int = 1.5;
+//xx = view_xview[0];
 </string>
           </argument>
         </arguments>

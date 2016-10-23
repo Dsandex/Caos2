@@ -25,9 +25,285 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = 0;
-alarm[0] = 45;
+            <string>/// Control Intro variables.
+spd = 0;
+animar = true;
+inicio = true;
+seguir_ninos = false;
+inc = 0.02;
 audio_play_sound(sn_wind1, 1, 1);
+
+// Control variables.
+if(audio_is_playing(sn_avion)){
+    audio_sound_gain(sn_avion, 1, 1);
+}
+create_textbox = false;
+
+var a = instance_create(
+    -10, 
+    62,
+    Avion
+);
+with(a){ image_xscale = -1;  hspeed = 4; }
+caos = false;
+buildings = false;
+collapses = false;
+sentido = "derecha";
+
+audio_play_sound(sn_soundtrack_1, 0, 1);
+audio_sound_gain(sn_soundtrack_1, 0, 1);
+
+
+/*
+HACER CAER LAS BOMBAS MAS RÁPIDO.
+
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Move player.
+with Player_Intro {
+    sprite_index = spr_player_ground_angry_walk;
+    hspeed = -4;
+    image_speed = .2;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create explosions!!!
+repeat(3){
+    instance_create(irandom_range(100, 600), irandom_range(100,400), Destrucion);
+}
+//Player.controles = "intro";
+alarm[6] = 20;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Room goto Room_Transicion
+room_goto_transition(Room_Transicion, 0, 150);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create helicopters.
+if(sentido == "derecha"){
+    instance_create(-30, irandom_range(40, 180), Helicopter_Intro);
+}else{
+    instance_create(768+30, irandom_range(40, 180), Helicopter_Intro);
+}
+alarm[4] = 50;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Crear explosiones.
+repeat(2){
+    instance_create(
+        768, 
+        irandom_range(sprite_get_height(spr_destruction), room_height - sprite_get_height(spr_destruction)), 
+        Destrucion
+    );
+}
+var s = instance_create(0, 0, Screen_Shake);
+with(s){ alarm[0] = 15; }
+alarm[3] = irandom_range(30, 45);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Crear tanques.
+if(sentido == "derecha"){
+    var t = instance_create(-150, 445, Tank2);
+}else{
+    var t = instance_create(768 + 150, 445, Tank2);
+}   
+with(t) depth = -500;
+alarm[2] = 200;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Crear soldados.
+if(sentido == "derecha"){
+    var sp = instance_create(-50, 405, Soldado_Piso);
+}else{
+    var sp = instance_create(room_width + 50, 405, Soldado_Piso);
+}
+
+//with sp depth = -y;
+alarm[1] = 70;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Crear personas.
+var rand = irandom_range(1, 3)
+var yy = irandom_range(433-3, 433 + 3);
+for(var i = 0; i &lt; rand; i++){
+    var ch = instance_create(
+        768 +10 + (i*20), 
+        yy, 
+        Child_Run
+    );
+    
+    with(ch){
+        depth = -y;
+        hspeed = -3;
+        image_xscale = -1;
+        if(sprite_index == spr_child1_run){
+            y -= 6;
+        }
+    }
+}
+alarm[0] = 70;
 </string>
           </argument>
         </arguments>
@@ -50,19 +326,88 @@ audio_play_sound(sn_wind1, 1, 1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(view_xview[0] &lt; 768){
-    if(view_xview[0] &lt; 768/2){
-        view_xview[0] += spd;
-        spd += 0.05;
-    }else if(view_xview[0] &gt; 768/2){
-        view_xview[0] += spd;
-        spd -= 0.05;
+            <string>/// Movimiento de camara.
+
+
+// Inicio de la animación.
+if(inicio){
+    if(view_xview[0] &lt; 768){
+        if(view_xview[0] &lt; 768/2){
+            view_xview[0] += spd;
+            spd += inc;
+        }else if(view_xview[0] &gt; 768/2){
+            view_xview[0] += spd;
+            spd -= inc;
+        }
+    }
+    
+    if(view_xview[0] &gt; 768){
+        view_xview[0] = 768;
+        inicio = false;
     }
 }
 
-if(view_xview[0] &gt; 768){
-    view_xview[0] = 768;
+if(seguir_ninos){
+    if(view_xview[0] &gt; 0){
+        var near_c = instance_nearest(0,0, Child_Intro);
+        view_xview[0] = near_c.x - 431
+    }else{
+        view_xview[0] = 0;
+        seguir_ninos = false;
+    }
 }
+
+
+if(caos){
+    caos = false;
+    alarm[0] = 1; // Crear Personas.
+    alarm[1] = 1; // Crear soldados.
+    alarm[2] = 30; // Crear tanques.
+    alarm[3] = 1; // Crear explosiones.
+}
+
+if(buildings){
+    var edificios = instance_nearest_list(0,0,Edificio);
+    for(var i = 0; i &lt; ds_list_size(edificios); i++){
+        var e = ds_list_find_value(edificios, i);
+        
+        with(e){  y += .5; }
+        if(!collapses) instance_create(e.x + sprite_width/2, e.y - sprite_get_height(spr_collapse)/2, Collapse);
+  
+    }
+    if(!collapses){ instance_create(0,0, Screen_Shake); }
+    collapses = true;
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite(
+    spr_piso, 
+    0,
+    0, 
+    433
+   // room_height - sprite_get_height(spr_piso)
+);
 </string>
           </argument>
         </arguments>

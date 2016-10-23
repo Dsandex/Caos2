@@ -17,8 +17,8 @@ if(!attacked){
             
             // Change position.
             if(pos == -width_back/2){
-                pos = room_width + width_back/2;
-            }else if(pos == room_width + width_back/2){
+                pos = 768 + width_back/2;
+            }else if(pos == 768 + width_back/2){
                 pos = -width_back/2;
             }
             

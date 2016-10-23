@@ -84,7 +84,8 @@ with(t) depth = -500;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(var i = 0; i &lt; 3; i++){
+            <string>/// Crear niños corriendo.
+for(var i = 0; i &lt; 3; i++){
     var ch = instance_create(
         room_width +10 + (i*20), 
         390, 
@@ -121,7 +122,7 @@ alarm[1] = 70;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Create Soldado_Piso
+            <string>/// Create Soldado_Piso
 var sp = instance_create(choose(-20, room_width+20), 375, Soldado_Piso);
 with sp depth = -y;
 alarm[0] = 70;

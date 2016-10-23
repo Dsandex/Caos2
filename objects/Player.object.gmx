@@ -30,7 +30,8 @@
 // Save background.
 
 
-
+// Controles.
+controles = "";
 
 // ROAR.
 alarm[1] = 30; // Roar sound.
@@ -344,8 +345,7 @@ if(win and !save_level){
         }
         ini_close();
     }
-    
-    
+       
 }
 
 // Save avance edificios.
@@ -410,6 +410,7 @@ ini_close();
 draw_set_font(font_game_13);
 
 // Draw Scores.
+if(room != game_intro){
 
     // Player 1.
     var score_1 = string(player_score);
@@ -556,7 +557,7 @@ draw_set_font(font_game_13);
                     50
                 );
             }
-
+}
       //  }
         
         
@@ -661,6 +662,7 @@ if(take_women){
 
 // Draw the player.
 draw_self();
+
 
 if(hurt){
     if(count_hurt &lt; 2){

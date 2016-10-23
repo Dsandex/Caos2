@@ -52,13 +52,12 @@
   </views>
   <instances>
     <instance objName="Floor" x="0" y="454" name="inst_A4DF0A1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Control_World" x="27" y="28" name="inst_F5337678" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Player" x="800" y="200" name="inst_15BDACFE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_31" x="340" y="434" name="inst_66BAAC0F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_30" x="533" y="433" name="inst_07FC384B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_29" x="130" y="433" name="inst_306F7DE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_16" x="208" y="433" name="inst_A65B4979" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_13" x="416" y="433" name="inst_45B0C208" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_13" x="416" y="434" name="inst_45B0C208" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Building_Progress" x="160" y="98" name="inst_795589C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="138" y="383" name="inst_A742A27F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="138" y="337" name="inst_143BBA8E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="152" y="319" name="inst_6DAAF2FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -117,6 +116,7 @@
     <instance objName="obj_ventana" x="172" y="185" name="inst_4205DBD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="152" y="290" name="inst_F70BACC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="572" y="306" name="inst_4DFB8190" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Control_PreWorld" x="66" y="86" name="inst_9CEB1009" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

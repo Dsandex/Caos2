@@ -36,8 +36,10 @@ shake = noone;
 color = c_white;
 tutorial_building = false;
 sumar_score = false;
-
-yy2 = y;
+image_index = 0;
+image_speed = 0;
+index_puerta = 0;
+yy2 = self.y;
 
 //show_debug_message(down_speed);
 
@@ -180,23 +182,24 @@ if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
             <string>/// Check conditions to collapse the building.
 if(building_life &lt;= 0 and execute_alarms and !instance_exists(Rage)){
 
-     with(Player){
-         climb = false; 
-         grounded = false;
-         climbed_building = noone;
-         vsp = -jumpspeed;
-         Jump_Hspeed();
-         eating = false;
-         retard = 0;
-         Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle"), 0, choose(0,1,2));
-         //sprite_index = asset_get_index("spr_player_jump_" + humor + "_idle");
-         //image_index = choose(0,1,2);
+     if(Player.climb){
+         with(Player){
+             climb = false; 
+             grounded = false;
+             climbed_building = noone;
+             vsp = -jumpspeed;
+             Jump_Hspeed();
+             eating = false;
+             retard = 0;
+             Current_Sprite(asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle"), 0, choose(0,1,2));
+             //sprite_index = asset_get_index("spr_player_jump_" + humor + "_idle");
+             //image_index = choose(0,1,2);
+         }
      }
-     
      is_ready = true;
      shake = instance_create(0,0, Screen_Shake);
      execute_alarms = false;
-     Play_Track("collapse_building");
+     if(room != game_intro) Play_Track("collapse_building");
 }
 
 // If is ready, building collapse.
@@ -208,7 +211,7 @@ if(is_ready){
     if(!instance_exists(Screen_Shake)) instance_create(0,0,Screen_Shake);
     
     // Destroy the building.
-    if(y + yy &gt; y){
+    if(self.y + yy &gt; self.y){
     
        // show_debug_message(down_speed);
         yy -= down_speed;
@@ -216,23 +219,47 @@ if(is_ready){
         if(!tutorial_building){ tutorial_building = true; Check_Tutorial("DESTROY THE#BUILDING!"); }
         yy2 += down_speed;
         if(escombros_id != noone) exit;
-        escombros_id = instance_create(x + sprite_width/2, y - sprite_get_height(spr_collapse)/2, Collapse);
+        escombros_id = instance_create(self.x + sprite_width/2, self.y - sprite_get_height(spr_collapse)/2, Collapse);
     }else{
         if(!sumar_score){
             sumar_score = false;
-            Get_Score(x + sprite_width/2, y - 50, 1000, false);
+            if(room != game_intro) Get_Score(self.x + sprite_width/2, self.y - 50, 1000, false);
         }
     
         alarm[1] = 40;
         is_ready = false;
-        var random_num = choose(2,3,4);
-        for(var i = 0; i &lt; random_num; i++){
-            instance_create(
-                irandom_range(x + 10, x + sprite_width - 10), 
-                412, 
-                Child_Run
-            );
+        // Crear niños corriendo.
+        if(room != game_intro and instance_number(Edificio) == 1){
+            for(var i = 0; i &lt; 3; i++){
+                var c = instance_create(x + sprite_width + i * 32, 412, Child_Run);
+                switch(i){
+                    case 0:
+                        c.sprite_index = spr_child3_run;
+                    break;
+                    case 1:
+                        c.sprite_index = spr_child2_run;
+                    break;
+                    case 2:
+                        c.sprite_index = spr_child1_run;
+                    break;
+                }
+                c.hspeed = -3;
+                c.image_xscale = -1;
+            }
         }
+        /*if(room != game_intro and instance_number(Edificio) == 1){
+            var random_num = choose(2,3,4);
+            for(var i = 0; i &lt; random_num; i++){
+                instance_create(
+                    irandom_range(self.x + 10, self.x + sprite_width - 10), 
+                    412, 
+                    Child_Run
+                );
+            }
+        }*/
+        
+        
+        
     }
 }
 </string>
@@ -262,13 +289,13 @@ if(is_ready){
     // Draw building.
     draw_sprite_part_ext(
         sprite_index, 
-        0, 
+        index_puerta, 
         0, 
         0, 
         sprite_width, 
         yy, // sprite_height
-        x,
-        y - yy, // y position.
+        self.x,
+        self.y - yy, // y position.
         1,
         1,
         color, 

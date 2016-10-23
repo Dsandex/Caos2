@@ -51,7 +51,7 @@
             <string>/// Destroy this instance.
 if(points){
     instance_create(x, y, Destrucion);
-    Get_Score(x, y, 100, false);
+    if(room != game_intro) Get_Score(x, y, 100, false);
 }
 </string>
           </argument>

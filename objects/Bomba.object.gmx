@@ -63,7 +63,7 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
     if(collision_circle(x, y, 40, person, 0, 0)){
         with (person) instance_destroy();
         //Get_Score(person.x, person.y, 50, false);
-        Get_Score(x, y, 50, false);
+        if(room != game_intro) Get_Score(x, y, 50, false);
         
     }
 }
@@ -90,6 +90,42 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
         with (t) instance_destroy();
         //Get_Score(person.x, person.y, 50, false);
       //  Get_Score(x, y, 300, false);
+        
+    }
+}
+
+
+
+// Destruir edificios.
+if(room == game_intro){
+    with(Control_Intro) buildings = true;
+    if(instance_exists(Letrero)){
+        with Letrero instance_destroy();
+    }
+
+}
+
+
+/*
+var list = instance_nearest_list(x, y, Helicopter_Intro);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    var hi = ds_list_find_value(list, i);
+    if(!instance_exists(hi)) break;
+    if(collision_circle(x, y, 40, hi, 0, 0)){
+        with (hi) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+       // Get_Score(x, y, 500, false);
+        
+    }
+}
+var list = instance_nearest_list(x, y, Tank2);
+for(var i = 0; i &lt; ds_list_size(list); i++){
+    var t2 = ds_list_find_value(list, i);
+    if(!instance_exists(t2)) break;
+    if(collision_circle(x, y, 40, t2, 0, 0)){
+        with (t2) instance_destroy();
+        //Get_Score(person.x, person.y, 50, false);
+       // Get_Score(x, y, 500, false);
         
     }
 }
@@ -132,6 +168,8 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
             <string>if(image_speed &lt; 1){
     image_speed = image_speed + .2;
     alarm[0] = 10;
+}else{
+    if(game_intro) instance_destroy();
 }
 </string>
           </argument>

@@ -35,6 +35,8 @@ if(argument[0] == "windows"){
             key_down = 0;
         }
     }   
+}else if(argument[0] == "intro"){
+    key_left = 1;
 }
 //show_debug_message(key_jump);
 //key_attack = keyboard_check_pressed(ord('X'));

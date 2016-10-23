@@ -67,20 +67,22 @@ if(collision_point(x, y, Player, true, true)){
     var e = instance_create(x, y, Explosion);
     with (e) { sprite_index = spr_explosion2; }
     Play_Track("hys_bullet");
-    with(Player){
-         //vida--;
-         if(grounded or (!climb and climbed_building != noone) and !lose){
-             eating = false;
-             grounded = false;
-             climbed_building = noone;
-             vsp = -jumpspeed;
-             
-             var bullets = instance_nearest(x, y, Tank_Bullet); 
-             hsp = 3 * bullets.xscale;
-             
-             var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
-             Current_Sprite(asset, 0, 0, retard_value);
-         }
+    if(room != game_intro){
+        with(Player){
+             //vida--;
+             if(grounded or (!climb and climbed_building != noone) and !lose){
+                 eating = false;
+                 grounded = false;
+                 climbed_building = noone;
+                 vsp = -jumpspeed;
+                 
+                 var bullets = instance_nearest(x, y, Tank_Bullet); 
+                 hsp = 3 * bullets.xscale;
+                 
+                 var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
+                 Current_Sprite(asset, 0, 0, retard_value);
+             }
+        }
     }
     
     Hurt_Player("Tank_Bullet", x, y);
