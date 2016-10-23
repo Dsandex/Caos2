@@ -120,7 +120,17 @@ key_right = 0;
 key_jump = 0;
 key_attack = 0;
 key_down = 0;
+
+//control touch
 cont_attack = 0;
+cont_jump = 0;
+x_edificio = 0;
+x_edificio_temp = 0;
+w_edificio = 0;
+ed_cont = 1;
+ed_r = 0;
+y1_ed = 0;
+x1_ed = 0;
 
 // Jump.
 grounded = false;
@@ -279,6 +289,79 @@ if(keyboard_check_released(ord("1"))){
     c_jeringa = 3;
 }
 
+//Touch control
+
+if (x_edificio != 0){
+    if (abs(x_edificio - x) &lt; w_edificio-16 and key_left and ed_cont){
+    //show_debug_message("HOla_D")
+        key_up = 0;
+        key_left = 1;
+        key_right = 0;
+        x_edificio_temp = x_edificio-32;
+        //show_debug_message(x_edificio_temp)
+        ed_cont = 0;
+        ed_r = 1;
+    }
+    if(abs(x_edificio - x) &lt; 16 and key_right and ed_cont and !ed_r){
+    //show_debug_message("HOla2_D")
+        key_up = 0;
+        key_left = 0;
+        key_right = 1;
+        x_edificio_temp = x_edificio+w_edificio+32;
+        //show_debug_message(x_edificio_temp)
+        ed_cont = 0;
+    }
+    if(!ed_cont){
+    //show_debug_message("2HOla_D")
+        if(x_edificio_temp != 0 and abs(x_edificio_temp - x) &lt;8){
+        //show_debug_message("3HOla_D")
+        x_edificio_temp = 0;
+        ed_cont = 1;
+        }
+    }
+    
+    if(ed_cont){
+        if (x_edificio &lt; x){
+            key_left = 1;
+            key_right = 0;
+            key_up = 0;
+            if (abs(x_edificio - x) &lt; w_edificio+32){
+                key_up = 1;
+            }else{
+                key_up = 0;
+            }
+        }else if ((x_edificio + w_edificio/2) &gt; x){
+            key_right = 1;
+            key_left = 0;
+            key_up = 0;
+            if (abs(x_edificio - x) &lt; 32){
+                key_up = 1;
+            }else{
+                key_up = 0;
+            }
+    }
+    }
+    if (!grounded and y &lt; 342){
+        key_up = 0;
+        key_left = 0;
+        key_right = 0;
+        x_edificio = 0;
+        w_edificio = 0;
+        ed_r = 0;
+    }
+    if (y &lt; 406 and yprevious == y){
+        key_up = 0;
+        key_left = 0;
+        key_right = 0;
+        x_edificio = 0;
+        w_edificio = 0;   
+        ed_r = 0;
+    }  
+    
+}
+if (key_attack){
+    key_attack = 0;
+}
 
 /*c_bombas = 3;
     c_bolsa = 3;

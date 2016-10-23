@@ -29,6 +29,10 @@
 y = device_mouse_y(1);
 scriptCheckDirection();
 if (!device_mouse_check_button(1, mb_left)){
+    if (xstart == x and ystart == y){
+        Player.cont_attack = 0;
+        //Player.cont_jump = 0;
+    }else{
         Player.key_up = 0;
         Player.key_left = 0;
         Player.key_down = 0;
@@ -36,6 +40,15 @@ if (!device_mouse_check_button(1, mb_left)){
         Player.key_jump = 0;
         Player.key_attack = 0;
         Player.cont_attack = 0;
+        Player.cont_jump = 0;
+        //Player.x_edificio = 0;
+        Player.key_up = 0;
+        Player.key_left = 0;
+        Player.key_right = 0;
+        Player.x_edificio = 0;
+        Player.w_edificio = 0;   
+        Player.ed_r = 0;
+    }
     instance_destroy();
 }
 </string>

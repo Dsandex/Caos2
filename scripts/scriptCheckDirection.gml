@@ -56,37 +56,34 @@ Player.key_left = 0;
 Player.key_down = 0;
 }
 }else {
-/*Player.key_up = 0;
-Player.key_left = 0;
-Player.key_down = 0;
-Player.key_right = 0;*/
+//Player.key_up = 0;
+//Player.key_left = 0;
+//Player.key_down = 0;
+//Player.key_right = 0;
 }
 
 //Jump
 if (x >  view_wview[0]/2){
-    if (point_direction(xstart, ystart, x, y) > 30 and point_direction(xstart, ystart, x, y) < 150 and abs(ystart - y) >64 ){
-        Player.key_jump = 1;
-        show_debug_message("Saltar");
+    if (point_direction(xstart, ystart, x, y) > 30 and point_direction(xstart, ystart, x, y) < 150 and abs(ystart - y) > 64 ){
+        if (Player.cont_jump < 1){
+            Player.cont_jump ++;
+            Player.key_jump = 1;
+            //show_debug_message("Saltar");
+        }else{
+            Player.key_jump = 0;
+        }
     }
-    }else{
-        //Player.key_jump = 0;
-    }
+}
 
 //Attack
 if (xstart >  view_wview[0]/2 and x >  view_wview[0]/2){
-//if ((abs(ystart - y) > 64 or abs(xstart - x) < 64 )){
-    if (point_direction(xstart, ystart, x, y) == 0 or xstart == x or ystart == y){
-        if (Player.cont_attack < 1){
-            show_debug_message("atacar");
-            Player.key_attack = 1;
-            Player.cont_attack ++;
-        }else{
-            Player.key_attack = 0;
+    if (point_direction(xstart, ystart, x, y) == 0 or xstart == x or ystart == y and (abs(ystart - y) < 64 or abs(xstart - x) < 64 )){
+        Player.cont_attack ++;
+        if (Player.cont_attack >= 1){
+            if (Player.cont_attack == 2){
+                //show_debug_message("atacar");
+                Player.key_attack = 1;
+            }
         }
-    }else{
-    Player.key_attack = 0;
     }
-//}
-}else{
-    //Player.key_attack = 0;
 }
