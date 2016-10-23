@@ -216,10 +216,13 @@ HECHAS:
 - Dificultad.
 - Pausa con menú de pausa.
 - Poderes:
+
       1.1 Caos. 
       1.2 Bombas 
       1.3 Bolsas.
       1.4 Jeringa.
+- Guardar progreso de qué edficios ya ha destruído cuando muere.
+
 
       - FALTANTE -
       
@@ -229,12 +232,18 @@ HECHAS:
        3.1 Introducción al principio.
        3.2 Final del juego.
     
-    4. Guardar progreso.
+
        - Guardar progreso de qué edficios ya ha destruído cuando muere.
 
     5. Propósito del juego.
        - Ya no habrá un tutorial si no a medida de los niveles se le enseñará al jugador.
       
+       
+    Arreglar bug de no - generación de enemigos.
+    Animación Final.
+    
+
+    
 
 */
 </string>
