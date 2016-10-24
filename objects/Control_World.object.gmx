@@ -39,6 +39,7 @@ globalvar xx_damage, building_father;
 building_father = 0;
 xx_damage = "";
 
+
 // Score variables.
 globalvar get_score, color_puntaje, vida_bool_g;
 color_puntaje = 0;
@@ -339,32 +340,46 @@ if (num_level == 4 or num_level &gt;= 6){
           <argument>
             <kind>1</kind>
             <string>/// Check if the player completed the level.
-if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_State){
-
-    // Go to next room.
-    alarm[3] = 90;
-    termina_nivel = true;
+if(room != game10){
+    if(instance_number(Edificio) == 0 and !termina_nivel and Player.state != Lose_State){
     
-    // Coronaste!
-    if(instance_exists(Puntaje_Suma)) with Puntaje_Suma instance_destroy();
-    instance_create(room_width/2, room_height/2 - 30, Coronaste);
-    audio_play_sound(sn_coronaste, 1, 0);
-    with Player draw_score = true;
-    with Player win = true;
-    // Delete avance_edificios file.
-    if(file_exists(working_directory + "avance_edificios.sav")){
-        file_delete(working_directory + "avance_edificios.sav");
+        // Go to next room.
+        alarm[3] = 90;
+        termina_nivel = true;
+        
+        // Coronaste!
+        if(instance_exists(Puntaje_Suma)) with Puntaje_Suma instance_destroy();
+        instance_create(room_width/2, room_height/2 - 30, Coronaste);
+        audio_play_sound(sn_coronaste, 1, 0);
+        with Player draw_score = true;
+        with Player win = true;
+        // Delete avance_edificios file.
+        if(file_exists(working_directory + "avance_edificios.sav")){
+            file_delete(working_directory + "avance_edificios.sav");
+        }
+      //  ds_list_clear(avance_edificios);
     }
-  //  ds_list_clear(avance_edificios);
+    
+// Final del juego.
+}else{
+    if(instance_number(Edificio == 0)){
+        if(instance_number(Child_Final) &lt; 3){
+            var d = instance_create(360, 299, Child_Final);
+            with(d) sprite_index = spr_child3_idle;
+            instance_create(390, 299, Child_Final);
+            var j = instance_create(420, 299, Child_Final);
+            with(j) sprite_index = spr_child1_idle;
+        }
+    }
 }
 
 //Tap Control
-if (device_mouse_check_button(0, mb_left)){
+if(device_mouse_check_button(0, mb_left)){
     if (!instance_exists(Tap_Control0)){
         instance_create(device_mouse_x(0), device_mouse_y(0),Tap_Control0);
     }
 }
-if (device_mouse_check_button(1, mb_left)){
+if(device_mouse_check_button(1, mb_left)){
     if (!instance_exists(Tap_Control1)){
         instance_create(device_mouse_x(1), device_mouse_y(1),Tap_Control1);
     }

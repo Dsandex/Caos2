@@ -35,7 +35,8 @@ if(place_meeting(x, y+vsp, Floor)){
         draw_score = true;
         
         // Decrease chance variable. (3 chances per level).
-        alarm[0] = 90;
+        if(room != game10){ alarm[0] = 90; }
+        else{ alarm[3] = 90; }
                    
     } 
     

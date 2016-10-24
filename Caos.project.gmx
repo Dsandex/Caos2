@@ -325,6 +325,7 @@
           <sprite>sprites\spr_player2_face</sprite>
         </sprites>
       </sprites>
+      <sprite>sprites\spr_lapida</sprite>
     </sprites>
     <sprites name="Menu">
       <sprite>sprites\spr_character_1</sprite>
@@ -631,6 +632,7 @@
         <object>objects\Vida_Suma</object>
         <object>objects\Coin</object>
       </objects>
+      <object>objects\Lapida</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -694,6 +696,7 @@
       <object>objects\Exclamacion</object>
       <object>objects\Control_Intro</object>
       <object>objects\Player_Intro</object>
+      <object>objects\Child_Final</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -722,6 +725,7 @@
       <room>rooms\game9</room>
       <room>rooms\game10</room>
       <room>rooms\game_extra</room>
+      <room>rooms\game_final</room>
     </rooms>
   </rooms>
   <constants number="12">
