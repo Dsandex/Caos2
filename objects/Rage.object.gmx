@@ -27,6 +27,14 @@
             <kind>1</kind>
             <string>/// Set image sppeed to 2.
 image_speed = .5;
+// Crear bombas.
+/*for(var i = 0; i &lt; 10; i++){
+    instance_create(68 + 79 * i, irandom_range(-30, -150), Bomba);
+}*/
+if(room == game_intro){
+    audio_play_sound(sn_trans, 1, 0);
+    sprite_index = spr_caos_intro;
+}
 </string>
           </argument>
         </arguments>
@@ -50,15 +58,18 @@ image_speed = .5;
           <argument>
             <kind>1</kind>
             <string>if(room == game_intro){
-    // Crear bombas.
-    for(var i = 0; i &lt; 10; i++){
-        instance_create(68 + 79 * i, irandom_range(-30, -150), Bomba);
-    }
+
     with(TextBox) instance_destroy();
-    with(Control_Intro){
+    /*with(Control_Intro){
         alarm[5] = 200; // Room goto transition
+    }*/
+    repeat(30){ // (30 en total).
+    instance_create(
+            irandom_range(0 + sprite_get_width(spr_bolsa), room_width - sprite_get_width(spr_bolsa)), 
+            irandom_range(-30, -500), 
+            Billete
+            );        
     }
-    
 }
 </string>
           </argument>

@@ -62,19 +62,13 @@
     <instance objName="Building_28" x="562" y="433" name="inst_2B14AC3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_29" x="276" y="432" name="inst_79F81292" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_25" x="466" y="433" name="inst_BBD30301" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan2" x="915" y="332" name="inst_24249FA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan2" x="281" y="279" name="inst_10DEE8DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan2" x="50" y="324" name="inst_FE769F15" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan1" x="315" y="128" name="inst_A2608CA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan1" x="626" y="306" name="inst_DE1FAD21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan1" x="862" y="338" name="inst_7A57CB83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Letrero_galan2" x="914" y="323" name="inst_FE769F15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Letrero_galan1" x="624" y="226" name="inst_A2608CA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Floor" x="0" y="454" name="inst_DB711D73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_10" x="1241" y="433" name="inst_BBAB2D44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_7" x="1091" y="433" name="inst_015CEE1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_20" x="1195" y="433" name="inst_2EC17DEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Letrero_galan1" x="1149" y="312" name="inst_A4D06384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan1" x="1315" y="338" name="inst_4E539BD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Letrero_galan2" x="1077" y="317" name="inst_67546B41" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

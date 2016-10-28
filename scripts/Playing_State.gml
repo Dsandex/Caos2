@@ -1,6 +1,6 @@
 // Move the player.
-Player_Inputs(controles);
-//Player_Inputs("android");
+//Player_Inputs(controles);
+Player_Inputs("windows");
 //show_debug_message(y);
 
 // show_debug_message(take_women);
@@ -302,9 +302,10 @@ if(climb){
                 if(room == game_intro){
                     with (TextBox) {can_continue = true;}
                     with Tank2 instance_destroy();
+                    audio_stop_sound(sn_helicopter_front);
                     with Soldado_Piso instance_destroy();
                     with Helicopter_Intro instance_destroy();
-                    with Exclamacion instance_destroy();
+                    with Exclamacion instance_destroy();                    
                     if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
                     var s = instance_create(0,0, Screen_Shake);
                     with(s){ alarm[0] = 45; }

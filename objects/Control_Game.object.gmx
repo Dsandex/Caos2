@@ -48,7 +48,7 @@ if(room == Room_Digital){
     
     // Historia.
     globalvar historia, activar_tuto;
-    historia = true;
+    historia = false;
     activar_tuto = true;
     
     // Variables de poderes.
@@ -65,12 +65,9 @@ if(room == Room_Digital){
     
     // Guardar el juego.
     globalvar save, gacha_select;
-    save = true;
+    save = false;
     gacha_select = 0;
     
-    if(file_exists(working_directory + "guardar_juego.sav")){
-        file_delete(working_directory + "guardar_juego.sav");
-    }
 
     if(save){
         globalvar save_nivel, save_puntaje, gacha_select;
@@ -96,6 +93,13 @@ if(room == Room_Digital){
             chances = ini_read_real("chances", "pass", 0);
             ini_close();
         }
+        
+        // Cargar historia.
+       /*if(file_exists(working_directory + "historia.sav")){
+            ini_open(working_directory + "historia.sav");
+            historia = ini_read_real("historia", "pass", 0);
+            ini_close();
+        }*/
         
         /*if(ds_list_empty(avance_edificios)){
             show_debug_message("HOLA K HACE");
@@ -139,7 +143,7 @@ if(room == Room_Digital){
     alarm[1] = 62; //55
     instance_create(0, 0, Change_Soundtrack);
     
-    soundtrack = audio_play_sound(sn_soundtrack_intro, 1, 1);
+    soundtrack = audio_play_sound(sn_soundtrack_pausa, 1, 1);
     //soundtrack = audio_play_sound(sn_soundtrack_1, 1, 1);
     
 }else if(room == Room_Baius){
@@ -598,6 +602,56 @@ if(keyboard_check_pressed(vk_space)){
             <kind>1</kind>
             <string>room_goto(Room_Transicion);
 tutorial_bool = true;
+
+/*
+
+
+
+
+
+
+
+Daniel: Dizque hay un juego que uno puede escoger y pelear con varios manes
+de diferentes artes marciales, uno es un ninja, otro es un karateka, otro hace kung fu, me entiende?
+
+
+Carlos: Uy suena tremendo.
+
+
+Julián: Esperen... ¿por qué corre toda esta gente?
+
+
+Daniel : Qué está pasando?
+
+
+Carlos: No sé, pero tenemos que irnos ya!
+
+
+Julián: Vámonos, escondámonos donde podamos!
+
+
+Corren a esconderse.
+
+
+
+
+
+
+
+
+
+
+
+
+------
+
+
+Encuentre a los niños
+
+
+
+
+
 </string>
           </argument>
         </arguments>

@@ -44,8 +44,9 @@ caras = ds_list_create();
 animar = true;
 final = true;
 
-// Fill text and text faces.
+// Fill text and text's faces.
 TextBox_Dialogs(game_intro);
+
 /*var text = ds_map_find_value(map, "texto");
 var cara = ds_map_find_value(map, "caras");*/
 

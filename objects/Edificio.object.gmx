@@ -93,7 +93,7 @@ for(var i = 0; i &lt; max_fisures; i++){
             <string>/// Free memory.
 ds_grid_destroy(damage_grid);
 
-if(room == game_tutorial){
+/*if(room == game_tutorial){
     audio_play_sound(sn_coronaste, 1, 0);
     with(Control_Tutorial) alarm[2] = 60;
     instance_create(room_width/2, room_height/2 - 30, Coronaste);

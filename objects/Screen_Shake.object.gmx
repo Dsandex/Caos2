@@ -51,9 +51,10 @@ int = 1.5;
           <argument>
             <kind>1</kind>
             <string>if(room == Room_Menu){
-    if(historia and num_level == 0){ 
-        room_goto_transition(Room_Transicion, 0, 45); 
+    if(!historia){ 
+        room_goto_transition(game_intro, 0, 45); 
         audio_sound_gain(soundtrack, 0, 3000);
+        
     }else{
         room_goto_transition(Room_Select, 0, 45); 
     }

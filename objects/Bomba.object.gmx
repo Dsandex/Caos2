@@ -97,7 +97,7 @@ for(var i = 0; i &lt; ds_list_size(list); i++){
 
 
 // Destruir edificios.
-if(room == game_intro){
+/*if(room == game_intro){
     with(Control_Intro) buildings = true;
     if(instance_exists(Letrero)){
         with Letrero instance_destroy();

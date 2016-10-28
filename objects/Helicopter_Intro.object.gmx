@@ -35,14 +35,28 @@ switch(sprite_index){
         depth = -50;
     break;
 }
-if(x &gt; 768){
-    hspeed = -4;
-    image_xscale = -1;
-}else{
-    hspeed = 4;
-}
+
+
 out = 0;
 image_speed = .2;
+if(!instance_exists(TextBox)){
+    audio_play_sound(sn_helicopter_front, 0, 1);
+    out = 1;
+    hspeed = 6;
+}else if(!sonido_h){
+    audio_sound_gain(sn_helicopter_front, 1, 1);
+    audio_play_sound(sn_helicopter_front, 0, 1);
+    out = 1;
+    hspeed = 5;
+}else{       
+    if(x &gt; 768){
+        hspeed = -4;
+        image_xscale = -1;
+    }else{
+        hspeed = 4;
+    }
+}
+
 </string>
           </argument>
         </arguments>
@@ -65,7 +79,21 @@ image_speed = .2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(x, y, Destrucion);
+            <string>if(!instance_exists(TextBox)){
+    textbox = true;
+    instance_create(0,0, TextBox);
+    audio_sound_gain(sn_helicopter_front, 0, 3000);
+    with(Control_Intro) mostrar_historia = false;
+}else if(!sonido_h){
+    sonido_h = true;
+    audio_sound_gain(sn_helicopter_front, 0, 3000);
+}else{
+    instance_create(x, y, Destrucion);
+}
+
+if(instance_exists(TextBox) and TextBox.t &lt; 14){
+    audio_sound_gain(sn_helicopter_front, 0, 3000);
+}
 </string>
           </argument>
         </arguments>

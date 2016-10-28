@@ -464,6 +464,8 @@ audio_stop_sound(sn_soundtrack_pausa);
     
     //if(num_level != 1) audio_stop_sound(asset_get_index("sn_soundtrack_" + string(numlevel-1)));
     //if(num_level == 1){ audio_stop_sound(sn_soundtrack_tutorial); }
+    
+    /*
     var asset = Get_Soundtrack(num_level);
     if(!audio_is_playing(asset)){
         audio_play_sound(asset, 0, 1);

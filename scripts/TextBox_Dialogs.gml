@@ -18,56 +18,96 @@ switch(room_){
        // Dialogo entre niños.
         if(idioma == "es"){
         
+            // 0: Carlos, 1: Daniel, 2: Julián 3: Mamá
+        
             // Charla en casa.
-            ds_list_add(texto, "Daniel: ¡Carlos! ¡Carlos! ¿Estás ahí?"); ds_list_add(caras, 0); // 0 
-            ds_list_add(texto, "Carlos: ¡Hola Daniel! ¡Te he estado esperando#todo el día!"); ds_list_add(caras, 1); // 1 
-            ds_list_add(texto, "Daniel: Si, perdón, mi mamá casi no me deja#salir..."); ds_list_add(caras, 0); // 2
-            ds_list_add(texto, "Daniel: ¡Llama a Julián, vamos a ir a las#maquinitas!"); ds_list_add(caras, 0); // 3
-            ds_list_add(texto, "Carlos: ¡Listo! ¡Ya lo llamo!"); ds_list_add(caras, 1); // 4
-            ds_list_add(texto, "Julián: Hola Daniel, casi que no llegas...,#estábamos listos hace rato."); ds_list_add(caras, 2); // 5
-            ds_list_add(texto, "Julián: ¡En fin, no importa...vamos!"); ds_list_add(caras, 2); // 6
+            ds_list_add(texto, "Carlos: ¡Daniel! ¡Daniel!"); ds_list_add(caras, 0); // 0 
+            ds_list_add(texto, "Carlos: ¿¡Que más!? ¿En qué anda?"); ds_list_add(caras, 0); // 1 
+            ds_list_add(texto, "Daniel: ¡Quiubo! Estaba viendo una película de#ninjas!"); ds_list_add(caras, 1); // 2
+            ds_list_add(texto, "Carlos: ¡Camine a jugar maquinitas!"); ds_list_add(caras, 0); // 3
+            ds_list_add(texto, "Daniel: ¡Hágale, de una, que me contaron#que hay un nuevo juego!"); ds_list_add(caras, 1); // 4
+         
+            // Comienzan a caminar lo niños.
+               
+            ds_list_add(texto, "Mamá: ¿¡Y ustedes a dónde creen que van#jovencitos!?"); ds_list_add(caras, 3); // 5
+            ds_list_add(texto, "Daniel: Ehh... ¡Hola mamá!"); ds_list_add(caras, 1); // 6            
+            ds_list_add(texto, "Daniel: ...Vamos al centro comercial..."); ds_list_add(caras, 1); // 7                       
+            ds_list_add(texto, "Mamá: ¿¡Y quién les dio permiso!?"); ds_list_add(caras, 3); // 8
+            ds_list_add(texto, "Daniel: ¡Ay..., porfavor mami!"); ds_list_add(caras, 1); // 9
             
+            // Pasa otro helicoptero.
             
-            ds_list_add(texto, "Mamá: ¿¡A dónde creen que van jovencitos!?"); ds_list_add(caras, 3); // 7
-            ds_list_add(texto, "Julián: Ehh..., ¡Hola mamá!"); ds_list_add(caras, 2);
-            ds_list_add(texto, "Julián: Sólo vamos a ir a jugar maquinitas en el#centro comercial, no nos demoramos..."); ds_list_add(caras, 2);
-            ds_list_add(texto, "Mamá: ¡No deberían estar callejeando..., conocen#la situación!"); ds_list_add(caras, 3);
-            ds_list_add(texto, "Carlos: ¡No pasará nada mamá, volveremos#pronto!"); ds_list_add(caras, 1);
-            ds_list_add(texto, "Mamá: ¡Cuídense por favor!"); ds_list_add(caras, 3); // 12
+            ds_list_add(texto, "Mamá: ¡No se me van a ir hasta allá solos!"); ds_list_add(caras, 3); // 10
+            ds_list_add(texto, "Mamá: ¡Van con Julián y no se me demoren porque#la cosa no está para andar callejeando!"); ds_list_add(caras, 3); // 11
             
-            // Charla mientras caminan a la ciudad.
-            ds_list_add(texto, "Daniel: ¡Hey muchachos, me enteré que hay un#nuevo videojuego en el local al que vamos!"); ds_list_add(caras, 0); // 13
-            ds_list_add(texto, "Julián: ¡Sí, todo el mundo sólo habla de él,#dicen que es una locura!"); ds_list_add(caras, 2); // 14
-            ds_list_add(texto, "Daniel: ¡Dicen que se trata de tres niños#que deben escapar de dos monstruos!"); ds_list_add(caras, 0);// 15
-            ds_list_add(texto, "Julián: ¡Yo también he escuchado lo mismo!,#pero nadie sabe como termina..."); ds_list_add(caras, 2);// 16
-            ds_list_add(texto, "Daniel: ¡Quiero ser el primero en jugarlo!"); ds_list_add(caras, 0); // 17
-            ds_list_add(texto, "Carlos: ¿Y cómo se llama?"); ds_list_add(caras, 1); // 18
-          
+            // Sale Julián y continúan el camino.
+         
+            ds_list_add(texto, "Daniel: ¡Vea que dizque en el juego uno puede#escoger y jugar con dos monstruos gigantes#que destruyen ciudades!"); ds_list_add(caras, 1); // 12 
+            ds_list_add(texto, "Carlos: ¡Uff que chevere, tenemos que jugarlo!"); ds_list_add(caras, 0); // 13
+            
             
             // Interrumpen personas corriendo
-            ds_list_add(texto, "Julián: Esperen..., ¿Por qué corren estas personas?"); ds_list_add(caras, 2); // 19
+            ds_list_add(texto, "Julián: Esperen..., ¿Por qué todo el mundo está#corriendo?"); ds_list_add(caras, 2); // 14
             
 
             // Explosiones.
-            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 0); // 20
+            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 1); // 15
             
             // Soldados y tanques.
-            ds_list_add(texto, "Carlos: ¡No lo sé, pero tenemos que irnos ya!"); ds_list_add(caras, 1); // 21
-            
-            
-            ds_list_add(texto, "Daniel: ¡Esperen..., creo que esos tres#niños..., ¡somos nosotros!"); ds_list_add(caras, 0); // 22
-            ds_list_add(texto, "Carlos: ¿¡De qué estás hablando!?"); ds_list_add(caras, 1); // 23
+            ds_list_add(texto, "Carlos: ¡No sé, pero tenemos que irnos ya!"); ds_list_add(caras, 0); // 16
+ 
             
             // Aparece caos en pantalla y pablo saltando.
-            ds_list_add(texto, "Julián: ¡Corran! ¡Corran! ¡Es el Jefe!"); ds_list_add(caras, 2); // 24
+            ds_list_add(texto, "Julián: ¡Vamonos, encondámonos donde podamos!"); ds_list_add(caras, 2); // 17
             
-            
-           // ds_list_add(texto, "El Jefe: ROOOOOOOOAAAAAAR!"); ds_list_add(caras, 4); // 25
+
             
         }else if(idioma == "en"){
         
+            // Charla en casa.
+            ds_list_add(texto, "Carlos: ¡Daniel! ¡Daniel!"); ds_list_add(caras, 0); // 0 
+            ds_list_add(texto, "Carlos: ¿What's up? ¿How you doing?"); ds_list_add(caras, 0); // 1 
+            ds_list_add(texto, "Daniel: ¡Hey! I was watching a ninja's movie!"); ds_list_add(caras, 1); // 2
+            ds_list_add(texto, "Carlos: ¡Let's go the video arcade!"); ds_list_add(caras, 0); // 3
+            ds_list_add(texto, "Daniel: ¡Off course, let's go, que me contaron que hay un nuevo juego!"); ds_list_add(caras, 1); // 4
+         
+            // Comienzan a caminar lo niños.
+               
+            ds_list_add(texto, "Mamá: ¿¡Y ustedes a dónde creen que van jovencitos!?"); ds_list_add(caras, 2); // 5
+            ds_list_add(texto, "Daniel: Ehh... ¡Hola mamá!"); ds_list_add(caras, 1); // 6            
+            ds_list_add(texto, "Daniel: ...Vamos al centro comercial"); ds_list_add(caras, 1); // 7                       
+            ds_list_add(texto, "Mamá: ¿¡Y quién les dio permiso!?"); ds_list_add(caras, 2); // 8
+            ds_list_add(texto, "Daniel: ¡Ay..., porfavor mami!"); ds_list_add(caras, 1); // 9
+            
+            // Pasa otro helicoptero.
+            
+            ds_list_add(texto, "Mamá: ¡No se me van a ir hasta allá solos!"); ds_list_add(caras, 3); // 10
+            ds_list_add(texto, "Mamá: ¡Van con Julián y no se me demoren porque#la cosa no está para andar callejeando!"); ds_list_add(caras, 3); // 11
+            
+            // Sale Julián y continúan el camino.
+         
+            ds_list_add(texto, "Daniel: ¡Vea que dizque en el juego uno puede#escoger y jugar con dos monstruos#gigantes que destruyen ciudades!"); ds_list_add(caras, 1); // 12
+            ds_list_add(texto, "Carlos: ¡Uff que chevere, tenemos que jugarlo entonces!"); ds_list_add(caras, 0); // 13
+            
+            
+            // Interrumpen personas corriendo
+            ds_list_add(texto, "Julián: Esperen..., ¿Por qué todo el mundo está corriendo?"); ds_list_add(caras, 2); // 14
+            
+
+            // Explosiones.
+            ds_list_add(texto, "Daniel: ¿¡Qué esta pasando!?"); ds_list_add(caras, 1); // 15
+            
+            // Soldados y tanques.
+            ds_list_add(texto, "Carlos: ¡No sé, pero tenemos que irnos ya!"); ds_list_add(caras, 0); // 16
+ 
+            
+            // Aparece caos en pantalla y pablo saltando.
+            ds_list_add(texto, "Julián: ¡Vamonos, encondámonos donde podamos!"); ds_list_add(caras, 2); // 17
             
         }
                
     break;
 }
+
+
+/*

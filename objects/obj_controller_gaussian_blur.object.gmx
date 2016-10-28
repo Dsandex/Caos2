@@ -174,8 +174,14 @@ if(Sprite_InRectangle(spr_ico_creditos, 0, 728, 420, .8)){
 
 
 draw_set_halign(fa_center);
-if(room != game_tutorial) draw_text(room_width/2, room_height/2, txt[num_level - 1]);
-else draw_text(room_width/2, room_height/2, "T U T O R I A L");
+draw_text_outlined(room_width/2, 52, Nombre_Ciudad(num_level), c_white, c_black, 2);
+draw_text_outlined(room_width/2, 27, txt[num_level - 1], c_white, c_black, 2);
+draw_sprite(
+    spr_creditos, 
+    0, 
+    room_width/2, 
+    60
+);
 draw_set_halign(noone);
 /*if(in_Rectangle(697, 22, 697 
     + sprite_get_width(spr_pausa), 

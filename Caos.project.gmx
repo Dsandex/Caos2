@@ -35,6 +35,10 @@
       <sound>sound\sn_rage_music</sound>
       <sound>sound\sn_soundtrack_tutorial</sound>
       <sound>sound\sn_soundtrack_4</sound>
+      <sounds name="Intro">
+        <sound>sound\sn_musica_intro</sound>
+        <sound>sound\sn_soundtrack_pablo</sound>
+      </sounds>
     </sounds>
     <sounds name="Efectos">
       <sounds name="Punch">
@@ -63,6 +67,7 @@
       </sounds>
       <sounds name="Edificios">
         <sound>sound\sn_edificio_collapse</sound>
+        <sound>sound\sn_entrar</sound>
       </sounds>
       <sounds name="Ganar-Perder">
         <sound>sound\sn_coronaste</sound>
@@ -219,6 +224,7 @@
       <sprite>sprites\spr_perdiste</sprite>
       <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_caos_original</sprite>
+      <sprite>sprites\spr_caos_intro</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -385,6 +391,8 @@
       <sprite>sprites\sprite195</sprite>
       <sprite>sprites\sprite194</sprite>
       <sprite>sprites\sprite202</sprite>
+      <sprite>sprites\sprite210</sprite>
+      <sprite>sprites\spr_presentaciones</sprite>
     </sprites>
     <sprites name="TextBox">
       <sprite>sprites\spr_exclamation</sprite>
@@ -465,6 +473,7 @@
       <script>scripts\Sprite_InRectangle.gml</script>
       <script>scripts\Draw_Powers.gml</script>
       <script>scripts\Building_Exists.gml</script>
+      <script>scripts\Nombre_Ciudad.gml</script>
     </scripts>
     <scripts name="Edificios">
       <script>scripts\Recieve_Damage.gml</script>
@@ -650,6 +659,7 @@
       <object>objects\Marco</object>
       <object>objects\Bombazo</object>
       <object>objects\Escobar</object>
+      <object>objects\Presenta</object>
     </objects>
     <objects name="Enemies">
       <object>objects\Enemy</object>
@@ -657,7 +667,6 @@
         <object>objects\Helicopter_Bullet</object>
         <object>objects\Helicoptero</object>
         <object>objects\Control_Helicopteros</object>
-        <object>objects\Helicopter_Intro</object>
       </objects>
       <objects name="Tank">
         <object>objects\Tank</object>
@@ -695,6 +704,7 @@
       <object>objects\TextBox</object>
       <object>objects\Exclamacion</object>
       <object>objects\Control_Intro</object>
+      <object>objects\Helicopter_Intro</object>
       <object>objects\Player_Intro</object>
       <object>objects\Child_Final</object>
     </objects>

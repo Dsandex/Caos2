@@ -3,16 +3,15 @@ if(final){
     switch(argument[0]){
         case game_intro:
             switch(argument[1]){
+            
                 case 0:
+                
                     audio_play_sound(sn_puerta, 1, 0);
                     with Building_32 image_index = 1;
-                break;
-                case 4:
-                    var c = instance_nearest(1395, 399, Child_Intro);
-                    with(c) instance_destroy();
+                    
                 break;
                 
-                case 6: // Los niños comienzan a caminar a la ciudad.
+                case 4: // Los niños comienzan a caminar a la ciudad.
                     with(Child_Intro){
                         image_speed = .2;
                         if(sprite_index != spr_child1_idle){
@@ -37,17 +36,20 @@ if(final){
                     
                     can_continue = false;
                 break;
+                /*case 14:
+                    audio_sound_gain(sn_musica_intro, 0, 3000);
+                break;*/
                 
-                
-                case 23:
+                case 16:
                     // Aparece Pablo Escobar.
                    //can_continue = false;
                     //with (Control_Intro) { alarm[7] = 30; } // Aparecer Caos. 
                    
     
-                         
-                    audio_stop_sound(sn_helicopter_front);
+    
                     instance_create(800, 200, Player); 
+                    
+                    
                     with(Control_Intro){
                         alarm[0] = -1;
                         alarm[1] = -1;
@@ -59,29 +61,30 @@ if(final){
 
                 
                 // Pablo ruge!
-                case 24:
+                case 17:
                 
                     // EN OBJETO RAGE QUEDÓ ALGO PROGRAMADO!!
                         background_blend[0] = make_color_rgb(255, 50 ,10);
                         var rage = instance_create(view_wview[0]/2, room_height/2, Rage);
-                        with(rage){ alarm[0] = 45; }
-                        Play_Track("collapse_building");
+                        //with(rage){ alarm[0] = 45; }
+                        //Play_Track("collapse_building");
 
                         instance_create(Player.x, Player.y, Player_Intro);
                         with(Player){ instance_destroy(); }
                 
                         
                         with(Control_Intro){
-                           alarm[5] = 200; // Room goto transition.                          
-                             alarm[6] = 1; // Create explosions.
-                             alarm[7] = 120; // Move player.                             
+                             alarm[5] = 150; // Room goto transition.                          
+                            //alarm[6] = 1; // Create explosions.
+                             alarm[7] = 60; // Move player.                             
                       
                         }
                         with(Control_Intro) sentido = "izquierda";
                        // instance_destroy();
-                        
+                        with TextBox instance_destroy();
                     
                 break;
+                
 
             }
     
@@ -95,7 +98,7 @@ if(final){
 switch(argument[0]){
     case game_intro:
         switch(argument[1]){
-            case 6: // Revisa si los niños ya llegaron al limite para pasar a la mamá quien los llama.
+            case 4: // Revisa si los niños ya llegaron al limite para pasar a la mamá quien los llama.
                 var first_c = instance_nearest(0,0,Child_Intro);
                 if(first_c.x < 1200){
                     t++;
@@ -131,9 +134,9 @@ switch(argument[0]){
         
                 
         // Detener a los niños cuando lleguen a la ciudad.
-        if(argument[1] >= 13 and argument[1] <= 19){
+        if(argument[1] >= 12 and argument[1] <= 14){
             var first_c = instance_nearest(0,0,Child_Intro);
-            if(first_c.x < 290+100){
+            if(first_c.x < 200){
                 with(Child_Intro){
                     hspeed = 0;
                     switch(sprite_index){

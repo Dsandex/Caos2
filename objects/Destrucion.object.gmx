@@ -28,6 +28,7 @@
             <string>/// Constants variables.
 image_speed = .5;
 image_index = 0;
+
 if(room == game_intro){
     Play_Track("attack");
 }

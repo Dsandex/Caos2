@@ -153,6 +153,42 @@ bar_index = 1;
 // Win variables.
 if(vida == 0) vida = 10;
 win = false;
+
+// Dead time anim. (alarma 4).
+dead_time = 10;
+draw_player = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(draw_player == 0) draw_player = 1;
+else draw_player = 0;
+alarm[4] = dead_time;
+dead_time -= .5;
+if(dead_time &lt;= 0){
+    instance_create(800, 200, Player);
+    instance_destroy();
+    with GameOver instance_destroy();
+   // draw_score = false;
+}
 </string>
           </argument>
         </arguments>
@@ -251,11 +287,13 @@ audio_play_sound(sn_roar, 1, 0);
             <kind>1</kind>
             <string>/// Room_goto Room Transition (Player dead).
 chances--;
-if(chances &gt;= 0){
-    room_goto_transition(Room_Transicion, 0, 30);
-}else{
+if(chances &lt; 0){
     room_goto_transition(Room_Menu, 0, 30);
     num_level = 0;
+    chances = 2;
+// Dead animation.
+}else{
+    alarm[4] = 1;
 }
 </string>
           </argument>
@@ -769,10 +807,10 @@ if(take_women){
 }
 
 // Draw the player.
-draw_self();
+if(draw_player) draw_self();
 
 
-if(hurt){
+if(hurt and !lose){
     if(count_hurt &lt; 2){
         //var color_red = make_color_hsv(make_colour_rgb(255, 182, 35), 200, 255);
         
