@@ -130,10 +130,23 @@
           <sprite>sprites\spr_child2_idle</sprite>
           <sprite>sprites\spr_child3_run</sprite>
           <sprite>sprites\spr_child3_idle</sprite>
+          <sprite>sprites\sprite212</sprite>
         </sprites>
         <sprite>sprites\spr_hurt_particle</sprite>
         <sprites name="Dog">
           <sprite>sprites\spr_dog</sprite>
+        </sprites>
+        <sprites name="Children2">
+          <sprite>sprites\spr_child1_idle_2</sprite>
+          <sprite>sprites\spr_child1_run_2</sprite>
+          <sprite>sprites\spr_child2_run_2</sprite>
+          <sprite>sprites\spr_child2_idle_2</sprite>
+          <sprite>sprites\spr_child3_idle_2</sprite>
+          <sprite>sprites\spr_child3_run_2</sprite>
+          <sprite>sprites\spr_child1_imagen</sprite>
+          <sprite>sprites\spr_child2_imagen</sprite>
+          <sprite>sprites\spr_child3_imagen</sprite>
+          <sprite>sprites\sprite223</sprite>
         </sprites>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
@@ -413,6 +426,7 @@
       <background>background\background_cali</background>
       <background>background\background_medellin</background>
       <background>background\background_cartagena</background>
+      <background>background\background10</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -496,8 +510,8 @@
       <script>scripts\Draw_Pause.gml</script>
     </scripts>
     <scripts name="TextBox">
-      <script>scripts\TextBox_Dialogs.gml</script>
       <script>scripts\Dialogs_Features.gml</script>
+      <script>scripts\TextBox_Dialogs.gml</script>
       <script>scripts\Dialogs_Final.gml</script>
     </scripts>
     <scripts name="Touch Control">
@@ -707,6 +721,7 @@
       <object>objects\Helicopter_Intro</object>
       <object>objects\Player_Intro</object>
       <object>objects\Child_Final</object>
+      <object>objects\NewChild</object>
     </objects>
   </objects>
   <rooms name="rooms">
@@ -724,6 +739,7 @@
     <rooms name="Game">
       <room>rooms\game_tutorial</room>
       <room>rooms\game_intro</room>
+      <room>rooms\room21</room>
       <room>rooms\game1</room>
       <room>rooms\game2</room>
       <room>rooms\game3</room>

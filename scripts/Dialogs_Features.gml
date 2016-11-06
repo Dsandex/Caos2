@@ -9,8 +9,10 @@ if(animar){
                 case 1:
                     
                     // Crear a Daniel.
-                    instance_create(1395, 399, Child_Intro);
-
+                    var c = instance_create(1395, 399, Child_Intro);
+                    with(c){
+                        sprite_index = spr_child3_idle_2;
+                    }
                 
                 break;
                 
@@ -31,7 +33,7 @@ if(animar){
                 case 11:
                     var julian = instance_create(1359, 399, Child_Intro);
                     with(julian){
-                        sprite_index = spr_child1_idle;
+                        sprite_index = spr_child2_idle_2;
                         y = 394;
                      }
                 break;
@@ -45,15 +47,15 @@ if(animar){
                     
                     with(Child_Intro){
                         switch(sprite_index){
-                            case spr_child1_idle:
-                                sprite_index = spr_child1_run;
+                            case spr_child1_idle_2:
+                                sprite_index = spr_child1_run_2;
                                 y = 404-6;
                             break;
-                            case spr_child2_idle:
-                                sprite_index = spr_child2_run;
+                            case spr_child2_idle_2:
+                                sprite_index = spr_child2_run_2;
                             break;
-                            case spr_child3_idle:
-                                sprite_index = spr_child3_run;
+                            case spr_child3_idle_2:
+                                sprite_index = spr_child3_run_2;
                             break;
                         }
                         x += 15;
@@ -102,39 +104,6 @@ if(animar){
                     can_continue = false;
                 break;
                 
-              /*  case 23:
-                    can_continue = false;
-                break;*/
-
-                /*case 17:
-                
-                    // Los niños corren de Pablo Escobar.
-                    with(Child_Intro){
-                        switch(sprite_index){
-                            case spr_child1_idle:
-                                sprite_index = spr_child1_run;
-                            break;
-                            case spr_child2_idle:
-                                sprite_index = spr_child2_run;
-                            break;
-                            case spr_child3_idle:
-                                sprite_index = spr_child3_run;
-                            break;
-                        }
-                        hspeed = -3;
-                        x += 15;
-                        image_speed = .2;
-                        image_xscale = -1;
-                    }
-                    
-                    with(Control_Intro){ 
-                     //   alarm[1] = 1; 
-                      //  alarm[2] = 1;
-                       // alarm[4] = 1;
-                    }
-                  
-                                                        
-                break;  */
              
                 
                 

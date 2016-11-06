@@ -234,13 +234,13 @@ if(is_ready){
                 var c = instance_create(x + sprite_width + i * 32, 412, Child_Run);
                 switch(i){
                     case 0:
-                        c.sprite_index = spr_child3_run;
+                        c.sprite_index = spr_child3_run_2;
                     break;
                     case 1:
-                        c.sprite_index = spr_child2_run;
+                        c.sprite_index = spr_child2_run_2;
                     break;
                     case 2:
-                        c.sprite_index = spr_child1_run;
+                        c.sprite_index = spr_child1_run_2;
                     break;
                 }
                 c.hspeed = -3;

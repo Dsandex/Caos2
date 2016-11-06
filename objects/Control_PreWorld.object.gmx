@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var d = instance_create(768, 407, Child_Intro);
-with(d) sprite_index = spr_child3_idle;
-instance_create(803, 407, Child_Intro);
-var j = instance_create(836, 401, Child_Intro);
-with(j) sprite_index = spr_child1_idle;
+            <string>instance_create(768, 394, Child_Intro);
+var d = instance_create(803, 394, Child_Intro);
+with(d) sprite_index = spr_child3_idle_2;
+var j = instance_create(836, 387, Child_Intro);
+with(j) sprite_index = spr_child2_idle_2;
 
 
 switch(room){

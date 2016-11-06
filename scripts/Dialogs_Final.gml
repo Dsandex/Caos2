@@ -14,21 +14,21 @@ if(final){
                 case 4: // Los niños comienzan a caminar a la ciudad.
                     with(Child_Intro){
                         image_speed = .2;
-                        if(sprite_index != spr_child1_idle){
+                        /*if(sprite_index != spr_child1_idle_2){
                             y = 404;
                         }else{
                             y = 404-6; //416
-                        }
+                        }*/
                         image_xscale = -1;
                         switch(sprite_index){
-                            case spr_child1_idle:
-                                sprite_index = spr_child1_run;
+                            case spr_child1_idle_2:
+                                sprite_index = spr_child1_run_2;
                             break;
-                            case spr_child2_idle:
-                                sprite_index = spr_child2_run;
+                            case spr_child2_idle_2:
+                                sprite_index = spr_child2_run_2;
                             break;
-                            case spr_child3_idle:
-                                sprite_index = spr_child3_run;
+                            case spr_child3_idle_2:
+                                sprite_index = spr_child3_run_2;
                             break;
                         }
                         hspeed = -2;
@@ -112,14 +112,14 @@ switch(argument[0]){
                         image_xscale = 1;
                         
                         switch(sprite_index){
-                            case spr_child1_run:
-                                sprite_index = spr_child1_idle;
+                            case spr_child1_run_2:
+                                sprite_index = spr_child1_idle_2;
                             break;
-                            case spr_child2_run:
-                                sprite_index = spr_child2_idle;
+                            case spr_child2_run_2:
+                                sprite_index = spr_child2_idle_2;
                             break;
-                            case spr_child3_run:
-                                  sprite_index = spr_child3_idle;
+                            case spr_child3_run_2:
+                                  sprite_index = spr_child3_idle_2;
                             break;
                         }
                         x -= 15;
@@ -140,14 +140,14 @@ switch(argument[0]){
                 with(Child_Intro){
                     hspeed = 0;
                     switch(sprite_index){
-                            case spr_child1_run:
-                                sprite_index = spr_child1_idle; x -= 15;
+                            case spr_child1_run_2:
+                                sprite_index = spr_child1_idle_2; x -= 15;
                             break;
-                            case spr_child2_run:
-                                sprite_index = spr_child2_idle; x -= 15;
+                            case spr_child2_run_2:
+                                sprite_index = spr_child2_idle_2; x -= 15;
                             break;
-                            case spr_child3_run:
-                                  sprite_index = spr_child3_idle; x -= 15;
+                            case spr_child3_run_2:
+                                  sprite_index = spr_child3_idle_2; x -= 15;
                             break;
                     }
                 }

@@ -82,8 +82,8 @@ int = 1.5;
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
-view_xview[0] = 0;
-view_yview[0] = 0;
+view_xview[0] = 0; //Player.x - 230;
+view_yview[0] = 0; //Player.y - 230;
 </string>
           </argument>
         </arguments>
@@ -107,8 +107,8 @@ view_yview[0] = 0;
           <argument>
             <kind>1</kind>
             <string>/// Shake the screen.
-view_xview[0] = irandom_range(-int, int);
-view_yview[0] = irandom_range(-int, int);
+view_xview[0] = irandom_range(-int, int); //+ Player.x - 230;
+view_yview[0] = irandom_range(-int, int); // + Player.y - 230;
 
 // Increase shake intensity.
 if((room == Room_Digital or room == Room_Baius) and int &lt; 5) int += .01;

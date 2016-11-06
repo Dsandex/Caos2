@@ -362,15 +362,23 @@ if(room != game10){
     
 // Final del juego.
 }else{
-    if(instance_number(Edificio == 0)){
+   // 17
+
+   if(instance_number(Edificio) == 1){
+        if(instance_exists(Letrero)) with Letrero instance_destroy();
+        // Desactivar controles del jugador.
+        var lb = instance_nearest(x, y, Edificio);             
+        var yy = lb.y - lb.sprite_height;
         if(instance_number(Child_Final) &lt; 3){
-            var d = instance_create(360, 299, Child_Final);
-            with(d) sprite_index = spr_child3_idle;
-            instance_create(390, 299, Child_Final);
-            var j = instance_create(420, 299, Child_Final);
-            with(j) sprite_index = spr_child1_idle;
+            var d = instance_create(lb.x + 17, yy, Child_Final);
+            with(d) sprite_index = spr_child3_idle_2;
+            instance_create(lb.x + 17*2+10, yy, Child_Final);
+            var j = instance_create(lb.x + 17*3+20, yy-6, Child_Final);
+            with(j) sprite_index = spr_child2_idle_2;
         }
+        
     }
+    
 }
 
 //Tap Control
@@ -385,6 +393,10 @@ if(device_mouse_check_button(1, mb_left)){
     }
 }
 
+if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("M"))){
+    var b = instance_nearest(x, y, Edificio);
+    with b instance_destroy();
+}
 </string>
           </argument>
         </arguments>
