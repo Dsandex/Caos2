@@ -1,6 +1,6 @@
 // Move the player.
-//Player_Inputs(controles);
-Player_Inputs("windows");
+Player_Inputs(controles);
+//Player_Inputs("windows");
 //show_debug_message(y);
 
 // show_debug_message(take_women);
@@ -310,6 +310,7 @@ if(climb){
                     var s = instance_create(0,0, Screen_Shake);
                     with(s){ alarm[0] = 45; }
                 }
+
                 
             }
     }

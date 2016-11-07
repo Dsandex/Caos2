@@ -1,3 +1,4 @@
+if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !instance_exists(Building_25)){
     for(var i = 0; i < 3; i++){    
         if(room == game10) var obj = Child_Final;
         else var obj = Child_Run;                               

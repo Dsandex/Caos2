@@ -130,7 +130,6 @@
           <sprite>sprites\spr_child2_idle</sprite>
           <sprite>sprites\spr_child3_run</sprite>
           <sprite>sprites\spr_child3_idle</sprite>
-          <sprite>sprites\sprite212</sprite>
         </sprites>
         <sprite>sprites\spr_hurt_particle</sprite>
         <sprites name="Dog">
@@ -143,10 +142,11 @@
           <sprite>sprites\spr_child2_idle_2</sprite>
           <sprite>sprites\spr_child3_idle_2</sprite>
           <sprite>sprites\spr_child3_run_2</sprite>
-          <sprite>sprites\spr_child1_imagen</sprite>
-          <sprite>sprites\spr_child2_imagen</sprite>
-          <sprite>sprites\spr_child3_imagen</sprite>
-          <sprite>sprites\sprite223</sprite>
+          <sprites name="Armas">
+            <sprite>sprites\spr_balon</sprite>
+            <sprite>sprites\spr_ninja</sprite>
+            <sprite>sprites\spr_musica</sprite>
+          </sprites>
         </sprites>
       </sprites>
       <sprite>sprites\spr_destruction</sprite>
@@ -391,20 +391,12 @@
       <sprite>sprites\spr_score_100</sprite>
       <sprite>sprites\spr_score_50</sprite>
     </sprites>
-    <sprite>sprites\spr_icono_caos</sprite>
     <sprite>sprites\sprite88</sprite>
     <sprite>sprites\spr_avioneta</sprite>
-    <sprite>sprites\sprite91</sprite>
     <sprite>sprites\spr_avion</sprite>
     <sprite>sprites\spr_google_games</sprite>
     <sprite>sprites\spr_sapo</sprite>
     <sprites name="Imagenes Promocionales">
-      <sprite>sprites\sprite196</sprite>
-      <sprite>sprites\sprite197</sprite>
-      <sprite>sprites\sprite195</sprite>
-      <sprite>sprites\sprite194</sprite>
-      <sprite>sprites\sprite202</sprite>
-      <sprite>sprites\sprite210</sprite>
       <sprite>sprites\spr_presentaciones</sprite>
     </sprites>
     <sprites name="TextBox">
@@ -474,6 +466,7 @@
       <script>scripts\Generate_Trees.gml</script>
       <script>scripts\Fechas.gml</script>
       <script>scripts\Check_Tutorial.gml</script>
+      <script>scripts\Create_Kids.gml</script>
     </scripts>
     <scripts name="Transition">
       <script>scripts\room_goto_transition.gml</script>
@@ -585,6 +578,7 @@
       <object>objects\Building_31</object>
       <object>objects\Building_32</object>
       <object>objects\Collapse</object>
+      <object>objects\Building_25_2</object>
     </objects>
     <objects name="Control Game">
       <object>objects\Control_Game</object>
@@ -600,7 +594,6 @@
       <object>objects\Dibujar_Pausa</object>
       <object>objects\Control_Tutorial</object>
       <object>objects\Poder_Animado</object>
-      <object>objects\Building_Progress</object>
     </objects>
     <objects name="World">
       <object>objects\Player</object>
@@ -720,10 +713,20 @@
       <object>objects\Control_Intro</object>
       <object>objects\Helicopter_Intro</object>
       <object>objects\Player_Intro</object>
+    </objects>
+    <objects name="Final">
+      <object>objects\End_Game</object>
       <object>objects\Child_Final</object>
-      <object>objects\NewChild</object>
+      <object>objects\Arma_Child</object>
+      <object>objects\Player_Final</object>
+      <object>objects\Dialogo_Final</object>
+      <object>objects\Imagen_Child</object>
+      <object>objects\Child_End</object>
     </objects>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tml_end</timeline>
+  </timelines>
   <rooms name="rooms">
     <rooms name="Presentacion">
       <room>rooms\Room_Digital</room>
@@ -735,6 +738,7 @@
       <room>rooms\Room_Transicion</room>
       <room>rooms\Room_Select</room>
       <room>rooms\Room_Creditos</room>
+      <room>rooms\Room_GameSelect</room>
     </rooms>
     <rooms name="Game">
       <room>rooms\game_tutorial</room>
@@ -750,7 +754,6 @@
       <room>rooms\game8</room>
       <room>rooms\game9</room>
       <room>rooms\game10</room>
-      <room>rooms\game_extra</room>
       <room>rooms\game_final</room>
     </rooms>
   </rooms>
