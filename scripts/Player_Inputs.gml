@@ -8,9 +8,9 @@ if(argument[0] == "windows"){
     key_attack = keyboard_check_pressed(ord('X'));
 }else if(argument[0] == "android"){
     key_jump = keyboard_check_pressed(ord('Z'));
-    
+    key_attack = keyboard_check_pressed(ord('X'));   
     // Move in different directions.
-    if(grounded){
+    /*if(grounded){
         if(mouse_check_button(mb_left)){
             if(mouse_x < view_hview[0]/2){
                 Active_Key("left");
@@ -34,12 +34,12 @@ if(argument[0] == "windows"){
             key_up = 0;
             key_down = 0;
         }
-    }   
+    }*/
 }else if(argument[0] == "intro"){
     key_left = 1;
 }
 //show_debug_message(key_jump);
-//key_attack = keyboard_check_pressed(ord('X'));
+
 
 if(limits){
     if(bbox_left < 5){

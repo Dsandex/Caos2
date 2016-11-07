@@ -122,8 +122,8 @@ key_attack = 0;
 key_down = 0;
 
 //control touch
-cont_attack = 0;
-cont_jump = 0;
+//cont_attack = 0;
+//cont_jump = 0;
 x_edificio = 0;
 x_edificio_temp = 0;
 w_edificio = 0;
