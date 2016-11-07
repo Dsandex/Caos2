@@ -88,7 +88,32 @@ if(final){
 
             }
     
-        break;    
+        break; 
+        // Posicionar a Julián.
+        case game10:
+            switch(argument[1]){
+                case 2:
+                    with(instance_nearest(0,0, Child_Final)){
+                        switch(sprite_index){
+                            case spr_child1_idle_2:
+                                sprite_index = spr_child1_run_2;
+                            break;
+                            case spr_child2_idle_2:
+                                sprite_index = spr_child2_run_2;
+                            break;
+                            case spr_child3_idle_2:
+                                  sprite_index = spr_child3_run_2;
+                            break;
+                        }
+                        hspeed = -5;
+                        image_xscale = -1;
+                        image_speed = .2;   
+                    }
+                    can_continue = false;
+          
+                break;
+            }
+        break;   
     }
     final = false;
 }
@@ -155,5 +180,47 @@ switch(argument[0]){
         }
         
         
+    break;
+    case game10:
+        switch(argument[1]){
+            case 2:
+               // var kids = instance_nearest_list(0,0, Child_Final);
+               // var julian_c = ds_list_find_value(kids, 0);
+                
+                var julian_c = instance_nearest(0,0, Child_Final);
+                
+                if(julian_c.x < 230){
+                    with(julian_c){
+                        hspeed = 0;
+                        x = 230;
+                        image_speed = 0;
+                        image_xscale = 1;
+                        sprite_index = spr_child2_idle_2;
+                        instance_create(0,0, End_Game);
+                        //with TextBox instance_destroy();
+                    }                 
+                }
+                
+               /* var carlos_c = ds_list_find_value(kids, 1);
+                if(carlos_c.x < 528){
+                    with(carlos_c){
+                        hspeed = 0;
+                        image_speed = 0;
+                        image_xscale = 1;
+                        sprite_index = spr_child3_idle_2;
+                        
+                    }   
+                    
+                    var daniel_c = ds_list_find_value(kids, 2);
+                    with(daniel_c){
+                        hspeed = 0;
+                        image_speed = 0;
+                        image_xscale = 1;
+                        sprite_index = spr_child1_idle_2;
+                    }              
+                }*/
+                
+            break;
+        }
     break;
 }

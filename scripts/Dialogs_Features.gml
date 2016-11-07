@@ -109,6 +109,11 @@ if(animar){
                 
             }
         break;
+        // Final del juego.
+        case game10:
+                
+        break;
+        
     }
     animar = false;
 }

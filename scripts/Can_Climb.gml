@@ -17,7 +17,10 @@ if(grounded or climbed_building){
         case -1: // Derecha.
         
             // Can climb.
-            if(building.building_life <= 0) exit;         
+            if(building.building_life <= 0) exit; 
+                   
+            
+                  
             if(point_distance(x + 23, y, building.bbox_left, y) <= rango){
                 if(!place_meeting(x+23, y, building)) exit;
 
@@ -36,19 +39,24 @@ if(grounded or climbed_building){
                                      
                 var damage_asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
                 if(key_up and (grounded or climbed_building != noone) and sprite_index != damage_asset){
-                    Check_Tutorial("CLIMB THE BUILDING!");
-                    climbed_building = building;
-                    climb = true;
-                    grounded = false;
-                    x = climbed_building.bbox_left - 21;
-                    if(grounded) y = 390;
-                    return true;
+               
+                        //Check_Tutorial("CLIMB THE BUILDING!");
+                        climbed_building = building;
+                        climb = true;
+                        grounded = false;
+                        x = climbed_building.bbox_left - 21;
+                        if(grounded) y = 390;
+                        return true;
+                    
                 }
             }            
         break;
         case 1: // Izquierda.                                                
             // Can climb.
             if(building.building_life <= 0) exit;
+  
+            
+            
             if(point_distance(x - 23, y, building.bbox_right, y) <= rango){
                 if(!place_meeting(x-23, y, building)) exit;
  
@@ -65,13 +73,15 @@ if(grounded or climbed_building){
 
                  var damage_asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_damage");
                  if(key_up and (grounded or climbed_building != noone) and sprite_index != damage_asset){
-                    Check_Tutorial("CLIMB THE BUILDING!");
-                    climbed_building = building;
-                    climb = true;
-                    grounded = false;
-                    if(grounded) y = 390;
-                    x = climbed_building.bbox_right + 21;
-                    return true; 
+              
+                        //Check_Tutorial("CLIMB THE BUILDING!");
+                        climbed_building = building;
+                        climb = true;
+                        grounded = false;
+                        if(grounded) y = 390;
+                        x = climbed_building.bbox_right + 21;
+                        return true; 
+                    
                  }
             }    
         break;

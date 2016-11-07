@@ -362,21 +362,16 @@ if(room != game10){
     
 // Final del juego.
 }else{
-   // 17
 
-   if(instance_number(Edificio) == 1){
-        if(instance_exists(Letrero)) with Letrero instance_destroy();
-        // Desactivar controles del jugador.
-        var lb = instance_nearest(x, y, Edificio);             
-        var yy = lb.y - lb.sprite_height;
-        if(instance_number(Child_Final) &lt; 3){
-            var d = instance_create(lb.x + 17, yy, Child_Final);
-            with(d) sprite_index = spr_child3_idle_2;
-            instance_create(lb.x + 17*2+10, yy, Child_Final);
-            var j = instance_create(lb.x + 17*3+20, yy-6, Child_Final);
-            with(j) sprite_index = spr_child2_idle_2;
-        }
-        
+    // Create last building.
+    if(!instance_exists(Building_25_2)){
+       if(instance_number(Edificio) == 0){
+           if(instance_exists(Building_25)){
+             instance_create(Building_25.x, Building_25.y, Building_25_2);
+             with Building_25 instance_destroy();
+           }
+            
+       }
     }
     
 }
@@ -396,6 +391,11 @@ if(device_mouse_check_button(1, mb_left)){
 if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("M"))){
     var b = instance_nearest(x, y, Edificio);
     with b instance_destroy();
+}
+
+if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("S"))){
+    var b = instance_nearest(x, y, Edificio);
+    with b building_life = 0;
 }
 </string>
           </argument>
@@ -420,7 +420,7 @@ if(mouse_check_button_pressed(mb_left) and keyboard_check(ord("M"))){
           <argument>
             <kind>1</kind>
             <string>//var asset = asset_get_index("sn_soundtrack_" + string(num_level));
-var asset = Get_Soundtrack(num_level);
+var asset = Get_Soundtrack(num_level-1);
 audio_sound_gain(asset, 0, 3000);
 //sprite_delete(background);
 
@@ -440,6 +440,9 @@ if(audio_is_playing(sn_helicopter_front)){
 }
 audio_stop_sound(sn_soundtrack_pausa);
 
+if(room == game10){
+    audio_sound_gain(sn_rage_music, 0, 1000);
+}
 </string>
           </argument>
         </arguments>

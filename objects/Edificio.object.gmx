@@ -40,6 +40,7 @@ image_index = 0;
 image_speed = 0;
 index_puerta = 0;
 yy2 = self.y;
+create_kids = true;
 
 //show_debug_message(down_speed);
 
@@ -48,6 +49,7 @@ building_life = irandom_range(15, 25);
 damage_grid = ds_grid_create(building_life, 3);
 progress_time = 15;
 execute_alarms = true;
+
 
 // Fill the grid.
 for(var i = 0; i &lt; ds_grid_width(damage_grid); i++){
@@ -228,25 +230,10 @@ if(is_ready){
     
         alarm[1] = 40;
         is_ready = false;
+        
         // Crear niños corriendo.
-        if(room != game_intro and instance_number(Edificio) == 1){
-            for(var i = 0; i &lt; 3; i++){
-                var c = instance_create(x + sprite_width + i * 32, 412, Child_Run);
-                switch(i){
-                    case 0:
-                        c.sprite_index = spr_child3_run_2;
-                    break;
-                    case 1:
-                        c.sprite_index = spr_child2_run_2;
-                    break;
-                    case 2:
-                        c.sprite_index = spr_child1_run_2;
-                    break;
-                }
-                c.hspeed = -3;
-                c.image_xscale = -1;
-            }
-        }
+        Create_Kids();
+        
         /*if(room != game_intro and instance_number(Edificio) == 1){
             var random_num = choose(2,3,4);
             for(var i = 0; i &lt; random_num; i++){
@@ -284,7 +271,7 @@ if(is_ready){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (num_level &gt; 0){
+            <string>if (num_level &gt; 0 and instance_exists(Player) and room != game_intro){
     if (abs(Player.y1_ed - device_mouse_y(0)) &lt; 64  and abs(Player.x1_ed - device_mouse_x(0)) &lt; 64){
         if (Player.x_edificio == 0){
             Player.x_edificio = x;

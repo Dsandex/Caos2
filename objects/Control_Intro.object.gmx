@@ -54,7 +54,7 @@ buildings = false;
 collapses = false;
 sentido = "derecha";
 
-texto_avion = "Colombia, finales de los años 80. Basado en hechos reales.";
+texto_avion = "Colombia, finales de los años 80.         Basado en hechos reales.";
 texto_1 = "";
 
 mostrar_historia = true;
@@ -94,7 +94,8 @@ HACER CAER LAS BOMBAS MAS RÁPIDO.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>cantidad_letras++;
+            <string>/// Texto. Basado en hechos reales.
+cantidad_letras++;
 texto_1 = string_copy(texto_avion, 0, cantidad_letras);
 alarm[8] = 1.7;
 </string>
@@ -474,6 +475,11 @@ audio_stop_sound(sn_soundtrack_1);
 audio_stop_sound(sn_soundtrack_pausa);
 audio_stop_sound(sn_edificio_collapse);
 if(instance_exists(Screen_Shake)) with Screen_Shake instance_destroy();
+
+// Save story.
+ini_open(working_directory + "historia.sav");
+ini_write_real("historia", "pass", 1);
+ini_close();
 </string>
           </argument>
         </arguments>

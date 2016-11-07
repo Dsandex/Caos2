@@ -31,7 +31,7 @@ Fechas();
 // Create textbox variables.
 color = c_white;
 str = 0
-vel = .4;
+vel = .5;
 t = 0;
 llamar_alarma = false;
 

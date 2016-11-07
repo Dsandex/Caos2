@@ -31,8 +31,11 @@ if(room == Room_Digital){
               xx_damage, yy_damage, vida_global, puntaje_global, 
               sound_retard, current_song, chances, best_score, 
               jugador, game_pause, tutorial_bool, soundtrack, idioma, 
-              avance_edificios;
-              
+              avance_edificios, end_game, game_completed, rate;
+    
+    rate = false;
+    game_completed = false;
+    end_game = false;
     avance_edificios = ds_list_create(); // Importante!
     idioma = "es";
     tutorial_bool = false;
@@ -65,7 +68,7 @@ if(room == Room_Digital){
     
     // Guardar el juego.
     globalvar save, gacha_select;
-    save = false;
+    save = true;
     gacha_select = 0;
     
 
@@ -94,12 +97,18 @@ if(room == Room_Digital){
             ini_close();
         }
         
+        if(file_exists(working_directory + "game_complete.sav")){
+            ini_open(working_directory + "game_complete.sav");
+            game_completed = ini_read_real("completed", "pass", 0);
+            ini_close();
+        }
+        
         // Cargar historia.
-       /*if(file_exists(working_directory + "historia.sav")){
+        if(file_exists(working_directory + "historia.sav")){
             ini_open(working_directory + "historia.sav");
             historia = ini_read_real("historia", "pass", 0);
             ini_close();
-        }*/
+        }
         
         /*if(ds_list_empty(avance_edificios)){
             show_debug_message("HOLA K HACE");
@@ -155,10 +164,42 @@ if(room == Room_Digital){
     alarm[1] = 62;
     
 }else if(room == Room_Menu){
+
     // Tank animation.
     animator = 0;
-
+    audio_stop_sound(sn_musica_intro);
     
+    if(file_exists(working_directory + "rate.sav")){
+        ini_open(working_directory + "rate.sav");
+        rate = ini_read_real("rate", "pass", 0);
+        ini_close();
+    }
+    
+    
+    if(game_completed){
+        if(!rate){
+        
+            if(idioma == "en"){ var question = "We hope you are enjoying Caos! Please, rate us in the store!"; }
+            else if(idioma == "es") { var question = "¡Esperamos que estés disfrutando Caos! ¡Porfavor, valóranos en la tienda!"; }
+            
+            if(show_question(question)){
+                if(os_type == os_android){
+                    url_open(""); // Android
+                }else if(os_type == os_ios){
+                    url_open(""); // iOS.
+                }
+            }
+            
+            ini_open(working_directory + "rate.sav");
+            ini_write_real("rate", "pass", 1);
+            ini_close();
+        }
+    }
+
+    if(!audio_is_playing(sn_soundtrack_pausa)){
+        audio_play_sound(sn_soundtrack_pausa, 1, 1);
+    }
+    audio_sound_gain(sn_soundtrack_pausa, 1, 2000);
     // Guardar muertes en el marcador.
    /* if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
         achievement_login();
@@ -368,7 +409,7 @@ if(room == Room_Menu){
 
     if(animator &lt; 10){ // 25
         draw_set_color(c_white);
-        draw_set_font(font_menu);
+        draw_set_font(font_press_14);
         draw_set_halign(fa_center);
         draw_set_valign(fa_center);
         draw_text(

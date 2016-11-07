@@ -7,7 +7,7 @@ if(humor == "normal"){
         }
         
         
-        audio_sound_gain(Get_Soundtrack(num_level), 0, 3000);
+        audio_sound_gain(Get_Soundtrack(num_level-1), 0, 3000);
         
         audio_play_sound(sn_trans, 1, 0);
         audio_play_sound(sn_rage_music, 1, 1);
@@ -25,7 +25,7 @@ if(humor == "normal"){
         save_vida = vida;
         humor_animation = true;
         scale_change = image_xscale;
-        room_speed = 60;
+        if(!end_game) room_speed = 60;
         angry = 200;
         /*movespeed = 6;
         jumpspeed = 20;
@@ -52,7 +52,7 @@ if(humor == "normal"){
         }
     }
     vida = save_vida;
-    angry -= (10/30);
+    if(!end_game) angry -= (10/30);
     if(angry < 0){
         audio_sound_gain(sn_rage_music, 0, 3000);
         audio_sound_gain(Get_Soundtrack(num_level), 1, 5000);
@@ -61,7 +61,7 @@ if(humor == "normal"){
         humor_animation = false;
         if(eating) eating = false;
         if(take_women) take_women = false;
-        room_speed = 30;
+        if(room != game10 and !instance_exists(Child_Final)) room_speed = 30;
        /* movespeed = 5;
         jumpspeed = 15;
         climb_speed = 3;*/

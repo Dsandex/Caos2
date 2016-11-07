@@ -25,33 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = device_mouse_x(0);
-y = device_mouse_y(0);
-scriptCheckDirection();
-if (!device_mouse_check_button(0, mb_left)){
-Player.y1_ed = ystart;
-Player.x1_ed = xstart;
-    if (xstart == x and ystart == y){
-        Player.cont_attack = 0;
-        //Player.cont_jump = 0;
-    }else{
-        Player.key_up = 0;
-        Player.key_left = 0;
-        Player.key_down = 0;
-        Player.key_right = 0;
-        Player.key_jump = 0;
-        Player.key_attack = 0;
-        Player.cont_attack = 0;
-        Player.cont_jump = 0;
-        //Player.x_edificio = 0;
-        Player.key_up = 0;
-        Player.key_left = 0;
-        Player.key_right = 0;
-        Player.x_edificio = 0;
-        Player.w_edificio = 0;   
-        Player.ed_r = 0;
+            <string>if(instance_exists(Player)){
+    x = device_mouse_x(0);
+    y = device_mouse_y(0);
+    scriptCheckDirection();
+    if (!device_mouse_check_button(0, mb_left)){
+    Player.y1_ed = ystart;
+    Player.x1_ed = xstart;
+        if (xstart == x and ystart == y){
+            Player.cont_attack = 0;
+            //Player.cont_jump = 0;
+        }else{
+            Player.key_up = 0;
+            Player.key_left = 0;
+            Player.key_down = 0;
+            Player.key_right = 0;
+            Player.key_jump = 0;
+            Player.key_attack = 0;
+            Player.cont_attack = 0;
+            Player.cont_jump = 0;
+            //Player.x_edificio = 0;
+            Player.key_up = 0;
+            Player.key_left = 0;
+            Player.key_right = 0;
+            Player.x_edificio = 0;
+            Player.w_edificio = 0;   
+            Player.ed_r = 0;
+        }
+        instance_destroy();
     }
-    instance_destroy();
 }
 </string>
           </argument>

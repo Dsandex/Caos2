@@ -7,7 +7,7 @@ var room_ = argument[0];
     2: Julián
     3: Mamá.
 */
-
+//show_debug_message(string(room_));
 
 // Llenar listas.
 switch(room_){
@@ -106,6 +106,22 @@ switch(room_){
             
         }
                
+    break;
+    case game10:
+        if(idioma == "es"){
+            ds_list_add(texto, "Carlos: ¡Nos encontró!"); ds_list_add(caras, 0); // 0 
+            ds_list_add(texto, "Daniel: ¡No tenemos otra opción, debemos#derrotarlo!"); ds_list_add(caras, 1); // 1 
+            ds_list_add(texto, "Julián: ¡Ataquémoslo!"); ds_list_add(caras, 2); // 2
+            ds_list_add(texto, "Julián: ¡Toma esto!"); ds_list_add(caras, 2);
+            ds_list_add(texto, "Daniel: ¡Y esto!"); ds_list_add(caras, 1);
+            ds_list_add(texto, "Carlos: ¡Acabemos con él!"); ds_list_add(caras, 0);
+            ds_list_add(texto, "El Jefe: Noooo! Mi imperio!"); ds_list_add(caras, 4); 
+        }else if(idioma == "en"){
+        
+        }
+    break;
+    default:
+        ds_list_add(texto, "Julián: ¡Corran! ¡Corran!"); ds_list_add(caras, 2);
     break;
 }
 

@@ -57,7 +57,6 @@
     <instance objName="Building_8" x="307" y="433" name="inst_C3A79420" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_17" x="79" y="433" name="inst_57B300FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Building_10" x="174" y="433" name="inst_C2DAC6A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Building_Progress" x="140" y="119" name="inst_FE5B8730" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="96" y="362" name="inst_8D9BB767" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="112" y="344" name="inst_B699595F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ventana" x="190" y="272" name="inst_4F9F8758" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

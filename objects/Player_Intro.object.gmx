@@ -63,7 +63,7 @@ instance_create(
         );        
 }
 //alarm[0] = 45;*/
-Play_Track("attack");
+/*Play_Track("attack");
 var xx = 10;
 instance_create(113 + xx, 425, Presenta);
 var m = instance_create(379+ xx, 425, Presenta);

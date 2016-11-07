@@ -146,7 +146,7 @@ if(room != game_intro){
             }
         break;
         case game10:
-            if(x &lt; 418+8+xx){
+            if(x &lt; 637+8+xx){
                 instance_destroy();
                 if(audio_is_playing(sn_entrar)) audio_stop_sound(sn_entrar);
                 audio_play_sound(sn_entrar, 0, 0);

@@ -31,7 +31,8 @@
 
 
 // Controles.
-controles = "";
+controles = "windows";
+//movepos_final = false;
 
 // ROAR.
 alarm[1] = 30; // Roar sound.
@@ -136,6 +137,7 @@ x1_ed = 0;
 grounded = false;
 hsp = 5 * image_xscale * -1;
 vsp = -jumpspeed;
+if(room == game10){ jugador = ""; }
 var asset = asset_get_index("spr_player" + jugador + "_jump_" + humor + "_idle");
 Current_Sprite(asset, 0, irandom_range(0,2));
 limits = false;
@@ -149,14 +151,17 @@ color_score = c_white;
 
 // Barra vida index.
 bar_index = 1;
+dibujar_scores = true;
 
 // Win variables.
 if(vida == 0) vida = 10;
 win = false;
 
 // Dead time anim. (alarma 4).
-dead_time = 10;
+dead_time = 5;
 draw_player = true;
+
+
 </string>
           </argument>
         </arguments>
@@ -211,9 +216,8 @@ if(dead_time &lt;= 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Crear lápida.
-instance_create(x, y + 24, Lapida);
-instance_destroy();
+            <string>/// Ir a la última room.
+room_goto_transition(game_final, 0, 150);
 </string>
           </argument>
         </arguments>
@@ -262,7 +266,9 @@ with(sk) { alarm[0] = 25; }
           <argument>
             <kind>1</kind>
             <string>/// Roar!
-audio_play_sound(sn_roar, 1, 0);
+if(!end_game){
+    audio_play_sound(sn_roar, 1, 0);
+}
 </string>
           </argument>
         </arguments>
@@ -289,6 +295,8 @@ audio_play_sound(sn_roar, 1, 0);
 chances--;
 if(chances &lt; 0){
     room_goto_transition(Room_Menu, 0, 30);
+    audio_sound_gain(sn_soundtrack_intro, 1, 3000);
+    
     num_level = 0;
     chances = 2;
 // Dead animation.
@@ -331,7 +339,13 @@ if vida &gt;=100{
     vida = 0
 }
 
-
+// Stop after destroying building_25
+/*if(movepos_final){
+    if(Player.x &lt; room_width/2){
+        Player.controles = "windows";
+        image_xscale = -1;
+    }
+}*/
 
 
 // Create Damage overlay
@@ -492,10 +506,21 @@ if(win and !save_level){
         ini_close();
     }
        
+    // Save game completed.
+    if(room == game10){
+        if(file_exists(working_directory + "game_complete.sav")){
+            file_delete(working_directory + "game_complete.sav");
+        }
+        ini_open(working_directory + "game_complete.sav");
+        ini_write_real("completed", "pass", 1);
+        ini_close();
+        
+    }
+    
 }
 
 // Save avance edificios.
-if(save){
+/*if(save){
     if(lose){
         for(var i = 0; i &lt; ds_list_size(avance_edificios); i++){
             show_debug_message(ds_list_find_value(avance_edificios, i));
@@ -556,7 +581,7 @@ ini_close();
 draw_set_font(font_game_13);
 
 // Draw Scores.
-if(room != game_intro){
+if(room != game_intro and dibujar_scores){
 
     // Player 1.
     var score_1 = string(player_score);
@@ -680,7 +705,7 @@ if(room != game_intro){
         
             
             // Draw chances.
-            for(i = 0; i &lt; 3; i++){
+            for(i = 0; i &lt; 2 /*3*/; i++){
                 draw_sprite_ext(
                     asset_get_index("spr_player"+jugador+"_face"),
                     0, 
@@ -694,7 +719,7 @@ if(room != game_intro){
                 )
             }
             
-            for (i = 0; i &lt; chances + 1; i++)
+            for (i = 0; i &lt; chances /*+ 1*/; i++)
             {
                 draw_sprite(
                     asset_get_index("spr_player"+jugador+"_face"),

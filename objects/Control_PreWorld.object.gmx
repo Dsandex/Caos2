@@ -28,7 +28,7 @@
             <string>instance_create(768, 394, Child_Intro);
 var d = instance_create(803, 394, Child_Intro);
 with(d) sprite_index = spr_child3_idle_2;
-var j = instance_create(836, 387, Child_Intro);
+var j = instance_create(836, 388, Child_Intro);
 with(j) sprite_index = spr_child2_idle_2;
 
 
@@ -126,7 +126,8 @@ switch(room){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var asset = Get_Soundtrack(num_level);
+            <string>/// Change Soundtrack.
+var asset = Get_Soundtrack(num_level);
 if(!audio_is_playing(asset)){
     audio_play_sound(asset, 0, 1);
     audio_sound_gain(asset, 0, 0);

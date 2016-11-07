@@ -37,6 +37,10 @@ if(argument[0] == "windows"){
     }   
 }else if(argument[0] == "intro"){
     key_left = 1;
+}else if(argument[0] == "izq"){
+    key_left = 1;
+}else if(argument[0] == "der"){
+    key_right = 1;
 }
 //show_debug_message(key_jump);
 //key_attack = keyboard_check_pressed(ord('X'));
