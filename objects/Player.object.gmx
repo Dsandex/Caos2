@@ -31,7 +31,7 @@
 
 
 // Controles.
-controles = "windows";
+controles = "";
 //movepos_final = false;
 
 // ROAR.
