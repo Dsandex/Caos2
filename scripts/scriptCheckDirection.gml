@@ -61,7 +61,7 @@ Player.key_down = 0;
 //Player.key_down = 0;
 //Player.key_right = 0;
 }
-
+/*
 //Jump
 if (x >  view_wview[0]/2){
     if (point_direction(xstart, ystart, x, y) > 30 and point_direction(xstart, ystart, x, y) < 150 and abs(ystart - y) > 64 ){
@@ -86,4 +86,4 @@ if (xstart >  view_wview[0]/2 and x >  view_wview[0]/2){
             }
         }
     }
-}
+}*/
