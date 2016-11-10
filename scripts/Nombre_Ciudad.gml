@@ -1,6 +1,6 @@
 var level = argument[0];
 
-var b = "BOGOTA D.C";
+var b = "BOGOTA DC";
 var m = "MEDELLIN";
 var c = "CARTAGENA";
 var cali = "CALI";

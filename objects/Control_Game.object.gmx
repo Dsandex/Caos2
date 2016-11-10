@@ -71,6 +71,13 @@ if(room == Room_Digital){
     save = true;
     gacha_select = 0;
     
+    if(file_exists(working_directory + "guardar_juego.sav")){
+        file_delete(working_directory + "guardar_juego.sav");
+        file_delete(working_directory + "game_complete.sav");
+        file_delete(working_directory + "historia.sav");
+    }
+    
+   
 
     if(save){
         globalvar save_nivel, save_puntaje, gacha_select;
@@ -89,13 +96,13 @@ if(room == Room_Digital){
         }
         
         // Cargar avance de edificios.
-        if(file_exists(working_directory + "avance_edificios.sav")){
+        /*if(file_exists(working_directory + "avance_edificios.sav")){
             ini_open(working_directory + "avance_edificios.sav");
             var str = ini_read_string("avance_edificios", "pass", 0);
             ds_list_read(avance_edificios, str);
             chances = ini_read_real("chances", "pass", 0);
             ini_close();
-        }
+        }*/
         
         if(file_exists(working_directory + "game_complete.sav")){
             ini_open(working_directory + "game_complete.sav");

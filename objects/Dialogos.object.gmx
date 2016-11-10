@@ -35,6 +35,7 @@ vel = .5;
 t = 0;
 llamar_alarma = false;
 
+
 /*if(num_level != 0 and activar_tuto) tutorial_bool = true;
 else tutorial_bool = true;
 
@@ -93,7 +94,7 @@ if(audio_is_playing(sn_soundtrack_pablo)){
 //if(tutorial_bool){
    
 if(num_level &lt; 10) room_goto_transition(asset_get_index("game" + string(num_level+1)), 0, 120);
-else{
+/*else{
     // Reset variables.        
     num_level = 0;
     vida = 100;

@@ -65,6 +65,10 @@ if(room != game_intro and instance_number(Edificio) == 1 and create_kids and !in
         
         with(Tap_Control0) instance_destroy();
         with(Tap_Control1) instance_destroy();
+        
+        if(instance_exists(Letrero)){
+            with Letrero instance_destroy();
+        }
     }
     
     with (Player) dibujar_scores = false;

@@ -31,7 +31,7 @@
 
 
 // Controles.
-controles = "";
+controles = "android";
 //movepos_final = false;
 
 // ROAR.

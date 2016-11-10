@@ -238,6 +238,7 @@
       <sprite>sprites\spr_caos</sprite>
       <sprite>sprites\spr_caos_original</sprite>
       <sprite>sprites\spr_caos_intro</sprite>
+      <sprite>sprites\spr_mano_tuto</sprite>
     </sprites>
     <sprites name="Player">
       <sprites name="Pablo Escobar">
@@ -649,6 +650,7 @@
         <object>objects\Coin</object>
       </objects>
       <object>objects\Lapida</object>
+      <object>objects\Mano</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>

@@ -10,7 +10,6 @@ if(idioma == "es"){
     txt[7] = "12 de Mayo de 1990";
     txt[8] = "12 de Mayo de 1990";
     txt[9] = "21 de Mayo de 1990";
-    txt[10] = "GRACIAS POR JUGAR";
 }else if(idioma == "en"){
     txt[0] = "10 May 1988";
     txt[1] = "18 August 1989";
@@ -22,5 +21,4 @@ if(idioma == "es"){
     txt[7] = "12 Mayo 1990";
     txt[8] = "12 Mayo 1990";
     txt[9] = "21 Mayo 1990";
-    txt[10] = "THANKS FOR PLAYING";
 }

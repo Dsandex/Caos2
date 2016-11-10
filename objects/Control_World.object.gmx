@@ -390,8 +390,8 @@ if (Controles){
     }
 }else{
     if(instance_exists(Button_A) and instance_exists(Button_B)){
-        with(B_A) instance_destroy();
-        with(B_B) instance_destroy();
+        with(Button_B) instance_destroy();
+        with(Button_A) instance_destroy();
     }
 }
 
