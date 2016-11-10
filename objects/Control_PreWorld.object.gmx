@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_create(768, 394, Child_Intro);
+            <string>if(room != Room_Prueba){
+instance_create(768, 394, Child_Intro);
 var d = instance_create(803, 394, Child_Intro);
 with(d) sprite_index = spr_child3_idle_2;
 var j = instance_create(836, 388, Child_Intro);
 with(j) sprite_index = spr_child2_idle_2;
+}
 
 
 switch(room){

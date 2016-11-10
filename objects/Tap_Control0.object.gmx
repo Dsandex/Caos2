@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){
+    show_debug_message("aweg");
     x = device_mouse_x(0);
     y = device_mouse_y(0);
     scriptCheckDirection();

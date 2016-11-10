@@ -722,7 +722,7 @@ Encuentre a los niños
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto(room21);
+            <string>room_goto(Room_Prueba);
 </string>
           </argument>
         </arguments>

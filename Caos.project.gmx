@@ -399,6 +399,7 @@
     <sprite>sprites\spr_sapo</sprite>
     <sprites name="Imagenes Promocionales">
       <sprite>sprites\spr_presentaciones</sprite>
+      <sprite>sprites\spr_change_level</sprite>
     </sprites>
     <sprites name="TextBox">
       <sprite>sprites\spr_exclamation</sprite>
@@ -651,6 +652,7 @@
       </objects>
       <object>objects\Lapida</object>
       <object>objects\Mano</object>
+      <object>objects\CambiarNivel</object>
     </objects>
     <objects name="Transition">
       <object>objects\sys_transition</object>
@@ -745,7 +747,7 @@
     <rooms name="Game">
       <room>rooms\game_tutorial</room>
       <room>rooms\game_intro</room>
-      <room>rooms\room21</room>
+      <room>rooms\Room_Prueba</room>
       <room>rooms\game1</room>
       <room>rooms\game2</room>
       <room>rooms\game3</room>
