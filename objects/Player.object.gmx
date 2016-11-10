@@ -43,7 +43,7 @@ alarm[2] = 50; // Shake roar
 jumpspeed = 15;
 movespeed = 5;
 climb = false;
-grav = 1;
+grav = 1; 
 grounded = true;
 move = 0;
 climb_speed = 3;
@@ -189,8 +189,9 @@ else draw_player = 0;
 alarm[4] = dead_time;
 dead_time -= .5;
 if(dead_time &lt;= 0){
-    instance_create(800, 200, Player);
+    var p = instance_create(800, 200, Player);
     instance_destroy();
+    with(p){ vida = 100; }
     with GameOver instance_destroy();
    // draw_score = false;
 }
