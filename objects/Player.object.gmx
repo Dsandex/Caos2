@@ -370,6 +370,7 @@ if(keyboard_check_released(ord("1"))){
 //Touch control
 
 if (x_edificio != 0){
+    //show_debug_message("HOla_D11")
     if (abs(x_edificio - x) &lt; w_edificio-16 and key_left and ed_cont){
     //show_debug_message("HOla_D")
         key_up = 0;
@@ -426,6 +427,7 @@ if (x_edificio != 0){
         x_edificio = 0;
         w_edificio = 0;
         ed_r = 0;
+        ed_cont = 1;
     }
     if (y &lt; 406 and yprevious == y){
         key_up = 0;
@@ -434,13 +436,17 @@ if (x_edificio != 0){
         x_edificio = 0;
         w_edificio = 0;   
         ed_r = 0;
+        ed_cont = 1;
     }  
     
 }
 if (key_attack){
     key_attack = 0;
 }
-
+if(grounded){
+    y_anterior = 0;
+    y_anterior2 = 0;
+}
 /*c_bombas = 3;
     c_bolsa = 3;
     c_jeringa = 3;

@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>if(instance_exists(Player)){
-    show_debug_message("aweg");
     x = device_mouse_x(0);
     y = device_mouse_y(0);
     scriptCheckDirection();
@@ -52,6 +51,7 @@
             Player.x_edificio = 0;
             Player.w_edificio = 0;   
             Player.ed_r = 0;
+            Player.ed_cont = 1;
         }
         instance_destroy();
     }
