@@ -189,6 +189,7 @@ else draw_player = 0;
 alarm[4] = dead_time;
 dead_time -= .5;
 if(dead_time &lt;= 0){
+    puntaje_global = player_score;
     var p = instance_create(800, 200, Player);
     instance_destroy();
     with(p){ vida = 100; }
@@ -327,6 +328,10 @@ if(chances &lt; 0){
           <argument>
             <kind>1</kind>
             <string>/// Player Mechanics.
+if (sprite_index == asset_get_index("spr_player" + jugador + "_climb_" + humor + "_eat")
+    or sprite_index == asset_get_index("spr_player" + jugador + "_ground_" + humor + "_attack")){
+    key_attack = 0;
+} 
 script_execute(state);
 // Apply movement.
 x += hsp;
